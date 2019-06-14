@@ -1,0 +1,23 @@
+{
+  "name": "kui-proxy",
+  "version": "1.0.0",
+  "description": "Docker image for the KUI proxy to be used in ICP",
+  "main": "node_modules/@kui-shell/core/main/main.js",
+  "scripts": {
+    "start": "./app/bin/www"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@kui-shell/builder": "^0.33.0"
+  },
+  "dependencies": {
+    "@kui-shell/core": "^2.33.0",
+    "@kui-shell/plugin-bash-like": "^0.22.0",
+    "@kui-shell/plugin-k8s": "^0.33.0",
+    "cookie-parser": "1.4.4",
+    "cors": "2.8.5",
+    "debug": "4.1.1",
+    "express": "4.16.4",
+    "morgan": "1.9.1"
+  }
+}
