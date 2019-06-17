@@ -11,9 +11,9 @@
     "@kui-shell/builder": "^0.33.0"
   },
   "dependencies": {
-    "@kui-shell/core": "^2.33.0",
-    "@kui-shell/plugin-bash-like": "^0.22.0",
-    "@kui-shell/plugin-k8s": "^0.33.0",
+    "@kui-shell/core": "^2.34.0",
+    "@kui-shell/plugin-bash-like": "^0.23.0",
+    "@kui-shell/plugin-k8s": "^0.34.0",
     "cookie-parser": "1.4.4",
     "cors": "2.8.5",
     "debug": "4.1.1",
