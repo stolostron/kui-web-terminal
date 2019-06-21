@@ -10,9 +10,7 @@ compile:
 headless: compile
 	QUIET=true NO_ZIPS=true npx kui-build-headless 
 
-.PHONY: image
-image:
-	docker build -t kui-proxy .
+
 
 .PHONY: clean
 clean:

@@ -4,7 +4,7 @@
 CURRENT_FOLDER=`dirname "$0"`
 HEADLESS_FOLDER="${CURRENT_FOLDER}/../proxy/kui"
 DIST_FOLDER="${CURRENT_FOLDER}/../proxy/dist"
-TEMP_FOLDER='tmp'
+TEMP_FOLDER='tmp/'
 if [ -z $1 ]; then
    TEMP_FOLDER=$1 
 fi
@@ -14,6 +14,7 @@ fi
 
 # remove previous temp folder
 [[ -d "$TEMP_FOLDER" ]] && rm -r "$TEMP_FOLDER"
+mkdir -p "$TEMP_FOLDER"
 
 echo "Moving all files to: $TEMP_FOLDER"
 mv "$HEADLESS_FOLDER" "${TEMP_FOLDER}"
@@ -24,6 +25,6 @@ rm -r "$DIST_FOLDER"
 
 echo "Copying keys for https"
 [[ -d .keys ]] || bash "${CURRENT_FOLDER}/ssl.sh"
-cp -r .keys "${TEMP_FOLDER}/"
+cp -r .keys "${TEMP_FOLDER}/kui/"
 
 

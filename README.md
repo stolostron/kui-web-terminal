@@ -1,6 +1,12 @@
 # kui-proxy
 Docker image for the KUI UI and proxy to be used in ICP
 
+## Before you build
+Building kui requires homebrew, gtar, and jq.
+Install homebrew: https://brew.sh/
+Install gtar: `brew install gnu-tar`
+Install jq: `brew install jq`
+
 ## How to Build
 
 1. install dependencies
@@ -11,6 +17,8 @@ make install
 ```
 make image
 ```
+**Note:** you can use `make headless` to build code, and code will be in the `./tmp/` folder.
+
 3. run the docker image
 ```
 docker run -e DEBUG=* -p 8081:3000 kui-proxy:latest

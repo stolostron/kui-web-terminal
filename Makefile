@@ -11,7 +11,7 @@ headless:
 
 .PHONY: image
 image: headless 
-	$(MAKE) -C $(TEMP_FOLDER) $@
+	docker build -t kui-proxy .
 
 .PHONY: clean
 clean:

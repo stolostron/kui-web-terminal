@@ -1,8 +1,10 @@
 Dockerfile*
 Makefile*
+*/Makefile*
+proxy
 scripts
 .git*
-package-lock.json
+*/package-lock.json
 *~
 #*
 *.tmp

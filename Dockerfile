@@ -51,8 +51,8 @@ RUN apk add --no-cache ca-certificates bash git \
     && chmod +x /usr/local/bin/helm-2.12
 ###########
 
-COPY . /kui-proxy
-RUN cd /kui-proxy && apk add python make g++ && npm rebuild node-pty --update-binary && apk del python make g++
+COPY ./tmp/kui /kui-proxy/kui
+RUN cd /kui-proxy/kui && apk add python make g++ && npm rebuild node-pty --update-binary && apk del python make g++
 
 
 CMD [ "npm", "start" ]
