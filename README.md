@@ -7,6 +7,13 @@ Install homebrew: https://brew.sh/
 Install gtar: `brew install gnu-tar`
 Install jq: `brew install jq`
 
+Specify some environment variables
+```
+export ARTIFACTORY_USER=myArtifactoryEmail
+export ARTIFACTORY_KEY=myArtifactoryAPIKey
+export ARTIFACTORY_URL=https://na.artifactory.swg-devops.com/artifactory/hyc-cloud-private-scratch-generic-local 
+```
+
 ## How to Build
 
 1. install dependencies

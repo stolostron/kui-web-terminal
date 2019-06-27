@@ -16,11 +16,18 @@
 
 FROM node:8-alpine
 
+ARG ARCH
+
+ADD downloads/kubectl-linux-${ARCH} /usr/local/bin/kubectl
+ADD downloads/helm-linux-${ARCH}.tar.gz /usr/local/helm/
+ADD downloads/cloudctl-linux-${ARCH} /usr/local/bin/cloudctl
+ADD downloads/istioctl-linux-${ARCH} /usr/local/bin/istioctl
+
 ENV PORT 3000
 EXPOSE 3000/tcp
 
 # default passphrase for the self-signed certificates; this Dockerfile
-# is intended only for testing, do not use this for production
+# is intended only for testing, do not use this for productioncd 
 ENV PASSPHRASE kuishell
 
 WORKDIR /kui-proxy/kui
