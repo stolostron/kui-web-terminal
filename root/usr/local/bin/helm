@@ -1,0 +1,19 @@
+#!/bin/sh
+
+_add_tls=true
+
+if [[ $# = 0 ]]; then
+    _add_tls=false
+else
+    for var in "$@"; do
+        if [ "$var" == "--tls" -o "$var" == "--help" -o "$var" == "-h" ]; then
+            _add_tls=false && break
+        fi
+    done
+fi
+
+if $_add_tls; then
+    helm_original "$@" --tls
+else
+    helm_original "$@"
+fi

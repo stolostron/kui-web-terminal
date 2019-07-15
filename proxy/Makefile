@@ -7,7 +7,7 @@ compile:
 	npx kui-compile
 
 .PHONY: headless
-headless: compile
+headless: 
 	QUIET=true NO_ZIPS=true npx kui-build-headless 
 
 
