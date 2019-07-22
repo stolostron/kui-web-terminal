@@ -4,6 +4,12 @@ proxy/.keys
 proxy/build
 proxy/dist
 proxy/kui
+client/build
+client/dist
+client/node_modules
+client/packages
+client/plugins/plugin-sample
+client/kui-webpack-tmp
 tmp
 tmp/kui
 .keys

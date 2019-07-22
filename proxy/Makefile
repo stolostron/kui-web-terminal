@@ -1,5 +1,5 @@
-.PHONY: install
-install: 
+.PHONY: install-proxy
+install-proxy: 
 	npm install
 
 .PHONY: compile
@@ -12,9 +12,9 @@ headless:
 
 
 
-.PHONY: clean
-clean:
-	rm -r build
-	rm -r node_modules
+.PHONY: clean-proxy
+clean-proxy:
+	rm -rf build
+	rm -rf node_modules
 
 

@@ -99,7 +99,9 @@ function main(cmdline, execOptions, server, port, host, existingSession,user) {
             path: `/bash/${N}`
           },
           response: {
-            url: `${proto}://${host}/bash/${N}`
+            url: (process.env.KUI_INGRESS_PATH != undefined) ? 
+               `${proto}://${host}/${process.env.KUI_INGRESS_PATH}/bash/${N}` :
+               `${proto}://${host}/bash/${N}`
           }
         })
       })

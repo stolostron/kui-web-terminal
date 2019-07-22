@@ -15,6 +15,7 @@
  */
 
 const express = require('express')
+// const compression = require('compression')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
@@ -24,6 +25,7 @@ const ExecRouter = require('./routes/exec')
 
 const app = express()
 
+// app.use(compression())
 app.use(cors(
   // TODO cors config, e.g.
   // { origin: 'https://localhost:8080' }

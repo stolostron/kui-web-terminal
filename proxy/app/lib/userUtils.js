@@ -21,10 +21,10 @@ async function createUser(user) {
     let adduserCmd = ''
     if ( LINUX_DISTRO != 'rhel' ) {
       //adduserCmd = "umask 0077 && rbash -c 'adduser --uid " + user.uid + " --home " + user.home + " --gecos \"\" --disabled-login --disabled-password " + user.name + "'"
-      adduserCmd = "umask 0077 && bash -c 'adduser -u " + user.uid + " -h " + user.home + " -g \"\" -D " + user.name + "'"
+      adduserCmd = "umask 0077 && bash -c 'adduser -u " + user.uid + " -m  --comment \"\" -d " + user.home + " " + user.name + "'"
     }
     else {
-      adduserCmd = "umask 0077 && rbash -c 'useradd --uid " + user.uid + " --home-dir " + user.home + " --comment \"\" " + user.name + "'"
+      adduserCmd = "umask 0077 && bash -c 'useradd --uid " + user.uid + " --home-dir " + user.home + " --comment \"\" " + user.name + "'"
     }
   
     debug('creating user: ' + adduserCmd)

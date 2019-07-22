@@ -14,7 +14,9 @@
 # limitations under the License.
 #
 
-FROM node:8-alpine
+ARG ARCH
+# FROM node:8-alpine
+FROM hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com/build-images/node-${ARCH}:dubnium-ubi7.6-123-minimal
 
 ARG ARCH
 
@@ -32,7 +34,9 @@ EXPOSE 3000/tcp
 # default passphrase for the self-signed certificates; this Dockerfile
 # is intended only for testing, do not use this for productioncd 
 ENV PASSPHRASE kuishell
-ENV NOBODY_GID 99 
+ENV NOBODY_GID 99
+# For use when using ubi-minimal image
+ENV LINUX_DISTRO rhel
 
 WORKDIR /kui-proxy/kui
 
@@ -43,15 +47,33 @@ WORKDIR /kui-proxy/kui
 # ENV KUI_HELM_CLIENTS_DIR=/usr/local/bin
 # ENV HELM_LATEST_VERSION="${KUI_HELM_CLIENTS_DIR}"/helm
 
-RUN apk add --no-cache ca-certificates bash git
+# Following was for alpine image
+# RUN apk add --no-cache ca-certificates bash git
+#
+# For UBI need to use microdnf (UBI already includes bash but needs shadow-utils for adduser)
+RUN microdnf install \
+    ca-certificates \
+    git \
+    python \
+    shadow-utils \
+    vi \
+    which \
+    && microdnf clean all
 
 ###########
 
 RUN ln -s /usr/local/helm/linux-${ARCH}/helm /usr/local/bin/helm_original  && chmod 755 /usr/local/bin/*
 
 COPY ./tmp/kui /kui-proxy/kui
-RUN cd /kui-proxy/kui && apk add python make g++ && npm rebuild node-pty --update-binary && apk del python make g++
+# copy the client webpack bundles and other artifacts into the proxy app/public folder
+COPY ./client/dist/webpack /kui-proxy/kui/app/public
 
-
+# RUN cd /kui-proxy/kui && apk add python make g++ && npm rebuild node-pty --update-binary && apk del python make g++
+RUN cd /kui-proxy/kui
+RUN microdnf install make gcc gcc-c++ \
+    && microdnf clean all
+RUN npm rebuild node-pty --update-binary
+RUN microdnf remove make gcc gcc-c++ \
+    && microdnf clean all
 
 CMD [ "npm", "start" ]
