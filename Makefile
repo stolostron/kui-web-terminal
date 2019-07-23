@@ -13,6 +13,10 @@ endif
 
 DOCKER_BUILD_OPTS = --build-arg "ARCH=$(ARCH)"
 
+.PHONY: download-plugins
+download-plugins:
+	@bash download-plugins.sh
+
 .PHONY: install-client
 install-client: 
 	$(MAKE) -C client $@
@@ -22,7 +26,7 @@ install-proxy:
 	$(MAKE) -C proxy $@
 
 .PHONY: install
-install: install-proxy install-client 
+install: download-plugins install-proxy install-client 
 	@echo npm install both client and proxy
 
 .PHONY: compile-client
