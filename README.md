@@ -11,8 +11,11 @@ Specify some environment variables
 ```
 export ARTIFACTORY_USER=myArtifactoryEmail
 export ARTIFACTORY_KEY=myArtifactoryAPIKey
-export ARTIFACTORY_URL=https://na.artifactory.swg-devops.com/artifactory/hyc-cloud-private-scratch-generic-local 
+export ARTIFACTORY_URL=https://na.artifactory.swg-devops.com/artifactory/hyc-cloud-private-scratch-generic-local
+export GITHUB_TOKEN=myGithubToken
 ```
+
+Make sure that you run the `download-clis.sh` script at least once before proceeding with your build.
 
 ## How to Build
 
