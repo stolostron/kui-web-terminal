@@ -1,4 +1,6 @@
 # kui-proxy
+[![Build Status](https://travis.ibm.com/IBMPrivateCloud/mcm-kui.svg?token=CBwKyJRuBcV6xpq9sj7x&branch=master)](https://travis.ibm.com/IBMPrivateCloud/mcm-kui.svg?token=CBwKyJRuBcV6xpq9sj7x&branch=master)
+
 Docker image for the KUI UI and proxy to be used in ICP
 
 ## Before you build
@@ -91,6 +93,34 @@ make clean-proxy
 ```
 make clean-kui
 ```
+
+
+## How to Deploy to ICP
+1. Get the latest chart and image
+   - Latest chart:
+   https://na.artifactory.swg-devops.com:443/artifactory/hyc-cloud-private-integration-helm-local/mcm-kui-99.99.99.tgz
+   - Latest image:
+   ```
+    docker pull hyc-cloud-private-integration-docker-local.artifactory.swg-devops.com/ibmcom/mcm-kui-proxy-amd64:latest
+   ```
+
+2. Install the chart
+
+   Following values have to be customized:
+   - **clusterIP:** ip address/domain name for your cluster
+   - **clusterPort:** icp-management-ingress port of your cluster
+   - **proxy.image.repository:** image path
+   - **proxy.image.tag:** image tag
+
+   ```
+    helm install --set clusterIP=your.icp.ip,clusterPort=8443 --name mcm-kui --namespace default mcm-kui-99.99.99.tgz --tls
+   ```
+
+3. Use KUI by visiting `https://your.cluster.ip:8443/mcm-kui/` 
+   
+   **Note:** there has to be a slash `/` at the end.
+
+4. Login with `cloudctl login`
 
 
 
