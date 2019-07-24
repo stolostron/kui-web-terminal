@@ -1,6 +1,5 @@
 .PHONY: install-client
 install-client: 
-	npm install @kui-shell/plugin-search
 	npm install
 
 .PHONY: compile-client

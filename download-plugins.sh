@@ -14,14 +14,21 @@ download() {
     echo -e "Plugin file name is not set."
     exit 1
   fi
+  if [ -z $3 ]; then
+    echo -e "Plugin version is not set."
+    exit 1
+  fi
   repo_name=$1
   filename=$2
+  version=$3
 
   echo "Downloading $repo_name ..."
 
-  releases=$(curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.ibm.com/repos/IBMPrivateCloud/$repo_name/releases | jq '.[0]')
-  release_id=$(echo $releases | jq '.id')
-  asset_id=$(echo $releases | jq '.assets[0].id')
+  releases=$(curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.ibm.com/repos/IBMPrivateCloud/$repo_name/releases)
+  release=$(echo $releases | jq --arg version "$version" '.[] | select(.name == $version)')
+  release_id=$(echo "$release" | jq '.id')
+  asset_id=$(echo "$release" | jq '.assets[0].id')
+
   echo "RELEASE ID:  $release_id"
   echo "ASSET ID:  $asset_id"
 
@@ -35,7 +42,7 @@ rm -rf plugin-downloads
 mkdir plugin-downloads
 
 echo "Downloading plugins ..."
-download "search-kui-plugin" "plugin-search"
+download "search-kui-plugin" "plugin-search" "v1.1.1"
 
 echo "plugin-downloads:"
 ls -l plugin-downloads
