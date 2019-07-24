@@ -36,14 +36,11 @@ const { StdioChannelWebsocketSide } = require('@kui-shell/plugin-bash-like/pty/s
 
 
 /** thin wrapper on child_process.exec */
-function main(cmdline, execOptions, server, port, host, existingSession,user) {
+function main(cmdline, execOptions, server, port, host,user) {
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
-    const { uid, gid } = existingSession || {uid:user.uid,gid:NOBODY_GID}
+    const { uid, gid } = {uid:user.uid,gid:NOBODY_GID}
     //check if uid/gid of session are the same as server side records
-    if(uid !== user.uid || gid !== NOBODY_GID){
-      reject(new Error('invalid uid/gid'))
-    }
 
     const options = {
       uid,
@@ -63,7 +60,7 @@ function main(cmdline, execOptions, server, port, host, existingSession,user) {
       // N is the random identifier for this connection
       const N = uuid()
 
-      const session = existingSession || {
+      const session = {
         uid,
         gid,
         token: uuid() // use a different uuid for the session cookie
@@ -164,9 +161,7 @@ module.exports = (server, port) => {
         const accessToken = parseCookie(req.headers.cookie || '')[accessTokenKey] 
         
         const user = await getUser(accessToken)
-        const sessionToken = parseCookie(req.headers.cookie || '')[sessionKey]
-        const session = sessionToken && JSON.parse(Buffer.from(sessionToken, 'base64').toString('utf-8'))
-        const { type, cookie, response } = await main(command, execOptions, server, port, req.headers.host, session,user)
+        const { type, cookie, response } = await main(command, execOptions, server, port, req.headers.host,user)
 
         if (cookie) {
           res.header('Access-Control-Allow-Credentials', 'true')
