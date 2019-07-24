@@ -8,20 +8,6 @@
 
 set -e
 
-if [ -z "$ARTIFACTORY_USER" ]; then
-    echo "ARTIFACTORY_USER environment variable must be set"
-    exit 1
-fi
-
-if [ -z "$ARTIFACTORY_KEY" ]; then
-    echo "ARTIFACTORY_KEY environment variable must be set"
-    exit 1
-fi
-
-if [ -z "$ARTIFACTORY_URL" ]; then
-    echo "ARTIFACTORY_URL environment variable must be set"
-    exit 1
-fi
 
 ARCH=$(uname -m | sed 's/x86_64/amd64/g')
 

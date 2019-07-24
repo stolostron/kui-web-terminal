@@ -15,3 +15,6 @@ tmp/kui
 .keys
 downloads
 plugin-downloads
+variables
+build-harness
+.build-harness

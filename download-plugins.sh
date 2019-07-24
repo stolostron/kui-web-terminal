@@ -25,7 +25,7 @@ download() {
   echo "RELEASE ID:  $release_id"
   echo "ASSET ID:  $asset_id"
 
-  curl -H "Authorization: token $GITHUB_TOKEN" -vs "https://media.github.ibm.com/releases/$release_id/files/$asset_id" > "plugin-downloads/$filename.tgz"
+  curl -f -H "Authorization: token $GITHUB_TOKEN" -vs "https://media.github.ibm.com/releases/$release_id/files/$asset_id" > "plugin-downloads/$filename.tgz" || exit -1
 
   echo "Downloaded $file_name.tgz to plugin-downloads/"
 }
@@ -38,4 +38,4 @@ echo "Downloading plugins ..."
 download "search-kui-plugin" "plugin-search"
 
 echo "plugin-downloads:"
-ls plugin-downloads
+ls -l plugin-downloads

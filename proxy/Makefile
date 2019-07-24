@@ -10,7 +10,9 @@ compile:
 headless: 
 	QUIET=true NO_ZIPS=true npx kui-build-headless 
 
-
+.PHONY: lint-proxy
+lint-proxy:
+	npm run lint
 
 .PHONY: clean-proxy
 clean-proxy:

@@ -1,0 +1,80 @@
+sudo: required
+services: docker
+
+notifications:
+  email: false
+
+branches:
+  only:
+    - master
+    - /^[0-9]+\..*$/
+    - /^v[0-9]+\..*$/
+    - /^release-[0-9]+\..*$/
+
+matrix:
+  include:
+    # --- Just linting ---
+  - stage: linting
+    name: "Push linting"
+    os: linux
+    language: node_js
+    node_js:
+      - "10"
+    env:
+      - JOBNAME=AMD64
+    before_install:
+      - make init
+    install: 
+      - make install-proxy
+    script:
+      - make lint-proxy
+  
+  # --- Integration testing ---
+  - stage: test-pr
+    name: "PR tests"
+    if: type = pull_request
+    os: linux
+    language: node_js
+    node_js:
+      - "10"
+    env:
+      - JOBNAME=AMD64 DOCKER_TAG=travis-latest
+    before_install:
+      - make init
+      - make docker-logins
+      - make download-clis
+      - make download-plugins
+    install:
+      - make install
+    before_script: 
+      - make webpack
+      - make headless
+      - make build-image
+      - make release
+    script:
+      - make tests-dev
+
+  # --- x86 Deploy to Artifactory ---
+  - stage: build
+    name: "Build x86"
+    if: (branch = master) AND (type = push)
+    os: linux
+    language: node_js
+    node_js:
+      - "10"
+    env:
+      - JOBNAME=AMD64 PUSH_INTEGRATION=true DOCKER_TAG=latest
+    before_install:
+      - make init
+      - make docker-login
+      - make download-clis
+      - make download-plugins
+    install:
+      - make install
+    script:
+      - make webpack
+      - make headless
+      - make build-image
+      - make release
+
+

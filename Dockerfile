@@ -18,6 +18,10 @@ ARG ARCH
 # FROM node:8-alpine
 FROM hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com/build-images/node-${ARCH}:dubnium-ubi7.6-123-minimal
 
+ARG VCS_REF
+ARG VCS_URL
+ARG IMAGE_NAME
+ARG IMAGE_DESCRIPTION
 ARG ARCH
 
 ADD downloads/kubectl-linux-${ARCH} /usr/local/bin/kubectl
@@ -26,6 +30,14 @@ ADD downloads/cloudctl-linux-${ARCH} /usr/local/bin/cloudctl
 ADD downloads/istioctl-linux-${ARCH} /usr/local/bin/istioctl
 # add bin for helm
 ADD root /
+
+LABEL org.label-schema.vendor="IBM" \
+      org.label-schema.name="$IMAGE_NAME" \
+      org.label-schema.description="$IMAGE_DESCRIPTION" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url=$VCS_URL \
+      org.label-schema.license="Licensed Materials - Property of IBM" \
+      org.label-schema.schema-version="1.0"
 
 
 ENV PORT 3000
