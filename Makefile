@@ -161,7 +161,7 @@ release:
 	@echo "Pushing mcm-kui image to $(DOCKER_ARCH_URI)..."
 	$(SELF) docker:push-arch
 
-.phone: run
+.PHONY: run
 run:
 	$(SELF) docker:run
 

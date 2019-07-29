@@ -65,7 +65,7 @@ matrix:
       - make build-image
     script:
       - make tests-dev
-    after_sucess:
+    after_success:
       - make release
     after_failure:
       - cat client/selenium-debug.log
