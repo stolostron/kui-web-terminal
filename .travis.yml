@@ -76,5 +76,6 @@ matrix:
       - make headless
       - make build-image
       - make release
+      - make release DOCKER_TAG=latest-rhel
 
 
