@@ -22,6 +22,9 @@ DOCKER_PASS ?= $(ARTIFACTORY_TOKEN)
 DOCKER_IMAGE ?= mcm-kui-proxy
 DOCKER_TAG ?= $(shell whoami)
 
+DOCKER_RUN_OPTS ?= -e DEBUG=* -e INSECURE_MODE=true -d
+DOCKER_BIND_PORT ?= 8081:3000
+
 # Default to scratch unless a push to master
 PUSH_INTEGRATION ?= false
 DOCKER_REGISTRY := $(DOCKER_SCRATCH_REGISTRY)
@@ -158,6 +161,11 @@ release:
 	@echo "Pushing mcm-kui image to $(DOCKER_ARCH_URI)..."
 	$(SELF) docker:push-arch
 
+.phone: run
+run:
+	$(SELF) docker:run
+
 .PHONY: tests-dev
-tests-dev:
-	@echo "Tests"
+tests-dev: run
+	$(MAKE) -C client client-tests
+	

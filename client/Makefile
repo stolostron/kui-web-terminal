@@ -37,3 +37,12 @@ clean-client:
 	rm -rf build
 	rm -rf kui-webpack-tmp
 	rm -rf node_modules
+
+.PHONY: client-tests
+client-tests:
+	if [ ! -d "test-output" ]; then \
+		mkdir test-output; \
+	fi
+	npm install selenium-standalone@6.16.0 xml2json@0.11.0 nightwatch@0.9.21 --save-dev
+	nightwatch
+	
