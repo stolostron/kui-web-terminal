@@ -57,7 +57,7 @@ matrix:
   # --- x86 Deploy to Artifactory ---
   - stage: build
     name: "Build x86"
-    if: (branch = master) AND (type = push)
+    if: type = pull_request
     os: linux
     language: node_js
     node_js:
@@ -77,4 +77,20 @@ matrix:
       - make build-image
       - make release
 
+  # -- PPC Deploy to Artifactory ---
+  - stage: test-pr
+    name: "Build PPC"
+    if: type = pull_request
+    os: linux-ppc64le
+    language: node_js
+    env:
+      - JOBNAME=Power PUSH_INTEGRATION=false
+    before_install:
+      - make init
+      - make docker-login
+      - make download-security-middleware
+    script:
+      - make build-image
+    after_success:
+      # - make release
 
