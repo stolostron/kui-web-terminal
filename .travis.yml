@@ -107,7 +107,8 @@ matrix:
     before_install:
       - make init
       - make docker-login
-      - make download-security-middleware
+      - make download-clis
+      - make download-plugins
     script:
       - make build-image
     after_success:
