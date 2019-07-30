@@ -73,7 +73,7 @@ matrix:
   # --- x86 Deploy to Artifactory ---
   - stage: build
     name: "Build x86"
-    if: type = pull_request
+    if: (branch = master) AND (type = push)
     os: linux
     language: node_js
     node_js:
