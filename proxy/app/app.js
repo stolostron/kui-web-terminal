@@ -15,6 +15,7 @@
  */
 
 const express = require('express')
+const expressStaticGzip = require("express-static-gzip");
 // const compression = require('compression')
 const path = require('path')
 const cookieParser = require('cookie-parser')
@@ -35,7 +36,7 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(expressStaticGzip(path.join(__dirname, 'public')))
 
 // helps with ctrl-c when running in a docker container
 process.on('SIGINT', () => process.exit())
