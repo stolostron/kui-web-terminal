@@ -98,7 +98,7 @@ make clean-kui
 ## How to Deploy to ICP
 1. Get the latest chart and image
    - Latest chart:
-   https://na.artifactory.swg-devops.com:443/artifactory/hyc-cloud-private-integration-helm-local/mcm-kui-99.99.99.tgz
+   https://na.artifactory.swg-devops.com:443/artifactory/hyc-cloud-private-integration-helm-local/ibm-mcm-kui-99.99.99.tgz
    - Latest image:
    ```
     docker pull hyc-cloud-private-integration-docker-local.artifactory.swg-devops.com/ibmcom/mcm-kui-proxy-amd64:latest
@@ -113,7 +113,7 @@ make clean-kui
    - **proxy.image.tag:** image tag
 
    ```
-    helm install --set clusterIP=your.icp.ip,clusterPort=8443 --name mcm-kui --namespace default mcm-kui-99.99.99.tgz --tls
+    helm install --set clusterIP=your.icp.ip,clusterPort=8443 --name mcm-kui --namespace default ibm-mcm-kui-99.99.99.tgz --tls
    ```
 
 3. Use KUI by visiting `https://your.cluster.ip:8443/mcm-kui/` 

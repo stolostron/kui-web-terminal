@@ -1,5 +1,15 @@
 sudo: required
-services: docker
+services:
+  - docker
+  - xvfb
+
+cache:
+  apt: true
+  directories:
+    - "$TRAVIS_CACHE_DIR"
+
+before_cache:
+  - sudo rm -rf $TRAVIS_CACHE_DIR/selenium-standalone
 
 notifications:
   email: false
@@ -34,7 +44,10 @@ matrix:
     name: "PR tests"
     if: type = pull_request
     os: linux
+    dist: trusty
     language: node_js
+    addons:
+      chrome: stable
     node_js:
       - "10"
     env:
@@ -46,13 +59,16 @@ matrix:
       - make download-plugins
     install:
       - make install
-    before_script: 
+    before_script:
       - make webpack
       - make headless
       - make build-image
-      - make release
     script:
       - make tests-dev
+    after_success:
+      - make release
+    after_failure:
+      - cat client/selenium-debug.log
 
   # --- x86 Deploy to Artifactory ---
   - stage: build
@@ -76,6 +92,7 @@ matrix:
       - make headless
       - make build-image
       - make release
+      - make release DOCKER_TAG=latest-rhel
 
   # -- PPC Deploy to Artifactory ---
   - stage: test-pr
@@ -93,4 +110,3 @@ matrix:
       - make build-image
     after_success:
       # - make release
-

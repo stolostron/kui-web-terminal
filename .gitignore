@@ -10,6 +10,8 @@ client/node_modules
 client/packages
 client/plugins/plugin-sample
 client/kui-webpack-tmp
+client/test-output
+client/selenium-debug.log
 tmp
 tmp/kui
 .keys
