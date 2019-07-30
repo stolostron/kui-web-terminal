@@ -84,7 +84,7 @@ matrix:
     os: linux-ppc64le
     language: node_js
     env:
-      - JOBNAME=Power PUSH_INTEGRATION=false
+      - JOBNAME=Power
     before_install:
       - make init
       - make docker-login
