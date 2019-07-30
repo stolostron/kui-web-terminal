@@ -100,8 +100,10 @@ matrix:
     if: type = pull_request
     os: linux-ppc64le
     language: node_js
+    node_js:
+      - "10"
     env:
-      - JOBNAME=Power
+      - JOBNAME=POWER
     before_install:
       - make init
       - make docker-login
