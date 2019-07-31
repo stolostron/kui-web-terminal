@@ -107,7 +107,11 @@ matrix:
     before_install:
       - make init
       - make docker-login
+      - make download-clis
+      - make download-plugins
     script:
+      - make webpack
+      - make headless
       - make build-image
     after_success:
        - make release
