@@ -109,6 +109,8 @@ matrix:
       - make docker-login
       - make download-clis
       - make download-plugins
+    install:
+      - make install
     script:
       - make webpack
       - make headless
