@@ -1,7 +1,6 @@
 .PHONY: install-proxy
 install-proxy: 
-	npm install @kui-shell/builder
-	npm install @kui-shell/proxy
+	npm install
 
 .PHONY: compile
 compile:
