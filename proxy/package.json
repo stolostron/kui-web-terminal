@@ -9,18 +9,18 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@kui-shell/builder": "^0.35.0-dev.3375.49",
+    "@kui-shell/builder": "^0.35.0-dev.3479.49",
     "eslint": "^6.0.1"
   },
   "dependencies": {
-    "@kui-shell/core": "^2.35.0-dev.3375.49",
-    "@kui-shell/plugin-bash-like": "^0.24.0-dev.3375.49",
-    "@kui-shell/plugin-k8s": "^0.35.0-dev.3375.49",
-    "compression": "1.7.4",
+    "@kui-shell/core": "^2.35.0-dev.3479.49",
+    "@kui-shell/plugin-bash-like": "^0.24.0-dev.3479.49",
+    "@kui-shell/plugin-k8s": "^0.35.0-dev.3479.49",
     "cookie-parser": "1.4.4",
     "cors": "2.8.5",
     "debug": "4.1.1",
     "express": "4.16.4",
+    "express-static-gzip": "^1.1.3",
     "morgan": "1.9.1",
     "uuid": "3.3.2"
   }

@@ -31,7 +31,7 @@ compile-client:
 
 .PHONY: webpack
 webpack: 
-	WEB_COMPRESS=none npx kui-build-webpack
+	WEB_COMPRESS=gzip npx kui-build-webpack
 
 .PHONY: clean-client
 clean-client:

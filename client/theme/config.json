@@ -1,4 +1,7 @@
 {
+    "topTabs": {
+      "names": "fixed"
+    },
     "proxyServer": {
       "url": "/mcm-kui/exec"
     }
