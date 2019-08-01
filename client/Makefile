@@ -1,7 +1,6 @@
 .PHONY: install-client
 install-client: 
-	npm install @kui-shell/builder
-	npm install @kui-shell/webpack
+	npm install
 
 .PHONY: update-client
 update-client:
