@@ -1,6 +1,6 @@
 .PHONY: install-client
 install-client: 
-	npm install --loglevel verbose
+	npm install
 
 .PHONY: update-client
 update-client:

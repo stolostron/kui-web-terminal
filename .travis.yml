@@ -103,7 +103,7 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=Power PUSH_INTEGRATION=true
+      - JOBNAME=Power PUSH_INTEGRATION=true DOCKER_TAG=latest
     before_install:
       - make init
       - make docker-login
@@ -115,5 +115,4 @@ matrix:
       - make webpack
       - make headless
       - make build-image
-    after_success:
-       - make release
+      - make release
