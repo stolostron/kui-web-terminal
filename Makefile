@@ -87,7 +87,7 @@ docker-logins:
 TEMP_FOLDER ?= 'tmp' # a temporary folder for headless build
 DOCKER_BUILD_OPTS = --build-arg "VCS_REF=$(VCS_REF)" --build-arg "VCS_URL=$(GIT_REMOTE_URL)" --build-arg "IMAGE_NAME=$(DOCKER_IMAGE_ARCH)" --build-arg "IMAGE_DESCRIPTION=$(IMAGE_DESCRIPTION)" --build-arg "ARCH=$(ARCH)"
 
-.PHONY: download-plugins
+.PHONY:	download-plugins
 download-plugins:
 	@bash download-plugins.sh
 
