@@ -116,7 +116,7 @@ make clean-kui
     helm install --set clusterIP=your.icp.ip,clusterPort=8443 --name mcm-kui --namespace default ibm-mcm-kui-99.99.99.tgz --tls
    ```
 
-3. Use KUI by visiting `https://your.cluster.ip:8443/mcm-kui/` 
+3. Use KUI by visiting `https://your.cluster.ip:8443/kui/` 
    
    **Note:** there has to be a slash `/` at the end.
 

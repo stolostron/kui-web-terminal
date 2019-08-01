@@ -3,6 +3,6 @@
       "names": "fixed"
     },
     "proxyServer": {
-      "url": "/mcm-kui/exec"
+      "url": "/kui/exec"
     }
 }
