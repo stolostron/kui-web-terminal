@@ -95,15 +95,15 @@ matrix:
       - make release DOCKER_TAG=latest-rhel
 
   # -- PPC Deploy to Artifactory ---
-  - stage: test-pr
+  - stage: build
     name: "Build PPC"
-    if: type = pull_request
+    if: (branch = master) AND (type = push)
     os: linux-ppc64le
     language: node_js
     node_js:
       - "10"
     env:
-      - JOBNAME=Power
+      - JOBNAME=Power PUSH_INTEGRATION=true
     before_install:
       - make init
       - make docker-login
