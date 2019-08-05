@@ -4,6 +4,7 @@ proxy/.keys
 proxy/build
 proxy/dist
 proxy/kui
+proxy/app/views/main.dust
 client/build
 client/dist
 client/node_modules

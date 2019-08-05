@@ -4,7 +4,11 @@ module.exports = {
         "commonjs": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -12,7 +16,15 @@ module.exports = {
     "parserOptions": {
         "ecmaVersion": 2018
     },
+    "plugins": [
+    "import"
+    ],
     "rules": {
-        'no-console': 'off'
+        "no-console": "off",
+        "import/no-unresolved": ["error",
+        {
+            "commonjs": true
+        }
+    ],
     }
 };

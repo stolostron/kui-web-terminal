@@ -22,11 +22,20 @@ module.exports = {
     inputCommand: '.repl-input-element'
   },
   commands: [{
+    waitForPageLoad,
     verifyPageLoad,
     executeCommand,
     verifySidecar,
     verifyCommandOutput
   }]
+}
+
+function waitForPageLoad(browser) {
+  this.api.pause(5000)
+  browser.element('css selector', '.page', res => {
+    res.status !== 0 && browser.source(result => console.log('Login page load failed, DOM: ', result.value)) // eslint-disable-line no-console
+    this.waitForElementPresent('@page', 20000)
+  })
 }
 
 function verifyPageLoad() {

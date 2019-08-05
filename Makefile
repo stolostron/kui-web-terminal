@@ -22,7 +22,7 @@ DOCKER_PASS ?= $(ARTIFACTORY_TOKEN)
 DOCKER_IMAGE ?= mcm-kui-proxy
 DOCKER_TAG ?= $(shell whoami)
 
-DOCKER_RUN_OPTS ?= -e DEBUG=* -e INSECURE_MODE=true -d
+DOCKER_RUN_OPTS ?= -e NODE_ENV=development -e ICP_EXTERNAL_URL=$(ICP_EXTERNAL_URL) -e KUI_INGRESS_PATH="kui" -e AUTH_TOKEN=$(AUTH_TOKEN) -e DEBUG=* -e INSECURE_MODE=true -d
 DOCKER_BIND_PORT ?= 8081:3000
 
 # Default to scratch unless a push to master
@@ -115,6 +115,7 @@ headless:
 .PHONY: webpack
 webpack:
 	$(MAKE) -C client $@
+	$(SELF) dust-template
 
 .PHONY: download-clis
 download-clis: docker-login
@@ -168,4 +169,8 @@ run:
 .PHONY: tests-dev
 tests-dev: run
 	$(MAKE) -C client client-tests
+
+.PHONY: dust-template
+dust-template:
+	node proxy/scripts/generate-template.js
 	
