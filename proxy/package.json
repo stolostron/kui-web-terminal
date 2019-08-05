@@ -9,13 +9,13 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@kui-shell/builder": "^0.35.0-dev.3508.49",
+    "@kui-shell/builder": "^0.35.0-dev.3553.49",
     "eslint": "^6.0.1"
   },
   "dependencies": {
-    "@kui-shell/core": "^2.35.0-dev.3508.49",
-    "@kui-shell/plugin-bash-like": "^0.24.0-dev.3508.49",
-    "@kui-shell/plugin-k8s": "^0.35.0-dev.3508.49",
+    "@kui-shell/core": "^2.35.0-dev.3553.49",
+    "@kui-shell/plugin-bash-like": "^0.24.0-dev.3553.49",
+    "@kui-shell/plugin-k8s": "^0.35.0-dev.3553.49",
     "cookie-parser": "1.4.4",
     "cors": "2.8.5",
     "debug": "4.1.1",

@@ -27,14 +27,32 @@ async function createUser(user) {
       adduserCmd = "umask 0077 && bash -c 'useradd --uid " + user.uid + " --home-dir " + user.home + " --comment \"\" " + user.name + "'"
     }
   
-    debug('creating user: ' + adduserCmd)
+    console.log('creating user: ' + adduserCmd)
     await exec(adduserCmd, {
       stdio: [0,1,2],
       timeout: 5000
     }).then(function () {
-      debug("user created")
+        console.log("user created")
     })
  }
+
+module.exports.deleteUser = async (username) => {
+    let deleteUserCmd = '';
+    if ( LINUX_DISTRO != 'rhel' )
+    {
+      deleteUserCmd = "bash -c 'deluser --remove-home --quiet " + username + "'";
+    }
+    else {
+      deleteUserCmd = "bash -c 'userdel --remove " + username + "'";
+    }
+    console.log('deleting user: ' + deleteUserCmd);
+    await exec(deleteUserCmd, {
+      stdio: [0,1,2],
+      timeout: 5000
+    });
+    console.log("user deleted");
+}
+
 const setupUserEnv = (user)=>{
     let userEnv = {};
     for (let e in process.env) userEnv[e] = process.env[e];
@@ -122,6 +140,7 @@ module.exports.getUser = async (token) => {
         await createUser(user);
         debug('return uid:',user.uid);
         user.env=setupUserEnv(user);
+        user.created=true;
         if(!INSECURE_MODE){
             await loginUser(user,namespace,accessToken,idToken); 
         }

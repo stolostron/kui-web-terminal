@@ -19,7 +19,7 @@ const { exec, spawn } = require('child_process')
 const express = require('express')
 const { v4: uuid } = require('uuid')
 const { parse: parseCookie } = require('cookie')
-const {getUser,NOBODY_GID} = require('../lib/userUtils')
+const {getUser,NOBODY_GID,deleteUser} = require('../lib/userUtils')
 
 
 /* const { main } = require('../../kui/node_modules/@kui-shell/core')
@@ -78,10 +78,19 @@ function main(cmdline, execOptions, server, port, host,user) {
 
       child.on('exit', code => {
         debug('subprocess exit', code)
+        debug('deleting user data')
+        //clean user data
+        deleteUser(user.name).catch((e)=>{
+          debug(`failed to delete ${user.name}:`,e)
+        })
       })
 
       const channel = new StdioChannelWebsocketSide(wss)
-      await channel.init(child, cookie)
+      await channel.init(child, process.env.KUI_HEARTBEAT_INTERVAL || 30000)
+
+      channel.once('closed', (exitCode /* : number */) => {
+        debug('channel closed',exitCode)
+      })
 
       channel.once('open', () => {
         debug('channel open')
@@ -139,7 +148,7 @@ module.exports = (server, port) => {
     async function(req, res) {
       // debug('hostname', req.hostname)
       // debug('headers', req.headers)
-
+      let user={};
       try {
         const { command, execOptions = {} } = commandExtractor(req)
         debug('command', command)
@@ -159,7 +168,7 @@ module.exports = (server, port) => {
           }) */
         const accessToken = parseCookie(req.headers.cookie || '')[accessTokenKey] 
         
-        const user = await getUser(accessToken)
+        user = await getUser(accessToken)
         const { type, cookie, response } = await main(command, execOptions, server, port, req.headers.host,user)
 
         if (cookie) {
@@ -175,6 +184,15 @@ module.exports = (server, port) => {
         res.status(code).json({ type, response })
       } catch (err) {
         debug('exception in command execution', err.code, err.message, err)
+        //if user has been created, remove the user
+        if(user && user.name && user.created){
+          try{
+            deleteUser(user.name)
+          }catch(e){
+            debug('cannot delete user:',e)
+          }
+        }
+
         const possibleCode = err.code || err.statusCode
         const code = possibleCode && typeof possibleCode === 'number' && (possibleCode >=100 && possibleCode<=599)? possibleCode : 500
         res.status(code).send({type:'Error',response:(err.message || err)}) // use this format to match front-end
