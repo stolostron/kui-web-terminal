@@ -4,9 +4,9 @@ const child_process=require('child_process');
 const exec = util.promisify(child_process.exec);
 const LINUX_DISTRO = process.env["LINUX_DISTRO"];
 const INSECURE_MODE = process.env["INSECURE_MODE"];
-const {verifyAccessToken} = require('./securityUtils');
+const {verifyAccessToken, ICP_EXTERNAL_URL, getNamespace} = require('./securityUtils');
+const NOBODY_GID = parseInt(process.env.NOBODY_GID || '99',10);
 //mapping of cookie->uid
-let users={};
 let nextUID=65536;
 
 /**
@@ -38,7 +38,7 @@ async function createUser(user) {
 const setupUserEnv = (user)=>{
     let userEnv = {};
     for (let e in process.env) userEnv[e] = process.env[e];
-    userEnv["CLOUDCTL_ACCESS_TOKEN"] = user.accessToken;
+    //userEnv["CLOUDCTL_ACCESS_TOKEN"] = user.accessToken;
     //userEnv["CLOUDCTL_ID_TOKEN"] = user.idToken;
     userEnv["CLOUDCTL_COLOR"] = false;
     userEnv["USER"] = user.name;
@@ -47,6 +47,50 @@ const setupUserEnv = (user)=>{
     return userEnv;
 }
 
+const loginUser = (user, namespace, accessToken, idToken) =>{
+    const loginArgs = ["login", "-a", ICP_EXTERNAL_URL, "-n", namespace, "--skip-ssl-validation"];
+    const loginEnv = Object.assign(user.env,{"CLOUDCTL_ACCESS_TOKEN":accessToken,"CLOUDCTL_ID_TOKEN":idToken})
+    const loginOpts = {
+        cwd: loginEnv["HOME"],
+        env: loginEnv,
+        timeout: 20000,
+        uid: user.uid,
+        gid: NOBODY_GID
+    }
+    return new Promise(function(resolve, reject) {
+        let loginProc = child_process.spawn('/usr/local/bin/cloudctl', loginArgs, loginOpts);
+        loginProc.stdin.end();
+        let loginOutput = '';
+        loginProc.stdout.on("data", function (data) {
+          loginOutput += String(data);
+        });
+        loginProc.stderr.on("data", function (data) {
+          loginOutput += String(data);
+        });
+        loginProc.on("error", function (err) {
+          console.error(user.name + " login failed.");
+          console.error(err.toString());
+        });
+        loginProc.on("exit", function (code) {
+          if (code == 0) {
+            console.log('user ' + user.name + ' login complete in terminal ');
+            return resolve();
+          }
+          // login failed, close the terminal
+          console.log('user ' + user.name + ' login failed in terminal with exit code ' + code);
+    
+          let errMsg = "";
+          let lines = loginOutput.split('\n');
+          for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
+            errMsg = lines[i];
+            if (errMsg != "") break;
+          }
+          reject(errMsg);
+        });
+    })
+}
+
+
 
 /**
  * This function is async, and it will return a user object {uid,env} for the cookie.
@@ -54,32 +98,38 @@ const setupUserEnv = (user)=>{
  * @param {*} token a string of accessToken, will be used as a key for user mapping 
  */
 module.exports.getUser = async (token) => {
-    if(users[token] ){
-        return users[token];
-    }
-    else{
-        //user validation
-        if(!INSECURE_MODE){
-            debug('start user validation')
-            try{
-                await verifyAccessToken(token)
-            }catch(e){
-                debug('user token validation failed')
-                throw e
-            }
+
+    let idToken = ''
+    const accessToken = token
+    let namespace = ''
+    //user validation
+    if(!INSECURE_MODE){
+        debug('start user validation')
+        try{
+            idToken = await verifyAccessToken(token)
+            namespace = await getNamespace(token)
+        }catch(e){
+            debug('user token validation failed')
+            throw e
         }
-        //create new user with home folder set
-        //It's possible to have one user set up two different UIDs because we didn't add locks
-        let user={accessToken:token};
-        return createUser(user).then(()=>{
-            //set uid to result
-            debug('return uid:',user.uid);
-            user.env=setupUserEnv(user);
-            users[token]=user;
-            return users[token];
-        }).catch((e)=>{
-            debug('failed in creating users:', e);
-            throw e;
-        })
     }
+    
+    
+    //create new user with home folder set
+    //It's possible to have one user set up two different UIDs because we didn't add locks
+    try{
+        let user={};
+        await createUser(user);
+        debug('return uid:',user.uid);
+        user.env=setupUserEnv(user);
+        if(!INSECURE_MODE){
+            await loginUser(user,namespace,accessToken,idToken); 
+        }
+        return user;
+    }catch(e){
+        debug('failed in creating users:', e);
+        throw e;
+    }
+    
 }
+module.exports.NOBODY_GID = NOBODY_GID;

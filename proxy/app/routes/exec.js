@@ -19,8 +19,7 @@ const { exec, spawn } = require('child_process')
 const express = require('express')
 const { v4: uuid } = require('uuid')
 const { parse: parseCookie } = require('cookie')
-const {getUser} = require('../lib/userUtils')
-const NOBODY_GID = parseInt(process.env.NOBODY_GID || '99',10);
+const {getUser,NOBODY_GID} = require('../lib/userUtils')
 
 
 /* const { main } = require('../../kui/node_modules/@kui-shell/core')
