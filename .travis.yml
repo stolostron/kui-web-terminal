@@ -116,3 +116,29 @@ matrix:
       - make headless
       - make build-image
       - make release
+
+
+
+ # -- s390x Deploy to Artifactory ---
+  - stage: test-pr
+    name: "Build s390x"
+    if: (branch = master) AND (type = push)
+    os: linux-s390
+    language: node_js
+    node_js:
+      - "10"
+    env:
+      - JOBNAME=s390x
+    before_install:
+      - make init
+      - make docker-login
+      - make download-clis
+      - make download-plugins
+    install:
+      - make install
+    script:
+      - make webpack
+      - make headless
+      - make build-image
+    after_success:
+      - make release
