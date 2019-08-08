@@ -21,10 +21,10 @@ async function createUser(user) {
     let adduserCmd = ''
     if ( LINUX_DISTRO != 'rhel' ) {
       //adduserCmd = "umask 0077 && rbash -c 'adduser --uid " + user.uid + " --home " + user.home + " --gecos \"\" --disabled-login --disabled-password " + user.name + "'"
-      adduserCmd = "umask 0077 && bash -c 'adduser -u " + user.uid + " -m  --comment \"\" -d " + user.home + " " + user.name + "'"
+      adduserCmd = "umask 0077 && rbash -c 'adduser -u " + user.uid + " -m  --comment \"\" -d " + user.home + " " + user.name + "'"
     }
     else {
-      adduserCmd = "umask 0077 && bash -c 'useradd --uid " + user.uid + " --home-dir " + user.home + " --comment \"\" " + user.name + "'"
+      adduserCmd = "umask 0077 && rbash -c 'useradd --uid " + user.uid + " --home-dir " + user.home + " --comment \"\" " + user.name + "'"
     }
   
     console.log('creating user: ' + adduserCmd)
@@ -40,10 +40,10 @@ module.exports.deleteUser = async (username) => {
     let deleteUserCmd = '';
     if ( LINUX_DISTRO != 'rhel' )
     {
-      deleteUserCmd = "bash -c 'deluser --remove-home --quiet " + username + "'";
+      deleteUserCmd = "rbash -c 'deluser --remove-home --quiet " + username + "'";
     }
     else {
-      deleteUserCmd = "bash -c 'userdel --remove " + username + "'";
+      deleteUserCmd = "rbash -c 'userdel --remove " + username + "'";
     }
     console.log('deleting user: ' + deleteUserCmd);
     await exec(deleteUserCmd, {

@@ -46,6 +46,7 @@ function main(cmdline, execOptions, server, port, host,user) {
       gid,
       cwd: execOptions.cwd? execOptions.cwd !=='/'? execOptions.cwd : user.env.HOME : user.env.HOME,
       env: Object.assign(user.env, execOptions.env || {}, {
+        SHELL: 'rbash',
         DEBUG: process.env.DEBUG,
         DEVMODE: true,
         KUI_HEADLESS: true,

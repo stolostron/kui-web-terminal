@@ -65,16 +65,51 @@ WORKDIR /kui-proxy/kui
 # For UBI need to use microdnf (UBI already includes bash but needs shadow-utils for adduser)
 RUN microdnf install \
     ca-certificates \
-    git \
     python \
     shadow-utils \
-    vi \
+    vim-minimal \
     which \
     && microdnf clean all
 
 ###########
 
-RUN ln -s /usr/local/helm/linux-${ARCH}/helm /usr/local/bin/helm_original  && chmod 755 /usr/local/bin/*
+RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
+    && sed -i -e 's/USERGROUPS_ENAB yes/USERGROUPS_ENAB no/g' /etc/login.defs \
+    && sed -i '$ a DIR_MODE=0700' /etc/default/useradd \
+    && sed -i -e 's/PS1=\"\[\\u@\\h \\W\]/PS1=\"/g' /etc/bashrc \
+    && sed -i -e 's|^PATH=.*|PATH=/usr/local/bin|g' /etc/skel/.bash_profile
+
+RUN cp /usr/bin/bash /usr/bin/rbash \
+    && cp /usr/bin/vi /usr/bin/rvim \
+    && ln -s /bin/cat /usr/local/bin/cat \
+    && ln -s /bin/chmod /usr/local/bin/chmod \
+    && ln -s /bin/cp /usr/local/bin/cp \
+    && ln -s /bin/date /usr/local/bin/date \
+    && ln -s /bin/echo /usr/local/bin/echo \
+    && ln -s /bin/grep /usr/local/bin/grep \
+    && ln -s /bin/ls /usr/local/bin/ls \
+    && ln -s /bin/mkdir /usr/local/bin/mkdir \
+    && ln -s /bin/mv /usr/local/bin/mv \
+    && ln -s /bin/readlink /usr/local/bin/readlink \
+    && ln -s /bin/rm /usr/local/bin/rm \
+    && ln -s /bin/sed /usr/local/bin/sed \
+    && ln -s /bin/touch /usr/local/bin/touch \
+    && ln -s /bin/uname /usr/local/bin/uname \
+    && ln -s /usr/bin/base64 /usr/local/bin/base64 \
+    && ln -s /usr/bin/basename /usr/local/bin/basename \
+    && ln -s /usr/bin/cksum /usr/local/bin/cksum \
+    && ln -s /usr/bin/clear /usr/local/bin/clear \
+    && ln -s /usr/bin/cut /usr/local/bin/cut \
+    && ln -s /usr/bin/dirname /usr/local/bin/dirname \
+    && ln -s /usr/bin/head /usr/local/bin/head \
+    && ln -s /usr/bin/printf /usr/local/bin/printf \
+    && ln -s /usr/bin/rvim /usr/local/bin/vim \
+    && ln -s /usr/bin/rvim /usr/local/bin/vi \
+    && ln -s /usr/bin/tail /usr/local/bin/tail \
+    && ln -s /usr/local/helm/linux-${ARCH}/helm /usr/local/bin/helm_original \
+    && chmod 755 /etc/profile.d/*.sh \
+    && chmod 755 /usr/local/bin/* 
+
 
 COPY ./tmp/kui /kui-proxy/kui
 # copy the client webpack bundles and other artifacts into the proxy app/public folder
