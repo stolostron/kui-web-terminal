@@ -173,4 +173,8 @@ tests-dev: run
 .PHONY: dust-template
 dust-template:
 	node proxy/scripts/generate-template.js
+
+.PHONY: update-plugins
+update-plugins: download-plugins
+	$(MAKE) -C client client-update-plugins
 	
