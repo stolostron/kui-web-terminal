@@ -120,7 +120,7 @@ matrix:
 
 
  # -- s390x Deploy to Artifactory ---
-  - stage: test-pr
+  - stage: build
     name: "Build s390x"
     if: (branch = master) AND (type = push)
     os: linux-s390
@@ -128,7 +128,7 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=s390x
+      - JOBNAME=s390x PUSH_INTEGRATION=true DOCKER_TAG=latest
     before_install:
       - make init
       - make docker-login
