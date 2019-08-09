@@ -49,12 +49,25 @@ bodyElement.appendChild(jsScript)
 // Fix styling in header
 const headerStyles = document.createElement('style')
 headerStyles.innerHTML = `
+  #header #resource-modal .bx--modal-header {
+    width: 100%
+  }
+  #header #resource-modal .bx--modal-footer {
+    width: 100%
+  }
+  #header #resource-modal .bx--modal-footer button.bx--btn {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
   #header .bx--modal-close__icon {
     height: 10px;
     width: 10px;
   }
   #header .bx--modal-content {
     padding-left: 0;
+  }
+  #header #resource-modal .bx--modal-content {
+    padding-left: 5%;
   }
   #header .bx--modal-footer .bx--btn {
 
@@ -73,6 +86,9 @@ headerStyles.innerHTML = `
   }
   #header #brace-editor {
     width: 100vw;
+  }
+  #header #configure-client-modal .bx--modal-header {
+    padding-left: 0;
   }
 `
 bodyElement.appendChild(headerStyles)
