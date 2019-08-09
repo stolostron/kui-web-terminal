@@ -102,7 +102,7 @@ function main(cmdline, execOptions, server, port, host,user) {
           cookie: {
             key: sessionKey,
             value: sessionToken,
-            path: `/bash/${N}`
+            path: process.env.KUI_INGRESS_PATH? `/${process.env.KUI_INGRESS_PATH}/bash/${N}`:`/bash/${N}`
           },
           response: {
             url: (process.env.KUI_INGRESS_PATH != undefined) ? 

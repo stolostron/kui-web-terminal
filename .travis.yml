@@ -68,6 +68,7 @@ matrix:
     after_success:
       - make release
     after_failure:
+      - make release
       - cat client/selenium-debug.log
 
   # --- x86 Deploy to Artifactory ---
