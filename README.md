@@ -95,6 +95,18 @@ make clean-kui
 ```
 
 
+## How to integrate/update plugins
+1. Make sure you have a GitHub release asset .tgz file.
+2. In the `download-plugins.sh` script, add a line to download your plugin:
+```
+download "github-repo-name" "release-tgz-filename" "release-version"
+```
+
+3. You will need to update the Makefile in the `client/` and `proxy/` directories, to uninstall and reinstall your plugin.  Find the `client-update-plugins` or `proxy-update-plugins` command. If your plugin does not need to run on the KUI proxy, then do not update the `proxy/Makefile`.
+4. In the root directory, run `make update-plugins`.  You will run this command each time you need to update your plugin version in the `download-plugins.sh` script.
+5. Commit the `download-plugins.sh` and the `package-lock.json` in the `client/` and `proxy/` directories.  Failure to update the `package-lock.json` files will result in integrity check failures.
+
+
 ## How to Deploy to ICP
 1. Get the latest chart and image
    - Latest chart:

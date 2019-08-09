@@ -30,3 +30,7 @@ update-proxy:
 	npm install --save @kui-shell/plugin-k8s@dev
 	npm install --save @kui-shell/plugin-bash-like@dev
 	npm install
+
+.PHONY: proxy-update-plugins
+proxy-update-plugins:
+	echo "placeholder"
