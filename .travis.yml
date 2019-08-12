@@ -51,7 +51,7 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=AMD64 DOCKER_TAG=travis-latest
+      - JOBNAME=AMD64 DOCKER_TAG=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g')
     before_install:
       - make init
       - make docker-logins
