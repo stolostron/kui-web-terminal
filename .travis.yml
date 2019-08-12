@@ -132,7 +132,7 @@ matrix:
       - JOBNAME=s390x PUSH_INTEGRATION=true DOCKER_TAG=latest
     before_install:
       - make init
-      - make docker-login
+      - make docker-logins
       - make download-clis
       - make download-plugins
     install:
