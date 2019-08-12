@@ -107,6 +107,11 @@ const scripts = Array.from(document.querySelectorAll('script'))
 const mainScript = scripts.find(script => script.src.startsWith('main') && script.src.endsWith('bundle.js'))
 mainScript.src = '/kui/' + mainScript.src
 
+// Fix icon path
+const links = Array.from(document.querySelectorAll('link'))
+const iconLink = links.find(link => link.href.endsWith('kui.ico'))
+iconLink.href = '/kui/' + iconLink.href
+
 const domOutput = document.documentElement.innerHTML
 const viewsPath = path.join(__dirname, '..', 'app', 'views')
 const templateName = 'main.dust'
