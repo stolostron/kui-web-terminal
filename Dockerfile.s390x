@@ -47,7 +47,7 @@ EXPOSE 3000/tcp
 ENV PASSPHRASE kuishell
 ENV NOBODY_GID 99
 # For use when using ubi-minimal image
-ENV LINUX_DISTRO rhel
+ENV LINUX_DISTRO=debian
 
 WORKDIR /kui-proxy/kui
 
