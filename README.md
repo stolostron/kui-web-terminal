@@ -119,18 +119,16 @@ download "github-repo-name" "release-tgz-filename" "release-version"
 2. Install the chart
 
    Following values have to be customized:
-   - **clusterIP:** ip address/domain name for your cluster
-   - **clusterPort:** icp-management-ingress port of your cluster
+   - **proxy.clusterIP:** ip address/domain name for your cluster
+   - **proxy.clusterPort:** icp-management-ingress port of your cluster
    - **proxy.image.repository:** image path
    - **proxy.image.tag:** image tag
 
    ```
-    helm install --set clusterIP=your.icp.ip,clusterPort=8443 --name mcm-kui --namespace default ibm-mcm-kui-99.99.99.tgz --tls
+    helm install --set proxy.clusterIP=your.icp.ip,proxy.clusterPort=8443 --name mcm-kui --namespace default ibm-mcm-kui-99.99.99.tgz --tls
    ```
 
 3. Use KUI by visiting `https://your.cluster.ip:8443/kui/` 
-   
-   **Note:** there has to be a slash `/` at the end.
 
 4. Login with `cloudctl login`
 
