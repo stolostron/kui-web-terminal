@@ -112,6 +112,11 @@ const links = Array.from(document.querySelectorAll('link'))
 const iconLink = links.find(link => link.href.endsWith('kui.ico'))
 iconLink.href = '/kui/' + iconLink.href
 
+// CSS hack for search
+const searchCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-search', 'src-web', 'styles', 'index.css')
+const staticAssetsPath = path.join(__dirname, '..', 'app', 'public')
+fs.copyFileSync(searchCssPath, staticAssetsPath + '/plugin-search.css')
+
 const domOutput = document.documentElement.innerHTML
 const viewsPath = path.join(__dirname, '..', 'app', 'views')
 const templateName = 'main.dust'
