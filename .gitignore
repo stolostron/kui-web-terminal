@@ -5,7 +5,10 @@ proxy/build
 proxy/dist
 proxy/kui
 proxy/app/views/main.dust
+proxy/app/public/plugin-search.css
 client/build
+client/packages/app/build
+client/packages/app/src/main.ts
 client/dist
 client/node_modules
 client/plugins/plugin-sample

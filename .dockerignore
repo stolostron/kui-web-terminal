@@ -3,6 +3,8 @@ Makefile*
 */Makefile*
 proxy
 scripts
+testcerts/tls.key
+testcerts/tls.crt
 .git*
 */package-lock.json
 *~

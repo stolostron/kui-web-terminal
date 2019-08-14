@@ -40,16 +40,16 @@ make webpack
 ```
 make headless
 ```
-3. wrap the UI and proxy into a docker image
+4. wrap the UI and proxy into a docker image
 ```
 make build-image
 ```
 
-4. run the docker image
+5. run the docker image
 ```
 docker run -e DEBUG=* -e INSECURE_MODE=true -p 8081:3000 mcm-kui-proxy:latest
 ```
-**Note:** Because currently we are generating self-signed certs, please make sure you visit `https://localhost:8081/exec` on your browser, so your browser can recognize the certs.
+**Note:** We are now generating our cert and secret with cert-manager so we are no longer using self-signed certs.
 
 **Note:** You can also build the UI part and proxy part separately if you want.  
 

@@ -21,10 +21,3 @@ mv "$HEADLESS_FOLDER" "${TEMP_FOLDER}"
 
 echo "Removing tar files in dist"
 rm -r "$DIST_FOLDER"
-
-
-echo "Copying keys for https"
-[[ -d .keys ]] || bash "${CURRENT_FOLDER}/ssl.sh"
-cp -r .keys "${TEMP_FOLDER}/kui/"
-
-
