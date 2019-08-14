@@ -19,6 +19,7 @@
       const KUI = browser.page.KUI()
       KUI.waitForPageLoad(browser)
       KUI.verifyPageLoad()
+      KUI.executeCommand(browser,'clear')
       KUI.executeCommand(browser, 'help')
       KUI.verifyCommandOutput(browser, 'help')
    },

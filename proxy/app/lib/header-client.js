@@ -18,6 +18,7 @@ exports.getHeader = (req, cb) => {
   const cookie = `cfc-acs-auth-cookie=${process.env.AUTH_TOKEN}; cfc-access-token-cookie=${process.env.AUTH_TOKEN}`
 
   options.headers = {
+    "Accept-Language": req.headers['accept-language'],
     Cookie: process.env.NODE_ENV === 'development' ? cookie : req.headers.cookie,
    }
 

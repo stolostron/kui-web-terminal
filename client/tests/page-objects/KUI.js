@@ -50,6 +50,7 @@ function executeCommand(browser, command) {
   this.waitForElementPresent('@inputBar')
   this.setValue('@inputBar', command)
   browser.keys(ENTER)
+  this.api.pause(500)
 }
 
 function verifyCommandOutput(browser, command) {

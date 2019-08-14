@@ -33,9 +33,8 @@ const mainPath = require.resolve('@kui-shell/core')
 const { main: wssMain } = require('@kui-shell/plugin-bash-like/pty/server')
 const { StdioChannelWebsocketSide } = require('@kui-shell/plugin-bash-like/pty/stdio-channel')
 
-
 /** thin wrapper on child_process.exec */
-function main(cmdline, execOptions, server, port, host,user) {
+function main(cmdline, execOptions, server, port, host,user, locale) {
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
     const { uid, gid } = {uid:user.uid,gid:NOBODY_GID}
@@ -46,6 +45,7 @@ function main(cmdline, execOptions, server, port, host,user) {
       gid,
       cwd: execOptions.cwd? execOptions.cwd !=='/'? execOptions.cwd : user.env.HOME : user.env.HOME,
       env: Object.assign(user.env, execOptions.env || {}, {
+        LOCALE: locale,
         SHELL: 'rbash',
         DEBUG: process.env.DEBUG,
         DEVMODE: true,
@@ -157,6 +157,8 @@ module.exports = (server, port) => {
         // so that our catch (err) below is used upon command execution failure
         execOptions.rethrowErrors = true
 
+        let locale = req.headers['accept-language'] && req.headers['accept-language'].split(',')[0]
+
         /* if (execOptions && execOptions.credentials) {
           // FIXME this should not be a global
           setValidCredentials(execOptions.credentials)
@@ -170,7 +172,15 @@ module.exports = (server, port) => {
         const accessToken = parseCookie(req.headers.cookie || '')[accessTokenKey] 
         
         user = await getUser(accessToken)
-        const { type, cookie, response } = await main(command, execOptions, server, port, req.headers.host,user)
+        const { type, cookie, response } = await main(
+          command, 
+          execOptions, 
+          server, 
+          port, 
+          req.headers.host,
+          user,
+          locale
+          )
 
         if (cookie) {
           res.header('Access-Control-Allow-Credentials', 'true')
