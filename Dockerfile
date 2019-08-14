@@ -28,6 +28,7 @@ ADD downloads/kubectl-linux-${ARCH} /usr/local/bin/kubectl
 ADD downloads/helm-linux-${ARCH}.tar.gz /usr/local/helm/
 ADD downloads/cloudctl-linux-${ARCH} /usr/local/bin/cloudctl
 ADD downloads/istioctl-linux-${ARCH} /usr/local/bin/istioctl
+ADD downloads/oc /usr/local/bin/oc
 # add bin for helm
 ADD root /
 

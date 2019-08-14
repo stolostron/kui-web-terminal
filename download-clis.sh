@@ -37,3 +37,9 @@ echo "Downloaded kubectl-linux-${ARCH} to downloads/"
 echo "Downloading helm ..."
 docker run -u root --entrypoint sh -v $(pwd)/downloads:/downloads $CLOUDCTL_IMAGE -c "cp /etc/platform-api/public/cli/helm-linux-${ARCH}.tar.gz /downloads/"
 echo "Downloaded helm-linux-${ARCH}.tar.gz to downloads/"
+
+if [ "$ARCH" = "amd64" ]; then
+  echo "Downloading oc ..."
+  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-4.1.9.tar.gz | tar -xvz -C ./downloads/ oc
+  echo "Downloaded openshift origin to downloads/"
+fi
