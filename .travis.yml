@@ -35,6 +35,7 @@ matrix:
     before_install:
       - make init
     install: 
+      - make download-plugins
       - make install-proxy
     script:
       - make lint-proxy

@@ -33,4 +33,5 @@ update-proxy:
 
 .PHONY: proxy-update-plugins
 proxy-update-plugins:
-	echo "placeholder"
+	npm uninstall @kui-shell/plugin-kui-addons
+	npm install ../plugin-downloads/plugin-kui-addons.tgz

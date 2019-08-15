@@ -15,7 +15,7 @@
   "productSubName": "Kui",
   "shellName": "Shell",
   "userAgent": "Kui-Shell",
-  "gettingStarted": "getting started",
+  "gettingStarted": {"en_US":"### Kubectl:\n```\nkubectl get pod\n```\n### Search:\n ```\nsearch kind:pod\n```"},
   "defaultTheme": "IBM Light",
   "cssHome": "/kui/",
   "themes": [{ "name": "IBM Light", "css": "/kui/themes/carbon-gray10.css", "style": "light" }],

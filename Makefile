@@ -133,8 +133,8 @@ clean-client:
 
 .PHONY: clean-downloads
 clean-downloads:
-	rm -rf downloads
-	rm -rf plugin-downloads
+	@rm -rf downloads
+	@rm -rf plugin-downloads
 
 .PHONY: clean-kui
 clean-kui: clean-client clean-proxy clean-downloads
@@ -177,4 +177,5 @@ dust-template:
 .PHONY: update-plugins
 update-plugins: download-plugins
 	$(MAKE) -C client client-update-plugins
+	$(MAKE) -C proxy proxy-update-plugins
 	
