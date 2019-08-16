@@ -15,7 +15,7 @@
  */
 
 const debug = require('debug')('proxy/exec')
-const { exec, spawn } = require('child_process')
+const { spawn } = require('child_process')
 const express = require('express')
 const { v4: uuid } = require('uuid')
 const { parse: parseCookie } = require('cookie')
@@ -112,26 +112,8 @@ function main(cmdline, execOptions, server, port, host,user, locale) {
         })
       })
     } else {
-      debug('using plain exec', cmdline, options)
-      exec(`${process.argv[0]} "${mainPath}" ${cmdline}`, options, (err, stdout, stderr) => {
-        if (stderr) {
-          console.error(stderr)
-        }
-
-        if (err) {
-          reject(err)
-        } else {
-          debug('stdout', stdout)
-          try {
-            resolve(JSON.parse(stdout))
-          } catch (err) {
-            resolve({
-              type: 'string',
-              response: stdout
-            })
-          }
-        }
-      })
+      debug ('reject plain exec:', cmdline, options)
+      reject({statusCode:400,message:'Bad Request'})
     }
   })
 }
@@ -212,8 +194,6 @@ module.exports = (server, port) => {
 
   const router = express.Router()
 
-  /** GET exec */
-  router.get('/:command', exec(req => req.params))
 
   /** POST exec */
   router.post('/', exec(req => req.body))
