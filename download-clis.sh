@@ -40,6 +40,6 @@ echo "Downloaded helm-linux-${ARCH}.tar.gz to downloads/"
 
 if [ "$ARCH" = "amd64" ]; then
   echo "Downloading oc ..."
-  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-4.1.9.tar.gz | tar -xvz -C ./downloads/ oc
+  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.1.11/openshift-client-linux-4.1.11.tar.gz | tar -xvz -C ./downloads/ oc
   echo "Downloaded openshift origin to downloads/"
 fi

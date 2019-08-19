@@ -20,7 +20,7 @@ bodyElement.insertBefore(headerContainer, bodyElement.childNodes[0])
 const headerCss = document.createElement('link')
 headerCss.setAttribute('rel', 'stylesheet')
 headerCss.setAttribute('href', '{filesH.css.path}')
-headElement.appendChild(headerCss)
+headElement.prepend(headerCss)
 
 const stateScript = document.createElement('script')
 stateScript.setAttribute('charset', 'UTF-8')
@@ -46,61 +46,12 @@ jsScript.setAttribute('src', '{filesH.js.path}')
 bodyElement.appendChild(jsScript)
 // ==================================================
 
-// Fix styling in header
-const headerStyles = document.createElement('style')
-headerStyles.innerHTML = `
-  #header #resource-modal .bx--modal-header {
-    width: 100%
-  }
-  #header #resource-modal .bx--modal-footer {
-    width: 100%
-  }
-  #header #resource-modal .bx--modal-footer button.bx--btn {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  #header .bx--modal-close__icon {
-    height: 10px;
-    width: 10px;
-  }
-  #header .bx--modal-content {
-    padding-left: 0;
-  }
-  #header #resource-modal .bx--modal-content {
-    padding-left: 5%;
-  }
-  #header .bx--modal-footer .bx--btn {
+// Inject our custom css styling
+const mcmKuiLink = document.createElement('link')
+mcmKuiLink.rel = 'stylesheet'
+mcmKuiLink.href = '/kui/mcm-kui.css'
 
-  }
-  #header .bx--modal-footer {
-    height: 105px;
-  }
-  #header button.bx--btn {
-    width: 80px;
-    max-width: 80px;
-    margin-left: 24px;
-    height: 40px;
-  }
-  #header .bx--modal-content {
-    width: 100%;
-  }
-  #header #brace-editor {
-    width: 100vw;
-  }
-  #header #configure-client-modal .bx--modal-header {
-    padding-left: 0;
-  }
-`
-bodyElement.appendChild(headerStyles)
-
-// KUI style overrides
-const kuiStyles = document.createElement('style')
-kuiStyles.innerHTML = `
-  .page {
-    height: calc(100% - 3.082rem)
-  }
-`
-bodyElement.append(kuiStyles)
+headElement.appendChild(mcmKuiLink)
 
 // Fix path to KUI main.js file
 const scripts = Array.from(document.querySelectorAll('script'))

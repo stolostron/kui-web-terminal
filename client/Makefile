@@ -28,8 +28,12 @@ update-client:
 compile-client: 
 	npx kui-compile
 
+.PHONY: compile-css
+compile-css:
+	npm run build:css
+
 .PHONY: webpack
-webpack: 
+webpack: compile-css
 	WEB_COMPRESS=gzip npx kui-build-webpack
 
 .PHONY: clean-client

@@ -17,14 +17,23 @@ body[kui-theme="IBM Light"] {
   --color-base0E: #d12765;
   --color-base0F: #8a3ffc;
 
+  /* SidecarThin */
+  --color-background-inverted01: #272d33;
+  --color-background-inverted02: #32383d;
+  --color-text-inverted01: #fff;
+  --color-text-inverted02: var(--color-text-inverted01);
+  --color-text-inverted03: var(--color-text-01);
+  --color-tab-selected-inverted: #5a99e2;
+
+  /* xterm ANSI yellow text color */
+  --color-yellow-text: #bb9002;
+
   --color-brand-01: #0062ff;
   --color-brand-02: #171717;
   --color-brand-03: #0062ff;
 
   --color-ui-05: #171717;
   --color-text-02: #565656;
-
-  --color-sidecar-toolbar-foreground: var(--color-text-01);
 
   --color-name: var(--color-base0D);
   --color-map-key: var(--color-base0D);
@@ -44,10 +53,16 @@ body[kui-theme="IBM Light"] {
   --color-screenshot-background: #0062ff;
 
   --color-stripe-01: #f5f7fa;
+  --tab-gray-text-color: #5a6872;
+  --active-tab-color: #3d70b2;
 
   --color-light-red: hsla(354, 81%, 51%, 50%);
   --color-light-green: hsla(143, 73%, 43%, 50%);
   --color-light-yellow: hsla(46, 99%, 59%, 50%);
+}
+
+body[kui-theme="IBM Dark"] .bx--data-table {
+  font-family: var(--font-sans-serif);
 }
 
 /* mono-blue hightlightjs theme */

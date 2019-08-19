@@ -1,0 +1,62 @@
+/*******************************************************************************
+ * Licensed Materials - Property of IBM
+ * (c) Copyright IBM Corporation 2019. All Rights Reserved.
+ *
+ * Note to U.S. Government Users Restricted Rights:
+ * Use, duplication or disclosure restricted by GSA ADP Schedule
+ * Contract with IBM Corp.
+ *******************************************************************************/
+
+#header {
+  #resource-modal {
+    .bx--modal-header, .bx--modal-footer {
+      width: 100%
+    }
+
+    .bx--modal-footer button.bx--btn {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .bx--modal-footer {
+      background-color: inherit;
+    }
+  }
+
+  .bx--modal-close__icon {
+    height: 10px;
+    width: 10px;
+  }
+
+  .bx--modal-content {
+    padding-left: 0;
+  }
+
+  #resource-modal .bx--modal-content {
+    padding-left: 5%;
+    width: 100%;
+  }
+
+  button.bx--btn {
+    width: 80px;
+    max-width: 80px;
+    margin-left: 24px;
+    height: 40px;
+  }
+
+  #configure-client-modal {
+    .bx--modal-header {
+      padding-left: 0;
+    }
+    .bx--modal-content {
+      width: 100%;
+    }
+  }
+
+  #brace-editor {
+    width: 100vw;
+  }
+
+  .bx--modal-footer {
+    height: 105px;
+  }
+}
