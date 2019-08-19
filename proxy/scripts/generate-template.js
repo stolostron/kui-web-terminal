@@ -11,6 +11,9 @@ const { document } = kuiDom.window
 const headElement = document.querySelector('head')
 const bodyElement = document.querySelector('body')
 
+const noncePlaceHolder = '{kuiNonce}' 
+const nonceReplace = 'kuiDefaultNonce' // all nonce set to this string will be replaced 
+
 // Header Elements ================================
 const headerContainer = document.createElement('div')
 headerContainer.id = 'header'
@@ -20,29 +23,37 @@ bodyElement.insertBefore(headerContainer, bodyElement.childNodes[0])
 const headerCss = document.createElement('link')
 headerCss.setAttribute('rel', 'stylesheet')
 headerCss.setAttribute('href', '{filesH.css.path}')
+
+headerCss.setAttribute('nonce',noncePlaceHolder)
 headElement.prepend(headerCss)
+
 
 const stateScript = document.createElement('script')
 stateScript.setAttribute('charset', 'UTF-8')
+stateScript.setAttribute('nonce', noncePlaceHolder)
 stateScript.innerHTML = 'window.__PRELOADED_STATE__= {stateH|js|s}'
 bodyElement.appendChild(stateScript)
 
 const propsScript = document.createElement('script')
 propsScript.id = 'props'
 propsScript.setAttribute('type', 'application/json')
+propsScript.setAttribute('nonce', noncePlaceHolder)
 propsScript.innerHTML = '{propsH|js|s}'
 bodyElement.appendChild(propsScript)
 
 const nlsScript = document.createElement('script')
 nlsScript.setAttribute('src', '{filesH.nls.path}')
+nlsScript.setAttribute('nonce', noncePlaceHolder)
 bodyElement.appendChild(nlsScript)
 
 const dllScript = document.createElement('script')
 dllScript.setAttribute('src', '{filesH.dll.path}')
+dllScript.setAttribute('nonce', noncePlaceHolder)
 bodyElement.appendChild(dllScript)
 
 const jsScript = document.createElement('script')
 jsScript.setAttribute('src', '{filesH.js.path}')
+jsScript.setAttribute('nonce', noncePlaceHolder)
 bodyElement.appendChild(jsScript)
 // ==================================================
 
@@ -62,6 +73,19 @@ mainScript.src = '/kui/' + mainScript.src
 const links = Array.from(document.querySelectorAll('link'))
 const iconLink = links.find(link => link.href.endsWith('kui.ico'))
 iconLink.href = '/kui/' + iconLink.href
+
+
+// Fix nonce
+//iterate through scripts/links, and replace nonce with variable
+const nonceScripts = scripts.filter(script => script.nonce === nonceReplace)
+for(let script of nonceScripts){
+  script.nonce = noncePlaceHolder
+}
+
+const nonceLinks = links.filter(link => link.nonce === nonceReplace)
+for(let link of nonceLinks){
+  link.nonce = noncePlaceHolder
+}
 
 // CSS hack for search
 const searchCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-search', 'src-web', 'styles', 'index.css')

@@ -12,6 +12,7 @@ const express = require('express')
 const router = express.Router()
 const headerClient = require('../lib/header-client')
 const lodash = require('lodash')
+const crypto = require('crypto');
 
 /** GET home page. */
 router.get('/', function (req, res, next) {
@@ -19,11 +20,11 @@ router.get('/', function (req, res, next) {
     next()
     return
   }
-
+  const nonce = crypto.randomBytes(16).toString('base64');
   headerClient.getHeader(req, (err, headerRes) => {
     if (err) {
       console.error('Request for header failed: ', err)
-      return res.render('main', Object.assign({ header: '', propsH: '', stateH: '', filesH: ''}))
+      return res.render('main', Object.assign({ header: '', propsH: '', stateH: '', filesH: '',kuiNonce: nonce}))
     }
 
     const { headerHtml: header, props: propsH, state: stateH, files: filesH } = headerRes
@@ -32,13 +33,13 @@ router.get('/', function (req, res, next) {
         value.path = `/kui/api/proxy${value.path}` //preprend with proxy route
       })
     }
-
     try {
       res.render('main', Object.assign({
         header: header,
         propsH: propsH,
         stateH: stateH,
-        filesH: filesH
+        filesH: filesH,
+        kuiNonce: nonce
       }))
 
     } catch(e) {
