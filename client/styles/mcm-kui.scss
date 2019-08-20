@@ -13,3 +13,14 @@
 .page {
   height: calc(100% - 3.082rem) // resize to accomodate common header
 }
+
+#confirm-dialog.bx--modal-container { // carbon v9/v10 conflict fixes
+  border-top: none;
+  padding: 0;
+
+  .bx--modal-footer {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
