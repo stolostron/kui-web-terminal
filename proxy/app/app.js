@@ -59,7 +59,7 @@ if (process.env.NODE_ENV === 'development') {
     target: process.env.ICP_EXTERNAL_URL,
     changeOrigin: true,
     secure: false,
-    ws: true
+    ws: false
   }))
 
   app.use(`${contextPath}/api/proxy`, cookieParser(), proxy({
