@@ -1,3 +1,5 @@
+KUI_UPDATE_VERSION ?= dev
+
 .PHONY: install-client
 install-client: 
 	npm install
@@ -13,15 +15,15 @@ update-client:
 	npm uninstall @kui-shell/plugin-editor
 	npm uninstall @kui-shell/proxy
 	npm uninstall @kui-shell/webpack
-	npm install --save-dev @kui-shell/builder@dev
-	npm install --save @kui-shell/core@dev
-	npm install --save @kui-shell/plugin-k8s@dev
-	npm install --save @kui-shell/plugin-bash-like@dev
-	npm install --save @kui-shell/plugin-core-support@dev
-	npm install --save @kui-shell/plugin-proxy-support@dev
-	npm install --save @kui-shell/plugin-editor@dev
-	npm install --save @kui-shell/proxy@dev
-	npm install --save @kui-shell/webpack@dev
+	npm install --save-dev @kui-shell/builder@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/core@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/plugin-k8s@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/plugin-bash-like@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/plugin-core-support@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/plugin-proxy-support@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/plugin-editor@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/proxy@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/webpack@${KUI_UPDATE_VERSION}
 	npm install
 
 .PHONY: compile-client

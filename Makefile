@@ -178,4 +178,8 @@ dust-template:
 update-plugins: download-plugins
 	$(MAKE) -C client client-update-plugins
 	$(MAKE) -C proxy proxy-update-plugins
-	
+
+.PHONY: update-kui
+update-kui: 
+	$(MAKE) -C client update-client
+	$(MAKE) -C proxy update-proxy	

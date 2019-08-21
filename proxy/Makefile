@@ -1,3 +1,5 @@
+KUI_UPDATE_VERSION ?= dev
+
 .PHONY: install-proxy
 install-proxy: 
 	npm install
@@ -25,10 +27,10 @@ update-proxy:
 	npm uninstall @kui-shell/core
 	npm uninstall @kui-shell/plugin-k8s
 	npm uninstall @kui-shell/plugin-bash-like
-	npm install --save-dev @kui-shell/builder@dev
-	npm install --save @kui-shell/core@dev
-	npm install --save @kui-shell/plugin-k8s@dev
-	npm install --save @kui-shell/plugin-bash-like@dev
+	npm install --save-dev @kui-shell/builder@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/core@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/plugin-k8s@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/plugin-bash-like@${KUI_UPDATE_VERSION}
 	npm install
 
 .PHONY: proxy-update-plugins
