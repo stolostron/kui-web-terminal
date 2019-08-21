@@ -1,3 +1,12 @@
+/*******************************************************************************
+ * Licensed Materials - Property of IBM
+ * (c) Copyright IBM Corporation 2019. All Rights Reserved.
+ *
+ * Note to U.S. Government Users Restricted Rights:
+ * Use, duplication or disclosure restricted by GSA ADP Schedule
+ * Contract with IBM Corp.
+ *******************************************************************************/
+
 const fs = require('fs')
 const path = require('path')
 const jsdom = require('jsdom')
@@ -99,4 +108,14 @@ const viewsPath = path.join(__dirname, '..', 'app', 'views')
 const templateName = 'main.dust'
 const dustTemplate = `${viewsPath}/${templateName}`
 
-fs.writeFileSync(dustTemplate, `<!DOCTYPE html><html>${domOutput}</html>`)
+const copyright = `{!
+  * Licensed Materials - Property of IBM
+  * (c) Copyright IBM Corporation 2019. All Rights Reserved.
+  *
+  * Note to U.S. Government Users Restricted Rights:
+  * Use, duplication or disclosure restricted by GSA ADP Schedule
+  * Contract with IBM Corp.
+ !}
+`
+
+fs.writeFileSync(dustTemplate, `${copyright}<!DOCTYPE html><html>${domOutput}</html>`)
