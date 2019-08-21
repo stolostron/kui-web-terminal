@@ -10,24 +10,28 @@
 
 
  module.exports = {
-   before: function (browser) {
+    before: function (browser) {
     const KUI =  browser.page.KUI()
     KUI.navigate()
-   },
+    KUI.waitForPageLoad(browser)
+    KUI.verifyWebsocketConnection(browser)
+  },
 
-   'Verify KUI loads': browser => {
-      const KUI = browser.page.KUI()
-      KUI.waitForPageLoad(browser)
-      KUI.verifyPageLoad()
-      KUI.executeCommand(browser,'clear')
-      KUI.executeCommand(browser, 'help')
-      KUI.verifyCommandOutput(browser, 'help')
-   },
+  'Verify KUI help command': browser => {
+    const KUI = browser.page.KUI()
+    KUI.executeCommand(browser, 'help')
+  },
 
-   after: function (browser, done) {
+  'Verify KUI getting started command': browser => {
+    const KUI = browser.page.KUI()
+    KUI.executeCommand(browser, 'getting started')
+    KUI.verifySidecar()
+  },
+
+  after: function (browser, done) {
     setTimeout(() => {
       browser.end()
       done()
     })
-   }
+  }
  }

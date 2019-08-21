@@ -22,7 +22,7 @@ DOCKER_PASS ?= $(ARTIFACTORY_TOKEN)
 DOCKER_IMAGE ?= mcm-kui-proxy
 DOCKER_TAG ?= $(shell whoami)
 
-DOCKER_RUN_OPTS ?= -e NODE_ENV=development -e ICP_EXTERNAL_URL=$(ICP_EXTERNAL_URL) -e KUI_INGRESS_PATH="kui" -e AUTH_TOKEN=$(AUTH_TOKEN) -e DEBUG=* -e INSECURE_MODE=true -d -v $(PWD)/testcerts:/etc/certs
+DOCKER_RUN_OPTS ?= -e NODE_ENV=development -e ICP_EXTERNAL_URL=$(ICP_EXTERNAL_URL) -e KUI_INGRESS_PATH="kui" -e AUTH_TOKEN=$(AUTH_TOKEN) -e DEBUG=* -e TEST_USER=$(TEST_USER) -e TEST_PASSWORD=$(TEST_PASSWORD) -d -v $(PWD)/testcerts:/etc/certs
 DOCKER_BIND_PORT ?= 8081:3000
 
 # Default to scratch unless a push to master
@@ -164,11 +164,14 @@ release:
 
 .PHONY: run
 run:
-	$(SELF) docker:run
+	$(SELF) docker:run AUTH_TOKEN=$(shell curl -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -d "grant_type=password&username="$(TEST_USER)"&password="$(TEST_PASSWORD)"&scope=openid" $(ICP_EXTERNAL_URL)/idprovider/v1/auth/identitytoken --insecure | jq '.access_token' | tr -d '"') 
 
 .PHONY: tests-dev
-tests-dev: run
+tests-dev:
+ifeq ($(FUNCTIONAL_TESTS), TRUE)
+	$(SELF) run > /dev/null
 	$(MAKE) -C client client-tests
+endif
 
 .PHONY: dust-template
 dust-template:
