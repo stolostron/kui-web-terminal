@@ -81,7 +81,9 @@ mainScript.src = '/kui/' + mainScript.src
 // Fix icon path
 const links = Array.from(document.querySelectorAll('link'))
 const iconLink = links.find(link => link.href.endsWith('kui.ico'))
-iconLink.href = '/kui/' + iconLink.href
+if(iconLink){
+  iconLink.href = '/kui/' + iconLink.href
+}
 
 // Fix inline webpack script
 const inlineWebpackScript = scripts.find(script => script.innerHTML.includes('window[\'_kuiWebpackResourceRoot\']') )
