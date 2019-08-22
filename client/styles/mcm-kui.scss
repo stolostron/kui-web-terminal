@@ -14,7 +14,7 @@
   height: calc(100% - 3.082rem) // resize to accomodate common header
 }
 
-.still-loading {
+.still-loading { // input bar is visible while kui is loading
   .kui--input-stripe {
     visibility: hidden;
   }
@@ -28,5 +28,46 @@
     padding: 0;
     margin-left: 0;
     margin-right: 0;
+  }
+}
+
+.result-as-table.result-as-multi-table.result-as-multi-table-flex-wrap { // helm status table display corrections
+  .repl-result.repl-result {
+    display: block;
+
+    .result-table-outer-wrapper {
+      display: block;
+      margin-top: 1.5rem;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      & > div {
+        padding-right: 0;
+      }
+  
+      .result-table-outer {
+        padding-right: 0;
+        .result-table {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.sidecar-content-container { // helm get sidecar table display corrections
+  .result-as-table.repl-result {
+    display: block;
+
+    .result-table-outer-wrapper {
+      margin-top: 1.5rem;
+      display: block;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
   }
 }
