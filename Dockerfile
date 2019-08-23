@@ -66,7 +66,6 @@ WORKDIR /kui-proxy/kui
 # For UBI need to use microdnf (UBI already includes bash but needs shadow-utils for adduser)
 RUN microdnf install \
     ca-certificates \
-    python \
     shadow-utils \
     vim-minimal \
     which \
@@ -118,10 +117,13 @@ COPY ./client/dist/webpack /kui-proxy/kui/app/public
 
 # RUN cd /kui-proxy/kui && apk add python make g++ && npm rebuild node-pty --update-binary && apk del python make g++
 RUN cd /kui-proxy/kui
-RUN microdnf install make gcc gcc-c++ \
+RUN microdnf install make gcc gcc-c++ python\
     && microdnf clean all
 RUN npm rebuild node-pty --update-binary
-RUN microdnf remove make gcc gcc-c++ \
+RUN microdnf remove make gcc gcc-c++ python\
     && microdnf clean all
+
+# Folder permissions
+RUN chmod 751 /home && chmod 751 /kui-proxy && chmod 751 /kui-proxy/kui
 
 CMD [ "npm", "start" ]
