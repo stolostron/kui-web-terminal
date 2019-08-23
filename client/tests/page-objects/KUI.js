@@ -1,4 +1,3 @@
-
 /*******************************************************************************
  * Licensed Materials - Property of IBM
  * (c) Copyright IBM Corporation 2019. All Rights Reserved.
@@ -26,12 +25,14 @@ module.exports = {
     waitForPageLoad,
     verifyWebsocketConnection,
     executeCommand,
+    verifyOutputSuccess,
+    verifyOutputFailure,
     verifySidecar
   }]
 }
 
 // To make testing easier, we will clear command output and always check the first output
-const outputSelector = '.repl-block[data-input-count="0"] '
+const outputSelector = '.repl-block[data-input-count="0"]'
 
 function waitForPageLoad(browser) {
   this.api.pause(5000)
@@ -44,12 +45,13 @@ function waitForPageLoad(browser) {
 }
 
 function verifyWebsocketConnection(browser) {
-  const successMsgSelector =  outputSelector + '.repl-input-element'
+  const successMsgSelector =  outputSelector + ' .repl-input-element'
   this.waitForElementPresent(successMsgSelector, 20000)
   browser.assert.value(successMsgSelector, 'ready')
 }
 
 function executeCommand(browser, command) {
+  browser.perform(() => console.log('EXECUTING: ' + command))
   const { ENTER } = browser.Keys
   this.waitForElementPresent('@commandInput')
   this.waitForElementPresent('@inputBar')
@@ -62,9 +64,19 @@ function executeCommand(browser, command) {
   browser.keys(ENTER)
   this.api.pause(500) // lag on enter press
 
-  const selector = outputSelector + '.repl-input-element'
+  const selector = outputSelector + ' .repl-input-element'
   this.waitForElementPresent(selector, 10000)
   browser.assert.value(selector, command)
+
+  this.waitForElementPresent(outputSelector + '.valid-response', 20000)
+}
+
+function verifyOutputSuccess(browser) {
+  browser.assert.cssProperty(outputSelector + ' .kui--icon-ok', 'display', 'block')
+}
+
+function verifyOutputFailure(browser) {
+  browser.assert.cssProperty(outputSelector + ' .kui--icon-error', 'display', 'block')
 }
 
 function verifySidecar() {

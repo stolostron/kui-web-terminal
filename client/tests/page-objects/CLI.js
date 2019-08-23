@@ -7,25 +7,18 @@
  * Contract with IBM Corp.
  *******************************************************************************/
 
-
 module.exports = {
-  before: function (browser) {
-    const KUI =  browser.page.KUI()
-    KUI.navigate()
-    KUI.waitForPageLoad(browser)
-    KUI.verifyWebsocketConnection(browser)
+  url: function () {
+    return this.api.launchUrl
   },
+  elements: {
 
-  'Verify KUI getting started command': browser => {
-    const KUI = browser.page.KUI()
-    KUI.executeCommand(browser, 'getting started')
-    KUI.verifySidecar()
   },
+  commands: [{
+    verifySupportedCLIs
+  }]
+}
 
-  after: function (browser, done) {
-    setTimeout(() => {
-      browser.end()
-      done()
-    })
-  }
+function verifySupportedCLIs(browser, cli) {
+  browser.assert.elementPresent(`span[data-value="${cli}*"]`)
 }
