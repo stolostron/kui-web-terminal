@@ -12,6 +12,7 @@ module.exports = {
     return this.api.launchUrl
   },
   elements: {
+    pageLoading: '.still-loading',
     page: '.page',
     main: '.main',
     tabStripe: '.left-tab-stripe',
@@ -38,6 +39,7 @@ function waitForPageLoad(browser) {
   this.api.pause(5000)
   browser.element('css selector', '.page', res => {
     res.status !== 0 && browser.source(result => console.log('Login page load failed, DOM: ', result.value)) // eslint-disable-line no-console
+    this.waitForElementNotPresent('@pageLoading', 60000)
     this.waitForElementPresent('@page', 20000)
     this.waitForElementPresent('@main')
     this.waitForElementVisible('@tabStripe')
@@ -45,9 +47,10 @@ function waitForPageLoad(browser) {
 }
 
 function verifyWebsocketConnection(browser) {
-  const successMsgSelector =  outputSelector + ' .repl-input-element'
-  this.waitForElementPresent(successMsgSelector, 20000)
-  browser.assert.value(successMsgSelector, 'ready')
+  const successSelector = outputSelector + '.valid-response'
+  const readySelector =  successSelector + ' .repl-input-element'
+  this.waitForElementPresent(successSelector, 60000)
+  browser.assert.value(readySelector, 'ready')
 }
 
 function executeCommand(browser, command) {
