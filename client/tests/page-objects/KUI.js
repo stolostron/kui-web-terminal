@@ -7,6 +7,9 @@
  * Contract with IBM Corp.
  *******************************************************************************/
 
+const chalk = require('chalk')
+const { outputSelector, successSelector, resultInputSelector } = require('../config/selectors')
+
 module.exports = {
   url: function () {
     return this.api.launchUrl
@@ -28,17 +31,15 @@ module.exports = {
     executeCommand,
     verifyOutputSuccess,
     verifyOutputFailure,
+    verifyTheme,
     verifySidecar
   }]
 }
 
-// To make testing easier, we will clear command output and always check the first output
-const outputSelector = '.repl-block[data-input-count="0"]'
-
 function waitForPageLoad(browser) {
   this.api.pause(5000)
   browser.element('css selector', '.page', res => {
-    res.status !== 0 && browser.source(result => console.log('Login page load failed, DOM: ', result.value)) // eslint-disable-line no-console
+    res.status !== 0 && browser.source(result => console.log(chalk.bold.red('Login page load failed, DOM: '), result.value)) // eslint-disable-line no-console
     this.waitForElementNotPresent('@pageLoading', 60000)
     this.waitForElementPresent('@page', 20000)
     this.waitForElementPresent('@main')
@@ -47,14 +48,12 @@ function waitForPageLoad(browser) {
 }
 
 function verifyWebsocketConnection(browser) {
-  const successSelector = outputSelector + '.valid-response'
-  const readySelector =  successSelector + ' .repl-input-element'
   this.waitForElementPresent(successSelector, 60000)
-  browser.assert.value(readySelector, 'ready')
+  browser.assert.value(resultInputSelector, 'ready')
 }
 
 function executeCommand(browser, command) {
-  browser.perform(() => console.log('EXECUTING: ' + command))
+  browser.perform(() => console.log(chalk.bold.yellow('EXECUTING: ') + chalk.bold.cyan(command)))
   const { ENTER } = browser.Keys
   this.waitForElementPresent('@commandInput')
   this.waitForElementPresent('@inputBar')
@@ -67,11 +66,10 @@ function executeCommand(browser, command) {
   browser.keys(ENTER)
   this.api.pause(500) // lag on enter press
 
-  const selector = outputSelector + ' .repl-input-element'
-  this.waitForElementPresent(selector, 10000)
-  browser.assert.value(selector, command)
+  this.waitForElementPresent(resultInputSelector, 10000)
+  browser.assert.value(resultInputSelector, command)
 
-  this.waitForElementPresent(outputSelector + '.valid-response', 20000)
+  this.waitForElementPresent(successSelector, 20000)
 }
 
 function verifyOutputSuccess(browser) {
@@ -80,6 +78,14 @@ function verifyOutputSuccess(browser) {
 
 function verifyOutputFailure(browser) {
   browser.assert.cssProperty(outputSelector + ' .kui--icon-error', 'display', 'block')
+}
+
+function verifyTheme(browser, theme) {
+  const { name } = theme
+  const themeButton = successSelector + ` .clickable span[title="${name}"]`
+  this.waitForElementVisible(themeButton)
+  this.click(themeButton)
+  this.waitForElementVisible(`body[kui-theme="${name}"]`)
 }
 
 function verifySidecar() {

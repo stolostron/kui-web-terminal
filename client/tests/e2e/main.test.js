@@ -7,7 +7,6 @@
  * Contract with IBM Corp.
  *******************************************************************************/
 
-
 module.exports = {
   before: function (browser) {
     const KUI =  browser.page.KUI()
@@ -16,10 +15,24 @@ module.exports = {
     KUI.verifyWebsocketConnection(browser)
   },
 
+  'Verify cloudctl login success': browser => {
+    const KUI = browser.page.KUI()
+    const CLI = browser.page.CLI()
+    KUI.executeCommand(browser, 'cloudctl tokens')
+    CLI.verifyUserAuthenticated(browser)
+  },
+
   'Verify KUI getting started command': browser => {
     const KUI = browser.page.KUI()
     KUI.executeCommand(browser, 'getting started')
     KUI.verifySidecar()
+  },
+
+  'Verify supported themes': browser => {
+    const KUI = browser.page.KUI()
+    const themes = [{ name: 'IBM Dark' }, { name: 'IBM Light' }] // come back to this, evaluated color values keep changing
+    KUI.executeCommand(browser, 'themes')
+    themes.forEach(theme => KUI.verifyTheme(browser, theme))
   },
 
   after: function (browser, done) {

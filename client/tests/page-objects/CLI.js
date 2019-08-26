@@ -7,6 +7,8 @@
  * Contract with IBM Corp.
  *******************************************************************************/
 
+const { successSelector } = require('../config/selectors')
+
 module.exports = {
   url: function () {
     return this.api.launchUrl
@@ -15,8 +17,17 @@ module.exports = {
 
   },
   commands: [{
+    verifyUserAuthenticated,
     verifySupportedCLIs
   }]
+}
+
+function verifyUserAuthenticated(browser) {
+  const accessToken = successSelector + ' .entity-name[data-value="Access token:"]'
+  const idToken = successSelector + ' .entity-name[data-value="ID token:"]'
+  this.waitForElementPresent(successSelector)
+  browser.assert.elementPresent(accessToken)
+  browser.assert.elementPresent(idToken)
 }
 
 function verifySupportedCLIs(browser, cli) {
