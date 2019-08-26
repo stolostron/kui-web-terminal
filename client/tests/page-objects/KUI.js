@@ -72,7 +72,7 @@ function executeCommand(browser, command) {
 }
 
 function verifyOutputSuccess(browser) {
-  browser.assert.cssProperty(outputSelector + ' .kui--icon-ok', 'display', 'block')
+  browser.assert.cssProperty(outputSelector + ' .kui--icon-error', 'display', 'none')
 }
 
 function verifyOutputFailure(browser) {

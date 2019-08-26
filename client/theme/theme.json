@@ -19,6 +19,7 @@
   },
   "defaultTheme": "IBM Light",
   "cssHome": "/kui/",
+  "resourceRoot": "/kui",
   "contentSecurityPolicy": "default-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' file: 'nonce-{kuiNonce}' data:; script-src 'self' 'nonce-{kuiNonce}' 'unsafe-eval'; font-src 'self' file:; connect-src 'self' wss:",
   "themes": [
     { "name": "IBM Light", "css": "/kui/themes/carbon-gray10.css", "style": "light" },

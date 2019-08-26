@@ -34,8 +34,14 @@ compile-client:
 compile-css:
 	npm run build:css
 
+.PHONY: fix-webpack-path
+fix-webpack-path:
+	@echo Adding public path to webpack config file:
+	sed -i'.bak' "s/publicPath: '\/'/publicPath: '\/kui\/'/g" node_modules/@kui-shell/webpack/webpack.config.js 
+	diff node_modules/@kui-shell/webpack/webpack.config.js   node_modules/@kui-shell/webpack/webpack.config.js.bak || echo '      ^ finished replacing publicPath in webpack.config.js'
+
 .PHONY: webpack
-webpack: compile-css
+webpack: compile-css fix-webpack-path
 	WEB_COMPRESS=gzip npx kui-build-webpack
 
 .PHONY: clean-client
