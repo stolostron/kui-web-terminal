@@ -31,6 +31,7 @@ module.exports = {
     executeCommand,
     verifyOutputSuccess,
     verifyOutputFailure,
+    verifyOutputMessage,
     verifyTheme,
     verifySidecar
   }]
@@ -78,6 +79,26 @@ function verifyOutputSuccess(browser) {
 
 function verifyOutputFailure(browser) {
   browser.assert.cssProperty(outputSelector + ' .kui--icon-error', 'display', 'block')
+}
+
+function verifyOutputMessage(browser, message) {
+  const preMsgSelector = outputSelector + ' .repl-result pre'
+  const xtermMsgSelector = outputSelector + ' .xterm-container .xterm-rows div:first-of-type span'
+  this.api.element('css selector', preMsgSelector, preRes => {
+    if (preRes.status === 0) { // output is returned in a pre element
+      browser.assert.containsText(preMsgSelector, message)
+    } else {
+      this.api.elements('css selector', xtermMsgSelector, xtermRes => {
+        if (xtermRes.status === 0) { // output is returned xterm container one span per letter
+          let msgText = ''
+          xtermRes.value.forEach(element => this.api.elementIdText(element.ELEMENT, text => msgText += text.value))
+          browser.perform(() => {
+            if(!msgText.includes(message)) throw new Error(`${msgText} did not contain the text: "${message}"`)
+          })
+        }
+      })
+    }
+  })
 }
 
 function verifyTheme(browser, theme) {
