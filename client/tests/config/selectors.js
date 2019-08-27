@@ -11,6 +11,9 @@
 const activeTabSelector = 'tab.visible'
 const outputSelector = activeTabSelector + ' .repl-block[data-input-count="0"]'
 const successSelector = outputSelector + '.valid-response'
-const resultInputSelector =  successSelector + ' .repl-input-element'
+const resultInputSelector =  outputSelector + ' .repl-input-element'
 
-module.exports = { outputSelector, successSelector, resultInputSelector }
+const failureSelector = outputSelector + '.error'
+const failureOutputSelector = failureSelector + ' .oops pre'
+
+module.exports = { outputSelector, successSelector, resultInputSelector, failureSelector, failureOutputSelector }

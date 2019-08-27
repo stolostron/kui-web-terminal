@@ -7,6 +7,7 @@
  * Contract with IBM Corp.
  *******************************************************************************/
 
+
 module.exports = {
   before: function (browser) {
     const KUI =  browser.page.KUI()
@@ -15,17 +16,17 @@ module.exports = {
     KUI.verifyWebsocketConnection(browser)
   },
 
+  'Verify KUI getting started command': browser => {
+    const KUI = browser.page.KUI()
+    KUI.executeCommand(browser, 'getting started')
+    KUI.verifySidecar()
+  },
+
   'Verify cloudctl login success': browser => {
     const KUI = browser.page.KUI()
     const CLI = browser.page.CLI()
     KUI.executeCommand(browser, 'cloudctl tokens')
     CLI.verifyUserAuthenticated(browser)
-  },
-
-  'Verify KUI getting started command': browser => {
-    const KUI = browser.page.KUI()
-    KUI.executeCommand(browser, 'getting started')
-    KUI.verifySidecar()
   },
 
   'Verify supported themes': browser => {

@@ -25,6 +25,21 @@ module.exports = {
     KUI.verifyOutputMessage(browser, 'Permission denied')
   },
 
+  'Verify commands are disabled - plugin-kui-addons': browser => {
+    const bashLikeRoutes = ['git status','git diff'];
+    const k8sRoutes = ['istio install','istio uninstall','istio ingress','istio status',
+    'bookinfo install','bookinfo uninstall','bookinfo create',
+    'kiali install','kiali delete','kiali console', 'kiali graph',
+    'k8s kedit','k8s kdebug'];
+    const coreSupportRoutes = ['run','window','window bigger','window smaller','window max','window unmax','window close','quit'];
+    const bannedCommands = [...bashLikeRoutes, ...k8sRoutes, ...coreSupportRoutes]
+    const KUI = browser.page.KUI()
+    bannedCommands.forEach(command => {
+      KUI.executeCommand(browser, command, true)
+      KUI.verifyErrorMessage(browser, "Command is disabled")
+    })
+  },
+
   after: function (browser, done) {
     setTimeout(() => {
       browser.end()

@@ -8,7 +8,7 @@
  *******************************************************************************/
 
 const chalk = require('chalk')
-const { outputSelector, successSelector, resultInputSelector } = require('../config/selectors')
+const { outputSelector, successSelector, resultInputSelector, failureSelector, failureOutputSelector } = require('../config/selectors')
 
 module.exports = {
   url: function () {
@@ -35,6 +35,8 @@ module.exports = {
     executeCommand,
     verifyOutputSuccess,
     verifyOutputFailure,
+    verifySidecar,
+    verifyErrorMessage,
     verifyOutputMessage,
     verifyTheme,
     verifyProductHeader,
@@ -59,7 +61,12 @@ function verifyWebsocketConnection(browser) {
   browser.assert.value(resultInputSelector, 'ready')
 }
 
-function executeCommand(browser, command) {
+function verifyErrorMessage(browser, message) {
+  this.waitForElementPresent(failureOutputSelector, 60000)
+  browser.expect.element(failureOutputSelector).text.to.equal(message)
+}
+
+function executeCommand(browser, command, failed) {
   browser.perform(() => console.log(chalk.bold.yellow('EXECUTING: ') + chalk.bold.cyan(command)))
   const { ENTER } = browser.Keys
   this.waitForElementPresent('@commandInput')
@@ -76,7 +83,7 @@ function executeCommand(browser, command) {
   this.waitForElementPresent(resultInputSelector, 10000)
   browser.assert.value(resultInputSelector, command)
 
-  this.waitForElementPresent(successSelector, 20000)
+  failed ? this.waitForElementPresent(failureSelector, 20000) : this.waitForElementPresent(successSelector, 20000)
 }
 
 function verifyOutputSuccess(browser) {

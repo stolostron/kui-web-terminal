@@ -15,6 +15,7 @@ client/plugins/plugin-sample
 client/kui-webpack-tmp
 client/test-output
 client/selenium-debug.log
+client/selenium-server.log
 tmp
 tmp/kui
 .keys
