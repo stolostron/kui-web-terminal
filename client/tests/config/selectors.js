@@ -8,7 +8,8 @@
  *******************************************************************************/
 
 // To make testing easier, we will clear command output and always check the first output
-const outputSelector = '.repl-block[data-input-count="0"]'
+const activeTabSelector = 'tab.visible'
+const outputSelector = activeTabSelector + ' .repl-block[data-input-count="0"]'
 const successSelector = outputSelector + '.valid-response'
 const resultInputSelector =  successSelector + ' .repl-input-element'
 

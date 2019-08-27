@@ -23,7 +23,11 @@ module.exports = {
     inputBar: '.kui--input-stripe input',
     sidecar: '#sidecar',
     inputCommand: '.repl-input-element',
-    commandOutput: '.repl-block[data-input-count="0"]'
+    commandOutput: '.repl-block[data-input-count="0"]',
+    header: '#header-container',
+    hamburger: '#hamburger',
+    leftNav: '#left-nav',
+    newTabBtn: '.kui-new-tab__plus'
   },
   commands: [{
     waitForPageLoad,
@@ -33,7 +37,9 @@ module.exports = {
     verifyOutputFailure,
     verifyOutputMessage,
     verifyTheme,
-    verifySidecar
+    verifyProductHeader,
+    verifySidecar,
+    verifyNewTabs
   }]
 }
 
@@ -107,6 +113,40 @@ function verifyTheme(browser, theme) {
   this.waitForElementVisible(themeButton)
   this.click(themeButton)
   this.waitForElementVisible(`body[kui-theme="${name}"]`)
+}
+
+function verifyProductHeader() {
+  this.waitForElementPresent('@header')
+  this.waitForElementPresent('@hamburger')
+  this.click('@hamburger')
+  this.waitForElementVisible('@leftNav')
+  this.click('@hamburger')
+  this.waitForElementNotPresent('@leftNav')
+}
+
+function verifyNewTabs(browser) {
+  const KUI = browser.page.KUI()
+  const firstTab = '.left-tab-stripe-buttons div.kui-tab:nth-of-type(1)'
+  const secondTab = '.left-tab-stripe-buttons div.kui-tab:nth-of-type(2)'
+  const firstTabContainer = '.tab-container tab:nth-of-type(1)'
+  const secondTabContainer = '.tab-container tab:nth-of-type(2)'
+  const tabCloseBtn = ' .left-tab-stripe-button-closer svg'
+  this.waitForElementPresent('@newTabBtn')
+  this.click('@newTabBtn') // open new tab
+  this.waitForElementPresent(secondTab)
+  this.waitForElementVisible(secondTabContainer)
+  this.waitForElementNotVisible(firstTabContainer)
+  KUI.verifyWebsocketConnection(browser) // verify websocket connects on new tab
+  browser.assert.cssClassPresent(secondTab, 'kui-tab--active') // verify active tab
+  browser.assert.cssClassNotPresent(firstTab, 'kui-tab--active')
+  this.click(firstTab) // go back to first tab
+  this.waitForElementVisible(firstTabContainer)
+  this.waitForElementNotVisible(secondTabContainer)
+  browser.assert.cssClassPresent(firstTab, 'kui-tab--active')
+  browser.assert.cssClassNotPresent(secondTab, 'kui-tab--active')
+  this.click(secondTab + tabCloseBtn) // close the second tab
+  this.waitForElementNotPresent(secondTab)
+  this.waitForElementNotPresent(secondTabContainer)
 }
 
 function verifySidecar() {

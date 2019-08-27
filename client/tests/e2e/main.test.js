@@ -35,6 +35,16 @@ module.exports = {
     themes.forEach(theme => KUI.verifyTheme(browser, theme))
   },
 
+  'Verify product header': browser => {
+    const KUI = browser.page.KUI()
+    KUI.verifyProductHeader()
+  },
+
+  'Verify KUI multiple tabs': browser => {
+    const KUI = browser.page.KUI()
+    KUI.verifyNewTabs(browser)
+  },
+
   after: function (browser, done) {
     setTimeout(() => {
       browser.end()
