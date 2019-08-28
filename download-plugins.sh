@@ -42,7 +42,7 @@ rm -rf plugin-downloads
 mkdir plugin-downloads
 
 echo "Downloading plugins ..."
-download "search-kui-plugin" "plugin-search" "v2.0.10"
+download "search-kui-plugin" "plugin-search" "v2.0.15"
 download "plugin-kui-addons" "plugin-kui-addons" "v1.0.7"
 
 echo "plugin-downloads:"
