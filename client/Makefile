@@ -55,8 +55,7 @@ client-tests:
 	if [ ! -d "test-output" ]; then \
 		mkdir test-output; \
 	fi
-	npm install selenium-standalone@6.16.0 xml2json@0.11.0 nightwatch@0.9.21 --save-dev
-	nightwatch
+	npm run test:e2e
 	
 .PHONY: client-update-plugins
 client-update-plugins:

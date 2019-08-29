@@ -73,11 +73,11 @@ function executeCommand(browser, command, failed) {
   this.waitForElementPresent('@inputBar')
 
   this.setValue('@inputBar', 'clear') // clean output
-  browser.keys(ENTER)
+  browser.setValue('.kui--input-stripe input', [ENTER])
   this.api.pause(500) // lag on enter press
 
   this.setValue('@inputBar', command) // input command
-  browser.keys(ENTER)
+  browser.setValue('.kui--input-stripe input', [ENTER])
   this.api.pause(500) // lag on enter press
 
   this.waitForElementPresent(resultInputSelector, 10000)

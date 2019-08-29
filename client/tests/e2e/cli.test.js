@@ -35,8 +35,12 @@ module.exports = {
 
   after: function (browser, done) {
     setTimeout(() => {
-      browser.end()
-      done()
+      if (browser.sessionId) {
+        browser.end()
+        done()
+      } else {
+        done()
+      }
     })
   }
 }

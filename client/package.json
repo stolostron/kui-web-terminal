@@ -4,19 +4,18 @@
   "main": "node_modules/@kui-shell/core/main/main.js",
   "scripts": {
     "build:css": "sass --no-source-map --style=compressed styles/mcm-kui.scss dist/webpack/mcm-kui.css",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:e2e": "nightwatch",
     "test:install-selenium": "selenium-standalone install --version=3.141.5 --drivers.chrome.version=2.36"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@ibma/aat": "^1.5.1",
     "@kui-shell/builder": "^3.0.10",
     "@types/mocha": "5.2.7",
     "@types/node": "12.0.10",
     "mocha": "6.1.4",
-    "nightwatch": "^0.9.21",
+    "nightwatch": "^1.2.1",
     "sass": "^1.22.1",
     "selenium-standalone": "^6.16.0",
     "typescript": "3.5.2",

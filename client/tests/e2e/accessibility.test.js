@@ -10,6 +10,7 @@
 const a11yScan = require('../utils/accessibilityScan')
 
 module.exports = {
+  '@disabled': true, // turn back on for daily build
   before: function (browser) {
     const KUI =  browser.page.KUI()
     KUI.navigate()
@@ -29,8 +30,12 @@ module.exports = {
 
   after: function (browser, done) {
     setTimeout(() => {
-      browser.end()
-      done()
+      if (browser.sessionId) {
+        browser.end()
+        done()
+      } else {
+        done()
+      }
     })
   }
 }

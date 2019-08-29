@@ -31,13 +31,6 @@ module.exports = {
 
   // External after hook is ran at the very end of the tests run, after closing the Selenium session
   after: function(done) {
-    fs.readdirSync(reportFolder).forEach(file => {
-      if (file.endsWith('.xml')) {
-        const xml = fs.readFileSync(path.join(reportFolder, file))
-        const parsedDoc = parser.toJson(xml, {object: true, alternateTextNode: true, trim: true})
-        jsonfile.writeFileSync(path.join(reportFolder, file.replace('.xml', '.json')), parsedDoc/*, {spaces: 2, EOL: '\r\n'}*/)
-      }
-    })
     done()
   },
 
@@ -48,6 +41,13 @@ module.exports = {
 
   // This will be run after each test suite is finished
   afterEach: function(browser, done) {
-    done()
+    setTimeout(() => {
+      if (browser.sessionId) {
+      browser.end()
+        done()
+      } else {
+        done()
+      }
+    })
   }
 }
