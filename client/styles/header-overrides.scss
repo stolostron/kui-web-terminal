@@ -70,6 +70,29 @@
   #resource-modal .bx--modal-content {
     padding-left: 5%;
     width: 100%;
+
+    .bx--inline-notification {
+      color: #5a6872;
+      padding: 0;
+      align-items: center;
+      max-width: unset;
+
+      .bx--inline-notification__icon {
+        margin-top: 0;
+      }
+
+      .bx--inline-notification__close-button svg {
+        fill: #5a6872;
+        height: 10px;
+        width: 10px;
+        right: unset;
+        position: unset;
+      }
+    }
+
+    .bx--inline-notification--error {
+      background: inherit;
+    }
   }
 
   button.bx--btn {

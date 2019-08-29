@@ -31,7 +31,7 @@
   }
 }
 
-.result-as-table.result-as-multi-table.result-as-multi-table-flex-wrap { // helm status table display corrections
+.result-as-table.result-as-multi-table { // helm status table display corrections
   .repl-result.repl-result {
     display: block;
 
@@ -49,6 +49,7 @@
   
       .result-table-outer {
         padding-right: 0;
+        width: 100%;
         .result-table {
           width: 100%;
         }
@@ -57,16 +58,31 @@
   }
 }
 
-.sidecar-content-container { // helm get sidecar table display corrections
-  .result-as-table.repl-result {
-    display: block;
-
-    .result-table-outer-wrapper {
-      margin-top: 1.5rem;
+#sidecar {
+  .sidecar-header {
+    .sidecar-header-name {
+      .entity-name-line .entity-name { // fix truncation issue for getting started title
+        height: auto;
+        white-space: pre-wrap;
+      }
+    }
+    .sidecar-top-stripe {
+      .bx--tabs li[data-mode="version"] {
+        display: none;
+      }
+    }
+  }
+  .sidecar-content-container { // helm get sidecar table display corrections
+    .result-as-table.repl-result {
       display: block;
-
-      &:first-of-type {
-        margin-top: 0;
+  
+      .result-table-outer-wrapper {
+        margin-top: 1.5rem;
+        display: block;
+  
+        &:first-of-type {
+          margin-top: 0;
+        }
       }
     }
   }
