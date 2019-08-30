@@ -14,7 +14,8 @@
       "webdriver.gecko.driver": "node_modules/selenium-standalone/.selenium/geckodriver/0.16.01-x64-geckodriver",
       "webdriver.chrome.driver": "node_modules/selenium-standalone/.selenium/chromedriver/2.36-x64-chromedriver",
       "webdriver.edge.driver": ""
-    }
+    },
+    "check_process_delay": 5000
   },
   "test_settings": {
     "default": {
@@ -32,6 +33,7 @@
         "javascriptEnabled": true,
         "acceptSslCerts": true,
         "chromeOptions": {
+          "w3c": false,
           "args": [
             "--no-sandbox",
             "--disable-gpu"
@@ -49,6 +51,7 @@
       "desiredCapabilities": {
         "browserName": "chrome",
         "chromeOptions": {
+          "w3c": false,
           "args" : ["window-size=1024,768"]
         }
       }

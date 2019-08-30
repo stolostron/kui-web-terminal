@@ -45,10 +45,19 @@ module.exports = {
   }]
 }
 
+
 function waitForPageLoad(browser) {
   this.api.pause(5000)
   browser.element('css selector', '.page', res => {
-    res.status !== 0 && browser.source(result => console.log(chalk.bold.red('Login page load failed, DOM: '), result.value)) // eslint-disable-line no-console
+    if( res.status !== 0 ){
+      browser.source(result => {
+        if (result.value.includes('Chromium Authors')) {
+          console.log('ERROR:  DEFAULT CHROME PAGE')
+        } else {
+          console.log(chalk.bold.red('Login page load failed, DOM: '), result.value)
+        }
+      }) // eslint-disable-line no-console
+    }
     this.waitForElementNotPresent('@pageLoading', 60000)
     this.waitForElementPresent('@page', 20000)
     this.waitForElementPresent('@main')

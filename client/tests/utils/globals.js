@@ -8,10 +8,6 @@
  *******************************************************************************/
 
 const del = require('del')
-const fs = require('fs')
-const path = require('path')
-const jsonfile = require('jsonfile')
-const parser = require('xml2json')
 const cwd = process.cwd()
 const reportFolder = `${cwd}/test-output/`
 
