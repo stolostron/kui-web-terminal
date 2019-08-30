@@ -31,6 +31,13 @@
   }
 }
 
+.result-table-outer .max-width-id-like { // fix table cell truncation issue
+  max-width: unset;
+  overflow: auto;
+  text-overflow: unset;
+  white-space: unset;
+}
+
 .result-as-table.result-as-multi-table { // helm status table display corrections
   .repl-result.repl-result {
     display: block;
