@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Licensed Materials - Property of IBM
+# Copyright IBM Corporation 2019. All Rights Reserved.
+# U.S. Government Users Restricted Rights -
+# Use, duplication or disclosure restricted by GSA ADP
+# IBM Corporation - initial API and implementation
+
 if [ -z "$GITHUB_TOKEN" ]; then
     echo "GITHUB_TOKEN environment variable must be set"
     exit 1

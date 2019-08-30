@@ -28,7 +28,7 @@ module.exports = {
   'Verify supported CLIs can execute': browser => {
     const KUI = browser.page.KUI()
     supportedClis.forEach(cli => {
-      KUI.executeCommand(browser, `${cli} version`)
+      KUI.executeCommand(browser, `${cli} help`)
       KUI.verifyOutputSuccess(browser)
     })
   },

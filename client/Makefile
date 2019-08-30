@@ -30,6 +30,10 @@ update-client:
 compile-client: 
 	npx kui-compile
 
+.PHONY: import-css
+import-css:
+	@bash scripts/import-css.sh
+
 .PHONY: compile-css
 compile-css:
 	npm run build:css
