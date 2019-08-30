@@ -12,8 +12,12 @@ else
     done
 fi
 
-if $_add_tls; then
-    helm_original "$@" --tls
-else
+if [[ $1 = "help" ]]; then
     helm_original "$@"
+else
+    if $_add_tls; then
+        helm_original "$@" --tls
+    else
+        helm_original "$@"
+    fi
 fi
