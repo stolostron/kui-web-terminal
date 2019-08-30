@@ -40,6 +40,19 @@ module.exports = {
     })
   },
 
+  //random selection of commands in no particular order
+  'Verify commands are disabled - rbash': browser => {
+     const commands = ['chown', 'db_stat', 'find', 'gpgv2', 'ln', 'nm', 'addr2line',
+      'db_tuner', 'fmt', 'gprof', 'locale', 'getconf', 'iconv', 'lz4', 'od',  'dircolors', 'getent', 'id', 'lz4c', 
+      '-kit','rpm', 'size', 'wc','idnlz4cat', 'paste', 'rpm2cpio', 'tput', 'whichbashbug', 'curl','rpmdb', 'sort', 'tr', 'who',
+      'dwp', 'sotruss', 'chcon', 'db_printlog','uniq','ranlib', 'sg', 'sync', 'unlink','tabs', 'unlz4'];
+    const KUI = browser.page.KUI()
+    commands.forEach(command => {
+      KUI.executeCommand(browser, command, true)
+      KUI.verifyErrorMessage(browser, "Command not found: " + command)
+    })
+  },
+
   after: function (browser, done) {
     setTimeout(() => {
       if (browser.sessionId) {
@@ -51,3 +64,4 @@ module.exports = {
     })
   }
 }
+
