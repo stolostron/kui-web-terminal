@@ -142,8 +142,8 @@ function verifyProductHeader() {
 
 function verifyNewTabs(browser) {
   const KUI = browser.page.KUI()
-  const firstTab = '.left-tab-stripe-buttons div.kui-tab:nth-of-type(1)'
-  const secondTab = '.left-tab-stripe-buttons div.kui-tab:nth-of-type(2)'
+  const firstTab = '.left-tab-stripe-buttons .kui-tab:nth-of-type(1)'
+  const secondTab = '.left-tab-stripe-buttons .kui-tab:nth-of-type(2)'
   const firstTabContainer = '.tab-container tab:nth-of-type(1)'
   const secondTabContainer = '.tab-container tab:nth-of-type(2)'
   const tabCloseBtn = ' .left-tab-stripe-button-closer svg'
