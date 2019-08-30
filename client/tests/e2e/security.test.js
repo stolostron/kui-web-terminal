@@ -26,12 +26,12 @@ module.exports = {
     KUI.verifyOutputMessage(browser, '/home/655')
 
     KUI.executeCommand(browser, 'cd ..')
-    KUI.executeCommand(browser, 'ls')
+    KUI.executeCommand(browser, 'ls',true)
     KUI.verifyOutputMessage(browser, 'Permission denied')
   },
 
   'Verify commands are disabled - plugin-kui-addons': browser => {
-    const bashLikeRoutes = ['git status','git diff'];
+    const bashLikeRoutes = ['git status','git diff','lls'];
     const k8sRoutes = ['istio install','istio uninstall','istio ingress','istio status',
     'bookinfo install','bookinfo uninstall','bookinfo create',
     'kiali install','kiali delete','kiali console', 'kiali graph',

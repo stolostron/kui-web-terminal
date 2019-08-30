@@ -23,13 +23,6 @@ module.exports = {
     KUI.verifyWebsocketConnection(browser)
   },
 
-  'Verify supported CLIs are installed': browser => {
-    const KUI = browser.page.KUI()
-    const CLI = browser.page.CLI()
-    KUI.executeCommand(browser, 'ls /usr/local/bin')
-    supportedClis.forEach(cli => CLI.verifySupportedCLIs(browser, cli))
-  },
-
   'Verify supported CLIs can execute': browser => {
     const KUI = browser.page.KUI()
     supportedClis.forEach(cli => {

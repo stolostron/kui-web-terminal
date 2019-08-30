@@ -86,7 +86,8 @@ RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && sed -i -e 's/\\u@\\h//g' /etc/skel/.bashrc \   
     && sed -i -e 's/://g' /etc/skel/.bashrc \
     && sed -i -e 's/\\w//g' /etc/skel/.bashrc \   
-    && sed -i -e 's|^PATH=.*|PATH=/usr/local/bin|g' /etc/skel/.profile
+    && sed -i -e 's|^PATH=.*|PATH=/usr/local/bin|g' /etc/skel/.profile \
+    && echo "alias ls='ls -l'" >> /etc/skel/.profile
 
 
 
