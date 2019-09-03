@@ -4,10 +4,6 @@ KUI_UPDATE_VERSION ?= dev
 install-proxy: 
 	npm install
 
-.PHONY: compile
-compile:
-	npx kui-compile
-
 .PHONY: headless
 headless: 
 	QUIET=true NO_ZIPS=true npx kui-build-headless 

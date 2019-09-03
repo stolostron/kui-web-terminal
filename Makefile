@@ -103,10 +103,6 @@ install-proxy:
 install: download-plugins install-proxy install-client 
 	@echo npm install both client and proxy
 
-.PHONY: compile-client
-compile-client:
-	$(MAKE) -C proxy $@
-
 .PHONY: headless
 headless:
 	$(MAKE) -C proxy $@
@@ -185,4 +181,4 @@ update-plugins: download-plugins
 .PHONY: update-kui
 update-kui: 
 	$(MAKE) -C client update-client
-	$(MAKE) -C proxy update-proxy	
+	$(MAKE) -C proxy update-proxy

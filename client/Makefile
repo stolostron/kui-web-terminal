@@ -26,10 +26,6 @@ update-client:
 	npm install --save @kui-shell/webpack@${KUI_UPDATE_VERSION}
 	npm install
 
-.PHONY: compile-client
-compile-client: 
-	npx kui-compile
-
 .PHONY: import-css
 import-css:
 	@bash scripts/import-css.sh

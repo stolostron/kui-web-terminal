@@ -144,3 +144,56 @@ download "github-repo-name" "release-tgz-filename" "release-version"
 4. In the root directory, run `make run`.  A docker container will spin up, the KUI UI should be able to be accessed via `https://localhost:8081`.
 5. In the root directory, run `make tests-dev`.  Some dependencies will be installed, and tests should run automatically.
 6. From this point you can run tests via `nightwatch` command from the `client/` directory.  You may need to install nightwatch globally to use the command (`npm install -g nightwatch`).
+
+## Makefile Commands
+
+### Root
+| Command                 |    Description  |
+| ---------------         | --------------- |
+| build-image             |    Builds the MCM-KUI docker image. |
+| clean-client            |    Removes the /build, /kui-webpack-tmp, and /node_modules in the /client directory. |
+| clean-downloads         |    Removes the /downloads and /plugin-downloads directories. |
+| clean-kui               |    Runs the commands for clean-client, clean-proxy, and clean-downloads. |
+| clean-proxy             |    Removes the tmp directory in root and the build and node_modules directories in /proxy. |
+| docker-login            |    Docker login to the integration artifactory registry. |
+| docker-login-dev        |    Docker login to the scratch artifactory registry. | 
+| docker-login-edge       |    Docker login to the edge artifactory registry. |
+| docker-logins           |    Docker login to the integration and scratch artifactory registries. |
+| download-clis           |    Downloads the CLI binaries to the /downloads directory. |
+| download-plugins        |    Downloads the plugin packages to the /plugin-downloads directory. |
+| dust-template           |    Generates the Dust template that renders the MCM KUI UI. |
+| headless                |    Builds the open-source KUI proxy component. |
+| init                    |    Downloads the CICD build-harness. |
+| install                 |    Downloads plugin dependencies and npm installs /client and /proxy dependencies. |
+| install-client          |    Installs the /client package.json npm packages. | 
+| install-proxy           |    Installs the /proxy package.json npm packages. |
+| lint                    |    Runs linting on the /proxy directory. |
+| lint-proxy              |    Runs linting on the /proxy directory. |
+| release                 |    Pushes the MCM-KUI docker image to the docker registry. |
+| tests-dev               |    Runs the Nightwatch tests against a container from a "mcm-kui-proxy:latest" local image. Requires FUNCTIONAL_TESTS=TRUE. |
+| update-kui              |    Updates the open-source KUI dependencies based on KUI_UPDATE_VERSION variable. |
+| update-plugins          |    Updates the /client and /proxy package.json plugin packages. Should run 'make download-plugins' first. |
+| webpack                 |    Builds the open-source KUI webpack component. |
+
+### Client
+| Command                 |    Description  |
+| ---------------         | --------------- |
+| clean-client            |    Removes the /build, /kui-webpack-tmp, and /node_modules in the /client directory. |
+| client-tests            |    Runs the Nightwatch tests against a container from a "mcm-kui-proxy:latest" local image. |
+| client-update-plugins   |    Updates the /client package.json plugin packages. Should run 'make download-plugins' first. |
+| compile-css             |    Compiles the internal SCSS files into CSS. |
+| fix-webpack-path        |    Adds the /kui context root to the open-source webpack configuration. |
+| import-css              |    Updates the CSS files from the open-source KUI repository. |
+| install-client          |    Installs the /client package.json npm packages. |
+| update-client           |    Updates the /client KUI dependencies based on KUI_UPDATE_VERSION variable. |
+| webpack                 |    Builds the open-source KUI webpack component. |
+
+### Proxy
+| Command                 |    Description  |
+| ---------------         | --------------- |
+| clean-proxy             |    Removes the build and node_modules directories in /proxy. |
+| headless                |    Builds the open-source KUI proxy component. |
+| install-proxy           |    Installs the /proxy package.json npm packages. |
+| lint-proxy              |    Runs linting on the /proxy directory. |
+| proxy-update-plugins    |    Updates the /proxy package.json plugin packages. Should run 'make download-plugins' first. |
+| update-proxy            |    Updates the /proxy KUI dependencies based on KUI_UPDATE_VERSION variable. |
