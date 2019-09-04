@@ -23,8 +23,7 @@ module.exports = {
   'Verify user home folder permissions': browser => {
     const KUI = browser.page.KUI()
     KUI.executeCommand(browser, 'pwd')
-    KUI.verifyOutputMessage(browser, '/home/655')
-
+    KUI.verifyOutputMessage(browser, '', /\/home\/\d+/)
     KUI.executeCommand(browser, 'cd ..')
     KUI.executeCommand(browser, 'ls',true)
     KUI.verifyOutputMessage(browser, 'Permission denied')

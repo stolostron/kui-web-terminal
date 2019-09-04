@@ -103,7 +103,7 @@ function verifyOutputFailure(browser) {
   browser.assert.cssProperty(outputSelector + ' .kui--icon-error', 'display', 'block')
 }
 
-function verifyOutputMessage(browser, message) {
+function verifyOutputMessage(browser, message, regexMsg) {
   const preMsgSelector = outputSelector + ' .repl-result pre'
   const xtermMsgSelector = outputSelector + ' .xterm-container .xterm-rows div:first-of-type span'
   this.api.element('css selector', preMsgSelector, preRes => {
@@ -115,7 +115,9 @@ function verifyOutputMessage(browser, message) {
           let msgText = ''
           xtermRes.value.forEach(element => this.api.elementIdText(element.ELEMENT, text => msgText += text.value))
           browser.perform(() => {
-            if(!msgText.includes(message)) throw new Error(`${msgText} did not contain the text: "${message}"`)
+            if((message && !msgText.includes(message)) || (regexMsg && !msgText.match(regexMsg))) {
+              throw new Error(`${msgText} did not contain the text: "${message?message:regexMsg}"`)
+            }
           })
         }
       })
