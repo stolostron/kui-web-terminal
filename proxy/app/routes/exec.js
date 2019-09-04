@@ -94,6 +94,21 @@ function main(cmdline, execOptions, server, port, host,user, locale) {
           debug(`failed to delete ${user.name}:`,e)
         })
       })
+      // check if the user connected within the time period
+      let connectedInTime = false
+      const connectionTimeout = process.env.KUI_WEBSOCKET_TIMEOUT || 60000
+      setTimeout(() => {
+        if(!connectedInTime){
+          console.log(`no websocket detected for ${uid}. cleaning process`)
+          if(!child.killed){
+            child.kill()
+          }
+        }
+      },connectionTimeout)
+      wss.on('connection',()=>{
+        console.log('detected websocket connection for',uid)
+        connectedInTime = true
+      })
 
       const channel = new StdioChannelWebsocketSide(wss)
       await channel.init(child, process.env.KUI_HEARTBEAT_INTERVAL || 30000)
