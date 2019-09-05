@@ -103,15 +103,45 @@
   }
 
   #configure-client-modal {
-    .bx--modal-header {
-      padding-left: 0;
+    .bx--modal-container {
+      padding: 2.5rem 3rem 0;
+      background-color: #fff;
+      border-top: 4px solid #3d70b2;
+      .bx--modal-header {
+        padding-left: 0;
 
-      .bx--modal-close__icon {
-        fill: #171717;
+        .bx--modal-header__heading {
+          font-size: 1.75rem;
+          font-weight: 300;
+        }
+  
+        .bx--modal-close__icon {
+          fill: #171717;
+        }
+      }
+      .bx--modal-content {
+        width: 100%;
+
+        .command-container {
+          .bx--snippet {
+            background-color: #f4f7fb;
+            border: 1px solid #dfe3e6;
+
+            .bx--snippet__icon.svg {
+              fill: #3d70b2;
+            }
+          }
+        }
       }
     }
-    .bx--modal-content {
-      width: 100%;
+  }
+
+  #icp-about-dialog {
+    .bx--modal-close__icon {
+      fill: #171717;
+    }
+    .bx--modal-close:hover {
+      background-color: transparent;
     }
   }
 
