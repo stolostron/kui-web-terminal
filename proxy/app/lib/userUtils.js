@@ -76,7 +76,7 @@ const setupUserEnv = (user)=>{
 
 const loginUser = (user, namespace, accessToken, idToken) =>{
     const loginArgs = ["login", "-a", ICP_EXTERNAL_URL, "-n", namespace, "--skip-ssl-validation"];
-    const loginEnv = Object.assign(user.env,{"CLOUDCTL_ACCESS_TOKEN":accessToken,"CLOUDCTL_ID_TOKEN":idToken})
+    const loginEnv = Object.assign({}, user.env,{"CLOUDCTL_ACCESS_TOKEN":accessToken,"CLOUDCTL_ID_TOKEN":idToken})
     const loginOpts = {
         cwd: loginEnv["HOME"],
         env: loginEnv,
@@ -117,7 +117,58 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
     })
 }
 
+const updateKubeServerConfig = user => {
+  let config = {}
+  try {
+    config = require(`${user.env["HOME"]}/.cloudctl/cloudctl.json`)
+  } catch(e) {
+    console.error('failed to import cloudctl.json with error: ', e)
+  }
+  const kubeArgs = ["config", "set-cluster", config['cluster-name'], "--server=https://kubernetes.default.svc:443", "--insecure-skip-tls-verify=true"];
+  const kubeOpts = {
+      cwd: user.env["HOME"],
+      env: user.env,
+      timeout: 20000,
+      uid: user.uid,
+      gid: NOBODY_GID
+  }
+  return new Promise(function(resolve) {
+    if (!config['cluster-name']) {
+      console.log('failed to read cluster-name from config, aborting kube api server rewrite')
+      return resolve()
+    }
 
+    let kubeProc = child_process.spawn('/usr/local/bin/kubectl', kubeArgs, kubeOpts)
+    kubeProc.stdin.end()
+    let kubeOutput = ''
+    kubeProc.stdout.on("data", function (data) {
+      kubeOutput += String(data);
+    })
+    kubeProc.stderr.on("data", function (data) {
+      kubeOutput += String(data);
+    })
+    kubeProc.on("error", function (err) {
+      console.error(user.name + " kube api server rewrite failed.")
+      console.error(err.toString())
+    })
+    kubeProc.on("exit", function (code) {
+      if (code == 0) {
+        console.log('user ' + user.name + ' kube api server rewrite success ')
+        return resolve()
+      }
+
+      console.log('user ' + user.name + ' kube api server rewrite failed with exit code ' + code)
+
+      let errMsg = ""
+      let lines = kubeOutput.split('\n')
+      for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
+        errMsg = lines[i]
+        if (errMsg != "") break
+      }
+      resolve(errMsg) // we won't fail the whole login
+    })
+  })
+}
 
 /**
  * This function is async, and it will return a user object {uid,env} for the cookie.
@@ -151,7 +202,8 @@ module.exports.getUser = async (token) => {
         user.env=setupUserEnv(user);
         user.created=true;
         if(!INSECURE_MODE){
-            await loginUser(user,namespace,accessToken,idToken); 
+            await loginUser(user,namespace,accessToken,idToken);
+            await updateKubeServerConfig(user);
         }
         return user;
     }catch(e){
