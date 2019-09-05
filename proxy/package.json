@@ -9,15 +9,15 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@kui-shell/builder": "^3.0.14",
+    "@kui-shell/builder": "^3.0.16",
     "eslint": "^6.0.1",
     "eslint-plugin-import": "^2.11.0",
     "jsdom": "^15.1.1"
   },
   "dependencies": {
-    "@kui-shell/core": "^3.0.14",
-    "@kui-shell/plugin-bash-like": "^3.0.14",
-    "@kui-shell/plugin-k8s": "^3.0.14",
+    "@kui-shell/core": "^3.0.16",
+    "@kui-shell/plugin-bash-like": "^3.0.16",
+    "@kui-shell/plugin-k8s": "^3.0.16",
     "@kui-shell/plugin-kui-addons": "file:../plugin-downloads/plugin-kui-addons.tgz",
     "consolidate": "^0.15.1",
     "cookie-parser": "1.4.4",
