@@ -27,7 +27,7 @@ router.get('/', function (req, res, next) {
       return res.render('main', Object.assign({ header: '', propsH: '', stateH: '', filesH: '',kuiNonce: nonce}))
     }
 
-    const { headerHtml: header, props: propsH, state: stateH, files: filesH } = headerRes
+    const { headerHtml: header, props: propsH, state: stateH, files: filesH} = headerRes
     if(process.env.NODE_ENV === 'development') {
       lodash.forOwn(filesH, value => {
         value.path = `/kui/api/proxy${value.path}` //preprend with proxy route
@@ -39,7 +39,8 @@ router.get('/', function (req, res, next) {
         propsH: propsH,
         stateH: stateH,
         filesH: filesH,
-        kuiNonce: nonce
+        kuiNonce: nonce,
+        lang: req.headers['accept-language']
       }))
 
     } catch(e) {

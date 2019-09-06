@@ -120,4 +120,4 @@ const copyright = `{!
  !}
 `
 
-fs.writeFileSync(dustTemplate, `${copyright}<!DOCTYPE html><html>${domOutput}</html>`)
+fs.writeFileSync(dustTemplate, `${copyright}<!DOCTYPE html><html lang={lang}>${domOutput}</html>`)
