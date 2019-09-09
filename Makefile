@@ -13,7 +13,15 @@ WORKING_CHANGES = $(shell git status --porcelain)
 BUILD_DATE = $(shell date +%m/%d@%H:%M:%S)
 GIT_COMMIT = $(shell git rev-parse --short HEAD)
 VCS_REF = $(if $(WORKING_CHANGES),$(GIT_COMMIT)-$(BUILD_DATE),$(GIT_COMMIT))
-IMAGE_DESCRIPTION = IBM Cloud Private MCM-KUI
+APP_VERSION ?= $(if $(shell cat VERSION 2> /dev/null),$(shell cat VERSION 2> /dev/null),0.0.1)
+IMAGE_VERSION ?= $(APP_VERSION)-$(GIT_COMMIT)
+IMAGE_DISPLAY_NAME = Visual Web Terminal
+IMAGE_DESCRIPTION = Visual Web Terminal provides a web based terminal window with enhanced interactive visualzations of command results
+IMAGE_DESCRIPTION_SHORT = Visual Web Terminal 
+IMAGE_MAINTAINER = kui@us.ibm.com
+IMAGE_VENDOR = IBM
+IMAGE_SUMMARY = $(IMAGE_DESCRIPTION)
+IMAGE_OPENSHIFT_TAGS = visual terminal 
 
 
 DOCKER_USER ?= $(ARTIFACTORY_USER)
@@ -85,7 +93,17 @@ docker-logins:
 
 
 TEMP_FOLDER ?= 'tmp' # a temporary folder for headless build
-DOCKER_BUILD_OPTS = --build-arg "VCS_REF=$(VCS_REF)" --build-arg "VCS_URL=$(GIT_REMOTE_URL)" --build-arg "IMAGE_NAME=$(DOCKER_IMAGE_ARCH)" --build-arg "IMAGE_DESCRIPTION=$(IMAGE_DESCRIPTION)" --build-arg "ARCH=$(ARCH)"
+DOCKER_BUILD_OPTS = --build-arg "VCS_REF=$(VCS_REF)" \
+                    --build-arg "VCS_URL=$(GIT_REMOTE_URL)" \
+					--build-arg "IMAGE_NAME=$(DOCKER_IMAGE_ARCH)" \
+					--build-arg "IMAGE_DISPLAY_NAME=$(IMAGE_DISPLAY_NAME)" \
+					--build-arg "IMAGE_MAINTAINER=$(IMAGE_MAINTAINER)" \
+					--build-arg "IMAGE_VENDOR=$(IMAGE_VENDOR)" \
+					--build-arg "IMAGE_VERSION=$(IMAGE_VERSION)" \
+					--build-arg "IMAGE_DESCRIPTION=$(IMAGE_DESCRIPTION)" \
+					--build-arg "IMAGE_SUMMARY=$(IMAGE_SUMMARY)" \
+					--build-arg "IMAGE_OPENSHIFT_TAGS=$(IMAGE_OPENSHIFT_TAGS)" \
+					--build-arg "ARCH=$(ARCH)"
 
 .PHONY:	download-plugins
 download-plugins:
