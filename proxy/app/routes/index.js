@@ -34,13 +34,14 @@ router.get('/', function (req, res, next) {
       })
     }
     try {
+      let langs = req.headers['accept-language'].split(',');
       res.render('main', Object.assign({
         header: header,
         propsH: propsH,
         stateH: stateH,
         filesH: filesH,
         kuiNonce: nonce,
-        lang: req.headers['accept-language']
+        lang: langs[0]
       }))
 
     } catch(e) {
