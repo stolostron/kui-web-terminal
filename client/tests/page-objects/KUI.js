@@ -105,7 +105,7 @@ function verifyOutputFailure(browser) {
 
 function verifyOutputMessage(browser, message, regexMsg) {
   const preMsgSelector = outputSelector + ' .repl-result pre'
-  const xtermMsgSelector = outputSelector + ' .xterm-container .xterm-rows div:first-of-type span'
+  const xtermMsgSelector = outputSelector + ' .xterm-container .xterm-rows div:first-of-type'
   this.api.element('css selector', preMsgSelector, preRes => {
     if (preRes.status === 0) { // output is returned in a pre element
       browser.assert.containsText(preMsgSelector, message)
@@ -113,7 +113,7 @@ function verifyOutputMessage(browser, message, regexMsg) {
       this.api.elements('css selector', xtermMsgSelector, xtermRes => {
         if (xtermRes.status === 0) { // output is returned xterm container one span per letter
           let msgText = ''
-          xtermRes.value.forEach(element => this.api.elementIdText(element.ELEMENT, text => msgText += text.value))
+          xtermRes.value.forEach(element => this.api.elementIdText(element.ELEMENT, text => msgText += text.value + '\n'))
           browser.perform(() => {
             if((message && !msgText.includes(message)) || (regexMsg && !msgText.match(regexMsg))) {
               throw new Error(`${msgText} did not contain the text: "${message?message:regexMsg}"`)
