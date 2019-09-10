@@ -18,7 +18,8 @@ module.exports = {
   },
   commands: [{
     verifyUserAuthenticated,
-    verifySupportedCLIs
+    verifySupportedCLIs,
+    verifyTableOutput
   }]
 }
 
@@ -32,4 +33,7 @@ function verifyUserAuthenticated(browser) {
 
 function verifySupportedCLIs(browser, cli) {
   browser.assert.elementPresent(`span[data-value="${cli}*"]`)
+}
+function verifyTableOutput(browser) {
+  browser.assert.elementPresent('table.result-table'); 
 }

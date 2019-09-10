@@ -203,7 +203,9 @@ module.exports.getUser = async (token) => {
         user.created=true;
         if(!INSECURE_MODE){
             await loginUser(user,namespace,accessToken,idToken);
-            await updateKubeServerConfig(user);
+            if (process.env.NODE_ENV !== 'development') {
+              await updateKubeServerConfig(user);
+            }
         }
         return user;
     }catch(e){

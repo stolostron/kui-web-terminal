@@ -40,24 +40,16 @@ module.exports = {
     verifyOutputMessage,
     verifyTheme,
     verifyProductHeader,
-    verifySidecar,
-    verifyNewTabs
+    verifyNewTabs,
+    verifyHelp,
+    verifyDetailSidecar
   }]
 }
-
 
 function waitForPageLoad(browser) {
   this.api.pause(5000)
   browser.element('css selector', '.page', res => {
-    if( res.status !== 0 ){
-      browser.source(result => {
-        if (result.value.includes('Chromium Authors')) {
-          console.log('ERROR:  DEFAULT CHROME PAGE')
-        } else {
-          console.log(chalk.bold.red('Login page load failed, DOM: '), result.value)
-        }
-      }) // eslint-disable-line no-console
-    }
+    res.status !== 0 && browser.source(result => console.log(chalk.bold.red('Login page load failed, DOM: '), result.value)) // eslint-disable-line no-console
     this.waitForElementNotPresent('@pageLoading', 60000)
     this.waitForElementPresent('@page', 20000)
     this.waitForElementPresent('@main')
@@ -82,11 +74,11 @@ function executeCommand(browser, command, failed) {
   this.waitForElementPresent('@inputBar')
 
   this.setValue('@inputBar', 'clear') // clean output
-  browser.setValue('.kui--input-stripe input', [ENTER])
+  browser.keys(ENTER)
   this.api.pause(500) // lag on enter press
 
   this.setValue('@inputBar', command) // input command
-  browser.setValue('.kui--input-stripe input', [ENTER])
+  browser.keys(ENTER)
   this.api.pause(500) // lag on enter press
 
   this.waitForElementPresent(resultInputSelector, 10000)
@@ -167,6 +159,24 @@ function verifyNewTabs(browser) {
   this.waitForElementNotPresent(secondTabContainer)
 }
 
-function verifySidecar() {
+//Sidecar containing getting started content etc
+function verifySidecar(browser, page) {
+  browser.assert.attributeContains(`.bx--tabs__nav .sidecar-bottom-stripe-button:nth-of-type(${page})`, 'class', 'bx--tabs__nav-item--selected')
+}
+
+//Drill down sidecar when selecting an element in a table
+function verifyDetailSidecar(browser) {
+  browser.getText('.repl-block[data-input-count="0"] tbody.entity span.entity-name', result => {
+    this.api.pause(500)
+    browser.click('.repl-block[data-input-count="0"] tbody.entity span.entity-name')
+    this.waitForElementVisible('@sidecar', 30000)
+    browser.assert.containsText('#sidecar .sidecar-header-name-content span.entity-name', result.value);
+    browser.click('#sidecar .sidecar-bottom-stripe-quit path')
+  });
+}
+
+function verifyHelp(browser) {
   this.waitForElementVisible('@sidecar')
+  //getting started tab is 2nd in list, after "about" section
+  browser.assert.attributeContains('.bx--tabs__nav .sidecar-bottom-stripe-button:nth-of-type(2)', 'class', 'bx--tabs__nav-item--selected')
 }

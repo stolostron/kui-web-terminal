@@ -11,11 +11,6 @@
 module.exports = {
   before: function (browser) {
     const KUI =  browser.page.KUI()
-    const loginPage = browser.page.LoginPage()
-    if (process.env.TEST_URL && (!process.env.TEST_URL.includes('localhost'))) {
-      loginPage.navigate()
-      loginPage.authenticate()
-    }
     KUI.navigate()
     KUI.waitForPageLoad(browser)
     KUI.verifyWebsocketConnection(browser)
@@ -24,7 +19,7 @@ module.exports = {
   'Verify KUI getting started command': browser => {
     const KUI = browser.page.KUI()
     KUI.executeCommand(browser, 'getting started')
-    KUI.verifySidecar()
+    KUI.verifySidecar(browser, 2)
   },
 
   'Verify cloudctl login success': browser => {
@@ -51,14 +46,16 @@ module.exports = {
     KUI.verifyNewTabs(browser)
   },
 
+  'Verify help opens sidecar getting started': browser => {
+    const KUI = browser.page.KUI()
+    KUI.executeCommand(browser, 'help')
+    KUI.verifyHelp(browser)
+  },
+
   after: function (browser, done) {
     setTimeout(() => {
-      if (browser.sessionId) {
-        browser.end()
-        done()
-      } else {
-        done()
-      }
+      browser.end()
+      done()
     })
   }
 }
