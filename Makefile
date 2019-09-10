@@ -14,7 +14,9 @@ BUILD_DATE = $(shell date +%m/%d@%H:%M:%S)
 GIT_COMMIT = $(shell git rev-parse --short HEAD)
 VCS_REF = $(if $(WORKING_CHANGES),$(GIT_COMMIT)-$(BUILD_DATE),$(GIT_COMMIT))
 APP_VERSION ?= $(if $(shell cat VERSION 2> /dev/null),$(shell cat VERSION 2> /dev/null),0.0.1)
-IMAGE_VERSION ?= $(APP_VERSION)-$(GIT_COMMIT)
+# IMAGE_VERSION is only used in an image label so set it to this release version
+# IMAGE_VERSION ?= $(APP_VERSION)-$(GIT_COMMIT)
+IMAGE_VERSION = 3.2.1
 IMAGE_DISPLAY_NAME = Visual Web Terminal
 IMAGE_DESCRIPTION = Visual Web Terminal provides a web based terminal window with enhanced interactive visualzations of command results
 IMAGE_DESCRIPTION_SHORT = Visual Web Terminal 
