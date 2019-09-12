@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@kui-shell/builder": "^3.0.27",
+    "@kui-shell/builder": "^3.0.30",
     "@types/mocha": "5.2.7",
     "@types/node": "12.0.10",
     "mocha": "6.1.4",
@@ -22,16 +22,16 @@
     "xml2json": "^0.11.0"
   },
   "dependencies": {
-    "@kui-shell/core": "^3.0.27",
-    "@kui-shell/plugin-bash-like": "^3.0.27",
-    "@kui-shell/plugin-core-support": "^3.0.27",
-    "@kui-shell/plugin-editor": "^3.0.27",
-    "@kui-shell/plugin-k8s": "^3.0.27",
+    "@kui-shell/core": "^3.0.30",
+    "@kui-shell/plugin-bash-like": "^3.0.30",
+    "@kui-shell/plugin-core-support": "^3.0.30",
+    "@kui-shell/plugin-editor": "^3.0.30",
+    "@kui-shell/plugin-k8s": "^3.0.30",
     "@kui-shell/plugin-kui-addons": "file:../plugin-downloads/plugin-kui-addons.tgz",
-    "@kui-shell/plugin-proxy-support": "^3.0.27",
+    "@kui-shell/plugin-proxy-support": "^3.0.30",
     "@kui-shell/plugin-search": "file:../plugin-downloads/plugin-search.tgz",
-    "@kui-shell/proxy": "^3.0.27",
-    "@kui-shell/webpack": "^3.0.27",
+    "@kui-shell/proxy": "^3.0.30",
+    "@kui-shell/webpack": "^3.0.30",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
