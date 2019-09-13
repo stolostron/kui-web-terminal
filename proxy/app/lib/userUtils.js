@@ -13,7 +13,7 @@ const child_process=require('child_process');
 const exec = util.promisify(child_process.exec);
 const LINUX_DISTRO = process.env["LINUX_DISTRO"];
 const INSECURE_MODE = process.env["INSECURE_MODE"];
-const {verifyAccessToken, ICP_EXTERNAL_URL, getNamespace} = require('./securityUtils');
+const {verifyAccessToken, ICP_EXTERNAL_URL, getNamespace,getAccount} = require('./securityUtils');
 const NOBODY_GID = parseInt(process.env.NOBODY_GID || '99',10);
 //mapping of cookie->uid
 let nextUID=65536;
@@ -74,8 +74,8 @@ const setupUserEnv = (user)=>{
     return userEnv;
 }
 
-const loginUser = (user, namespace, accessToken, idToken) =>{
-    const loginArgs = ["login", "-a", ICP_EXTERNAL_URL, "-n", namespace, "--skip-ssl-validation"];
+const loginUser = (user, namespace, accessToken, idToken, accountId) =>{
+    const loginArgs = ["login", "-a", ICP_EXTERNAL_URL, "-n", namespace, "--skip-ssl-validation","-c",accountId];
     const loginEnv = Object.assign({}, user.env,{"CLOUDCTL_ACCESS_TOKEN":accessToken,"CLOUDCTL_ID_TOKEN":idToken})
     const loginOpts = {
         cwd: loginEnv["HOME"],
@@ -180,12 +180,14 @@ module.exports.getUser = async (token) => {
     let idToken = ''
     const accessToken = token
     let namespace = ''
+    let accountId = ''
     //user validation
     if(!INSECURE_MODE){
         debug('start user validation')
         try{
             idToken = await verifyAccessToken(token)
             namespace = await getNamespace(token)
+            accountId = await getAccount(token)
         }catch(e){
             debug('user token validation failed')
             throw e
@@ -202,7 +204,7 @@ module.exports.getUser = async (token) => {
         user.env=setupUserEnv(user);
         user.created=true;
         if(!INSECURE_MODE){
-            await loginUser(user,namespace,accessToken,idToken);
+            await loginUser(user,namespace,accessToken,idToken,accountId);
             if (process.env.NODE_ENV !== 'development') {
               await updateKubeServerConfig(user);
             }

@@ -65,6 +65,57 @@ module.exports.getNamespace = (accessToken) => {
  })
 }
 
+module.exports.getAccount = (accessToken) => {
+  return new Promise(function (resolve, reject) {
+    const getAccountsUrl = url.parse(ICP_EXTERNAL_URL + "/idmgmt/identity/api/v1/account");
+    console.log("getting user account with " + getAccountsUrl.href);
+    let req = https.request({
+      protocol: getAccountsUrl.protocol,
+      hostname: getAccountsUrl.hostname,
+      port: getAccountsUrl.port,
+      path: getAccountsUrl.path,
+      method: "GET",
+      rejectUnauthorized: false, // we are using the icp-management-ingress and it never has a valid cert for the service name
+      headers: {
+        "Authorization": "Bearer " + accessToken,
+        "Accept": "application/json",
+      },
+      json: true,
+    }, function (res) {
+      let body = "";
+      res.on('data', function (chunk) {
+        body = body + chunk;
+      });
+      res.on('end', function () {
+        if (res.statusCode < 200 || res.statusCode >= 300) {
+          return reject(new Error("Unable to get user accounts. Status code " + res.statusCode + " returned."));
+        }
+
+        let resourceObj = {};
+        try{
+          resourceObj = JSON.parse(body);
+        }catch(e){
+          return reject(new Error("Unable to parse results." ));
+        }
+        
+        if(resourceObj.length === 0){
+          reject(new Error("User does not have any account.")); 
+        }
+        if(!resourceObj[0] || !resourceObj[0].id){
+          reject(new Error("Account doesn't contain any id"));
+        }
+        //return the first account for user to use
+        return resourceObj[0].id;
+      });
+    });
+    req.on('error', function (err) {
+      reject(new Error(err.message));
+    });
+    req.end();    
+ });
+};
+
+
 module.exports.verifyAccessToken = (accessToken) => {
     return new Promise(function (resolve, reject) {
       if (!accessToken) {
