@@ -92,11 +92,11 @@ module.exports.getHighestRole = (accessToken) => {
         }
         
         if(!body){
-          reject(new Error("User does not have any role.")); 
+          return reject(new Error("User does not have any role.")); 
         }
         console.log("getHighestRole:",body);
         //return the first account for user to use
-        return body;
+        return resolve( body);
       });
     });
     req.on('error', function (err) {
@@ -140,13 +140,13 @@ module.exports.getAccount = (accessToken) => {
         }
         
         if(resourceObj.length === 0){
-          reject(new Error("User does not have any account.")); 
+          return reject(new Error("User does not have any account.")); 
         }
         if(!resourceObj[0] || !resourceObj[0].id){
-          reject(new Error("Account doesn't contain any id"));
+          return reject(new Error("Account doesn't contain any id"));
         }
         //return the first account for user to use
-        return resourceObj[0].id;
+        return resolve(resourceObj[0].id);
       });
     });
     req.on('error', function (err) {
