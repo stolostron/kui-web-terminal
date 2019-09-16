@@ -67,13 +67,13 @@ module.exports.getNamespace = (accessToken) => {
 
 module.exports.getHighestRole = (accessToken) => {
   return new Promise(function (resolve, reject) {
-    const getAccountsUrl = url.parse(ICP_EXTERNAL_URL + "/idmgmt/identity/api/v1/teams/highestRole");
-    console.log("getting user account with " + getAccountsUrl.href);
+    const getHighestRoleUrl = url.parse(ICP_EXTERNAL_URL + "/idmgmt/identity/api/v1/teams/highestRole");
+    console.log("getting user role with " + getHighestRoleUrl.href);
     let req = https.request({
-      protocol: getAccountsUrl.protocol,
-      hostname: getAccountsUrl.hostname,
-      port: getAccountsUrl.port,
-      path: getAccountsUrl.path,
+      protocol: getHighestRoleUrl.protocol,
+      hostname: getHighestRoleUrl.hostname,
+      port: getHighestRoleUrl.port,
+      path: getHighestRoleUrl.path,
       method: "GET",
       rejectUnauthorized: false, // we are using the icp-management-ingress and it never has a valid cert for the service name
       headers: {
