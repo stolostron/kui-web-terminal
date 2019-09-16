@@ -61,7 +61,16 @@ echo "Downloaded helm-linux-${ARCH}.tar.gz to downloads/"
 
 if [ "$ARCH" = "amd64" ]; then
   echo "Downloading oc ..."
-  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.1.11/openshift-client-linux-4.1.11.tar.gz | tar -xvz -C ./downloads/ oc
+  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.1.11/openshift-client-linux-4.1.11.tar.gz | tar -xvz -C ./downloads/ oc  
   [[ ! -f "downloads/oc" ]] && echo "download oc failed" && exit -1
+  mv ./downloads/oc ./downloads/oc-linux-amd64
+  echo "Downloaded openshift origin to downloads/"
+fi
+
+if [ "$ARCH" = "ppc64le" ]; then
+  echo "Downloading oc ..."
+  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.1.11-201908130027.git.0.150bde9.el7/linux-ppc64le/oc.tar.gz | tar -xvz -C ./downloads/ oc 
+  [[ ! -f "downloads/oc" ]] && echo "download oc failed" && exit -1
+  mv ./downloads/oc ./downloads/oc-linux-ppc64le
   echo "Downloaded openshift origin to downloads/"
 fi
