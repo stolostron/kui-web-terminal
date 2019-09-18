@@ -67,6 +67,7 @@
 
 #sidecar {
   .sidecar-header {
+    flex-basis: unset;
     .sidecar-header-name {
       .entity-name-line .entity-name { // fix truncation issue for getting started title
         height: auto;
