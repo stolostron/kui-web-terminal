@@ -128,7 +128,7 @@ download "github-repo-name" "release-tgz-filename" "release-version"
     helm install --set proxy.clusterIP=your.icp.ip,proxy.clusterPort=8443 --name mcm-kui --namespace default ibm-mcm-kui-99.99.99.tgz --tls
    ```
 
-3. Use KUI by visiting `https://your.cluster.ip:8443/kui/` 
+3. Use KUI by visiting `https://your.cluster.ip:8443/kui` 
 
 4. Login with `cloudctl login`
 
@@ -140,10 +140,9 @@ download "github-repo-name" "release-tgz-filename" "release-version"
     - ICP_EXTERNAL_URL (`https://<cluster host>:<cluster port>`)
     - TEST_USER (`login username`)
     - TEST_PASSWORD (`login password`)
-    - AUTH_TOKEN (`ICP access token, can be obtained from doing a cloudctl login, then cloudctl tokens --access`)
-4. In the root directory, run `make run`.  A docker container will spin up, the KUI UI should be able to be accessed via `https://localhost:8081`.
-5. In the root directory, run `make tests-dev`.  Some dependencies will be installed, and tests should run automatically.
-6. From this point you can run tests via `nightwatch` command from the `client/` directory.  You may need to install nightwatch globally to use the command (`npm install -g nightwatch`).
+    - AUTH_TOKEN (`ICP access token, can be obtained from doing a cloudctl login, then 'cloudctl tokens --access'`)
+4. In the root directory, run `make tests-dev FUNCTIONAL_TESTS="TRUE"`.  Some dependencies will be installed, and tests should run automatically. A docker container will spin up, the KUI UI should be able to be accessed via `https://localhost:8081/kui`
+5. From this point you can run tests via `nightwatch` command from the `client/` directory.  You may need to install nightwatch globally to use the command (`npm install -g nightwatch`).
 
 ## Makefile Commands
 
