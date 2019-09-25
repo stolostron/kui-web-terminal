@@ -94,7 +94,7 @@ matrix:
       - make headless
       - make build-image
       - make release
-      - make release DOCKER_TAG=latest-rhel
+      - make release DOCKER_TAG=${DOCKER_TAG}-rhel
 
   # -- PPC Deploy to Artifactory ---
   - stage: build
