@@ -187,6 +187,8 @@ tests-dev:
 ifeq ($(FUNCTIONAL_TESTS), TRUE)
 	$(SELF) run > /dev/null
 	$(MAKE) -C client client-tests
+else
+	@echo Tests are disabled, export FUNCTIONAL_TESTS="TRUE" to run tests.
 endif
 
 .PHONY: dust-template
