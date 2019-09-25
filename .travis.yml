@@ -81,7 +81,7 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=AMD64 PUSH_INTEGRATION=true DOCKER_TAG=latest
+      - JOBNAME=AMD64 PUSH_REPO=integration DOCKER_TAG=latest
     before_install:
       - make init
       - make docker-login
@@ -105,7 +105,7 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=Power PUSH_INTEGRATION=true DOCKER_TAG=latest
+      - JOBNAME=Power PUSH_REPO=integration DOCKER_TAG=latest
     before_install:
       - make init
       - make docker-login
@@ -130,7 +130,7 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=s390x PUSH_INTEGRATION=true DOCKER_TAG=latest
+      - JOBNAME=s390x PUSH_REPO=integration DOCKER_TAG=latest
     before_install:
       - make init
       - make docker-logins
