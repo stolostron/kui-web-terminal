@@ -7,9 +7,6 @@
  * Contract with IBM Corp.
  *******************************************************************************/
 
-const supportedClis = ['kubectl', 'helm', 'cloudctl', 'istioctl']
-process.env.JOBNAME === 'AMD64' && supportedClis.push('oc')
-
 module.exports = {
   before: function (browser) {
     const KUI =  browser.page.KUI()
@@ -25,8 +22,10 @@ module.exports = {
 
   'Verify supported CLIs can execute': browser => {
     const KUI = browser.page.KUI()
+    const supportedClis = ['kubectl help', 'helm help', 'istioctl authn help', 'cloudctl']
+    process.env.JOBNAME === 'AMD64' && supportedClis.push('oc')
     supportedClis.forEach(cli => {
-      KUI.executeCommand(browser, `${cli} help`)
+      KUI.executeCommand(browser, cli)
       KUI.verifyOutputSuccess(browser)
     })
   },
@@ -34,7 +33,7 @@ module.exports = {
   'Verify kubectl': browser => {
     const KUI = browser.page.KUI()
     const CLI = browser.page.CLI()
-    const commands = ['get secrets', 'get pods', 'get deployments'] 
+    const commands = ['get secrets', 'get deployments'] 
     commands.forEach(command => {
       KUI.executeCommand(browser, `kubectl ${command} -n kube-system`)
       CLI.verifyTableOutput(browser)

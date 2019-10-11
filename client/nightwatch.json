@@ -23,6 +23,7 @@
       "selenium_port": 4444,
       "selenium_host": "localhost",
       "silent": true,
+      "skip_testcases_on_fail": false,
       "screenshots": {
         "enabled": true,
         "path": "test-output/e2e/screenshots",

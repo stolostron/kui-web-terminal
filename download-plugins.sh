@@ -49,7 +49,7 @@ mkdir plugin-downloads
 
 echo "Downloading plugins ..."
 download "search-kui-plugin" "plugin-search" "v2.0.32"
-download "plugin-kui-addons" "plugin-kui-addons" "v1.0.10"
+download "plugin-kui-addons" "plugin-kui-addons" "v2.0.1"
 
 echo "plugin-downloads:"
 ls -l plugin-downloads

@@ -20,7 +20,8 @@ module.exports = {
     main: '.main',
     tabStripe: '.left-tab-stripe',
     commandInput: '.kui--input-stripe',
-    inputBar: '.kui--input-stripe input',
+    inputBar: '.kui--input-stripe #input-field',
+    inputBarReadOnly: '.kui--input-stripe #input-field[readonly]',
     sidecar: '#sidecar',
     inputCommand: '.repl-input-element',
     commandOutput: '.repl-block[data-input-count="0"]',
@@ -72,14 +73,23 @@ function executeCommand(browser, command, failed) {
   const { ENTER } = browser.Keys
   this.waitForElementPresent('@commandInput')
   this.waitForElementPresent('@inputBar')
+  this.waitForElementNotPresent('@inputBarReadOnly', 60000)
 
+  this.clearValue('@inputBar')
+  this.waitForElementPresent('#input-field[value=""]')
   this.setValue('@inputBar', 'clear') // clean output
+  this.waitForElementPresent('#input-field[value="clear"]')
   browser.keys(ENTER)
-  this.api.pause(500) // lag on enter press
+  this.waitForElementNotPresent(outputSelector, 20000)
+  this.waitForElementNotPresent('@inputBarReadOnly', 60000)
 
+  this.clearValue('@inputBar')
+  this.waitForElementPresent('#input-field[value=""]')
   this.setValue('@inputBar', command) // input command
+  this.waitForElementPresent(`#input-field[value="${command}"]`)
   browser.keys(ENTER)
-  this.api.pause(500) // lag on enter press
+  this.waitForElementPresent(outputSelector, 20000)
+  this.waitForElementNotPresent('@inputBarReadOnly', 60000)
 
   this.waitForElementPresent(resultInputSelector, 10000)
   browser.assert.value(resultInputSelector, command)

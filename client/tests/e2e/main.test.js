@@ -11,6 +11,11 @@
 module.exports = {
   before: function (browser) {
     const KUI =  browser.page.KUI()
+    const loginPage = browser.page.LoginPage()
+    if (process.env.TEST_URL && !process.env.TEST_URL.includes('localhost')) {
+      loginPage.navigate()
+      loginPage.authenticate()
+    }
     KUI.navigate()
     KUI.waitForPageLoad(browser)
     KUI.verifyWebsocketConnection(browser)

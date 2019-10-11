@@ -16,7 +16,7 @@
 
 ARG ARCH
 
-FROM hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com/build-images/node-dubnium-ubi7-minimal-amd64:7.7-98
+FROM hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com/build-images/node-dubnium-ubi8-minimal-amd64:8.0-213
 
 ARG VCS_REF
 ARG VCS_URL
@@ -67,7 +67,7 @@ EXPOSE 3000/tcp
 # default passphrase for the self-signed certificates; this Dockerfile
 # is intended only for testing, do not use this for productioncd 
 ENV PASSPHRASE kuishell
-ENV NOBODY_GID 99
+ENV NOBODY_GID 65534
 # For use when using ubi-minimal image
 ENV LINUX_DISTRO rhel
 
@@ -97,7 +97,7 @@ RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && sed -i -e 's/USERGROUPS_ENAB yes/USERGROUPS_ENAB no/g' /etc/login.defs \
     && sed -i '$ a DIR_MODE=0700' /etc/default/useradd \
     && sed -i -e 's/PS1=\"\[\\u@\\h \\W\]/PS1=\"/g' /etc/bashrc \
-    && sed -i -e 's|^PATH=.*|PATH=/usr/local/bin|g' /etc/skel/.bash_profile \
+    && sed -i -e 's|^PATH=.*|PATH=/usr/local/bin|g' /etc/skel/.bashrc \
     && echo "alias ls='ls -l'" >> /etc/skel/.bash_profile
 
 RUN cp /usr/bin/bash /usr/bin/rbash \
@@ -119,7 +119,6 @@ RUN cp /usr/bin/bash /usr/bin/rbash \
     && ln -s /usr/bin/base64 /usr/local/bin/base64 \
     && ln -s /usr/bin/basename /usr/local/bin/basename \
     && ln -s /usr/bin/cksum /usr/local/bin/cksum \
-    && ln -s /usr/bin/clear /usr/local/bin/clear \
     && ln -s /usr/bin/cut /usr/local/bin/cut \
     && ln -s /usr/bin/dirname /usr/local/bin/dirname \
     && ln -s /usr/bin/head /usr/local/bin/head \
@@ -136,13 +135,7 @@ COPY ./tmp/kui /kui-proxy/kui
 # copy the client webpack bundles and other artifacts into the proxy app/public folder
 COPY ./client/dist/webpack /kui-proxy/kui/app/public
 
-# RUN cd /kui-proxy/kui && apk add python make g++ && npm rebuild node-pty --update-binary && apk del python make g++
 RUN cd /kui-proxy/kui
-RUN microdnf install make gcc gcc-c++ python\
-    && microdnf clean all
-RUN npm rebuild node-pty --update-binary
-RUN microdnf remove make gcc gcc-c++ python\
-    && microdnf clean all
 
 # Folder permissions
 RUN chmod 751 /home && chmod 751 /kui-proxy && chmod 751 /kui-proxy/kui
