@@ -4,7 +4,6 @@ GITHUB_USER ?= $(ARTIFACTORY_USER)
 GITHUB_USER := $(shell echo $(GITHUB_USER) | sed 's/@/%40/g')
 GITHUB_TOKEN ?= 
 
-
 DOCKER_EDGE_REGISTRY ?= hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com
 DOCKER_SCRATCH_REGISTRY ?= hyc-cloud-private-scratch-docker-local.artifactory.swg-devops.com
 DOCKER_INTEGRATION_REGISTRY ?= hyc-cloud-private-integration-docker-local.artifactory.swg-devops.com
@@ -17,7 +16,7 @@ VCS_REF = $(if $(WORKING_CHANGES),$(GIT_COMMIT)-$(BUILD_DATE),$(GIT_COMMIT))
 APP_VERSION ?= $(if $(shell cat VERSION 2> /dev/null),$(shell cat VERSION 2> /dev/null),0.0.1)
 # IMAGE_VERSION is only used in an image label so set it to this release version
 # IMAGE_VERSION ?= $(APP_VERSION)-$(GIT_COMMIT)
-IMAGE_VERSION = 3.2.1
+IMAGE_VERSION = $(SEMVERSION)
 IMAGE_DISPLAY_NAME = Visual Web Terminal
 IMAGE_DESCRIPTION = Visual Web Terminal provides a web based terminal window with enhanced interactive visualzations of command results
 IMAGE_DESCRIPTION_SHORT = Visual Web Terminal 
@@ -31,7 +30,7 @@ DOCKER_USER ?= $(ARTIFACTORY_USER)
 DOCKER_PASS ?= $(ARTIFACTORY_TOKEN)
 
 DOCKER_IMAGE ?= mcm-kui-proxy
-DOCKER_TAG ?= $(shell whoami)
+DOCKER_TAG ?= $(SEMVERSION)
 
 DOCKER_RUN_OPTS ?= -e NODE_ENV=development -e ICP_EXTERNAL_URL=$(ICP_EXTERNAL_URL) -e KUI_INGRESS_PATH="kui" -e AUTH_TOKEN=$(AUTH_TOKEN) -e DEBUG=* -e TEST_USER=$(TEST_USER) -e TEST_PASSWORD=$(TEST_PASSWORD) -d -v $(PWD)/testcerts:/etc/certs
 DOCKER_BIND_PORT ?= 8081:3000

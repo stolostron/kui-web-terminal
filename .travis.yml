@@ -81,7 +81,7 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=AMD64 PUSH_REPO=integration DOCKER_TAG=latest
+      - JOBNAME=AMD64 PUSH_REPO=integration 
     before_install:
       - make init
       - make docker-login
@@ -95,6 +95,8 @@ matrix:
       - make build-image
       - make release
       - make release DOCKER_TAG=${DOCKER_TAG}-rhel
+      - make release DOCKER_TAG=latest
+      - make release DOCKER_TAG=latest-rhel
 
   # -- PPC Deploy to Artifactory ---
   - stage: build
@@ -105,7 +107,7 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=Power PUSH_REPO=integration DOCKER_TAG=latest
+      - JOBNAME=Power PUSH_REPO=integration 
     before_install:
       - make init
       - make docker-login
@@ -118,6 +120,7 @@ matrix:
       - make headless
       - make build-image
       - make release
+      - make release DOCKER_TAG=latest
 
 
 
@@ -130,7 +133,7 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=s390x PUSH_REPO=integration DOCKER_TAG=latest
+      - JOBNAME=s390x PUSH_REPO=integration 
     before_install:
       - make init
       - make docker-logins
@@ -142,5 +145,5 @@ matrix:
       - make webpack
       - make headless
       - make build-image
-    after_success:
       - make release
+      - make release DOCKER_TAG=latest

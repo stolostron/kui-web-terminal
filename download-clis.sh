@@ -16,7 +16,6 @@ DOCKER_REGISTRY=hyc-cloud-private-integration-docker-local.artifactory.swg-devop
 DOCKER_NAMESPACE=ibmcom
 CLOUDCTL_VER=latest
 CLOUDCTL_IMAGE=$DOCKER_REGISTRY/$DOCKER_NAMESPACE/icp-platform-api-$ARCH:$CLOUDCTL_VER
-ICP_VER=3.2.1
 
 rm -rf downloads
 mkdir -p downloads
