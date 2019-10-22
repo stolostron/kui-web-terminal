@@ -94,7 +94,7 @@ matrix:
       - make headless
       - make build-image
       - make release
-      - make release DOCKER_TAG=${DOCKER_TAG}-rhel
+      - make release PUSH_RHEL=true
       - make release DOCKER_TAG=latest
       - make release DOCKER_TAG=latest-rhel
 
