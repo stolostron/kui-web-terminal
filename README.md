@@ -149,6 +149,7 @@ download "github-repo-name" "release-tgz-filename" "release-version"
 ### Root
 | Command                 |    Description  |
 | ---------------         | --------------- |
+| awsom                   |    Runs the wicked scan and BIG-T-CSV automation tools. |
 | build-image             |    Builds the MCM-KUI docker image. |
 | clean-client            |    Removes the /build, /kui-webpack-tmp, and /node_modules in the /client directory. |
 | clean-downloads         |    Removes the /downloads and /plugin-downloads directories. |

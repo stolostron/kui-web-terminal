@@ -1,0 +1,354 @@
+Name,Version,Need Pedigree Review,Reason,Review Level,License Types,Declared License,License Status,Path,Short Name,Previously Declared,Repository URL,Copyright
+@kui-shell/proxy-webapp,0.0.1,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/proxy/app,proxy-webapp,,,* Copyright 2019 IBM Corporation
+@types/events,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@types/events,events,,https://github.com/DefinitelyTyped/DefinitelyTyped,Copyright (c) Microsoft Corporation. All rights reserved.
+@types/glob,7.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@types/glob,glob,,https://github.com/DefinitelyTyped/DefinitelyTyped,Copyright (c) Microsoft Corporation. All rights reserved.
+@types/minimatch,3.0.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@types/minimatch,minimatch,,https://github.com/DefinitelyTyped/DefinitelyTyped,Copyright (c) Microsoft Corporation. All rights reserved.
+@webassemblyjs/ast,1.7.10,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/ast/webassemblyjs-ast-1.7.10.tgz/webassemblyjs-ast-1.7.10.tar/package,ast,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/ast,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/ast,ast,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/floating-point-hex-parser,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/floating-point-hex-parser,floating-point-hex-parser,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2017 Mauro Bringolf
+@webassemblyjs/helper-api-error,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/helper-api-error,helper-api-error,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/helper-buffer,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/helper-buffer,helper-buffer,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/helper-code-frame,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/helper-code-frame/webassemblyjs-helper-code-frame-1.7.10.tgz/webassemblyjs-helper-code-frame-1.7.10.tar/package,helper-code-frame,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/helper-code-frame,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/helper-code-frame,helper-code-frame,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/helper-fsm,1.8.5,false,Exempt - Expected license matched,2,MIT,ISC,Approved,@webassemblyjs/helper-fsm,helper-fsm,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/helper-module-context,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/helper-module-context,helper-module-context,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/helper-wasm-bytecode,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/helper-wasm-bytecode/webassemblyjs-helper-wasm-bytecode-1.7.10.tgz/webassemblyjs-helper-wasm-bytecode-1.7.10.tar/package,helper-wasm-bytecode,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/helper-wasm-bytecode,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/helper-wasm-bytecode,helper-wasm-bytecode,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/helper-wasm-section,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/helper-wasm-section/webassemblyjs-helper-wasm-section-1.7.10.tgz/webassemblyjs-helper-wasm-section-1.7.10.tar/package,helper-wasm-section,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/helper-wasm-section,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/helper-wasm-section,helper-wasm-section,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/ieee754,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/ieee754,ieee754,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/leb128,1.8.5,false,Exempt - Expected license matched,2,Apache-2.0,MIT,Approved,@webassemblyjs/leb128,leb128,,,Copyright 2012 The Obvious Corporation.
+@webassemblyjs/utf8,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/utf8,utf8,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wasm-edit,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wasm-edit/webassemblyjs-wasm-edit-1.7.10.tgz/webassemblyjs-wasm-edit-1.7.10.tar/package,wasm-edit,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wasm-edit,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/wasm-edit,wasm-edit,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wasm-gen,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wasm-gen/webassemblyjs-wasm-gen-1.7.10.tgz/webassemblyjs-wasm-gen-1.7.10.tar/package,wasm-gen,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wasm-gen,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/wasm-gen,wasm-gen,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wasm-opt,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wasm-opt/webassemblyjs-wasm-opt-1.7.10.tgz/webassemblyjs-wasm-opt-1.7.10.tar/package,wasm-opt,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wasm-opt,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/wasm-opt,wasm-opt,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wasm-parser,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wasm-parser/webassemblyjs-wasm-parser-1.7.10.tgz/webassemblyjs-wasm-parser-1.7.10.tar/package,wasm-parser,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wasm-parser,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/wasm-parser,wasm-parser,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wast-parser,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wast-parser/webassemblyjs-wast-parser-1.7.10.tgz/webassemblyjs-wast-parser-1.7.10.tar/package,wast-parser,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wast-parser,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/wast-parser,wast-parser,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wast-printer,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wast-printer/webassemblyjs-wast-printer-1.7.10.tgz/webassemblyjs-wast-printer-1.7.10.tar/package,wast-printer,,,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@webassemblyjs/wast-printer,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/wast-printer,wast-printer,,https://github.com/xtuc/webassemblyjs,Copyright (c) 2018 Sven Sauleau <sven@sauleau.com>
+@xtuc/ieee754,1.2.0,false,Previously pedigree reviewed,2,BSD-3-Clause,BSD-3-Clause,Approved,@xtuc/ieee754,ieee754,,https://github.com/feross/ieee754,Copyright (c) 2008- Fair Oaks Labs- Inc. All rights reserved.
+@xtuc/long,4.2.2,false,Exempt - Version closely related to 4.2.1,2,Apache-2.0,Apache-2.0,Approved,@xtuc/long,long,,https://github.com/dcodeIO/long.js,
+ajv-errors,1.0.1,false,Exempt - Version closely related to 1.0.0,2,MIT,MIT,Approved,ajv-errors,ajv-errors,,https://github.com/epoberezkin/ajv-errors,Copyright (c) 2017 Evgeny Poberezkin
+ajv-keywords,3.4.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,ajv-keywords,ajv-keywords,,https://github.com/epoberezkin/ajv-keywords,Copyright (c) 2016 Evgeny Poberezkin
+ansi-html,0.0.7,false,Previously pedigree reviewed,2,Apache-2.0,Apache-2.0,Approved,ansi-html,ansi-html,,https://github.com/Tjatse/ansi-html,
+ansi-regex,4.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,strip-ansi/node_modules/ansi-regex,ansi-regex,,https://github.com/chalk/ansi-regex,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ansi-styles,3.2.1,false,Exempt - Version closely related to 3.2.0,2,MIT,MIT,Approved,ansi-styles,ansi-styles,,https://github.com/chalk/ansi-styles,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+anymatch,2.0.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,anymatch,anymatch,,https://github.com/micromatch/anymatch,Copyright (c) 2014 Elan Shanker
+app-module-path,2.2.0,false,Exempt - Expected license matched,3.1,BSD-2-Clause,BSD-2-Clause,Approved,app-module-path,app-module-path,,https://github.com/patrick-steele-idem/app-module-path-node,
+aproba,1.2.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,aproba,aproba,,https://github.com/iarna/aproba,Copyright (c) 2015- Rebecca Turner
+are-we-there-yet,1.1.5,false,Exempt - Version closely related to 1.1.4,2,ISC,ISC,Approved,are-we-there-yet,are-we-there-yet,,https://github.com/iarna/are-we-there-yet,Copyright (c) 2015- Rebecca Turner
+arr-flatten,1.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,arr-flatten,arr-flatten,,https://github.com/jonschlinkert/arr-flatten,Copyright (c) 2014-2017- Jon Schlinkert.
+array-flatten,2.1.2,false,Exempt - Version closely related to 2.1.1,2,MIT,MIT,Approved,array-flatten,array-flatten,,https://github.com/blakeembrey/array-flatten,Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
+array-union,1.0.2,false,Exempt - Version closely related to 1.0.1,2,MIT,MIT,Approved,array-union,array-union,,https://github.com/sindresorhus/array-union,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+array-uniq,1.0.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,array-uniq,array-uniq,,https://github.com/sindresorhus/array-uniq,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+asn1.js,4.10.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,asn1.js,asn1.js,,https://github.com/indutny/asn1.js,Copyright Fedor Indutny- 2013.
+assert,1.5.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,assert,assert,,https://github.com/browserify/commonjs-assert,Copyright Joyent- Inc. and other Node contributors. All rights reserved.
+async,2.6.3,false,Exempt - Version closely related to 2.6.0,2,MIT,MIT,Approved,brotli-webpack-plugin/node_modules/async,async,,https://caolan.github.io/async/,Copyright (c) 2010-2018 Caolan McMahon
+async-each,1.0.3,false,Exempt - Version closely related to 1.0.1,2,MIT,MIT,Approved,async-each,async-each,,https://github.com/paulmillr/async-each/,
+batch,0.6.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,batch,batch,,https://github.com/visionmedia/batch,Copyright (c) 2013 TJ Holowaychuk <tj@vision-media.ca>
+big.js,3.2.0,false,Previously pedigree reviewed,2,KEYWORD MIT UNKNOWN,MIT,Needs Review,svg-inline-loader/node_modules/big.js,big.js,,https://github.com/MikeMcl/big.js,Copyright (c) 2012 Michael Mclaughlin
+big.js,5.2.2,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,big.js,big.js,,https://github.com/MikeMcl/big.js,Copyright (c) 2018 Michael Mclaughlin
+binary-extensions,1.13.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,binary-extensions,binary-extensions,,https://github.com/sindresorhus/binary-extensions,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+bn.js,4.11.8,false,Exempt - Version closely related to 4.11.6,2,MIT,MIT,Approved,bn.js,bn.js,,https://github.com/indutny/bn.js,Copyright Fedor Indutny- 2015.
+body-parser,1.18.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,express/node_modules/body-parser,body-parser,,https://github.com/expressjs/body-parser,Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>
+body-parser,1.19.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/body-parser,body-parser,,,Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>
+bonjour,3.5.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,bonjour,bonjour,,https://github.com/watson/bonjour,Copyright (c) 2015-2016 Thomas Watson Steen
+brorand,1.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,brorand,brorand,,https://github.com/indutny/brorand,Copyright Fedor Indutny- 2014.
+brotli,1.3.2,false,Previously pedigree reviewed,2,Apache-2.0,MIT,Approved,brotli,brotli,,https://github.com/devongovett/brotli.js,/* Copyright 2013 Google Inc. All Rights Reserved.
+brotli-webpack-plugin,1.1.0,true,New package and not exempt,,MIT X11,MIT,Approved,brotli-webpack-plugin,brotli-webpack-plugin,,https://github.com/mynameiswhm/brotli-webpack-plugin,Copyright (c) 2016 Ilia Saulenko <hi@mynameiswhm.ru>
+browserify-aes,1.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,browserify-aes,browserify-aes,,https://github.com/crypto-browserify/browserify-aes,Copyright (c) 2014-2017 browserify-aes contributors
+browserify-cipher,1.0.1,false,Exempt - Version closely related to 1.0.0,2,MIT,MIT,Approved,browserify-cipher,browserify-cipher,,https://github.com/crypto-browserify/browserify-cipher,Copyright (c) 2014-2017 Calvin Metcalf & contributors
+browserify-des,1.0.2,false,Exempt - Version closely related to 1.0.0,2,MIT,MIT,Approved,browserify-des,browserify-des,,https://github.com/crypto-browserify/browserify-des,Copyright (c) 2014-2017 Calvin Metcalf- Fedor Indutny & contributors
+browserify-rsa,4.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,browserify-rsa,browserify-rsa,,https://github.com/crypto-browserify/browserify-rsa,Copyright (c) 2014-2015 Calvin Metcalf & contributors
+browserify-sign,4.0.4,false,Exempt - Version closely related to 4.0.0,2,ISC,ISC,Approved,browserify-sign,browserify-sign,,https://github.com/crypto-browserify/browserify-sign,Copyright (c) 2014-2015 Calvin Metcalf and browserify-sign contributors
+browserify-zlib,0.2.0,false,Previously pedigree reviewed,2,KEYWORD MIT UNKNOWN,MIT,Needs Review,browserify-zlib,browserify-zlib,,https://github.com/devongovett/browserify-zlib,Copyright (c) 2014-2015 Devon Govett <devongovett@gmail.com>
+buffer,4.9.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,buffer,buffer,,https://github.com/feross/buffer,Copyright (c) Feross Aboukhadijeh- and other contributors.
+buffer-indexof,1.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,buffer-indexof,buffer-indexof,,https://github.com/soldair/node-buffer-indexof,Copyright (c) 2013 Ryan Day
+buffer-xor,1.0.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,buffer-xor,buffer-xor,,https://github.com/crypto-browserify/buffer-xor,Copyright (c) 2015 Daniel Cousens
+builtin-status-codes,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,builtin-status-codes,builtin-status-codes,,https://github.com/bendrucker/builtin-status-codes,Copyright (c) Ben Drucker <bvdrucker@gmail.com> (bendrucker.me)
+bytes,3.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/bytes,bytes,,,Copyright (c) 2012-2014 TJ Holowaychuk <tj@vision-media.ca>
+cacache,11.3.3,false,Exempt - Version closely related to 11.3.2,2,ISC,ISC,Approved,cacache,cacache,,https://github.com/zkat/cacache,Copyright (c) npm- Inc.
+camelcase,5.3.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,camelcase,camelcase,,https://github.com/sindresorhus/camelcase,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+chalk,2.4.2,false,Exempt - Version closely related to 2.4.0,2,MIT,MIT,Approved,chalk,chalk,,https://github.com/chalk/chalk,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+chrome-trace-event,1.0.2,false,Exempt - Version closely related to 1.0.0,2,MIT UNKNOWN,MIT,Needs Review,chrome-trace-event,chrome-trace-event,,,Copyright (c) 2015 Joyent Inc. All rights reserved.
+cipher-base,1.0.4,false,Exempt - Version closely related to 1.0.3,2,MIT,MIT,Approved,cipher-base,cipher-base,,https://github.com/crypto-browserify/cipher-base,Copyright (c) 2017 crypto-browserify contributors
+cliui,4.1.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,webpack-dev-server/node_modules/cliui,cliui,,https://github.com/yargs/cliui,Copyright (c) 2015- Contributors
+cliui,5.0.0,false,Exempt - Expected license matched,2,ISC,ISC,Approved,webpack-cli/node_modules/cliui,cliui,,https://github.com/yargs/cliui,Copyright (c) 2015- Contributors
+color-convert,1.9.3,false,Exempt - Version closely related to 1.9.0,2,MIT,MIT,Approved,color-convert,color-convert,,https://github.com/Qix-/color-convert,Copyright (c) 2011-2016 Heather Arthur <fayearthur@gmail.com>
+color-name,1.1.3,false,Exempt - Version closely related to 1.1.1,2,MIT,MIT,Approved,color-name,color-name,,https://github.com/dfcreative/color-name,Copyright (c) 2015 Dmitry Ivanov
+columnify,1.5.4,false,Previously pedigree reviewed,2,MIT,MIT,Approved,columnify,columnify,,https://github.com/timoxley/columnify,Copyright (c) 2013 Tim Oxley
+command-exists,1.2.8,false,Exempt - Version closely related to 1.2.2,2,MIT,MIT,Approved,command-exists,command-exists,,https://github.com/mathisonian/command-exists,Copyright (c) 2014 Matthew Conlen
+commondir,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,commondir,commondir,,https://github.com/substack/node-commondir,Copyright (c) 2013 James Halliday (mail@substack.net)
+compressible,2.0.17,false,Exempt - Version closely related to 2.0.15,2,MIT,MIT,Approved,compressible,compressible,,https://github.com/jshttp/compressible,Copyright (c) 2013 Jonathan Ong <me@jongleberry.com>
+compression,1.7.4,false,Exempt - Version closely related to 1.7.3,2,MIT,MIT,Approved,compression,compression,,https://github.com/expressjs/compression,Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>
+compression-webpack-plugin,3.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,compression-webpack-plugin,compression-webpack-plugin,,https://github.com/webpack-contrib/compression-webpack-plugin,Copyright JS Foundation and other contributors
+connect-history-api-fallback,1.6.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,connect-history-api-fallback,connect-history-api-fallback,,https://github.com/bripkens/connect-history-api-fallback,Copyright (c) 2012 Ben Ripkens http://bripkens.de
+console-browserify,1.1.0,false,Previously pedigree reviewed,2,MIT,,Approved,console-browserify,console-browserify,,https://github.com/Raynos/console-browserify,Copyright (c) 2012 Raynos.
+constants-browserify,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,constants-browserify,constants-browserify,,https://github.com/juliangruber/constants-browserify,Copyright (c) 2013 Julian Gruber &lt;julian@juliangruber.com&gt;
+content-disposition,0.5.3,false,Exempt - Version closely related to 0.5.2,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/content-disposition,content-disposition,,,Copyright (c) 2014-2017 Douglas Christopher Wilson
+cookie,0.4.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/express/node_modules/cookie,cookie,,,Copyright (c) 2012-2014 Roman Shtylman <shtylman@gmail.com>
+cookie-parser,1.4.4,false,Exempt - Version closely related to 1.4.1,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/cookie-parser,cookie-parser,,,Copyright (c) 2014 TJ Holowaychuk <tj@vision-media.ca>
+copy-concurrently,1.0.5,false,Exempt - Version closely related to 1.0.3,2,ISC,ISC,Approved,copy-concurrently,copy-concurrently,,https://www.npmjs.com/package/copy-concurrently,Copyright (c) 2017- Rebecca Turner
+create-ecdh,4.0.3,false,Exempt - Version closely related to 4.0.0,2,MIT,MIT,Approved,create-ecdh,create-ecdh,,https://github.com/crypto-browserify/createECDH,Copyright (c) 2014-2017 createECDH contributors
+create-hash,1.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,create-hash,create-hash,,https://github.com/crypto-browserify/createHash,Copyright (c) 2017 crypto-browserify contributors
+create-hmac,1.1.7,false,Previously pedigree reviewed,2,MIT,MIT,Approved,create-hmac,create-hmac,,https://github.com/crypto-browserify/createHmac,Copyright (c) 2017 crypto-browserify contributors
+crypto-browserify,3.12.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,crypto-browserify,crypto-browserify,,https://github.com/crypto-browserify/crypto-browserify,Copyright (c) 2013 Dominic Tarr
+cssesc,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,cssesc,cssesc,,https://mths.be/cssesc,Copyright Mathias Bynens <https://mathiasbynens.be/>
+date-now,0.1.4,false,Previously pedigree reviewed,2,MIT,,Approved,date-now,date-now,,https://github.com/Colingo/date-now,Copyright (c) 2012 Colingo.
+debug,4.1.1,false,Exempt - Version closely related to 4.1.0,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/debug,debug,,,Copyright (c) 2014 TJ Holowaychuk <tj@vision-media.ca>
+deep-extend,0.6.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,deep-extend,deep-extend,,https://github.com/unclechu/node-deep-extend,Copyright (c) 2013-2018- Viacheslav Lotsmanov
+default-gateway,4.2.0,false,Exempt - Expected license matched,2,BSD-2-Clause,BSD-2-Clause,Approved,default-gateway,default-gateway,,https://github.com/silverwind/default-gateway,Copyright (c) silverwind All rights reserved.
+defaults,1.0.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,defaults,defaults,,https://github.com/tmpvar/defaults,Copyright (c) 2015 Elijah Insua
+del,4.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,del,del,,https://github.com/sindresorhus/del,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+des.js,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,des.js,des.js,,https://github.com/indutny/des.js,Copyright Fedor Indutny- 2015.
+detect-file,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,detect-file,detect-file,,https://github.com/doowb/detect-file,Copyright (c) 2016-2017- Brian Woodward.
+detect-libc,1.0.3,false,Exempt - Version closely related to 1.0.2,2,Apache-2.0,Apache-2.0,Approved,detect-libc,detect-libc,,https://github.com/lovell/detect-libc,
+detect-node,2.0.4,false,Exempt - Version closely related to 2.0.3,2,MIT,ISC,Approved,detect-node,detect-node,,https://github.com/iliakan/detect-node,Copyright (c) 2017 Ilya Kantor
+diffie-hellman,5.0.3,false,Exempt - Version closely related to 5.0.2,2,MIT,MIT,Approved,diffie-hellman,diffie-hellman,,https://github.com/crypto-browserify/diffie-hellman,Copyright (c) 2017 Calvin Metcalf
+dns-equal,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,dns-equal,dns-equal,,https://github.com/watson/dns-equal,Copyright (c) 2016 Thomas Watson Steen
+dns-packet,1.3.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,dns-packet,dns-packet,,https://github.com/mafintosh/dns-packet,Copyright (c) 2016 Mathias Buus
+dns-txt,2.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,dns-txt,dns-txt,,https://github.com/watson/dns-txt,Copyright (c) 2015 Thomas Watson Steen
+domain-browser,1.2.0,false,Previously pedigree reviewed,2,KEYWORD MIT UNKNOWN,MIT,Needs Review,domain-browser,domain-browser,,https://github.com/bevry/domain-browser,
+duplexify,3.7.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,duplexify,duplexify,,https://github.com/mafintosh/duplexify,Copyright (c) 2014 Mathias Buus
+emoji-regex,7.0.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,emoji-regex,emoji-regex,,https://mths.be/emoji-regex,Copyright Mathias Bynens <https://mathiasbynens.be/>
+emojis-list,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,emojis-list,emojis-list,,https://github.com/Kikobeats/emojis-list,Copyright © 2015 Kiko Beats
+enhanced-resolve,4.1.0,false,Previously pedigree reviewed,2,MIT,,Approved,webpack-cli/node_modules/enhanced-resolve,enhanced-resolve,,http://github.com/webpack/enhanced-resolve,Copyright JS Foundation and other contributors
+errno,0.1.7,false,Previously pedigree reviewed,2,MIT,MIT,Approved,errno,errno,,https://github.com/rvagg/node-errno,## Copyright & Licence
+eslint-scope,4.0.3,false,Previously pedigree reviewed,2,BSD-2-Clause,BSD-2-Clause,Approved,eslint-scope,eslint-scope,,http://github.com/eslint/eslint-scope,Copyright JS Foundation and other contributors- https://js.foundation
+esrecurse,4.2.1,false,Previously pedigree reviewed,2,BSD-2-Clause,BSD-2-Clause,Approved,esrecurse,esrecurse,,https://github.com/estools/esrecurse,Copyright (C) 2014 Yusuke Suzuki <utatane.tea@gmail.com>
+events,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,events,events,,https://github.com/Gozala/events,Copyright Joyent- Inc. and other Node contributors.
+eventsource,1.0.7,false,Exempt - Version closely related to 1.0.5,2,MIT,MIT,Approved,eventsource,eventsource,,http://github.com/EventSource/eventsource,Copyright (c) EventSource GitHub organisation
+evp_bytestokey,1.0.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,evp_bytestokey,evp_bytestokey,,https://github.com/crypto-browserify/EVP_BytesToKey,Copyright (c) 2017 crypto-browserify contributors
+execa,1.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,execa,execa,,https://github.com/sindresorhus/execa,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+expand-template,2.0.3,false,Previously pedigree reviewed,2,MIT WTFPL,WTFPL,Approved,expand-template,expand-template,,https://github.com/ralphtheninja/expand-template,Copyright (c) 2018 Lars-Magnus Skog
+expand-tilde,2.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,expand-tilde,expand-tilde,,https://github.com/jonschlinkert/expand-tilde,Copyright (c) 2015-2016- Jon Schlinkert.
+express,4.16.4,false,Exempt - Version closely related to 4.16.3,2,MIT gnuplot,MIT,Needs Review,express,express,,http://expressjs.com/,Copyright (c) 2009-2014 TJ Holowaychuk <tj@vision-media.ca>
+express,4.17.1,false,Previously pedigree reviewed,2,MIT gnuplot,MIT,Needs Review,@kui-shell/proxy/app/node_modules/express,express,,http://expressjs.com/,Copyright (c) 2009-2014 TJ Holowaychuk <tj@vision-media.ca>
+extract-zip,1.6.7,false,Exempt - Version closely related to 1.6.5,2,BSD-2-Clause,BSD-2-Clause,Approved,extract-zip,extract-zip,,https://github.com/maxogden/extract-zip,Copyright (c) 2014 Max Ogden and other contributors All rights reserved.
+faye-websocket,0.10.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,faye-websocket,faye-websocket,,http://github.com/faye/faye-websocket-node,Copyright (c) 2010-2015 James Coglan
+faye-websocket,0.11.3,false,Exempt - Version closely related to 0.11.1,2,Apache-2.0,Apache-2.0,Approved,sockjs-client/node_modules/faye-websocket,faye-websocket,,https://github.com/faye/faye-websocket-node,Copyright 2010-2019 James Coglan
+fd-slicer,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,fd-slicer,fd-slicer,,https://github.com/andrewrk/node-fd-slicer,Copyright (c) 2014 Andrew Kelley
+figgy-pudding,3.5.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,figgy-pudding,figgy-pudding,,https://github.com/zkat/figgy-pudding,Copyright (c) npm- Inc.
+finalhandler,1.1.2,false,Exempt - Version closely related to 1.1.0,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/finalhandler,finalhandler,,,Copyright (c) 2014-2017 Douglas Christopher Wilson <doug@somethingdoug.com>
+find-cache-dir,2.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,webpack/node_modules/find-cache-dir,find-cache-dir,,https://github.com/avajs/find-cache-dir,Copyright (c) James Talmage <james@talmage.io> (github.com/jamestalmage)
+find-cache-dir,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,find-cache-dir,find-cache-dir,,https://github.com/avajs/find-cache-dir,Copyright (c) James Talmage <james@talmage.io> (github.com/jamestalmage)
+find-up,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,import-local/node_modules/find-up,find-up,,https://github.com/sindresorhus/find-up,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+find-up,4.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,find-up,find-up,,https://github.com/sindresorhus/find-up,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+findup-sync,3.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,findup-sync,findup-sync,,https://github.com/gulpjs/findup-sync,Copyright (c) 2013-2018 Ben Alman <cowboy@rj3.net>- Blaine Bublitz <blaine.bublitz@gmail.com>- and Eric Schoffstall <yo@contra.io>
+flush-write-stream,1.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,flush-write-stream,flush-write-stream,,https://github.com/mafintosh/flush-write-stream,Copyright (c) 2015 Mathias Buus
+for-in,1.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,for-in,for-in,,https://github.com/jonschlinkert/for-in,Copyright (c) 2014-2017- Jon Schlinkert
+from2,2.3.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,from2,from2,,https://github.com/hughsk/from2,Copyright (c) 2014 Hugh Kennedy
+fs-minipass,1.2.5,false,Exempt - Version closely related to 1.2.3,2,ISC,ISC,Approved,fsevents/node_modules/fs-minipass,fs-minipass,,https://github.com/npm/fs-minipass,Copyright (c) Isaac Z. Schlueter and Contributors
+fs-write-stream-atomic,1.0.10,false,Exempt - Version closely related to 1.0.8,2,ISC,ISC,Approved,fs-write-stream-atomic,fs-write-stream-atomic,,https://github.com/npm/fs-write-stream-atomic,Copyright (c) Isaac Z. Schlueter and Contributors
+fsevents,1.2.9,false,Exempt - Version closely related to 1.2.4,2,MIT,MIT,Approved,fsevents,fsevents,,https://github.com/strongloop/fsevents,Copyright (C) 2010-2014 Philipp Dunkel
+get-caller-file,1.0.3,false,Exempt - Version closely related to 1.0.2,2,ISC UNKNOWN,ISC,Needs Review,webpack-dev-server/node_modules/get-caller-file,get-caller-file,,https://github.com/stefanpenner/get-caller-file,Copyright 2018 Stefan Penner
+get-caller-file,2.0.5,false,Previously pedigree reviewed,2,ISC UNKNOWN,ISC,Needs Review,get-caller-file,get-caller-file,,https://github.com/stefanpenner/get-caller-file,Copyright 2018 Stefan Penner
+get-stream,4.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,get-stream,get-stream,,https://github.com/sindresorhus/get-stream,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+github-from-package,0.0.0,true,New package and not exempt,,MIT,MIT,Approved,github-from-package,github-from-package,,https://github.com/substack/github-from-package,
+global-modules,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,resolve-dir/node_modules/global-modules,global-modules,,https://github.com/jonschlinkert/global-modules,Copyright (c) 2015-2017- Jon Schlinkert.
+global-modules,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,global-modules,global-modules,,https://github.com/jonschlinkert/global-modules,Copyright (c) 2015-present- Jon Schlinkert.
+global-prefix,1.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,global-prefix,global-prefix,,https://github.com/jonschlinkert/global-prefix,Copyright (c) 2015-2017- Jon Schlinkert.
+global-prefix,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,global-modules/node_modules/global-prefix,global-prefix,,https://github.com/jonschlinkert/global-prefix,Copyright (c) 2015-present- Jon Schlinkert.
+globby,6.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,globby,globby,,https://github.com/sindresorhus/globby,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+handle-thing,2.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,handle-thing,handle-thing,,https://github.com/spdy-http2/handle-thing,Copyright Fedor Indutny- 2015.
+has-flag,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,has-flag,has-flag,,https://github.com/sindresorhus/has-flag,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+hash-base,3.0.4,false,Previously pedigree reviewed,2,MIT,MIT,Approved,hash-base,hash-base,,https://github.com/crypto-browserify/hash-base,Copyright (c) 2016 Kirill Fomichev
+hash.js,1.1.7,false,Exempt - Version closely related to 1.1.5,2,Apache-2.0 MIT,MIT,Approved,hash.js,hash.js,,https://github.com/indutny/hash.js,
+hmac-drbg,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,hmac-drbg,hmac-drbg,,https://github.com/indutny/hmac-drbg,Copyright Fedor Indutny- 2017.
+homedir-polyfill,1.0.3,false,Exempt - Version closely related to 1.0.1,2,MIT,MIT,Approved,homedir-polyfill,homedir-polyfill,,https://github.com/doowb/homedir-polyfill,Copyright (c) 2016 Brian Woodward
+hpack.js,2.1.6,false,Previously pedigree reviewed,2,MIT,MIT,Approved,hpack.js,hpack.js,,https://github.com/indutny/hpack.js,Copyright Fedor Indutny- 2015.
+html-entities,1.2.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,html-entities,html-entities,,https://github.com/mdevils/node-html-entities,Copyright (c) 2013 Dulin Marat
+http-deceiver,1.2.7,false,Previously pedigree reviewed,2,MIT,MIT,Approved,http-deceiver,http-deceiver,,https://github.com/indutny/http-deceiver,Copyright Fedor Indutny- 2015.
+http-parser-js,0.4.10,false,Exempt - Version closely related to 0.4.9,2,KEYWORD MIT UNKNOWN,MIT,Needs Review,http-parser-js,http-parser-js,,https://github.com/creationix/http-parser-js,Copyright (c) 2015 Tim Caswell (https://github.com/creationix) and other
+https-browserify,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,https-browserify,https-browserify,,https://github.com/substack/https-browserify,Copyright (c) James Halliday
+iconv-lite,0.4.24,false,Exempt - Version closely related to 0.4.13,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/iconv-lite,iconv-lite,,https://github.com/ashtuchkin/iconv-lite,Copyright (c) 2011 Alexander Shtuchkin
+icss-utils,4.1.1,false,Previously pedigree reviewed,2,ISC UNKNOWN,ISC,Needs Review,icss-utils,icss-utils,,https://github.com/css-modules/icss-utils,Copyright 2018 Glen Maddern
+ieee754,1.1.13,false,Exempt - Version closely related to 1.1.8,2,BSD-3-Clause,BSD-3-Clause,Approved,ieee754,ieee754,,https://github.com/feross/ieee754,Copyright 2008 Fair Oaks Labs- Inc.
+iferr,0.1.5,false,Previously pedigree reviewed,2,MIT,MIT,Approved,iferr,iferr,,https://github.com/shesek/iferr,Copyright (c) 2014 Nadav Ivgi
+ignore-loader,0.1.2,false,Previously pedigree reviewed,2,MIT,,Approved,ignore-loader,ignore-loader,,https://github.com/cherrry/ignore-loader,Copyright (c) 2016 Cherry Ng
+ignore-walk,3.0.1,false,Exempt - Version closely related to 3.0.0,2,ISC,ISC,Approved,fsevents/node_modules/ignore-walk,ignore-walk,,https://github.com/isaacs/ignore-walk,Copyright (c) Isaac Z. Schlueter and Contributors
+import-local,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,import-local,import-local,,https://github.com/sindresorhus/import-local,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+imurmurhash,0.1.4,false,Previously pedigree reviewed,2,MIT,MIT,Approved,imurmurhash,imurmurhash,,https://github.com/jensyt/imurmurhash-js,Copyright (c) 2013 Gary Court- Jens Taylor
+indexes-of,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,indexes-of,indexes-of,,https://github.com/dominictarr/indexes-of,Copyright (c) 2013 Dominic Tarr
+internal-ip,4.3.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,internal-ip,internal-ip,,https://github.com/sindresorhus/internal-ip,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+invert-kv,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack-cli/node_modules/invert-kv,invert-kv,,https://github.com/sindresorhus/invert-kv,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+ip-regex,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,ip-regex,ip-regex,,https://github.com/sindresorhus/ip-regex,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+is-binary-path,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,is-binary-path,is-binary-path,,https://github.com/sindresorhus/is-binary-path,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+is-number,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,is-number,is-number,,https://github.com/jonschlinkert/is-number,Copyright (c) 2014-2016- Jon Schlinkert
+is-path-cwd,2.2.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,is-path-cwd,is-path-cwd,,https://github.com/sindresorhus/is-path-cwd,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+is-path-in-cwd,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,is-path-in-cwd,is-path-in-cwd,,https://github.com/sindresorhus/is-path-in-cwd,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+is-path-inside,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,is-path-inside,is-path-inside,,https://github.com/sindresorhus/is-path-inside,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+is-plain-object,2.0.4,false,Previously pedigree reviewed,2,MIT,MIT,Approved,is-plain-object,is-plain-object,,https://github.com/jonschlinkert/is-plain-object,Copyright (c) 2014-2017- Jon Schlinkert.
+is-windows,1.0.2,false,Exempt - Version closely related to 1.0.0,2,MIT,MIT,Approved,is-windows,is-windows,,https://github.com/jonschlinkert/is-windows,Copyright (c) 2015-2018- Jon Schlinkert.
+is-wsl,1.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,is-wsl,is-wsl,,https://github.com/sindresorhus/is-wsl,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+isobject,3.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,isobject,isobject,,https://github.com/jonschlinkert/isobject,Copyright (c) 2014-2017- Jon Schlinkert.
+jmespath,0.15.0,false,Previously pedigree reviewed,2,Apache-2.0 NAIST,,Approved,jmespath,jmespath,,https://github.com/jmespath/jmespath.js,Copyright 2014 James Saryerwinnie
+json3,3.3.3,true,New version and not exempt,,MIT UNKNOWN,MIT,Needs Review,json3,json3,,https://bestiejs.github.io/json3,Copyright (c) 2012-2015 Kit Cambridge.
+json5,0.5.1,false,Exempt - Version closely related to 0.5.0,2,MIT X11,MIT,Approved,svg-inline-loader/node_modules/json5,json5,,http://json5.org/,Copyright (c) 2012-2016 Aseem Kishore- and [others](https://github.com/aseemk/json5/contributors).
+jsonfile,4.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,jsonfile,jsonfile,,https://github.com/jprichardson/node-jsonfile,Copyright (c) 2012-2015- JP Richardson <jprichardson@gmail.com>
+killable,1.0.1,false,Exempt - Version closely related to 1.0.0,2,ISC,ISC,Approved,killable,killable,,https://github.com/marten-de-vries/killable,Copyright 2014 Marten de Vries
+kind-of,4.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,has-values/node_modules/kind-of,kind-of,,https://github.com/jonschlinkert/kind-of,Copyright (c) 2014-2017- Jon Schlinkert
+lcid,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack-cli/node_modules/lcid,lcid,,https://github.com/sindresorhus/lcid,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+loader-runner,2.4.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,loader-runner,loader-runner,,https://github.com/webpack/loader-runner,Copyright (c) Tobias Koppers @sokra
+loader-utils,0.2.17,false,Exempt - Version closely related to 0.2.16,2,MIT,MIT,Approved,svg-inline-loader/node_modules/loader-utils,loader-utils,,https://github.com/webpack/loader-utils,Copyright (c) 2012 - 2015 Tobias Koppers
+loader-utils,1.2.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,loader-utils,loader-utils,,https://github.com/webpack/loader-utils,Copyright JS Foundation and other contributors
+locate-path,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,import-local/node_modules/locate-path,locate-path,,https://github.com/sindresorhus/locate-path,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+locate-path,5.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,locate-path,locate-path,,https://github.com/sindresorhus/locate-path,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+lodash,4.17.15,false,Exempt - Version closely related to 4.17.11,2,CC0-1.0 KEYWORD MIT UNKNOWN,MIT,Needs Review,lodash,lodash,,https://lodash.com/,Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
+lru-cache,5.1.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,lru-cache,lru-cache,,https://github.com/isaacs/node-lru-cache,Copyright (c) Isaac Z. Schlueter and Contributors
+make-dir,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack/node_modules/make-dir,make-dir,,https://github.com/sindresorhus/make-dir,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+make-dir,3.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,make-dir,make-dir,,https://github.com/sindresorhus/make-dir,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+mamacro,0.0.3,false,Previously pedigree reviewed,2,,MIT,Approved | Reference Only,mamacro,mamacro,,,
+map-age-cleaner,0.1.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,map-age-cleaner,map-age-cleaner,,https://github.com/SamVerschueren/map-age-cleaner,Copyright (c) Sam Verschueren <sam.verschueren@gmail.com> (github.com/SamVerschueren)
+md5.js,1.3.5,false,Exempt - Version closely related to 1.3.4,2,MIT,MIT,Approved,md5.js,md5.js,,https://github.com/crypto-browserify/md5.js,Copyright (c) 2016 Kirill Fomichev
+mem,4.3.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,mem,mem,,https://github.com/sindresorhus/mem,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+memory-fs,0.4.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,memory-fs,memory-fs,,https://github.com/webpack/memory-fs,
+miller-rabin,4.0.1,false,Exempt - Version closely related to 4.0.0,2,MIT,MIT,Approved,miller-rabin,miller-rabin,,https://github.com/indutny/miller-rabin,Copyright Fedor Indutny- 2014.
+mime,2.4.4,false,Exempt - Version closely related to 2.4.0,2,MIT,MIT,Approved,webpack-dev-middleware/node_modules/mime,mime,,https://github.com/broofa/node-mime,Copyright (c) 2010 Benjamin Thomas- Robert Kieffer
+mimic-fn,2.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,mimic-fn,mimic-fn,,https://github.com/sindresorhus/mimic-fn,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+minimalistic-assert,1.0.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,minimalistic-assert,minimalistic-assert,,https://github.com/calvinmetcalf/minimalistic-assert,Copyright 2015 Calvin Metcalf
+minimalistic-crypto-utils,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,minimalistic-crypto-utils,minimalistic-crypto-utils,,https://github.com/indutny/minimalistic-crypto-utils,Copyright Fedor Indutny- 2017.
+minipass,2.3.5,false,Exempt - Version closely related to 2.3.3,2,ISC,ISC,Approved,fsevents/node_modules/minipass,minipass,,https://github.com/isaacs/minipass,Copyright (c) npm- Inc. and Contributors
+minizlib,1.2.1,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,fsevents/node_modules/minizlib,minizlib,,https://github.com/isaacs/minizlib,Copyright Isaac Z. Schlueter and Contributors
+mississippi,3.0.0,false,Previously pedigree reviewed,2,BSD-2-Clause,BSD-2-Clause,Approved,mississippi,mississippi,,https://github.com/maxogden/mississippi,
+mixin-deep,1.3.2,false,Exempt - Version closely related to 1.3.0,2,MIT,MIT,Approved,mixin-deep,mixin-deep,,https://github.com/jonschlinkert/mixin-deep,Copyright (c) 2014-2015- 2017- Jon Schlinkert.
+monaco-editor,0.14.3,true,New version and not exempt,,Apache-2.0 MIT PostgreSQL,MIT,Approved,monaco-editor,monaco-editor,,https://github.com/Microsoft/monaco-editor,Copyright (c) 2016 - present Microsoft Corporation
+morgan,1.9.1,false,Exempt - Version closely related to 1.9.0,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/morgan,morgan,,,Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>
+move-concurrently,1.0.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,move-concurrently,move-concurrently,,https://www.npmjs.com/package/move-concurrently,Copyright (c) 2017- Rebecca Turner
+multicast-dns,6.2.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,multicast-dns,multicast-dns,,https://github.com/mafintosh/multicast-dns,Copyright (c) 2015 Mathias Buus
+multicast-dns-service-types,1.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,multicast-dns-service-types,multicast-dns-service-types,,https://github.com/mafintosh/multicast-dns-service-types,Copyright (c) 2015 Mathias Buus
+nan,2.14.0,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,nan,nan,,https://github.com/nodejs/nan,Copyright (c) 2018 NAN contributors
+napi-build-utils,1.0.0,false,Previously pedigree reviewed,2,MIT,,Approved,napi-build-utils/napi-build-utils-1.0.0.tgz/napi-build-utils-1.0.0.tar/package/napi-build-utils-1.0.0.tgz/napi-build-utils-1.0.0.tar/package/napi-build-utils-1.0.0.tgz,napi-build-utils,,https://github.com/inspiredware/napi-build-utils,Copyright (c) 2018 inspiredware
+napi-build-utils,1.0.1,false,Exempt - Version closely related to 1.0.0,2,MIT,MIT,Approved,napi-build-utils,napi-build-utils,,https://github.com/inspiredware/napi-build-utils,Copyright (c) 2018 inspiredware
+needle,2.3.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,fsevents/node_modules/needle,needle,,https://github.com/tomas/needle,Copyright (c) Fork- Ltd.
+needle,2.4.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,needle,needle,,https://github.com/tomas/needle,Copyright (c) Fork- Ltd.
+neo-async,2.6.1,false,Exempt - Version closely related to 2.6.0,2,MIT UNKNOWN,MIT,Needs Review,neo-async,neo-async,,https://github.com/suguru03/neo-async,Copyright (c) 2014-2018 Suguru Motegi
+node-libs-browser,2.2.1,false,Exempt - Version closely related to 2.2.0,2,MIT,MIT,Approved,node-libs-browser,node-libs-browser,,http://github.com/webpack/node-libs-browser,Copyright (c) 2012 Tobias Koppers
+node-pre-gyp,0.12.0,false,Exempt - Expected license matched,2,BSD-3-Clause,BSD-3-Clause,Approved,fsevents/node_modules/node-pre-gyp,node-pre-gyp,,https://github.com/mapbox/node-pre-gyp,Copyright (c)- Mapbox  All rights reserved.
+noop-logger,0.1.1,false,Previously pedigree reviewed,2,,MIT,Approved | Reference Only,noop-logger,noop-logger,,https://github.com/segmentio/noop-logger,
+normalize-path,2.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,anymatch/node_modules/normalize-path,normalize-path,,https://github.com/jonschlinkert/normalize-path,Copyright (c) 2014-2017- Jon Schlinkert
+normalize-path,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,normalize-path,normalize-path,,https://github.com/jonschlinkert/normalize-path,Copyright (c) 2014-2018- Jon Schlinkert.
+npm-bundled,1.0.6,false,Exempt - Version closely related to 1.0.3,2,ISC,ISC,Approved,fsevents/node_modules/npm-bundled,npm-bundled,,https://github.com/npm/npm-bundled,Copyright (c) npm- Inc. and Contributors
+npm-packlist,1.4.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,fsevents/node_modules/npm-packlist,npm-packlist,,https://www.npmjs.com/package/npm-packlist,Copyright (c) Isaac Z. Schlueter and Contributors
+obuf,1.1.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,obuf,obuf,,https://github.com/indutny/offset-buffer,Copyright Fedor Indutny- 2015.
+opn,5.5.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,opn,opn,,https://github.com/sindresorhus/opn,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+original,1.0.2,false,Exempt - Version closely related to 1.0.0,2,MIT,MIT,Approved,original,original,,https://github.com/unshiftio/original,Copyright (c) 2015 Unshift.io- Arnout Kazemier-  the Contributors.
+os-browserify,0.3.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,os-browserify,os-browserify,,https://github.com/CoderPuppy/os-browserify,Copyright (c) 2017 CoderPuppy
+os-locale,3.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,webpack-cli/node_modules/os-locale,os-locale,,https://github.com/sindresorhus/os-locale,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+osenv,0.1.5,false,Previously pedigree reviewed,2,ISC,ISC,Approved,fsevents/node_modules/osenv,osenv,,https://github.com/npm/osenv,Copyright (c) Isaac Z. Schlueter and Contributors
+p-defer,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-defer,p-defer,,https://github.com/sindresorhus/p-defer,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+p-is-promise,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-is-promise,p-is-promise,,https://github.com/sindresorhus/p-is-promise,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+p-locate,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,import-local/node_modules/p-locate,p-locate,,https://github.com/sindresorhus/p-locate,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+p-locate,4.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,p-locate,p-locate,,https://github.com/sindresorhus/p-locate,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+p-map,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-map,p-map,,https://github.com/sindresorhus/p-map,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+p-retry,3.0.1,true,New package and not exempt,,MIT,MIT,Approved,p-retry,p-retry,,https://github.com/sindresorhus/p-retry,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+p-try,2.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-try,p-try,,https://github.com/sindresorhus/p-try,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+pako,1.0.10,false,Exempt - Version closely related to 1.0.3,2,MIT Zlib,,Approved,pako,pako,,https://github.com/nodeca/pako,Copyright (C) 2014-2017 by Vitaly Puzrin and Andrei Tuputcyn
+parse-duration,0.1.1,false,Previously pedigree reviewed,2,,MIT,Approved | Reference Only,parse-duration,parse-duration,,https://github.com/jkroso/parse-duration,
+parse-ms,2.1.0,true,New package and not exempt,,MIT,MIT,Approved,parse-ms,parse-ms,,https://github.com/sindresorhus/parse-ms,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+parse-passwd,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,parse-passwd,parse-passwd,,https://github.com/doowb/parse-passwd,Copyright (c) 2016 Brian Woodward
+path-browserify,0.0.1,false,Exempt - Version closely related to 0.0.0,2,MIT,MIT,Approved,path-browserify,path-browserify,,https://github.com/substack/path-browserify,
+path-exists,4.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,path-exists,path-exists,,https://github.com/sindresorhus/path-exists,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+path-is-inside,1.0.2,false,Previously pedigree reviewed,2,KEYWORD MIT UNKNOWN WTFPL,WTFPL,Needs Review,path-is-inside,path-is-inside,,https://github.com/domenic/path-is-inside,Copyright © 2013–2016 Domenic Denicola <d@domenic.me>
+pbkdf2,3.0.17,false,Previously pedigree reviewed,2,MIT,MIT,Approved,pbkdf2,pbkdf2,,https://github.com/crypto-browserify/pbkdf2,Copyright (c) 2014 Daniel Cousens
+pend,1.2.0,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,pend,pend,,https://github.com/andrewrk/node-pend,Copyright (c) 2014 Andrew Kelley
+pify,4.0.1,false,Exempt - Version closely related to 4.0.0,2,MIT,MIT,Approved,pify,pify,,https://github.com/sindresorhus/pify,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+pkg-dir,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,import-local/node_modules/pkg-dir,pkg-dir,,https://github.com/sindresorhus/pkg-dir,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+pkg-dir,4.2.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,pkg-dir,pkg-dir,,https://github.com/sindresorhus/pkg-dir,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+postcss-modules-extract-imports,2.0.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,postcss-modules-extract-imports,postcss-modules-extract-imports,,https://github.com/css-modules/postcss-modules-extract-imports,Copyright 2015 Glen Maddern
+postcss-modules-local-by-default,3.0.2,false,Exempt - Expected license matched,2,MIT,MIT,Approved,postcss-modules-local-by-default,postcss-modules-local-by-default,,https://github.com/css-modules/postcss-modules-local-by-default,Copyright 2015 Mark Dalgleish <mark.john.dalgleish@gmail.com>
+postcss-modules-scope,2.1.0,false,Previously pedigree reviewed,2,ISC UNKNOWN,ISC,Needs Review,postcss-modules-scope,postcss-modules-scope,,https://github.com/css-modules/postcss-modules-scope,Copyright (c) 2015- Glen Maddern
+postcss-modules-values,3.0.0,true,New version and not exempt,,ISC UNKNOWN,ISC,Needs Review,postcss-modules-values,postcss-modules-values,,https://github.com/css-modules/postcss-modules-values,Copyright (c) 2015- Glen Maddern
+postcss-selector-parser,6.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,postcss-selector-parser,postcss-selector-parser,,https://github.com/postcss/postcss-selector-parser,Copyright (c) Ben Briggs <beneb.info@gmail.com> (http://beneb.info)
+pretty-ms,5.0.0,true,New package and not exempt,,MIT,MIT,Approved,pretty-ms,pretty-ms,,https://github.com/sindresorhus/pretty-ms,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+promise-inflight,1.0.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,promise-inflight,promise-inflight,,https://github.com/iarna/promise-inflight,Copyright (c) 2017- Rebecca Turner
+prop-types,15.7.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,prop-types,prop-types,,https://facebook.github.io/react/,Copyright (c) 2013-present- Facebook- Inc.
+prr,1.0.1,false,Exempt - Expected license matched,2,MIT,MIT,Approved,prr,prr,,https://github.com/rvagg/prr,Copyright (c) 2014 Rod Vagg
+public-encrypt,4.0.3,false,Exempt - Version closely related to 4.0.0,2,MIT,MIT,Approved,public-encrypt,public-encrypt,,https://github.com/crypto-browserify/publicEncrypt,Copyright (c) 2017 Calvin Metcalf
+pump,2.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,pumpify/node_modules/pump,pump,,https://github.com/mafintosh/pump,Copyright (c) 2014 Mathias Buus
+pump,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,pump,pump,,https://github.com/mafintosh/pump,Copyright (c) 2014 Mathias Buus
+pumpify,1.5.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,pumpify,pumpify,,https://github.com/mafintosh/pumpify,Copyright (c) 2014 Mathias Buus
+querystring-es3,0.2.1,false,Previously pedigree reviewed,2,MIT,,Approved,querystring-es3,querystring-es3,,https://github.com/mike-spainhower/querystring,Copyright 2012 Irakli Gozalishvili. All rights reserved.
+querystringify,2.1.1,false,Exempt - Version closely related to 2.1.0,2,MIT,MIT,Approved,querystringify,querystringify,,https://github.com/unshiftio/querystringify,Copyright (c) 2015 Unshift.io- Arnout Kazemier-  the Contributors.
+randombytes,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,randombytes,randombytes,,https://github.com/crypto-browserify/randombytes,Copyright (c) 2017 crypto-browserify
+randomfill,1.0.4,false,Exempt - Version closely related to 1.0.3,2,MIT,MIT,Approved,randomfill,randomfill,,https://github.com/crypto-browserify/randomfill,Copyright (c) 2017 crypto-browserify
+raw-body,2.4.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/raw-body,raw-body,,,Copyright (c) 2013-2014 Jonathan Ong <me@jongleberry.com>
+rc,1.2.8,false,Exempt - Version closely related to 1.2.1,2,Apache-2.0 BSD-2-Clause-FreeBSD MIT,Apache-2.0|BSD-2-Clause,Approved,fsevents/node_modules/rc,rc,,https://github.com/dominictarr/rc,Copyright (c) 2011 Dominic Tarr
+readable-stream,3.4.0,false,Previously pedigree reviewed,2,KEYWORD MIT UNKNOWN,MIT,Needs Review,bl/node_modules/readable-stream,readable-stream,,https://github.com/nodejs/readable-stream,Copyright Node.js contributors. All rights reserved.
+readdirp,2.2.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,readdirp,readdirp,,https://github.com/paulmillr/readdirp,Copyright (c) 2012-2015 Thorsten Lorenz
+remove-trailing-separator,1.1.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,remove-trailing-separator,remove-trailing-separator,,https://github.com/darsain/remove-trailing-separator,
+repeat-element,1.1.3,false,Exempt - Version closely related to 1.1.2,2,MIT,MIT,Approved,repeat-element,repeat-element,,https://github.com/jonschlinkert/repeat-element,Copyright (c) 2015-present- Jon Schlinkert.
+require-main-filename,2.0.0,false,Exempt - Expected license matched,2,ISC,ISC,Approved,require-main-filename,require-main-filename,,https://github.com/yargs/require-main-filename,Copyright (c) 2016- Contributors
+requires-port,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,requires-port,requires-port,,https://github.com/unshiftio/requires-port,Copyright (c) 2015 Unshift.io- Arnout Kazemier-  the Contributors.
+resolve-cwd,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,resolve-cwd,resolve-cwd,,https://github.com/sindresorhus/resolve-cwd,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+resolve-dir,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,resolve-dir,resolve-dir,,https://github.com/jonschlinkert/resolve-dir,Copyright (c) 2015-2016- Jon Schlinkert
+resolve-from,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,resolve-from,resolve-from,,https://github.com/sindresorhus/resolve-from,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+retry,0.12.0,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,retry,retry,,https://github.com/tim-kos/node-retry,Copyright (c) 2011:
+rimraf,2.6.3,false,Exempt - Version closely related to 2.6.1,2,ISC,ISC,Approved,fsevents/node_modules/rimraf,rimraf,,https://github.com/isaacs/rimraf,Copyright (c) Isaac Z. Schlueter and Contributors
+ripemd160,2.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,ripemd160,ripemd160,,https://github.com/crypto-browserify/ripemd160,Copyright (c) 2016 crypto-browserify
+run-queue,1.0.3,false,Previously pedigree reviewed,2,,ISC,Approved | Reference Only,run-queue,run-queue,,https://npmjs.com/package/run-queue,
+sax,1.2.4,false,Exempt - Version closely related to 1.2.1,2,ISC MIT UNKNOWN,ISC,Needs Review,fsevents/node_modules/sax,sax,,https://github.com/isaacs/sax-js,Copyright (c) Isaac Z. Schlueter and Contributors
+schema-utils,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,schema-utils,schema-utils,,https://github.com/webpack-contrib/schema-utils,Copyright JS Foundation and other contributors
+select-hose,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,select-hose,select-hose,,https://github.com/indutny/select-hose,Copyright Fedor Indutny- 2015.
+send,0.17.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/send,send,,,Copyright (c) 2012 TJ Holowaychuk
+serve-index,1.9.1,false,Exempt - Version closely related to 1.9.0,2,MIT,MIT,Approved,serve-index,serve-index,,https://github.com/expressjs/serve-index,Copyright (c) 2010 Sencha Inc.
+serve-static,1.14.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/serve-static,serve-static,,,Copyright (c) 2010 Sencha Inc.
+set-value,2.0.1,false,Exempt - Version closely related to 2.0.0,2,MIT,MIT,Approved,set-value,set-value,,https://github.com/jonschlinkert/set-value,Copyright (c) 2014-2017- Jon Schlinkert
+sha.js,2.4.11,false,Previously pedigree reviewed,2,BSD-3-Clause MIT,BSD-3-Clause,Approved,sha.js,sha.js,,https://github.com/crypto-browserify/sha.js,Copyright (c) 2013-2018 sha.js contributors
+shebang-loader,0.0.1,true,New package and not exempt,,MIT,MIT,Approved,shebang-loader,shebang-loader,,https://github.com/javascriptismagic/shebang-loader,Copyright (c) 2016 unicorn.coffee
+simple-concat,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,simple-concat,simple-concat,,https://github.com/feross/simple-concat,Copyright (c) Feross Aboukhadijeh
+simple-html-tokenizer,0.1.1,true,New package and not exempt,,MIT,MIT,Approved,simple-html-tokenizer,simple-html-tokenizer,,https://github.com/tildeio/simple-html-tokenizer,Copyright (c) 2014 Yehuda Katz and contributors
+sockjs,0.3.19,false,Previously pedigree reviewed,2,MIT,MIT,Approved,sockjs,sockjs,,https://github.com/sockjs/sockjs-node,Copyright (C) 2011 VMware- Inc.
+source-list-map,2.0.1,false,Exempt - Version closely related to 2.0.0,2,BSD-3-Clause MIT,MIT,Approved,source-list-map,source-list-map,,https://github.com/webpack/source-list-map,Copyright 2017 JS Foundation
+source-map-loader,0.2.4,false,Previously pedigree reviewed,2,MIT,MIT,Approved,source-map-loader,source-map-loader,,https://github.com/webpack-contrib/source-map-loader,Copyright JS Foundation and other contributors
+spdy-transport,3.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,spdy-transport,spdy-transport,,https://github.com/spdy-http2/spdy-transport,Copyright Fedor Indutny- 2015.
+ssri,6.0.1,false,Exempt - Version closely related to 6.0.0,2,ISC,ISC,Approved,ssri,ssri,,https://github.com/zkat/ssri,Copyright (c) npm- Inc.
+stream-browserify,2.0.2,false,Exempt - Version closely related to 2.0.1,2,MIT,MIT,Approved,stream-browserify,stream-browserify,,https://github.com/browserify/stream-browserify,Copyright (c) James Halliday
+stream-each,1.2.3,false,Exempt - Version closely related to 1.2.0,2,MIT,MIT,Approved,stream-each,stream-each,,https://github.com/mafintosh/stream-each,Copyright (c) 2015 Mathias Buus
+stream-http,2.8.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,stream-http,stream-http,,https://github.com/jhiesey/stream-http,Copyright (c) 2015 John Hiesey
+string-width,3.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,webpack-cli/node_modules/string-width,string-width,,https://github.com/sindresorhus/string-width,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+string.prototype.codepointat,0.2.1,false,Exempt - Version closely related to 0.2.0,2,MIT,MIT,Approved,string.prototype.codepointat,string.prototype.codepointat,,https://mths.be/codepointat,Copyright Mathias Bynens <https://mathiasbynens.be/>
+strip-ansi,5.2.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,strip-ansi,strip-ansi,,https://github.com/chalk/strip-ansi,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+supports-color,5.5.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,chalk/node_modules/supports-color,supports-color,,https://github.com/chalk/supports-color,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+supports-color,6.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,supports-color,supports-color,,https://github.com/chalk/supports-color,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+svg-inline-loader,0.8.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,svg-inline-loader,svg-inline-loader,,https://github.com/sairion/svg-inline-loader,Copyright JS Foundation and other contributors
+tapable,1.1.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,tapable,tapable,,https://github.com/webpack/tapable,Copyright (c) Tobias Koppers @sokra
+tar,4.4.8,false,Exempt - Version closely related to 4.4.4,2,ISC,ISC,Approved,fsevents/node_modules/tar,tar,,https://github.com/npm/node-tar,Copyright (c) Isaac Z. Schlueter and Contributors
+through2,2.0.5,false,Exempt - Version closely related to 2.0.0,2,MIT,MIT,Approved,through2,through2,,https://github.com/rvagg/through2,**Copyright (c) Rod Vagg (the "Original Author") and additional contributors**
+tmp,0.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,tmp,tmp,,http://github.com/raszi/node-tmp,Copyright (c) 2014 KARASZI István
+to-arraybuffer,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,to-arraybuffer,to-arraybuffer,,https://github.com/jhiesey/to-arraybuffer,Copyright (c) 2016 John Hiesey
+to-string-loader,1.1.5,true,New package and not exempt,,,BSD-3-Clause,Approved | Reference Only,to-string-loader,to-string-loader,,https://github.com/gajus/to-string-loader,
+tty-browserify,0.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,tty-browserify,tty-browserify,,https://github.com/substack/tty-browserify,
+union-value,1.0.1,false,Exempt - Version closely related to 1.0.0,2,MIT,MIT,Approved,union-value,union-value,,https://github.com/jonschlinkert/union-value,Copyright (c) 2015-2017- Jon Schlinkert
+uniq,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,uniq,uniq,,https://github.com/mikolalysenko/uniq,Copyright (c) 2013 Mikola Lysenko
+unique-filename,1.1.1,false,Exempt - Version closely related to 1.1.0,2,ISC,ISC,Approved,unique-filename,unique-filename,,https://github.com/iarna/unique-filename,Copyright npm- Inc
+unique-slug,2.0.2,false,Exempt - Version closely related to 2.0.0,2,ISC,ISC,Approved,unique-slug,unique-slug,,https://github.com/iarna/unique-slug,Copyright npm- Inc
+universalify,0.1.2,false,Exempt - Version closely related to 0.1.0,2,MIT,MIT,Approved,universalify,universalify,,https://github.com/RyanZim/universalify,Copyright (c) 2017- Ryan Zimmerman <opensrc@ryanzim.com>
+url,0.10.3,false,Exempt - Expected license matched,2,MIT,MIT,Approved,url,url,,https://github.com/defunctzombie/node-url,Copyright Joyent- Inc. and other Node contributors.
+url-parse,1.4.7,false,Exempt - Version closely related to 1.4.3,2,MIT,MIT,Approved,url-parse,url-parse,,https://github.com/unshiftio/url-parse,Copyright (c) 2015 Unshift.io- Arnout Kazemier-  the Contributors.
+util,0.11.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,util,util,,https://github.com/defunctzombie/node-util,Copyright Joyent- Inc. and other Node contributors. All rights reserved.
+v8-compile-cache,2.0.3,false,Exempt - Version closely related to 2.0.2,2,MIT,MIT,Approved,v8-compile-cache,v8-compile-cache,,https://github.com/zertosh/v8-compile-cache,Copyright (c) 2019 Andres Suarez
+vm-browserify,1.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,vm-browserify,vm-browserify,,https://github.com/substack/vm-browserify,
+watchpack,1.6.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,watchpack,watchpack,,https://github.com/webpack/watchpack,Copyright JS Foundation and other contributors
+wbuf,1.7.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,wbuf,wbuf,,https://github.com/indutny/wbuf,Copyright Fedor Indutny- 2014.
+wcwidth,1.0.1,false,Exempt - Version closely related to 1.0.0,2,MIT,MIT,Approved,wcwidth,wcwidth,,https://github.com/timoxley/wcwidth,
+webpack-log,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack-log,webpack-log,,https://github.com/webpack-contrib/webpack-log,Copyright (c) 2017 webpack-contrib
+websocket-driver,0.7.3,false,Exempt - Version closely related to 0.7.0,2,Apache-2.0,Apache-2.0,Approved,websocket-driver,websocket-driver,,https://github.com/faye/websocket-driver-node,Copyright 2010-2019 James Coglan
+websocket-extensions,0.1.3,false,Exempt - Version closely related to 0.1.1,2,MIT,MIT,Approved,websocket-extensions,websocket-extensions,,http://github.com/faye/websocket-extensions-node,Copyright (c) 2014-2017 James Coglan
+which-pm-runs,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,which-pm-runs,which-pm-runs,,https://github.com/zkochan/which-pm-runs,Copyright (c) 2017 Zoltan Kochan
+wide-align,1.1.3,false,Exempt - Version closely related to 1.1.0,2,ISC,ISC,Approved,fsevents/node_modules/wide-align,wide-align,,https://github.com/iarna/wide-align,Copyright (c) 2015- Rebecca Turner
+worker-farm,1.7.0,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,worker-farm,worker-farm,,https://github.com/rvagg/node-worker-farm,Copyright (c) 2014 LevelUP contributors
+wrap-ansi,5.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,webpack-cli/node_modules/wrap-ansi,wrap-ansi,,https://github.com/chalk/wrap-ansi,Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+xmlbuilder,10.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,xmlbuilder,xmlbuilder,,http://github.com/oozcitak/xmlbuilder-js,Copyright (c) 2013 Ozgur Ozcitak
+y18n,4.0.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,cacache/node_modules/y18n,y18n,,https://github.com/yargs/y18n,Copyright (c) 2015- Contributors
+yallist,3.0.3,false,Exempt - Version closely related to 3.0.2,2,ISC,ISC,Approved,fsevents/node_modules/yallist,yallist,,https://github.com/isaacs/yallist,Copyright (c) Isaac Z. Schlueter and Contributors
+yargs,12.0.5,false,Exempt - Version closely related to 12.0.1,2,MIT UNKNOWN X11,MIT,Needs Review,webpack-dev-server/node_modules/yargs,yargs,,https://yargs.js.org/,Copyright 2010 James Halliday (mail@substack.net)
+yargs,13.2.4,true,New version and not exempt,,MIT UNKNOWN X11,MIT,Needs Review,webpack-cli/node_modules/yargs,yargs,,https://yargs.js.org/,Copyright 2010 James Halliday (mail@substack.net)
+yargs-parser,11.1.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,webpack-dev-server/node_modules/yargs-parser,yargs-parser,,https://github.com/yargs/yargs-parser,Copyright (c) 2016- Contributors
+yargs-parser,13.1.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,webpack-cli/node_modules/yargs-parser,yargs-parser,,https://github.com/yargs/yargs-parser,Copyright (c) 2016- Contributors
+yauzl,2.4.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,yauzl,yauzl,,https://github.com/thejoshwolfe/yauzl,Copyright (c) 2014 Josh Wolfe

@@ -216,3 +216,7 @@ update-plugins: download-plugins
 update-kui: 
 	$(MAKE) -C client update-client
 	$(MAKE) -C proxy update-proxy
+
+.PHONY: awsom
+awsom:
+	@bash scripts/awsom-script.sh

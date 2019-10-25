@@ -3,6 +3,7 @@ Makefile*
 */Makefile*
 proxy
 scripts
+ossc
 testcerts/tls.key
 testcerts/tls.crt
 .git*
@@ -22,5 +23,3 @@ testcerts/tls.crt
 **/*.ico
 **/*.debug.js
 **/package-lock.json
-
-

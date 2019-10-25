@@ -1,0 +1,5 @@
+REQUIRE MANUAL APPROVAL/SUBMISSION. CONSIDER CHANGING PACKAGES OR CONFIRMING LICENSE MANUALLY WITH https://wicked-pedigree-service.w3ibm.mybluemix.net 
+,
+Name,Version,Need Pedigree Review,Reason,Review Level,License Types,Declared License,License Status,Path,Short Name,Previously Declared,Repository URL,Copyright
+node-forge,0.9.0,true,New version and not exempt,,BSD-3-Clause GPL-2.0 KEYWORD MIT Other-Approved UNKNOWN,BSD-3-Clause|GPL-2.0,Needs Review | Needs Legal Approval,node-forge,node-forge,NOT FOUND,https://github.com/digitalbazaar/forge,Copyright (c) 2010- Digital Bazaar- Inc. All rights reserved.
+node-forge-flash,0.0.0,false,Previously pedigree reviewed,2,,BSD-3-Clause|GPL-2.0,Needs Review | Reference Only,node-forge/flash,node-forge-flash,NOT FOUND,https://github.com/digitalbazaar/forge,

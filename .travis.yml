@@ -39,7 +39,7 @@ matrix:
       - make install-proxy
     script:
       - make lint-proxy
-  
+
   # --- Integration testing ---
   - stage: test-pr
     name: "PR tests"
