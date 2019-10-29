@@ -68,6 +68,11 @@ module.exports = {
       CLI.verifyTableOutput(browser)
       KUI.verifyDetailSidecar(browser)
     })
+    const additional_commands = ['ls','init -c','repo list','create mychart','template mychart','version','install mychart --dry-run']
+    additional_commands.forEach(command=>{
+      KUI.executeCommand(browser, `helm ${command}`)
+      KUI.verifyOutputSuccess(browser)
+    })
   },
 
   after: function (browser, done) {
