@@ -57,7 +57,6 @@ matrix:
       - make init
       - make docker-logins
       - make download-clis
-      - make download-plugins
     install:
       - make install
     before_script:
@@ -86,7 +85,6 @@ matrix:
       - make init
       - make docker-login
       - make download-clis
-      - make download-plugins
     install:
       - make install
     script:
@@ -112,7 +110,6 @@ matrix:
       - make init
       - make docker-login
       - make download-clis
-      - make download-plugins
     install:
       - make install
     script:
@@ -138,7 +135,6 @@ matrix:
       - make init
       - make docker-logins
       - make download-clis
-      - make download-plugins
     install:
       - make install
     script:
