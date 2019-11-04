@@ -63,3 +63,7 @@ client-update-plugins:
 	npm install ../plugin-downloads/plugin-search.tgz
 	npm uninstall @kui-shell/plugin-kui-addons
 	npm install ../plugin-downloads/plugin-kui-addons.tgz
+
+.PHONY: update-nls
+update-nls:
+	node ./scripts/nls-automation.js

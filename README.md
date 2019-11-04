@@ -186,6 +186,7 @@ download "github-repo-name" "release-tgz-filename" "release-version"
 | import-css              |    Updates the CSS files from the open-source KUI repository. |
 | install-client          |    Installs the /client package.json npm packages. |
 | update-client           |    Updates the /client KUI dependencies based on KUI_UPDATE_VERSION variable. |
+| update-nls              |    Updates the getting started content strings in client/theme/theme.json with content from client/nls directory |
 | webpack                 |    Builds the open-source KUI webpack component. |
 
 ### Proxy
