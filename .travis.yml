@@ -42,6 +42,7 @@ matrix:
       - make install-proxy
     script:
       - make lint-proxy
+      - make copyright-check
 
   # --- Integration testing ---
   - stage: test-pr

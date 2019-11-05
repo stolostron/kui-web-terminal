@@ -170,6 +170,10 @@ lint: lint-proxy
 lint-proxy:
 	$(MAKE) -C proxy $@
 
+.PHONY: copyright-check
+copyright-check:
+	@bash ./copyright-check.sh
+
 .PHONY: build-image
 build-image: docker-login-edge
 	@echo "Building mcm-kui image"

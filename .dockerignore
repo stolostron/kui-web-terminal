@@ -4,6 +4,7 @@ Makefile*
 proxy
 scripts
 ossc
+copyright-check.sh
 testcerts/tls.key
 testcerts/tls.crt
 .git*

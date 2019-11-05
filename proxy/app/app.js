@@ -1,3 +1,12 @@
+ /*******************************************************************************
+ * Licensed Materials - Property of IBM
+ * (c) Copyright IBM Corporation 2019. All Rights Reserved.
+ *
+ * Note to U.S. Government Users Restricted Rights:
+ * Use, duplication or disclosure restricted by GSA ADP Schedule
+ * Contract with IBM Corp.
+ *******************************************************************************/
+
 /*
  * Copyright 2019 IBM Corporation
  *
@@ -13,15 +22,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
- /*******************************************************************************
- * Licensed Materials - Property of IBM
- * (c) Copyright IBM Corporation 2019. All Rights Reserved.
- *
- * Note to U.S. Government Users Restricted Rights:
- * Use, duplication or disclosure restricted by GSA ADP Schedule
- * Contract with IBM Corp.
- *******************************************************************************/
 
 const express = require('express')
 const expressStaticGzip = require("express-static-gzip");
