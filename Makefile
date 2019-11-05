@@ -197,8 +197,9 @@ run:
 .PHONY: tests-dev
 tests-dev:
 ifeq ($(FUNCTIONAL_TESTS), TRUE)
-	$(SELF) run > /dev/null
-	$(MAKE) -C client client-tests
+	 $(SELF) run > /dev/null
+	$(MAKE) -C tests setup-dependencies
+	$(MAKE) -C tests run-all-tests
 else
 	@echo Tests are disabled, export FUNCTIONAL_TESTS="TRUE" to run tests.
 endif
@@ -220,3 +221,8 @@ update-kui:
 .PHONY: awsom
 awsom:
 	@bash scripts/awsom-script.sh
+
+.PHONY: test-module
+test-module:
+	sed -i "s/git@github.ibm.com:/https:\/\/$(GITHUB_USER):$(GITHUB_TOKEN)@github.ibm.com\//" .gitmodules
+	git submodule update --init --recursive
