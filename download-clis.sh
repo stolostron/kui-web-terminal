@@ -11,12 +11,10 @@ set -e
 
 ARCH=$(uname -m | sed 's/x86_64/amd64/g')
 
-ISTIO_VER=1.0.2
-DOCKER_REGISTRY=hyc-cloud-private-integration-docker-local.artifactory.swg-devops.com
-DOCKER_NAMESPACE=ibmcom
-CLOUDCTL_VER=latest
-CLOUDCTL_IMAGE=$DOCKER_REGISTRY/$DOCKER_NAMESPACE/icp-platform-api-$ARCH:$CLOUDCTL_VER
-ICP_VER=3.2.1
+DOCKER_REGISTRY=hyc-cloud-private-fixpack-docker-virtual.artifactory.swg-devops.com
+DOCKER_NAMESPACE=ibmcom-amd64
+CLOUDCTL_VER=3.2.1.1911
+CLOUDCTL_IMAGE=$DOCKER_REGISTRY/$DOCKER_NAMESPACE/icp-platform-api:$CLOUDCTL_VER
 
 rm -rf downloads
 mkdir -p downloads

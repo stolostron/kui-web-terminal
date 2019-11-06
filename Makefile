@@ -8,6 +8,7 @@ GITHUB_TOKEN ?=
 DOCKER_EDGE_REGISTRY ?= hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com
 DOCKER_SCRATCH_REGISTRY ?= hyc-cloud-private-scratch-docker-local.artifactory.swg-devops.com
 DOCKER_INTEGRATION_REGISTRY ?= hyc-cloud-private-integration-docker-local.artifactory.swg-devops.com
+DOCKER_FIXPACK_VIRTUAL_REGISTRY ?= hyc-cloud-private-fixpack-docker-virtual.artifactory.swg-devops.com
 
 WORKING_CHANGES = $(shell git status --porcelain)
 BUILD_DATE = $(shell date +%m/%d@%H:%M:%S)
@@ -35,16 +36,6 @@ DOCKER_TAG ?= $(shell whoami)
 DOCKER_RUN_OPTS ?= -e NODE_ENV=development -e ICP_EXTERNAL_URL=$(ICP_EXTERNAL_URL) -e KUI_INGRESS_PATH="kui" -e AUTH_TOKEN=$(AUTH_TOKEN) -e DEBUG=* -e TEST_USER=$(TEST_USER) -e TEST_PASSWORD=$(TEST_PASSWORD) -d -v $(PWD)/testcerts:/etc/certs
 DOCKER_BIND_PORT ?= 8081:3000
 
-# Default to scratch unless a push to master
-PUSH_INTEGRATION ?= false
-DOCKER_REGISTRY := $(DOCKER_SCRATCH_REGISTRY)
-DOCKER_NAMESPACE := mcm-kui-pr-builds
-ifeq ($(PUSH_INTEGRATION), true)
-	DOCKER_REGISTRY := $(DOCKER_INTEGRATION_REGISTRY)
-	DOCKER_NAMESPACE := ibmcom
-endif
-
-
 
 ARCH := $(shell uname -m)
 OS ?= $(shell uname -r | cut -d '.' -f6)
@@ -53,6 +44,23 @@ OS ?= $(shell uname -r | cut -d '.' -f6)
 ifeq ($(ARCH), x86_64)
 	ARCH = amd64
 endif
+
+# Default to scratch unless a push to master
+PUSH_REPO ?= scratch
+DOCKER_REGISTRY := $(DOCKER_SCRATCH_REGISTRY)
+DOCKER_NAMESPACE := mcm-kui-pr-builds
+ifeq ($(PUSH_REPO), integration)
+	DOCKER_REGISTRY := $(DOCKER_INTEGRATION_REGISTRY)
+	DOCKER_NAMESPACE := ibmcom
+endif
+ifeq ($(PUSH_REPO), fixpack)
+	DOCKER_REGISTRY := $(DOCKER_FIXPACK_VIRTUAL_REGISTRY)
+	DOCKER_NAMESPACE := ibmcom-$(ARCH)
+endif
+
+
+
+
 
 
 .PHONY: init\:
@@ -92,6 +100,7 @@ docker-login-edge:
 docker-logins:
 	$(SELF) docker:login DOCKER_REGISTRY=$(DOCKER_INTEGRATION_REGISTRY)
 	$(SELF) docker:login DOCKER_REGISTRY=$(DOCKER_SCRATCH_REGISTRY)
+	$(SELF) docker:login DOCKER_REGISTRY=$(DOCKER_FIXPACK_VIRTUAL_REGISTRY)
 
 
 TEMP_FOLDER ?= 'tmp' # a temporary folder for headless build
@@ -173,10 +182,17 @@ build-image: docker-login-edge
 # Push docker image to artifactory
 .PHONY: release
 release:
+ifeq ($(PUSH_REPO),fixpack)
+	$(SELF) docker:tag
+	@echo "Tagged mcm-kui image as $(DOCKER_URI)"
+	@echo "Pushing mcm-kui image to $(DOCKER_URI)..."
+	$(SELF) docker:push
+else
 	$(SELF) docker:tag-arch
 	@echo "Tagged mcm-kui image as $(DOCKER_ARCH_URI)"
 	@echo "Pushing mcm-kui image to $(DOCKER_ARCH_URI)..."
 	$(SELF) docker:push-arch
+endif
 
 .PHONY: run
 run:
