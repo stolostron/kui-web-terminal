@@ -1,0 +1,8 @@
+Project,mcm-kui:3.4.0
+Directory Scanned,~/Desktop/mcm-kui/awsom-output/node_modules
+Date,2019-10-25T20:07:24.819Z
+CLI Version,2.2.34
+WILD Version,1.0.174
+,
+Name,Version,Need Pedigree Review,Reason,Review Level,Declared License,License Status,Path,Comments
+xterm,3.14.5,TRUE,New version and not exempt,,MIT,Needs Legal Approval,xterm,https://github.com/xtermjs/xterm.js,

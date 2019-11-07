@@ -2,17 +2,17 @@ Name,Version,Need Pedigree Review,Reason,Review Level,License Types,Declared Lic
 1to2,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,nan/tools
 @carbon/icon-helpers,10.4.0,false,Exempt - Expected license matched,2,Apache-2.0,Apache-2.0,Approved,@carbon/icon-helpers
 @carbon/icons-react,10.6.0,false,Exempt - Expected license matched,2,Apache-2.0,Apache-2.0,Approved,@carbon/icons-react
-@kui-shell/core,5.2.6,true,New package and not exempt,,Apache-2.0 MIT,Apache-2.0,Approved,@kui-shell/core
-@kui-shell/plugin-bash-like,5.2.6,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-bash-like
-@kui-shell/plugin-core-support,5.2.6,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-core-support
-@kui-shell/plugin-editor,5.2.6,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-editor
-@kui-shell/plugin-k8s,5.2.6,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-k8s
+@kui-shell/core,5.2.7,true,New package and not exempt,,Apache-2.0 MIT,Apache-2.0,Approved,@kui-shell/core
+@kui-shell/plugin-bash-like,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-bash-like
+@kui-shell/plugin-core-support,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-core-support
+@kui-shell/plugin-editor,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-editor
+@kui-shell/plugin-k8s,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-k8s
 @kui-shell/plugin-kui-addons,0.0.0-semantically-released,true,New package and not exempt,,,,No license information available,@kui-shell/plugin-kui-addons
-@kui-shell/plugin-proxy-support,5.2.6,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-proxy-support
+@kui-shell/plugin-proxy-support,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-proxy-support
 @kui-shell/plugin-search,0.0.0-semantically-released,true,New package and not exempt,,KEYWORD UNKNOWN,ISC,Needs Review,@kui-shell/plugin-search
-@kui-shell/proxy,5.2.6,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/proxy
+@kui-shell/proxy,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/proxy
 @kui-shell/proxy-webapp,0.0.1,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/proxy/app
-@kui-shell/webpack,5.2.6,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/webpack
+@kui-shell/webpack,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/webpack
 @my-scope/package-a,0.0.0,false,Previously pedigree reviewed,2,,MIT,Approved | Reference Only,resolve/test/resolver/multirepo/packages/package-a
 @my-scope/package-b,0.0.0,false,Previously pedigree reviewed,2,,MIT,Approved | Reference Only,resolve/test/resolver/multirepo/packages/package-b
 @types/cookie,0.3.3,false,Exempt - Version closely related to 0.3.2,2,MIT,MIT,Approved,@types/cookie
@@ -568,7 +568,7 @@ p-locate,4.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,p-loca
 p-map,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-map
 p-retry,3.0.1,true,New package and not exempt,,MIT,MIT,Approved,p-retry
 p-try,2.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-try
-package,unknown,true,New version and not exempt,,,,No license information available,stream-http/test/browser
+package,unknown,true,New version and not exempt,,,,No license information available,resolve/test/resolver/incorrect_main
 pako,1.0.10,false,Exempt - Version closely related to 1.0.3,2,MIT Zlib,,Approved,pako
 parallel-transform,1.2.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,parallel-transform
 parse-asn1,5.1.5,false,Exempt - Version closely related to 5.1.1,2,ISC,ISC,Approved,parse-asn1
@@ -598,7 +598,7 @@ pkg-dir,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,import-local
 pkg-dir,4.2.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,pkg-dir
 portfinder,1.0.25,false,Exempt - Version closely related to 1.0.13,2,MIT UNKNOWN X11,MIT,Needs Review,portfinder
 posix-character-classes,0.1.1,false,Previously pedigree reviewed,2,CC-BY-SA-3.0 MIT,MIT,Needs Legal Approval,posix-character-classes
-postcss,7.0.20,false,Exempt - Version closely related to 7.0.17,2,MIT,MIT,Approved,postcss
+postcss,7.0.21,false,Exempt - Version closely related to 7.0.17,2,MIT,MIT,Approved,postcss
 postcss-modules-extract-imports,2.0.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,postcss-modules-extract-imports
 postcss-modules-local-by-default,3.0.2,false,Exempt - Expected license matched,2,MIT,MIT,Approved,postcss-modules-local-by-default
 postcss-modules-scope,2.1.0,false,Previously pedigree reviewed,2,ISC UNKNOWN,ISC,Needs Review,postcss-modules-scope
