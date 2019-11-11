@@ -64,7 +64,7 @@ if (process.env.NODE_ENV === 'development') {
     next()
   })
 
-  app.use('/header', cookieParser(), proxy({
+  app.use('/common-nav', cookieParser(), proxy({
     target: process.env.ICP_EXTERNAL_URL,
     changeOrigin: true,
     secure: false,

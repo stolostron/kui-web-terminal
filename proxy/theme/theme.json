@@ -31,7 +31,7 @@
   "fonts": "",
   "appIcon": "icons/png/kui.png",
   "largeIcon": "icons/svg/kui.svg",
-  "favicon": "icons/ico/kui.ico",
+  "favicon": "/common-nav/graphics/ICP-favicon.png",
   "filesystemIcons": {
     "darwin": "icons/icns/kui.icns",
     "win32": "icons/ico/kui.ico",

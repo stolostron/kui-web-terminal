@@ -62,6 +62,7 @@
   ],
   "tabStripe": "top-tab-stripe.css",
   "tableStyle": "Medium",
+  "favicon": "/common-nav/graphics/ICP-favicon.png",
   "filesystemIcons": {
     "darwin": "icons/icns/kui.icns",
     "win32": "icons/ico/kui.ico",
