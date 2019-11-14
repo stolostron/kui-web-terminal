@@ -1,18 +1,18 @@
 Name,Version,Need Pedigree Review,Reason,Review Level,License Types,Declared License,License Status,Path
 1to2,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,nan/tools
 @carbon/icon-helpers,10.4.0,false,Exempt - Expected license matched,2,Apache-2.0,Apache-2.0,Approved,@carbon/icon-helpers
-@carbon/icons-react,10.6.0,false,Exempt - Expected license matched,2,Apache-2.0,Apache-2.0,Approved,@carbon/icons-react
-@kui-shell/core,5.2.7,true,New package and not exempt,,Apache-2.0 MIT,Apache-2.0,Approved,@kui-shell/core
-@kui-shell/plugin-bash-like,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-bash-like
-@kui-shell/plugin-core-support,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-core-support
-@kui-shell/plugin-editor,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-editor
-@kui-shell/plugin-k8s,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-k8s
+@carbon/icons-react,10.6.0,false,Previously pedigree reviewed,2,Apache-2.0,Apache-2.0,Approved,@carbon/icons-react
+@kui-shell/core,5.1.14,true,New package and not exempt,,Apache-2.0 MIT,Apache-2.0,Approved,@kui-shell/core
+@kui-shell/plugin-bash-like,5.1.14,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-bash-like
+@kui-shell/plugin-core-support,5.1.14,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-core-support
+@kui-shell/plugin-editor,5.1.14,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-editor
+@kui-shell/plugin-k8s,5.1.14,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-k8s
 @kui-shell/plugin-kui-addons,0.0.0-semantically-released,true,New package and not exempt,,,,No license information available,@kui-shell/plugin-kui-addons
-@kui-shell/plugin-proxy-support,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-proxy-support
-@kui-shell/plugin-search,0.0.0-semantically-released,true,New package and not exempt,,KEYWORD UNKNOWN,ISC,Needs Review,@kui-shell/plugin-search
-@kui-shell/proxy,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/proxy
+@kui-shell/plugin-proxy-support,5.1.14,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/plugin-proxy-support
+@kui-shell/plugin-search,0.0.0-semantically-released,true,New package and not exempt,,Apache-2.0 KEYWORD UNKNOWN,ISC,Needs Review,@kui-shell/plugin-search
+@kui-shell/proxy,5.1.14,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/proxy
 @kui-shell/proxy-webapp,0.0.1,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/proxy/app
-@kui-shell/webpack,5.2.7,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/webpack
+@kui-shell/webpack,5.1.14,true,New package and not exempt,,Apache-2.0,Apache-2.0,Approved,@kui-shell/webpack
 @my-scope/package-a,0.0.0,false,Previously pedigree reviewed,2,,MIT,Approved | Reference Only,resolve/test/resolver/multirepo/packages/package-a
 @my-scope/package-b,0.0.0,false,Previously pedigree reviewed,2,,MIT,Approved | Reference Only,resolve/test/resolver/multirepo/packages/package-b
 @types/cookie,0.3.3,false,Exempt - Version closely related to 0.3.2,2,MIT,MIT,Approved,@types/cookie
@@ -20,7 +20,7 @@ Name,Version,Need Pedigree Review,Reason,Review Level,License Types,Declared Lic
 @types/glob,7.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@types/glob
 @types/marked,0.6.5,true,New package and not exempt,,MIT,MIT,Approved,@types/marked
 @types/minimatch,3.0.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@types/minimatch
-@types/node,12.11.7,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@types/node
+@types/node,12.0.10,false,Exempt - Version closely related to 12.0.8,2,MIT,MIT,Approved,@types/node
 @types/shelljs,0.8.5,true,New package and not exempt,,MIT,MIT,Approved,@types/shelljs
 @webassemblyjs/ast,1.7.10,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/ast/webassemblyjs-ast-1.7.10.tgz/webassemblyjs-ast-1.7.10.tar/package
 @webassemblyjs/ast,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/ast
@@ -35,15 +35,15 @@ Name,Version,Need Pedigree Review,Reason,Review Level,License Types,Declared Lic
 @webassemblyjs/helper-wasm-bytecode,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/helper-wasm-bytecode
 @webassemblyjs/helper-wasm-section,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/helper-wasm-section/webassemblyjs-helper-wasm-section-1.7.10.tgz/webassemblyjs-helper-wasm-section-1.7.10.tar/package
 @webassemblyjs/helper-wasm-section,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/helper-wasm-section
-@webassemblyjs/ieee754,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/ieee754
+@webassemblyjs/ieee754,1.8.5,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/ieee754
 @webassemblyjs/leb128,1.8.5,false,Exempt - Expected license matched,2,Apache-2.0,MIT,Approved,@webassemblyjs/leb128
 @webassemblyjs/utf8,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/utf8
 @webassemblyjs/wasm-edit,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wasm-edit/webassemblyjs-wasm-edit-1.7.10.tgz/webassemblyjs-wasm-edit-1.7.10.tar/package
-@webassemblyjs/wasm-edit,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/wasm-edit
+@webassemblyjs/wasm-edit,1.8.5,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wasm-edit
 @webassemblyjs/wasm-gen,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wasm-gen/webassemblyjs-wasm-gen-1.7.10.tgz/webassemblyjs-wasm-gen-1.7.10.tar/package
 @webassemblyjs/wasm-gen,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/wasm-gen
 @webassemblyjs/wasm-opt,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wasm-opt/webassemblyjs-wasm-opt-1.7.10.tgz/webassemblyjs-wasm-opt-1.7.10.tar/package
-@webassemblyjs/wasm-opt,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/wasm-opt
+@webassemblyjs/wasm-opt,1.8.5,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wasm-opt
 @webassemblyjs/wasm-parser,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wasm-parser/webassemblyjs-wasm-parser-1.7.10.tgz/webassemblyjs-wasm-parser-1.7.10.tar/package
 @webassemblyjs/wasm-parser,1.8.5,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@webassemblyjs/wasm-parser
 @webassemblyjs/wast-parser,1.7.10,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@webassemblyjs/wast-parser/webassemblyjs-wast-parser-1.7.10.tgz/webassemblyjs-wast-parser-1.7.10.tar/package
@@ -61,8 +61,8 @@ ajv-keywords,3.4.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,ajv-key
 ansi-colors,3.2.4,false,Exempt - Version closely related to 3.2.3,2,MIT,MIT,Approved,ansi-colors
 ansi-html,0.0.7,false,Previously pedigree reviewed,2,Apache-2.0,Apache-2.0,Approved,ansi-html
 ansi-regex,2.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,ansi-regex
-ansi-regex,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack-dev-server/node_modules/cliui/node_modules/ansi-regex
-ansi-regex,4.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,strip-ansi/node_modules/ansi-regex
+ansi-regex,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack-dev-server/node_modules/ansi-regex
+ansi-regex,4.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/core/node_modules/ansi-regex
 ansi-styles,3.2.1,false,Exempt - Version closely related to 3.2.0,2,MIT,MIT,Approved,ansi-styles
 ansi-to-html,0.6.11,true,New package and not exempt,,MIT,MIT,Approved,ansi-to-html
 anymatch,1.3.2,false,Exempt - Version closely related to 1.3.0,2,ISC,ISC,Approved,dustjs-linkedin/node_modules/anymatch
@@ -86,8 +86,8 @@ asn1.js,4.10.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,asn1.js
 assert,1.5.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,assert
 assert-plus,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,assert-plus
 assign-symbols,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,assign-symbols
-async,1.5.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,async
-async,2.6.3,false,Exempt - Version closely related to 2.6.0,2,MIT,MIT,Approved,brotli-webpack-plugin/node_modules/async
+async,1.5.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,nconf/node_modules/async
+async,2.6.3,false,Exempt - Version closely related to 2.6.0,2,MIT,MIT,Approved,async
 async-each,1.0.3,false,Exempt - Version closely related to 1.0.1,2,MIT,MIT,Approved,async-each
 async-limiter,1.0.1,false,Exempt - Version closely related to 1.0.0,2,MIT,MIT,Approved,async-limiter
 asynckit,0.4.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,asynckit
@@ -116,7 +116,7 @@ braces,1.8.5,false,Exempt - Version closely related to 1.8.3,2,MIT,MIT,Approved,
 braces,2.3.2,false,Exempt - Version closely related to 2.3.0,2,MIT,MIT,Approved,braces
 brorand,1.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,brorand
 brotli,1.3.2,false,Previously pedigree reviewed,2,Apache-2.0,MIT,Approved,brotli
-brotli-webpack-plugin,1.1.0,true,New package and not exempt,,MIT X11,MIT,Approved,brotli-webpack-plugin
+brotli-webpack-plugin,1.1.0,false,Previously pedigree reviewed,2,MIT X11,MIT,Approved,brotli-webpack-plugin
 browser_field,unknown,true,New package and not exempt,,,,No license information available,resolve/test/resolver/browser_field
 browserify-aes,1.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,browserify-aes
 browserify-cipher,1.0.1,false,Exempt - Version closely related to 1.0.0,2,MIT,MIT,Approved,browserify-cipher
@@ -136,13 +136,14 @@ cacache,12.0.3,false,Exempt - Version closely related to 12.0.2,2,ISC,ISC,Approv
 cache-base,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,cache-base
 camelcase,2.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,yargs/node_modules/camelcase
 camelcase,5.3.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,camelcase
-carbon-components,10.7.2,true,New version and not exempt,,Apache-2.0 KEYWORD OFL-1.1 UNKNOWN,Apache-2.0,Needs Review | Needs Legal Approval,carbon-components
-carbon-components-react,7.7.2,true,New version and not exempt,,Apache-2.0,Apache-2.0,Approved,carbon-components-react
+carbon-components,10.7.3,true,New version and not exempt,,Apache-2.0 KEYWORD OFL-1.1 UNKNOWN,Apache-2.0,Needs Review | Needs Legal Approval,carbon-components
+carbon-components-react,7.7.3,true,New version and not exempt,,Apache-2.0,Apache-2.0,Approved,carbon-components-react
 carbon-icons,7.0.7,false,Previously pedigree reviewed,2,Apache-2.0,Apache-2.0,Approved,carbon-icons
 caseless,0.12.0,false,Previously pedigree reviewed,2,Apache-2.0,Apache-2.0,Approved,caseless
 chalk,2.4.2,false,Exempt - Version closely related to 2.4.0,2,MIT,MIT,Approved,chalk
 chokidar,1.5.2,false,Previously pedigree reviewed,2,,MIT,Approved | Reference Only,dustjs-linkedin/node_modules/chokidar
-chokidar,2.1.8,false,Exempt - Version closely related to 2.1.6,2,MIT,MIT,Approved,chokidar
+chokidar,2.1.6,false,Previously pedigree reviewed,2,MIT,MIT,Approved,chokidar
+chokidar,2.1.8,false,Exempt - Version closely related to 2.1.6,2,MIT,MIT,Approved,webpack-dev-server/node_modules/chokidar
 chownr,1.1.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,fsevents/node_modules/chownr
 chownr,1.1.3,false,Exempt - Version closely related to 1.1.1,2,ISC,ISC,Approved,chownr
 chrome-trace-event,1.0.2,false,Exempt - Version closely related to 1.0.0,2,MIT UNKNOWN,MIT,Needs Review,chrome-trace-event
@@ -154,15 +155,16 @@ cliui,3.2.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,cliui
 cliui,4.1.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,webpack-dev-server/node_modules/cliui
 cliui,5.0.0,false,Exempt - Expected license matched,2,ISC,ISC,Approved,webpack-cli/node_modules/cliui
 clone,1.0.4,false,Exempt - Expected license matched,2,MIT,MIT,Approved,clone
+clusterpool,0.1,true,New package and not exempt,,,,No license information available,@kui-shell/plugin-search/build-harness/modules/clusterpool/clusterpool
 code-point-at,1.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,code-point-at
 collection-visit,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,collection-visit
 color-convert,1.9.3,false,Exempt - Version closely related to 1.9.0,2,MIT,MIT,Approved,color-convert
 color-name,1.1.3,false,Exempt - Version closely related to 1.1.1,2,MIT,MIT,Approved,color-name
-colors,1.4.0,true,New version and not exempt,,MIT UNKNOWN,MIT,Needs Review,colors
+colors,1.4.0,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,colors
 columnify,1.5.4,false,Previously pedigree reviewed,2,MIT,MIT,Approved,columnify
 combined-stream,1.0.8,false,Exempt - Version closely related to 1.0.7,2,MIT,MIT,Approved,combined-stream
 command-exists,1.2.8,false,Exempt - Version closely related to 1.2.2,2,MIT,MIT,Approved,command-exists
-commander,2.20.3,false,Exempt - Version closely related to 2.20.0,2,MIT,MIT,Approved,commander
+commander,2.20.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,commander
 commondir,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,commondir
 component-emitter,1.3.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,component-emitter
 compressible,2.0.17,false,Exempt - Version closely related to 2.0.15,2,MIT,MIT,Approved,compressible
@@ -171,7 +173,7 @@ compression-webpack-plugin,3.0.0,false,Exempt - Expected license matched,2,MIT,M
 concat-map,0.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,concat-map
 concat-stream,1.6.2,false,Exempt - Version closely related to 1.6.0,2,MIT,MIT,Approved,concat-stream
 connect-history-api-fallback,1.6.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,connect-history-api-fallback
-console-browserify,1.1.0,false,Previously pedigree reviewed,2,MIT,,Approved,console-browserify
+console-browserify,1.2.0,false,Exempt - Expected license matched,2,MIT,,Approved,console-browserify
 console-control-strings,1.1.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,console-control-strings
 consolidate,0.15.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,consolidate
 constants-browserify,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,constants-browserify
@@ -195,14 +197,13 @@ css-loader,3.2.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,css-
 cssesc,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,cssesc
 cyclist,1.0.1,false,Exempt - Expected license matched,2,MIT,MIT,Approved,cyclist
 dashdash,1.14.1,false,Exempt - Version closely related to 1.14.0,2,MIT UNKNOWN,MIT,Needs Review,dashdash
-date-now,0.1.4,false,Previously pedigree reviewed,2,MIT,,Approved,date-now
 debug,2.6.9,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/body-parser/node_modules/debug
-debug,3.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,follow-redirects/node_modules/debug
-debug,3.2.6,false,Exempt - Version closely related to 3.2.5,2,MIT,MIT,Approved,needle/node_modules/debug
+debug,3.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,axios/node_modules/debug
+debug,3.2.6,false,Exempt - Version closely related to 3.2.5,2,MIT,MIT,Approved,follow-redirects/node_modules/debug
 debug,4.1.1,false,Exempt - Version closely related to 4.1.0,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/debug
 decamelize,1.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,decamelize
 decode-uri-component,0.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,decode-uri-component
-decompress-response,4.2.1,false,Exempt - Expected license matched,2,MIT,MIT,Approved,decompress-response
+decompress-response,4.2.1,false,Exempt - Version closely related to 4.2.0,2,MIT,MIT,Approved,decompress-response
 deep-equal,1.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,deep-equal
 deep-extend,0.6.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,deep-extend
 default-gateway,4.2.0,false,Exempt - Expected license matched,2,BSD-2-Clause,BSD-2-Clause,Approved,default-gateway
@@ -241,25 +242,25 @@ elliptic,6.5.1,false,Exempt - Version closely related to 6.5.0,2,MIT,MIT,Approve
 emoji-regex,7.0.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,emoji-regex
 emojis-list,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,emojis-list
 encodeurl,1.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/encodeurl
-end-of-stream,1.4.4,false,Exempt - Version closely related to 1.4.0,2,MIT,MIT,Approved,end-of-stream
+end-of-stream,1.4.1,false,Exempt - Version closely related to 1.4.0,2,MIT,MIT,Approved,end-of-stream
 enhanced-resolve,4.1.0,false,Previously pedigree reviewed,2,MIT,,Approved,webpack-cli/node_modules/enhanced-resolve
 enhanced-resolve,4.1.1,false,Exempt - Version closely related to 4.1.0,2,MIT,,Approved,enhanced-resolve
 entities,1.1.2,false,Previously pedigree reviewed,2,BSD-2-Clause,BSD-2-Clause,Approved,entities
 errno,0.1.7,false,Previously pedigree reviewed,2,MIT,MIT,Approved,errno
-es-abstract,1.16.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,es-abstract
+es-abstract,1.13.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,es-abstract
 es-to-primitive,1.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,es-to-primitive
 escape-html,1.0.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/escape-html
 escape-string-regexp,1.0.5,false,Previously pedigree reviewed,2,MIT,MIT,Approved,escape-string-regexp
 eslint-scope,4.0.3,false,Previously pedigree reviewed,2,BSD-2-Clause,BSD-2-Clause,Approved,eslint-scope
 esprima,4.0.1,false,Previously pedigree reviewed,2,BSD-2-Clause,BSD-2-Clause,Approved,esprima
 esrecurse,4.2.1,false,Previously pedigree reviewed,2,BSD-2-Clause,BSD-2-Clause,Approved,esrecurse
-estraverse,4.3.0,false,Previously pedigree reviewed,2,BSD-2-Clause MIT,BSD-2-Clause,Approved,estraverse
+estraverse,4.2.0,false,Previously pedigree reviewed,2,BSD-2-Clause MIT,BSD-2-Clause,Approved,estraverse
 etag,1.8.1,false,Exempt - Version closely related to 1.8.0,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/etag
 eventemitter3,4.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,eventemitter3
 events,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,events
 eventsource,1.0.7,false,Exempt - Version closely related to 1.0.5,2,MIT,MIT,Approved,eventsource
 evp_bytestokey,1.0.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,evp_bytestokey
-execa,1.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,execa
+execa,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,execa
 exit,0.1.2,false,Previously pedigree reviewed,2,MIT,,Approved,exit
 expand-brackets,0.1.5,false,Exempt - Version closely related to 0.1.4,2,MIT,MIT,Approved,dustjs-linkedin/node_modules/expand-brackets
 expand-brackets,2.1.4,false,Previously pedigree reviewed,2,MIT,MIT,Approved,expand-brackets
@@ -297,7 +298,8 @@ flatpickr,4.6.1,false,Previously pedigree reviewed,2,Apache-2.0 MIT,MIT,Approved
 flush-write-stream,1.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,flush-write-stream
 focus-trap,4.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,focus-trap
 focus-trap-react,6.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,focus-trap-react
-follow-redirects,1.5.10,false,Exempt - Version closely related to 1.5.1,2,MIT,MIT,Approved,follow-redirects
+follow-redirects,1.5.10,false,Exempt - Version closely related to 1.5.1,2,MIT,MIT,Approved,axios/node_modules/follow-redirects
+follow-redirects,1.9.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,follow-redirects
 foo,unknown,true,New version and not exempt,,,,No license information available,app-module-path/test/src
 for-in,1.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,for-in
 for-own,0.1.5,false,Exempt - Version closely related to 0.1.3,2,MIT,MIT,Approved,for-own
@@ -321,8 +323,8 @@ get-stream,4.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,get-
 get-value,2.0.6,false,Previously pedigree reviewed,2,MIT,MIT,Approved,get-value
 getpass,0.1.7,false,Previously pedigree reviewed,2,MIT,MIT,Approved,getpass
 github-from-package,0.0.0,true,New package and not exempt,,MIT,MIT,Approved,github-from-package
-glob,7.1.3,false,Exempt - Version closely related to 7.1.4,2,ISC,ISC,Approved,fsevents/node_modules/glob
-glob,7.1.5,false,Exempt - Version closely related to 7.1.4,2,CC-BY-SA-4.0 ISC KEYWORD UNKNOWN,ISC,Needs Review | Needs Legal Approval,glob
+glob,7.1.3,false,Previously pedigree reviewed,2,ISC,ISC,Approved,fsevents/node_modules/glob
+glob,7.1.6,false,Exempt - Version closely related to 7.1.4,2,CC-BY-SA-4.0 ISC KEYWORD UNKNOWN,ISC,Needs Review | Needs Legal Approval,glob
 glob-base,0.3.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,glob-base
 glob-parent,2.0.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,dustjs-linkedin/node_modules/glob-parent
 glob-parent,3.1.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,glob-parent
@@ -331,7 +333,7 @@ global-modules,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,globa
 global-prefix,1.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,global-prefix
 global-prefix,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,global-modules/node_modules/global-prefix
 globby,6.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,globby
-graceful-fs,4.2.3,false,Exempt - Version closely related to 4.2.0,2,ISC,ISC,Approved,graceful-fs
+graceful-fs,4.2.2,false,Exempt - Version closely related to 4.2.0,2,ISC,ISC,Approved,graceful-fs
 graphql,14.5.8,true,New version and not exempt,,MIT,MIT,Approved,graphql
 handle-thing,2.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,handle-thing
 har-schema,2.0.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,har-schema
@@ -354,7 +356,7 @@ http-deceiver,1.2.7,false,Previously pedigree reviewed,2,MIT,MIT,Approved,http-d
 http-errors,1.6.3,false,Exempt - Version closely related to 1.6.1,2,MIT,MIT,Approved,express/node_modules/http-errors
 http-errors,1.7.2,false,Previously pedigree reviewed,2,ISC MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/http-errors
 http-parser-js,0.4.10,false,Exempt - Version closely related to 0.4.9,2,KEYWORD MIT UNKNOWN,MIT,Needs Review,http-parser-js
-http-proxy,1.18.0,true,New version and not exempt,,MIT UNKNOWN,MIT,Needs Review,http-proxy
+http-proxy,1.18.0,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,http-proxy
 http-proxy-middleware,0.18.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,http-proxy-middleware
 http-proxy-middleware,0.19.1,false,Exempt - Version closely related to 0.19.0,2,MIT,MIT,Approved,webpack-dev-server/node_modules/http-proxy-middleware
 http-signature,1.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,http-signature
@@ -367,7 +369,7 @@ ieee754,1.1.13,false,Exempt - Version closely related to 1.1.8,2,BSD-3-Clause,BS
 iferr,0.1.5,false,Previously pedigree reviewed,2,MIT,MIT,Approved,iferr
 ignore-loader,0.1.2,false,Previously pedigree reviewed,2,MIT,,Approved,ignore-loader
 ignore-walk,3.0.1,false,Exempt - Version closely related to 3.0.0,2,ISC,ISC,Approved,fsevents/node_modules/ignore-walk
-iltorb,2.4.4,true,New package and not exempt,,MIT UNKNOWN,MIT,Needs Review,iltorb
+iltorb,2.4.4,false,Exempt - Version closely related to 2.4.3,2,MIT UNKNOWN,MIT,Needs Review,iltorb
 import-local,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,import-local
 imurmurhash,0.1.4,false,Previously pedigree reviewed,2,MIT,MIT,Approved,imurmurhash
 indexes-of,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,indexes-of
@@ -391,8 +393,8 @@ is-accessor-descriptor,0.1.6,false,Previously pedigree reviewed,2,MIT,MIT,Approv
 is-accessor-descriptor,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,base/node_modules/is-accessor-descriptor
 is-arguments,1.0.4,true,New package and not exempt,,MIT,MIT,Approved,is-arguments
 is-binary-path,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,is-binary-path
-is-buffer,1.1.6,false,Previously pedigree reviewed,2,MIT,MIT,Approved,dustjs-linkedin/node_modules/is-buffer
-is-buffer,2.0.4,false,Exempt - Version closely related to 2.0.3,2,MIT,MIT,Approved,is-buffer
+is-buffer,1.1.6,false,Previously pedigree reviewed,2,MIT,MIT,Approved,is-buffer
+is-buffer,2.0.4,false,Exempt - Version closely related to 2.0.3,2,MIT,MIT,Approved,axios/node_modules/is-buffer
 is-callable,1.1.4,false,Exempt - Version closely related to 1.1.3,2,MIT,MIT,Approved,is-callable
 is-data-descriptor,0.1.4,false,Previously pedigree reviewed,2,MIT,MIT,Approved,is-data-descriptor
 is-data-descriptor,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,base/node_modules/is-data-descriptor
@@ -429,8 +431,8 @@ isarray,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,fsevents/nod
 isexe,2.0.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,isexe
 isobject,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,expand-range/node_modules/isobject
 isobject,3.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,isobject
-isstream,0.1.2,false,Exempt - Expected license matched,2,MIT,MIT,Approved,isstream
-iterall,1.2.2,false,Exempt - Expected license matched,2,MIT,MIT,Approved,iterall
+isstream,0.1.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,isstream
+iterall,1.2.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,iterall
 jest-worker,24.9.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,jest-worker
 jmespath,0.15.0,false,Previously pedigree reviewed,2,Apache-2.0 NAIST,,Approved,jmespath
 js-tokens,4.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,js-tokens
@@ -461,9 +463,9 @@ lodash,4.17.15,false,Exempt - Version closely related to 4.17.11,2,CC0-1.0 KEYWO
 lodash.debounce,4.0.8,false,Previously pedigree reviewed,2,CC0-1.0 KEYWORD MIT UNKNOWN,MIT,Needs Review,lodash.debounce
 lodash.isequal,4.5.0,false,Previously pedigree reviewed,2,CC0-1.0 KEYWORD MIT UNKNOWN,MIT,Needs Review,lodash.isequal
 lodash.omit,4.5.0,false,Previously pedigree reviewed,2,CC0-1.0 KEYWORD MIT UNKNOWN,MIT,Needs Review,lodash.omit
-loglevel,1.6.4,false,Exempt - Version closely related to 1.6.1,2,MIT,MIT,Approved,loglevel
+loglevel,1.6.6,false,Exempt - Version closely related to 1.6.1,2,MIT,MIT,Approved,loglevel
 loose-envify,1.4.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,loose-envify
-lru-cache,5.1.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,lru-cache
+lru-cache,5.1.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,cacache/node_modules/lru-cache
 make-dir,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack/node_modules/make-dir
 make-dir,3.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,make-dir
 mamacro,0.0.3,false,Previously pedigree reviewed,2,,MIT,Approved | Reference Only,mamacro
@@ -479,7 +481,7 @@ memory-fs,0.4.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,memory-fs
 memory-fs,0.5.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,enhanced-resolve/node_modules/memory-fs
 merge-descriptors,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/merge-descriptors
 merge-stream,2.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,merge-stream
-methods,1.1.2,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/methods
+methods,1.1.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/methods
 micromatch,2.3.11,false,Exempt - Version closely related to 2.3.7,2,MIT,MIT,Approved,dustjs-linkedin/node_modules/micromatch
 micromatch,3.1.10,false,Exempt - Version closely related to 3.1.4,2,MIT,MIT,Approved,micromatch
 miller-rabin,4.0.1,false,Exempt - Version closely related to 4.0.0,2,MIT,MIT,Approved,miller-rabin
@@ -489,7 +491,7 @@ mime,2.4.4,false,Exempt - Version closely related to 2.4.0,2,MIT,MIT,Approved,we
 mime-db,1.40.0,false,Previously pedigree reviewed,2,AML MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/mime-db
 mime-types,2.1.24,false,Exempt - Version closely related to 2.1.11,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/mime-types
 mimic-fn,2.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,mimic-fn
-mimic-response,2.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,mimic-response
+mimic-response,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,mimic-response
 minimalistic-assert,1.0.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,minimalistic-assert
 minimalistic-crypto-utils,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,minimalistic-crypto-utils
 minimatch,3.0.4,false,Exempt - Version closely related to 3.0.3,2,ISC,ISC,Approved,fsevents/node_modules/minimatch
@@ -510,8 +512,9 @@ ms,2.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/
 ms,2.1.2,false,Exempt - Version closely related to 2.1.1,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/ms
 multicast-dns,6.2.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,multicast-dns
 multicast-dns-service-types,1.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,multicast-dns-service-types
-mylib,0.0.0,true,New package and not exempt,,,ISC,Approved | Reference Only,resolve/test/resolver/nested_symlinks/mylib
-nan,2.14.0,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,nan
+mylib,0.0.0,false,Previously pedigree reviewed,2,,ISC,Approved | Reference Only,resolve/test/resolver/nested_symlinks/mylib
+nan,2.12.1,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,nan
+nan,2.14.0,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,iltorb/node_modules/nan
 nanomatch,1.2.13,false,Exempt - Version closely related to 1.2.6,2,MIT,MIT,Approved,nanomatch
 napi-build-utils,1.0.0,false,Previously pedigree reviewed,2,MIT,,Approved,napi-build-utils/napi-build-utils-1.0.0.tgz/napi-build-utils-1.0.0.tar/package/napi-build-utils-1.0.0.tgz/napi-build-utils-1.0.0.tar/package/napi-build-utils-1.0.0.tgz
 napi-build-utils,1.0.1,false,Exempt - Version closely related to 1.0.0,2,MIT,MIT,Approved,napi-build-utils
@@ -540,9 +543,8 @@ nw-pre-gyp-module-test,0.0.1,false,Previously pedigree reviewed,2,,,No license i
 oauth-sign,0.9.0,false,Previously pedigree reviewed,2,Apache-2.0,Apache-2.0,Approved,oauth-sign
 object-assign,4.1.1,false,Exempt - Version closely related to 4.1.0,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/object-assign
 object-copy,0.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,object-copy
-object-inspect,1.6.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,object-inspect
 object-is,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,object-is
-object-keys,1.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,object-keys
+object-keys,1.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,define-properties/node_modules/object-keys
 object-visit,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,object-visit
 object.getownpropertydescriptors,2.0.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,object.getownpropertydescriptors
 object.omit,2.0.1,false,Exempt - Version closely related to 2.0.0,2,MIT,MIT,Approved,object.omit
@@ -562,13 +564,13 @@ osenv,0.1.5,false,Previously pedigree reviewed,2,ISC,ISC,Approved,fsevents/node_
 p-defer,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-defer
 p-finally,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-finally
 p-is-promise,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-is-promise
-p-limit,2.2.1,false,Exempt - Version closely related to 2.2.0,2,MIT,MIT,Approved,p-limit
+p-limit,2.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-limit
 p-locate,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,import-local/node_modules/p-locate
 p-locate,4.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,p-locate
 p-map,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-map
 p-retry,3.0.1,true,New package and not exempt,,MIT,MIT,Approved,p-retry
 p-try,2.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,p-try
-package,unknown,true,New version and not exempt,,,,No license information available,resolve/test/resolver/incorrect_main
+package,unknown,true,New version and not exempt,,,,No license information available,resolve/test/resolver/dot_main
 pako,1.0.10,false,Exempt - Version closely related to 1.0.3,2,MIT Zlib,,Approved,pako
 parallel-transform,1.2.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,parallel-transform
 parse-asn1,5.1.5,false,Exempt - Version closely related to 5.1.1,2,ISC,ISC,Approved,parse-asn1
@@ -580,8 +582,8 @@ parseurl,1.3.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/
 pascalcase,0.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,pascalcase
 path-browserify,0.0.1,false,Exempt - Version closely related to 0.0.0,2,MIT,MIT,Approved,path-browserify
 path-dirname,1.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,path-dirname
-path-exists,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,import-local/node_modules/path-exists
-path-exists,4.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,path-exists
+path-exists,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,path-exists
+path-exists,4.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,find-up/node_modules/path-exists
 path-is-absolute,1.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,fsevents/node_modules/path-is-absolute
 path-is-inside,1.0.2,false,Previously pedigree reviewed,2,KEYWORD MIT UNKNOWN WTFPL,WTFPL,Needs Review,path-is-inside
 path-key,2.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,path-key
@@ -595,7 +597,7 @@ pify,4.0.1,false,Exempt - Version closely related to 4.0.0,2,MIT,MIT,Approved,pi
 pinkie,2.0.4,false,Exempt - Version closely related to 2.0.1,2,MIT,MIT,Approved,pinkie
 pinkie-promise,2.0.1,false,Exempt - Version closely related to 2.0.0,2,MIT,MIT,Approved,pinkie-promise
 pkg-dir,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,import-local/node_modules/pkg-dir
-pkg-dir,4.2.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,pkg-dir
+pkg-dir,4.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,pkg-dir
 portfinder,1.0.25,false,Exempt - Version closely related to 1.0.13,2,MIT UNKNOWN X11,MIT,Needs Review,portfinder
 posix-character-classes,0.1.1,false,Previously pedigree reviewed,2,CC-BY-SA-3.0 MIT,MIT,Needs Legal Approval,posix-character-classes
 postcss,7.0.21,false,Exempt - Version closely related to 7.0.17,2,MIT,MIT,Approved,postcss
@@ -605,7 +607,7 @@ postcss-modules-scope,2.1.0,false,Previously pedigree reviewed,2,ISC UNKNOWN,ISC
 postcss-modules-values,3.0.0,true,New version and not exempt,,ISC UNKNOWN,ISC,Needs Review,postcss-modules-values
 postcss-selector-parser,6.0.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,postcss-selector-parser
 postcss-value-parser,4.0.2,false,Exempt - Version closely related to 4.0.1,2,MIT,MIT,Approved,postcss-value-parser
-prebuild-install,5.3.2,false,Exempt - Expected license matched,2,MIT,MIT,Approved,prebuild-install
+prebuild-install,5.3.3,false,Exempt - Expected license matched,2,MIT,MIT,Approved,prebuild-install
 preserve,0.2.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,preserve
 pretty-ms,5.0.0,true,New package and not exempt,,MIT,MIT,Approved,pretty-ms
 process,0.11.10,false,Exempt - Version closely related to 0.11.9,2,MIT,MIT,Approved,process
@@ -616,17 +618,17 @@ prop-types,15.7.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,prop-typ
 properties-parser,0.3.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,properties-parser
 proxy-addr,2.0.5,false,Exempt - Version closely related to 2.0.2,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/proxy-addr
 prr,1.0.1,false,Exempt - Expected license matched,2,MIT,MIT,Approved,prr
-psl,1.4.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,psl
+psl,1.3.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,psl
 public-encrypt,4.0.3,false,Exempt - Version closely related to 4.0.0,2,MIT,MIT,Approved,public-encrypt
 pump,2.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,pumpify/node_modules/pump
-pump,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,pump
+pump,3.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,get-stream/node_modules/pump
 pumpify,1.5.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,pumpify
 punycode,1.3.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,node-libs-browser/node_modules/url/node_modules/punycode
 punycode,1.4.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,node-libs-browser/node_modules/punycode
 punycode,2.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,punycode
 qs,6.5.2,false,Previously pedigree reviewed,2,BSD-3-Clause,BSD-3-Clause,Approved,express/node_modules/qs
 qs,6.7.0,false,Previously pedigree reviewed,2,BSD-3-Clause,BSD-3-Clause,Approved,@kui-shell/proxy/app/node_modules/qs
-query-string,6.8.3,false,Exempt - Expected license matched,2,MIT,MIT,Approved,query-string
+query-string,6.8.2,false,Exempt - Expected license matched,2,MIT,MIT,Approved,query-string
 querystring,0.2.0,false,Previously pedigree reviewed,2,MIT,,Approved,querystring
 querystring-es3,0.2.1,false,Previously pedigree reviewed,2,MIT,,Approved,querystring-es3
 querystringify,2.1.1,false,Exempt - Version closely related to 2.1.0,2,MIT,MIT,Approved,querystringify
@@ -638,9 +640,9 @@ raw-body,2.3.3,false,Exempt - Version closely related to 2.3.2,2,MIT,MIT,Approve
 raw-body,2.4.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/raw-body
 raw-loader,3.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,raw-loader
 rc,1.2.8,false,Exempt - Version closely related to 1.2.1,2,Apache-2.0 BSD-2-Clause-FreeBSD MIT,Apache-2.0|BSD-2-Clause,Approved,fsevents/node_modules/rc
-react,16.11.0,true,New version and not exempt,,MIT,MIT,Approved,react
-react-dom,16.11.0,true,New version and not exempt,,MIT,MIT,Approved,react-dom
-react-is,16.11.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,react-is
+react,16.8.6,false,Exempt - Version closely related to 16.8,2,MIT,MIT,Approved,react
+react-dom,16.8.6,false,Exempt - Version closely related to 16.8.0,2,MIT,MIT,Approved,react-dom
+react-is,16.8.6,false,Exempt - Version closely related to 16.8.2,2,MIT,MIT,Approved,react-is
 react-tag-autocomplete,5.11.2,false,Exempt - Version closely related to 5.11.1,2,MIT,MIT,Approved,react-tag-autocomplete
 readable-stream,2.3.6,false,Exempt - Version closely related to 2.3.2,2,KEYWORD MIT UNKNOWN,MIT,Needs Review,fsevents/node_modules/readable-stream
 readable-stream,3.4.0,false,Previously pedigree reviewed,2,KEYWORD MIT UNKNOWN,MIT,Needs Review,bl/node_modules/readable-stream
@@ -673,14 +675,13 @@ safe-buffer,5.1.2,false,Exempt - Version closely related to 5.1.0,2,MIT,MIT,Appr
 safe-regex,1.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,safe-regex
 safer-buffer,2.1.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/safer-buffer
 sax,1.2.4,false,Exempt - Version closely related to 1.2.1,2,ISC MIT UNKNOWN,ISC,Needs Review,fsevents/node_modules/sax
-scheduler,0.17.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,scheduler
+scheduler,0.13.6,false,Exempt - Version closely related to 0.13.4,2,MIT,MIT,Approved,scheduler
 schema-utils,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,schema-utils
 schema-utils,2.5.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,css-loader/node_modules/schema-utils
 secure-keys,1.0.0,false,Previously pedigree reviewed,2,,MIT,Approved | Reference Only,secure-keys
 select-hose,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,select-hose
 selfsigned,1.10.7,false,Exempt - Version closely related to 1.10.4,2,MIT,MIT,Approved,selfsigned
 semver,5.7.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,fsevents/node_modules/semver
-semver,5.7.1,false,Exempt - Version closely related to 5.7.0,2,ISC,ISC,Approved,semver
 semver,6.3.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,@kui-shell/plugin-k8s/node_modules/semver
 send,0.16.2,false,Exempt - Version closely related to 0.16.1,2,MIT,MIT,Approved,express/node_modules/send
 send,0.17.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/send
@@ -714,11 +715,11 @@ sockjs-hapi,0.0.0-unreleasable,false,Previously pedigree reviewed,2,,,No license
 sockjs-koa,0.0.0-unreleasable,false,Previously pedigree reviewed,2,,,No license information available,sockjs/examples/koa
 sockjs-multiplex,0.0.0-unreleasable,false,Previously pedigree reviewed,2,,,No license information available,sockjs/examples/multiplex
 source-list-map,2.0.1,false,Exempt - Version closely related to 2.0.0,2,BSD-3-Clause MIT,MIT,Approved,source-list-map
-source-map,0.5.7,false,Exempt - Expected license matched,2,BSD-3-Clause,BSD-3-Clause,Approved,snapdragon/node_modules/source-map
+source-map,0.5.7,false,Previously pedigree reviewed,2,BSD-3-Clause,BSD-3-Clause,Approved,snapdragon/node_modules/source-map
 source-map,0.6.1,false,Previously pedigree reviewed,2,BSD-3-Clause,BSD-3-Clause,Approved,source-map
 source-map-loader,0.2.4,false,Previously pedigree reviewed,2,MIT,MIT,Approved,source-map-loader
 source-map-resolve,0.5.2,false,Exempt - Version closely related to 0.5.1,2,MIT X11,MIT,Approved,source-map-resolve
-source-map-support,0.5.13,false,Exempt - Version closely related to 0.5.3,2,MIT,MIT,Approved,source-map-support
+source-map-support,0.5.16,false,Exempt - Version closely related to 0.5.3,2,MIT,MIT,Approved,source-map-support
 source-map-url,0.4.0,false,Previously pedigree reviewed,2,MIT X11,MIT,Approved,source-map-url
 spdy,4.0.1,false,Exempt - Expected license matched,2,MIT,MIT,Approved,spdy
 spdy-transport,3.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,spdy-transport
@@ -739,22 +740,20 @@ string-width,1.0.2,false,Exempt - Version closely related to 1.0.1,2,MIT,MIT,App
 string-width,2.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack-dev-server/node_modules/string-width
 string-width,3.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,webpack-cli/node_modules/string-width
 string.prototype.codepointat,0.2.1,false,Exempt - Version closely related to 0.2.0,2,MIT,MIT,Approved,string.prototype.codepointat
-string.prototype.trimleft,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,string.prototype.trimleft
-string.prototype.trimright,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,string.prototype.trimright
 string_decoder,1.1.1,false,Previously pedigree reviewed,2,KEYWORD MIT UNKNOWN,MIT,Needs Review,fsevents/node_modules/string_decoder
-strip-ansi,3.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,cliui/node_modules/strip-ansi
+strip-ansi,3.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,fsevents/node_modules/strip-ansi
 strip-ansi,4.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack-dev-server/node_modules/cliui/node_modules/strip-ansi
-strip-ansi,5.2.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,strip-ansi
+strip-ansi,5.2.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,@kui-shell/core/node_modules/strip-ansi
 strip-eof,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,strip-eof
 strip-json-comments,2.0.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,fsevents/node_modules/strip-json-comments
-supports-color,5.5.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,chalk/node_modules/supports-color
-supports-color,6.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,supports-color
+supports-color,5.5.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,supports-color
+supports-color,6.1.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,jest-worker/node_modules/supports-color
 svg-inline-loader,0.8.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,svg-inline-loader
 tabbable,3.1.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,tabbable
 tapable,1.1.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,tapable
 tar,4.4.8,false,Exempt - Version closely related to 4.4.4,2,ISC,ISC,Approved,fsevents/node_modules/tar
 tar-fs,2.0.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,tar-fs
-tar-stream,2.1.0,true,New version and not exempt,,MIT,MIT,Approved,tar-stream
+tar-stream,2.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,tar-stream
 templates,1.0.0,true,New package and not exempt,,,Apache-2.0,Approved | Reference Only,@kui-shell/core/templates
 terser,4.3.9,true,New version and not exempt,,BSD-2-Clause UNKNOWN,BSD-2-Clause,Needs Review,terser
 terser-webpack-plugin,1.4.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack/node_modules/terser-webpack-plugin
@@ -771,6 +770,7 @@ to-regex-range,2.1.1,false,Previously pedigree reviewed,2,MIT,MIT,Approved,to-re
 to-string-loader,1.1.5,true,New package and not exempt,,,BSD-3-Clause,Approved | Reference Only,to-string-loader
 toidentifier,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/toidentifier
 tough-cookie,2.4.3,false,Previously pedigree reviewed,2,BSD-3-Clause,BSD-3-Clause,Approved,tough-cookie
+travislogger,0.3,true,New package and not exempt,,,,No license information available,@kui-shell/plugin-search/build-harness/modules/log/logrunner/travislogger
 tslib,1.10.0,false,Previously pedigree reviewed,2,Apache-2.0,Apache-2.0,Approved,tslib
 tty-browserify,0.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,tty-browserify
 tunnel-agent,0.6.0,false,Previously pedigree reviewed,2,Apache-2.0,Apache-2.0,Approved,tunnel-agent
@@ -784,7 +784,7 @@ unique-slug,2.0.2,false,Exempt - Version closely related to 2.0.0,2,ISC,ISC,Appr
 universalify,0.1.2,false,Exempt - Version closely related to 0.1.0,2,MIT,MIT,Approved,universalify
 unpipe,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/unpipe
 unset-value,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,unset-value
-upath,1.2.0,false,Exempt - Expected license matched,2,MIT,MIT,Approved,upath
+upath,1.1.2,false,Exempt - Version closely related to 1.1.0,2,MIT,MIT,Approved,upath
 uri-js,4.2.2,false,Previously pedigree reviewed,2,BSD-2-Clause,BSD-2-Clause,Approved,uri-js
 urix,0.1.0,false,Previously pedigree reviewed,2,MIT X11,MIT,Approved,urix
 url,0.10.3,false,Exempt - Expected license matched,2,MIT,MIT,Approved,url
@@ -801,7 +801,7 @@ uuid,3.3.3,false,Exempt - Version closely related to 3.3.2,2,MIT,MIT,Approved,@k
 v8-compile-cache,2.0.3,false,Exempt - Version closely related to 2.0.2,2,MIT,MIT,Approved,v8-compile-cache
 vary,1.1.2,false,Previously pedigree reviewed,2,MIT,MIT,Approved,@kui-shell/proxy/app/node_modules/vary
 verror,1.10.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,verror
-vm-browserify,1.1.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,vm-browserify
+vm-browserify,1.1.2,false,Exempt - Version closely related to 1.1.0,2,MIT,MIT,Approved,vm-browserify
 warning,3.0.0,false,Previously pedigree reviewed,2,BSD-3-Clause UNKNOWN,BSD-3-Clause,Needs Review,warning
 watchpack,1.6.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,watchpack
 wbuf,1.7.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,wbuf
@@ -814,7 +814,7 @@ webpack-log,2.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack-
 webpack-sources,1.4.3,false,Previously pedigree reviewed,2,MIT,MIT,Approved,webpack-sources
 websocket-driver,0.7.3,false,Exempt - Version closely related to 0.7.0,2,Apache-2.0,Apache-2.0,Approved,websocket-driver
 websocket-extensions,0.1.3,false,Exempt - Version closely related to 0.1.1,2,MIT,MIT,Approved,websocket-extensions
-when,3.7.8,true,New version and not exempt,,MIT UNKNOWN,MIT,Needs Review,when
+when,3.7.8,false,Previously pedigree reviewed,2,MIT UNKNOWN,MIT,Needs Review,when
 which,1.3.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,which
 which-module,2.0.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,which-module
 which-pm-runs,1.0.0,false,Previously pedigree reviewed,2,MIT,MIT,Approved,which-pm-runs
@@ -842,9 +842,9 @@ xterm.zmodem,unknown,true,New package and not exempt,,,,No license information a
 y18n,3.2.1,false,Exempt - Version closely related to 3.2.0,2,ISC,ISC,Approved,y18n
 y18n,4.0.0,false,Previously pedigree reviewed,2,ISC,ISC,Approved,cacache/node_modules/y18n
 yallist,3.0.3,false,Exempt - Version closely related to 3.0.2,2,ISC,ISC,Approved,fsevents/node_modules/yallist
-yallist,3.1.1,false,Exempt - Expected license matched,2,ISC,ISC,Approved,yallist
+yallist,3.1.1,false,Exempt - Expected license matched,2,ISC,ISC,Approved,cacache/node_modules/yallist
 yargs,12.0.5,false,Exempt - Version closely related to 12.0.1,2,MIT UNKNOWN X11,MIT,Needs Review,webpack-dev-server/node_modules/yargs
-yargs,13.2.4,true,New version and not exempt,,MIT UNKNOWN X11,MIT,Needs Review,webpack-cli/node_modules/yargs
+yargs,13.2.4,false,Previously pedigree reviewed,2,MIT UNKNOWN X11,MIT,Needs Review,webpack-cli/node_modules/yargs
 yargs,3.32.0,false,Previously pedigree reviewed,2,UNKNOWN X11,MIT,Needs Review,yargs
 yargs-parser,11.1.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,webpack-dev-server/node_modules/yargs-parser
 yargs-parser,13.1.1,false,Previously pedigree reviewed,2,ISC,ISC,Approved,webpack-cli/node_modules/yargs-parser
