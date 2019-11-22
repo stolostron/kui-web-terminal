@@ -1,8 +1,7 @@
-base_os: ubi7-minimal
+base_os: ubi8-minimal
 repo1:
-  url: "http://registry.access.redhat.com/ubi7/ubi-minimal"
+  url: "http://registry.access.redhat.com/ubi8/ubi-minimal"
   packages: [
-    "bash",
     "ca-certificates",
     "shadow-utils",
     "which",

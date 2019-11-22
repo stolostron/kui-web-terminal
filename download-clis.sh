@@ -16,7 +16,6 @@ DOCKER_REGISTRY=hyc-cloud-private-integration-docker-local.artifactory.swg-devop
 DOCKER_NAMESPACE=ibmcom
 CLOUDCTL_VER=latest
 CLOUDCTL_IMAGE=$DOCKER_REGISTRY/$DOCKER_NAMESPACE/icp-platform-api-$ARCH:$CLOUDCTL_VER
-ICP_VER=3.2.1
 
 rm -rf downloads
 mkdir -p downloads
@@ -42,6 +41,9 @@ docker cp ${CLOUDCTL_CONTAINER_ID}:"/etc/platform-api/public/cli/kubectl-linux-$
 echo "Downloading helm ..."
 docker cp ${CLOUDCTL_CONTAINER_ID}:"/etc/platform-api/public/cli/helm-linux-${ARCH}.tar.gz" $(pwd)/downloads/
 
+echo "Downloading oc ..."
+docker cp ${CLOUDCTL_CONTAINER_ID}:"/etc/platform-api/public/cli/oc-linux-${ARCH}" $(pwd)/downloads/
+
 # stop container
 echo "stop container"
 docker stop $CLOUDCTL_CONTAINER_NAME
@@ -58,19 +60,5 @@ echo "Downloaded istioctl-linux-${ARCH} to downloads/"
 echo "Downloaded istioctl-linux-${ARCH} to downloads/"
 [[ ! -f "downloads/helm-linux-${ARCH}.tar.gz" ]] && echo "download helm failed" && exit -1
 echo "Downloaded helm-linux-${ARCH}.tar.gz to downloads/"
-
-if [ "$ARCH" = "amd64" ]; then
-  echo "Downloading oc ..."
-  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.1.11/openshift-client-linux-4.1.11.tar.gz | tar -xvz -C ./downloads/ oc  
-  [[ ! -f "downloads/oc" ]] && echo "download oc failed" && exit -1
-  mv ./downloads/oc ./downloads/oc-linux-amd64
-  echo "Downloaded openshift origin to downloads/"
-fi
-
-if [ "$ARCH" = "ppc64le" ]; then
-  echo "Downloading oc ..."
-  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.1.11-201908130027.git.0.150bde9.el7/linux-ppc64le/oc.tar.gz | tar -xvz -C ./downloads/ oc 
-  [[ ! -f "downloads/oc" ]] && echo "download oc failed" && exit -1
-  mv ./downloads/oc ./downloads/oc-linux-ppc64le
-  echo "Downloaded openshift origin to downloads/"
-fi
+[[ ! -f "downloads/oc-linux-${ARCH}" ]] && echo "download oc failed" && exit -1
+echo "Downloaded oc-linux-${ARCH} to downloads/"

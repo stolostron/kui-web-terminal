@@ -1,0 +1,17 @@
+Project,mcm-kui:3.4.0
+Directory Scanned,~/Desktop/mcm-kui/awsom-output/node_modules
+Date,2019-11-08T21:06:40.721Z
+CLI Version,2.2.34
+WILD Version,1.0.174
+,
+Name,Version,Need Pedigree Review,Reason,Review Level,Declared License,License Status,Path,Comments
+core,5.1.14,TRUE,New package and not exempt,,Apache-2.0,Approved,@kui-shell/core,https://github.com/IBM/kui,
+plugin-bash-like,5.1.14,TRUE,New package and not exempt,,Apache-2.0,Approved,@kui-shell/plugin-bash-like,https://github.com/IBM/kui,
+plugin-core-support,5.1.14,TRUE,New package and not exempt,,Apache-2.0,Approved,@kui-shell/plugin-core-support,https://github.com/IBM/kui,
+plugin-editor,5.1.14,TRUE,New package and not exempt,,Apache-2.0,Approved,@kui-shell/plugin-editor,https://github.com/IBM/kui,
+plugin-k8s,5.1.14,TRUE,New package and not exempt,,Apache-2.0,Approved,@kui-shell/plugin-k8s,https://github.com/IBM/kui,
+plugin-proxy-support,5.1.14,TRUE,New package and not exempt,,Apache-2.0,Approved,@kui-shell/plugin-proxy-support,https://github.com/IBM/kui,
+proxy,5.1.14,TRUE,New package and not exempt,,Apache-2.0,Approved,@kui-shell/proxy,https://github.com/IBM/kui,
+webpack,5.1.14,TRUE,New package and not exempt,,Apache-2.0,Approved,@kui-shell/webpack,https://github.com/IBM/kui,
+carbon-components,10.7.3,TRUE,New version and not exempt,,Apache-2.0,Needs Review | Needs Legal Approval,carbon-components,https://www.carbondesignsystem.com/,
+carbon-components-react,7.7.3,TRUE,New version and not exempt,,Apache-2.0,Approved,carbon-components-react,,

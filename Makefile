@@ -4,10 +4,10 @@ GITHUB_USER ?= $(ARTIFACTORY_USER)
 GITHUB_USER := $(shell echo $(GITHUB_USER) | sed 's/@/%40/g')
 GITHUB_TOKEN ?= 
 
-
 DOCKER_EDGE_REGISTRY ?= hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com
 DOCKER_SCRATCH_REGISTRY ?= hyc-cloud-private-scratch-docker-local.artifactory.swg-devops.com
 DOCKER_INTEGRATION_REGISTRY ?= hyc-cloud-private-integration-docker-local.artifactory.swg-devops.com
+DOCKER_FIXPACK_VIRTUAL_REGISTRY ?= hyc-cloud-private-fixpack-docker-virtual.artifactory.swg-devops.com
 
 WORKING_CHANGES = $(shell git status --porcelain)
 BUILD_DATE = $(shell date +%m/%d@%H:%M:%S)
@@ -16,7 +16,7 @@ VCS_REF = $(if $(WORKING_CHANGES),$(GIT_COMMIT)-$(BUILD_DATE),$(GIT_COMMIT))
 APP_VERSION ?= $(if $(shell cat VERSION 2> /dev/null),$(shell cat VERSION 2> /dev/null),0.0.1)
 # IMAGE_VERSION is only used in an image label so set it to this release version
 # IMAGE_VERSION ?= $(APP_VERSION)-$(GIT_COMMIT)
-IMAGE_VERSION = 3.2.1
+IMAGE_VERSION = $(SEMVERSION)
 IMAGE_DISPLAY_NAME = Visual Web Terminal
 IMAGE_DESCRIPTION = Visual Web Terminal provides a web based terminal window with enhanced interactive visualzations of command results
 IMAGE_DESCRIPTION_SHORT = Visual Web Terminal 
@@ -30,30 +30,35 @@ DOCKER_USER ?= $(ARTIFACTORY_USER)
 DOCKER_PASS ?= $(ARTIFACTORY_TOKEN)
 
 DOCKER_IMAGE ?= mcm-kui-proxy
-DOCKER_TAG ?= $(shell whoami)
+
+ifeq ($(PUSH_RHEL), true)
+	DOCKER_TAG ?= $(SEMVERSION)-rhel
+else
+	DOCKER_TAG ?= $(SEMVERSION)
+endif
 
 DOCKER_RUN_OPTS ?= -e NODE_ENV=development -e ICP_EXTERNAL_URL=$(ICP_EXTERNAL_URL) -e KUI_INGRESS_PATH="kui" -e AUTH_TOKEN=$(AUTH_TOKEN) -e DEBUG=* -e TEST_USER=$(TEST_USER) -e TEST_PASSWORD=$(TEST_PASSWORD) -d -v $(PWD)/testcerts:/etc/certs
 DOCKER_BIND_PORT ?= 8081:3000
 
-# Default to scratch unless a push to master
-PUSH_INTEGRATION ?= false
-DOCKER_REGISTRY := $(DOCKER_SCRATCH_REGISTRY)
-DOCKER_NAMESPACE := mcm-kui-pr-builds
-ifeq ($(PUSH_INTEGRATION), true)
-	DOCKER_REGISTRY := $(DOCKER_INTEGRATION_REGISTRY)
-	DOCKER_NAMESPACE := ibmcom
-endif
-
-
-
 ARCH := $(shell uname -m)
 OS ?= $(shell uname -r | cut -d '.' -f6)
-
 
 ifeq ($(ARCH), x86_64)
 	ARCH = amd64
 endif
 
+# Default to scratch unless a push to master
+PUSH_REPO ?= scratch
+DOCKER_REGISTRY := $(DOCKER_SCRATCH_REGISTRY)
+DOCKER_NAMESPACE := mcm-kui-pr-builds
+ifeq ($(PUSH_REPO), integration)
+	DOCKER_REGISTRY := $(DOCKER_INTEGRATION_REGISTRY)
+	DOCKER_NAMESPACE := ibmcom
+endif
+ifeq ($(PUSH_REPO), fixpack)
+	DOCKER_REGISTRY := $(DOCKER_FIXPACK_VIRTUAL_REGISTRY)
+	DOCKER_NAMESPACE := ibmcom-$(ARCH)
+endif
 
 .PHONY: init\:
 init::
@@ -165,6 +170,10 @@ lint: lint-proxy
 lint-proxy:
 	$(MAKE) -C proxy $@
 
+.PHONY: copyright-check
+copyright-check:
+	@bash ./copyright-check.sh
+
 .PHONY: build-image
 build-image: docker-login-edge
 	@echo "Building mcm-kui image"
@@ -173,10 +182,17 @@ build-image: docker-login-edge
 # Push docker image to artifactory
 .PHONY: release
 release:
+ifeq ($(PUSH_REPO),fixpack)
+	$(SELF) docker:tag
+	@echo "Tagged mcm-kui image as $(DOCKER_URI)"
+	@echo "Pushing mcm-kui image to $(DOCKER_URI)..."
+	$(SELF) docker:push
+else
 	$(SELF) docker:tag-arch
 	@echo "Tagged mcm-kui image as $(DOCKER_ARCH_URI)"
 	@echo "Pushing mcm-kui image to $(DOCKER_ARCH_URI)..."
 	$(SELF) docker:push-arch
+endif
 
 .PHONY: run
 run:
@@ -185,8 +201,11 @@ run:
 .PHONY: tests-dev
 tests-dev:
 ifeq ($(FUNCTIONAL_TESTS), TRUE)
-	$(SELF) run > /dev/null
-	$(MAKE) -C client client-tests
+	 $(SELF) run > /dev/null
+	$(MAKE) -C tests setup-dependencies
+	$(MAKE) -C tests run-all-tests
+else
+	@echo Tests are disabled, export FUNCTIONAL_TESTS="TRUE" to run tests.
 endif
 
 .PHONY: dust-template
@@ -202,3 +221,12 @@ update-plugins: download-plugins
 update-kui: 
 	$(MAKE) -C client update-client
 	$(MAKE) -C proxy update-proxy
+
+.PHONY: awsom
+awsom:
+	@bash scripts/awsom-script.sh
+
+.PHONY: test-module
+test-module:
+	sed -i "s/git@github.ibm.com:/https:\/\/$(GITHUB_USER):$(GITHUB_TOKEN)@github.ibm.com\//" .gitmodules
+	git submodule update --init --recursive

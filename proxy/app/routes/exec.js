@@ -1,3 +1,12 @@
+ /*******************************************************************************
+ * Licensed Materials - Property of IBM
+ * (c) Copyright IBM Corporation 2017, 2019. All Rights Reserved.
+ *
+ * Note to U.S. Government Users Restricted Rights:
+ * Use, duplication or disclosure restricted by GSA ADP Schedule
+ * Contract with IBM Corp.
+ *******************************************************************************/
+
 /*
  * Copyright 2019 IBM Corporation
  *
@@ -14,16 +23,8 @@
  * limitations under the License.
  */
 
- /*******************************************************************************
- * Licensed Materials - Property of IBM
- * (c) Copyright IBM Corporation 2017, 2019. All Rights Reserved.
- *
- * Note to U.S. Government Users Restricted Rights:
- * Use, duplication or disclosure restricted by GSA ADP Schedule
- * Contract with IBM Corp.
- *******************************************************************************/
-
 const debug = require('debug')('proxy/exec')
+const { dirname, join } = require('path')
 const { spawn } = require('child_process')
 const express = require('express')
 const { v4: uuid } = require('uuid')
@@ -38,9 +39,9 @@ const {
 const accessTokenKey = 'cfc-access-token-cookie'
 const sessionKey = 'kui_websocket_auth'
 
-const mainPath = require.resolve('@kui-shell/core')
-const { main: wssMain } = require('@kui-shell/plugin-bash-like/pty/server')
-const { StdioChannelWebsocketSide } = require('@kui-shell/plugin-bash-like/pty/stdio-channel')
+const mainPath = join(dirname(require.resolve('@kui-shell/core')), 'main/main.js')
+const { main: wssMain } = require('@kui-shell/plugin-bash-like')
+const { StdioChannelWebsocketSide } = require('@kui-shell/plugin-bash-like')
 
 /** thin wrapper on child_process.exec */
 function main(cmdline, execOptions, server, port, host,user, locale) {

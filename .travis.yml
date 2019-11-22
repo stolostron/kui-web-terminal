@@ -14,6 +14,9 @@ before_cache:
 notifications:
   email: false
 
+git:
+  submodules: false
+
 branches:
   only:
     - master
@@ -39,7 +42,8 @@ matrix:
       - make install-proxy
     script:
       - make lint-proxy
-  
+      - make copyright-check
+
   # --- Integration testing ---
   - stage: test-pr
     name: "PR tests"
@@ -55,9 +59,9 @@ matrix:
       - JOBNAME=AMD64 DOCKER_TAG=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g')
     before_install:
       - make init
+      - make test-module
       - make docker-logins
       - make download-clis
-      - make download-plugins
     install:
       - make install
     before_script:
@@ -81,12 +85,11 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=AMD64 PUSH_INTEGRATION=true DOCKER_TAG=latest
+      - JOBNAME=AMD64 PUSH_REPO=integration 
     before_install:
       - make init
       - make docker-login
       - make download-clis
-      - make download-plugins
     install:
       - make install
     script:
@@ -94,6 +97,8 @@ matrix:
       - make headless
       - make build-image
       - make release
+      - make release PUSH_RHEL=true
+      - make release DOCKER_TAG=latest
       - make release DOCKER_TAG=latest-rhel
 
   # -- PPC Deploy to Artifactory ---
@@ -105,12 +110,11 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=Power PUSH_INTEGRATION=true DOCKER_TAG=latest
+      - JOBNAME=Power PUSH_REPO=integration 
     before_install:
       - make init
       - make docker-login
       - make download-clis
-      - make download-plugins
     install:
       - make install
     script:
@@ -118,6 +122,7 @@ matrix:
       - make headless
       - make build-image
       - make release
+      - make release DOCKER_TAG=latest
 
 
 
@@ -130,17 +135,16 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=s390x PUSH_INTEGRATION=true DOCKER_TAG=latest
+      - JOBNAME=s390x PUSH_REPO=integration 
     before_install:
       - make init
       - make docker-logins
       - make download-clis
-      - make download-plugins
     install:
       - make install
     script:
       - make webpack
       - make headless
       - make build-image
-    after_success:
       - make release
+      - make release DOCKER_TAG=latest

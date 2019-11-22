@@ -7,149 +7,64 @@
  * Contract with IBM Corp.
  *******************************************************************************/
 
-#header {
-
-  .bx--modal-header__heading, .bx--modal-content__text, .bx--snippet-container {
-    color: #171717 !important;
+// Structure or layout changes only
+ #header {
+  #configure-client-modal {
+    .command-container {
+      width: 135%;
+    }
   }
 
-  #resource-modal {
+  #resource-modal-container {
     .bx--modal-header {
-      .bx--modal-header__heading {
-        font-size: 1.75rem !important;
-        font-weight: 300 !important;
-      }
+      width: 100%;
     }
-
-    .bx--modal-header, .bx--modal-footer {
-      width: 100%
-    }
-
-    .bx--modal-footer button.bx--btn {
-      padding-top: 0;
-      padding-bottom: 0;
+    .bx--modal-content {
+      width: 100%;
     }
     .bx--modal-footer {
       background-color: inherit;
-
-      .bx--btn {
-        height: 32px !important;
-        width: 64px !important;
-      }
-
-      .bx--btn--secondary {
-        background-color: transparent !important;
-        border: 2px solid #3d70b2 !important;
-        color: #3d70b2 !important;
-        &:hover {
-          background-color: #3d70b2 !important;
-          color: #fff !important;
-        }
-      }
-
-      .bx--btn--primary {
-        background-color: #3d70b2 !important;
-        color: #fff !important;
-
-        &:hover {
-          background-color: #30588c !important;
-        }
-      }
     }
   }
+ }
 
-  .bx--modal-close__icon {
-    height: 10px;
-    width: 10px;
-  }
-
-  .bx--modal-content {
-    padding-left: 0;
-  }
-
-  #resource-modal .bx--modal-content {
-    padding-left: 5%;
-    width: 100%;
-
-    .bx--inline-notification {
-      color: #5a6872;
-      padding: 0;
-      align-items: center;
-      max-width: unset;
-
-      .bx--inline-notification__icon {
-        margin-top: 0;
-      }
-
-      .bx--inline-notification__close-button svg {
-        fill: #5a6872;
-        height: 10px;
-        width: 10px;
-        right: unset;
-        position: unset;
-      }
-    }
-
-    .bx--inline-notification--error {
-      background: inherit;
-    }
-  }
-
-  button.bx--btn {
-    width: 80px;
-    max-width: 80px;
-    margin-left: 24px;
-    height: 40px;
-  }
-
-  #configure-client-modal {
-    .bx--modal-container {
-      padding: 2.5rem 3rem 0;
-      background-color: #fff;
-      border-top: 4px solid #3d70b2;
-      .bx--modal-header {
-        padding-left: 0;
-
-        .bx--modal-header__heading {
-          font-size: 1.75rem;
-          font-weight: 300;
-        }
+ // Theme specific overrides
+//  body[kui-theme="IBM Light"] {
+//   #header {
+//     #configure-client-modal {
+//     }
   
-        .bx--modal-close__icon {
-          fill: #171717;
-        }
+//     #resource-modal-container {
+  
+//     }
+//    }
+//  }
+
+ body[kui-theme="IBM Dark"] {
+  #header {
+    #configure-client-modal {
+      .bx--modal-header__heading, .cli-link {
+        color: rgb(245, 245, 245)
       }
-      .bx--modal-content {
-        width: 100%;
+      .command-container {
+        color: #171717;
+      }
+    }
+  
+    #resource-modal-container {
+      .bx--modal-container {
+        background-color: #f2f4f8;
 
-        .command-container {
-          .bx--snippet {
-            background-color: #f4f7fb;
-            border: 1px solid #dfe3e6;
+        .bx--modal-content, .bx--modal-header__heading {
+          color: #161616;
+        }
 
-            .bx--snippet__icon.svg {
-              fill: #3d70b2;
-            }
+        .bx--modal-footer {
+          .bx--btn--secondary {
+            background-color: #393939;
           }
         }
       }
     }
-  }
-
-  #icp-about-dialog {
-    .bx--modal-close__icon {
-      fill: #171717;
-    }
-    .bx--modal-close:hover {
-      background-color: transparent;
-    }
-  }
-
-  #brace-editor {
-    width: 100vw;
-  }
-
-  .bx--modal-footer {
-    height: 105px;
-  }
-}
+   }
+ }
