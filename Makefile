@@ -37,9 +37,6 @@ else
 	DOCKER_TAG ?= $(SEMVERSION)
 endif
 
-DOCKER_RUN_OPTS ?= -e NODE_ENV=development -e ICP_EXTERNAL_URL=$(ICP_EXTERNAL_URL) -e KUI_INGRESS_PATH="kui" -e AUTH_TOKEN=$(AUTH_TOKEN) -e DEBUG=* -e TEST_USER=$(TEST_USER) -e TEST_PASSWORD=$(TEST_PASSWORD) -d -v $(PWD)/testcerts:/etc/certs
-DOCKER_BIND_PORT ?= 8081:3000
-
 ARCH := $(shell uname -m)
 OS ?= $(shell uname -r | cut -d '.' -f6)
 
@@ -79,10 +76,7 @@ endif
 
 -include $(shell curl -so .build-harness -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.v3.raw" "https://raw.github.ibm.com/ICP-DevOps/build-harness/master/templates/Makefile.build-harness"; echo .build-harness)
 
-
-
 SHELL := /bin/bash
-
 
 .PHONY: docker-login-dev docker-login docker-login-edge docker-logins 
 docker-login-dev:
@@ -196,16 +190,16 @@ endif
 
 .PHONY: run
 run:
-	$(SELF) docker:run AUTH_TOKEN=$(shell curl -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -d "grant_type=password&username="$(TEST_USER)"&password="$(TEST_PASSWORD)"&scope=openid" $(ICP_EXTERNAL_URL)/idprovider/v1/auth/identitytoken --insecure | jq '.access_token' | tr -d '"') 
+	$(MAKE) -C tests run
 
-.PHONY: tests-dev
-tests-dev:
-ifeq ($(FUNCTIONAL_TESTS), TRUE)
-	 $(SELF) run > /dev/null
+.PHONY: run-all-tests
+run-all-tests:
+ifeq ($(TEST_LOCAL), true)
+	$(SELF) run > /dev/null
 	$(MAKE) -C tests setup-dependencies
 	$(MAKE) -C tests run-all-tests
 else
-	@echo Tests are disabled, export FUNCTIONAL_TESTS="TRUE" to run tests.
+	@echo Tests are disabled, export TEST_LOCAL="true" to run tests.
 endif
 
 .PHONY: dust-template

@@ -134,16 +134,8 @@ download "github-repo-name" "release-tgz-filename" "release-version"
 
 ## How to run Nightwatch tests
 
-1. Pull the latest MCM-KUI image from integration OR use your own image.  Retag the image as `mcm-kui-proxy:latest`.
-2. In the root directory, run `make install`.
-2. Initialize and fetch the automated tests repo by running `git submodule update --init --recursive`
-3. Now, from the the `tests` directory, run `make setup-dependencies`
-4. Export the following environment variables:
-    - TEST_URL (`<cluster host>:<cluster port>`)
-    - TEST_USER (`login username`)
-    - TEST_PASSWORD (`login password`)
-5. In the root directory, run `make tests-dev FUNCTIONAL_TESTS="TRUE"`.  Some dependencies will be installed, and tests should run automatically. A docker container will spin up, the KUI UI should be able to be accessed via `https://localhost:8081/kui`
-6. From this point you can run tests via `nightwatch` command from the `tests/` directory.  You may need to install nightwatch globally to use the command (`npm install -g nightwatch`).
+1. If you don't already have the test submodule, initialize and fetch the automated tests repo by running `git submodule update --init --recursive`
+2. Follow the steps in [mcm-kui-tests](https://github.ibm.com/IBMPrivateCloud/mcm-kui-tests#how-to-run-nightwatch-tests).
 
 ## Makefile Commands
 
@@ -171,7 +163,7 @@ download "github-repo-name" "release-tgz-filename" "release-version"
 | lint                    |    Runs linting on the /proxy directory. |
 | lint-proxy              |    Runs linting on the /proxy directory. |
 | release                 |    Pushes the MCM-KUI docker image to the docker registry. |
-| tests-dev               |    Runs the Nightwatch tests against a container from a "mcm-kui-proxy:latest" local image. Requires FUNCTIONAL_TESTS=TRUE. |
+| run-all-tests           |    Runs the Nightwatch tests from the mcm-kui-tests repo. |
 | update-kui              |    Updates the open-source KUI dependencies based on KUI_UPDATE_VERSION variable. |
 | update-plugins          |    Updates the /client and /proxy package.json plugin packages. Should run 'make download-plugins' first. |
 | webpack                 |    Builds the open-source KUI webpack component. |
