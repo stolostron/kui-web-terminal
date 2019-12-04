@@ -35,6 +35,7 @@ const proxy = require('http-proxy-middleware')
 const ExecRouter = require('./routes/exec')
 const defaultRoute = require('./routes/index')
 const statusRoute = require('./routes/status')
+const {setupWSS} = require('./routes/terminal')
 
 const app = express()
 
@@ -85,11 +86,12 @@ if (process.env.NODE_ENV === 'development') {
 // helps with ctrl-c when running in a docker container
 process.on('SIGINT', () => process.exit())
 
-exports.setServer = (server, port) => {
-  app.use('/kui/exec', ExecRouter(server, port))
+exports.setServer = (server) => {
+  app.use('/kui/exec', ExecRouter())
   app.use('/status', statusRoute)
   app.use('/kui', defaultRoute)
   app.use('/kui', expressStaticGzip(path.join(__dirname, 'public')))
+  setupWSS(server);
 }
 
 exports.app = app
