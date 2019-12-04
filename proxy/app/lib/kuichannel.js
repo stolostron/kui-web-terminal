@@ -34,6 +34,7 @@ class CustomStdioChannelWebsocketSide extends EventEmitter {
         // upstream client has sent data downstream; forward it to the subprocess
         this.ws.on('message', (data) => {
             debugW('forwarding message downstream')
+            console.log('got message:',data)
             child.stdin.write(`${data}${MARKER}`)
         })
 
@@ -46,10 +47,11 @@ class CustomStdioChannelWebsocketSide extends EventEmitter {
         })
 
         const self = this 
-        setInterval(function ping() {
+        const heartbeatInterval = setInterval(function ping() {
             if (self.ws.isAlive === false) {
                 debugW('killing child process, because client connection did not respond to ping')
                 child.kill()
+                clearInterval(heartbeatInterval)
                 return self.ws.terminate()
             }
             // assume it is dead until we get a pong

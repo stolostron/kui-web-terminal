@@ -103,8 +103,11 @@ module.exports.setupWSS = (server) => {
         if (pathname === wsURL) {
             try {
                 // varify user
-                const accessToken = parseCookie(request.headers.cookie || '')[accessTokenKey];
+                let accessToken = parseCookie(request.headers.cookie || '')[accessTokenKey];
                 const locale = (request.headers['accept-language'] && request.headers['accept-language'].split(',')[0]) || 'en';
+                if (process.env.NODE_ENV === 'development') {
+                    accessToken = process.env.AUTH_TOKEN;
+                }
                 // ready to connect, handle websocket
                 wss.handleUpgrade(request, socket, head, function done(ws) {
                     wss.emit('connection', ws, request);

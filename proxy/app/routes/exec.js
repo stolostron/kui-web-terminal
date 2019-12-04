@@ -34,12 +34,14 @@ module.exports = () => {
 
       const { command } = commandExtractor(req)
       const wsOpen = command === 'bash websocket open'
+      const host = req.headers.host;
       debug('command', command)
       if (wsOpen) {
+        const proto = process.env.KUI_USE_HTTP === 'true' ? 'ws' : 'wss'
         res.send({
           type: 'object',
           response: {
-            url: wsURL
+            url: new URL(wsURL,`${proto}://${host}`)
           }
         });
       } else {
