@@ -16,9 +16,9 @@ const ReadyState = {
     CLOSING:2,
     CLOSED:3
 }
-function heartbeat(ws) {
+function heartbeat() {
     debugW('heartbeat')
-    ws.isAlive = true
+    this.isAlive = true
 }
 // customized channel for kui websocket connection
 class CustomStdioChannelWebsocketSide extends EventEmitter {

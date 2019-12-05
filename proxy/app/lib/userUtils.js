@@ -193,10 +193,10 @@ module.exports.getUser = async (token) => {
     }
     
     
+    let user={};
     //create new user with home folder set
     //It's possible to have one user set up two different UIDs because we didn't add locks
     try{
-        let user={};
         await createUser(user);
         debug('return uid:',user.uid);
         user.env=setupUserEnv(user);
@@ -210,6 +210,9 @@ module.exports.getUser = async (token) => {
         return user;
     }catch(e){
         debug('failed in creating users:', e);
+        if(user && user.name){
+          this.deleteUser(user.name);
+        }
         throw e;
     }
     
