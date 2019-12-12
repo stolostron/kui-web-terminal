@@ -45,13 +45,6 @@ make headless
 make build-image
 ```
 
-5. run the docker image
-```
-docker run -e DEBUG=* -e INSECURE_MODE=true -p 8081:3000 mcm-kui-proxy:latest
-```
-**Note:** We are now generating our cert and secret with cert-manager so we are no longer using self-signed certs.
-
-**Note:** You can also build the UI part and proxy part separately if you want.  
 
 ### To build the client part only 
 
@@ -94,7 +87,6 @@ make clean-proxy
 make clean-kui
 ```
 
-
 ## How to integrate/update plugins
 1. Make sure you have a GitHub release asset .tgz file.
 2. In the `download-plugins.sh` script, add a line to download your plugin:
@@ -128,9 +120,19 @@ download "github-repo-name" "release-tgz-filename" "release-version"
     helm install --set proxy.clusterIP=your.icp.ip,proxy.clusterPort=8443 --name mcm-kui --namespace default ibm-mcm-kui-99.99.99.tgz --tls
    ```
 
-3. Use KUI by visiting `https://your.cluster.ip:8443/kui` 
+3. Use KUI by visiting `https://your.cluster.ip:port/kui` 
 
 4. Login with `cloudctl login`
+
+## How to Run Image Locally
+1. If you don't already have the test submodule, initialize and fetch the automated tests repo by running `git submodule update --init --recursive`
+2. Follow the steps in [mcm-kui-tests](https://github.ibm.com/IBMPrivateCloud/mcm-kui-tests#how-to-run-nightwatch-tests) to set up env vars:
+```
+export K8S_CLUSTER_MASTER_IP=https://your.cluster.ip:port
+export K8S_CLUSTER_USER=your-icp-username
+export K8S_CLUSTER_PASSWORD=your-icp-password
+```
+3. `make run`
 
 ## How to run Nightwatch tests
 
@@ -163,6 +165,7 @@ download "github-repo-name" "release-tgz-filename" "release-version"
 | lint                    |    Runs linting on the /proxy directory. |
 | lint-proxy              |    Runs linting on the /proxy directory. |
 | release                 |    Pushes the MCM-KUI docker image to the docker registry. |
+| run                     |    Runs the proxy image. |
 | run-all-tests           |    Runs the Nightwatch tests from the mcm-kui-tests repo. |
 | update-kui              |    Updates the open-source KUI dependencies based on KUI_UPDATE_VERSION variable. |
 | update-plugins          |    Updates the /client and /proxy package.json plugin packages. Should run 'make download-plugins' first. |
