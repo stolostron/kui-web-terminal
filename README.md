@@ -167,7 +167,7 @@ export K8S_CLUSTER_PASSWORD=your-icp-password
 | release                 |    Pushes the MCM-KUI docker image to the docker registry. |
 | run                     |    Runs the proxy image. |
 | run-all-tests           |    Runs the Nightwatch tests from the mcm-kui-tests repo. |
-| update-kui              |    Updates the open-source KUI dependencies based on KUI_UPDATE_VERSION variable. |
+| update-kui              |    Updates the open-source KUI dependencies based on KUI_UPDATE_VERSION, KUBEUI_UPDATE_VERSION variable. |
 | update-plugins          |    Updates the /client and /proxy package.json plugin packages. Should run 'make download-plugins' first. |
 | webpack                 |    Builds the open-source KUI webpack component. |
 
@@ -178,10 +178,10 @@ export K8S_CLUSTER_PASSWORD=your-icp-password
 | client-tests            |    Runs the Nightwatch tests against a container from a "mcm-kui-proxy:latest" local image. |
 | client-update-plugins   |    Updates the /client package.json plugin packages. Should run 'make download-plugins' first. |
 | compile-css             |    Compiles the internal SCSS files into CSS. |
-| fix-webpack-path        |    Adds the /kui context root to the open-source webpack configuration. |
+| fix-webpack-function        |    Redefines the webpack function to the open-source webpack configuration. |
 | import-css              |    Updates the CSS files from the open-source KUI repository. |
 | install-client          |    Installs the /client package.json npm packages. |
-| update-client           |    Updates the /client KUI dependencies based on KUI_UPDATE_VERSION variable. |
+| update-client           |    Updates the /client KUI dependencies based on KUI_UPDATE_VERSION, KUBEUI_UPDATE_VERSION variable. |
 | update-nls              |    Updates the getting started content strings in client/theme/theme.json with content from client/nls directory |
 | webpack                 |    Builds the open-source KUI webpack component. |
 

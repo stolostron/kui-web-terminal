@@ -1,6 +1,6 @@
  /*******************************************************************************
  * Licensed Materials - Property of IBM
- * (c) Copyright IBM Corporation 2017, 2019. All Rights Reserved.
+ * (c) Copyright IBM Corporation 2017, 2020. All Rights Reserved.
  *
  * Note to U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
@@ -130,9 +130,12 @@ function main(cmdline, execOptions, server, port, host,user, locale) {
             path: process.env.KUI_INGRESS_PATH? `/${process.env.KUI_INGRESS_PATH}/bash/${N}`:`/bash/${N}`
           },
           response: {
-            url: (process.env.KUI_INGRESS_PATH != undefined) ? 
-               `${proto}://${host}/${process.env.KUI_INGRESS_PATH}/bash/${N}` :
-               `${proto}://${host}/bash/${N}`
+            mode: 'raw',
+            content: {
+              url: (process.env.KUI_INGRESS_PATH != undefined) ? 
+              `${proto}://${host}/${process.env.KUI_INGRESS_PATH}/bash/${N}` :
+              `${proto}://${host}/bash/${N}`
+            }
           }
         })
       })

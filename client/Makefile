@@ -1,14 +1,12 @@
-KUI_UPDATE_VERSION ?= dev
-
 .PHONY: install-client
 install-client: 
 	npm install
 
 .PHONY: update-client
 update-client:
+ifdef KUI_UPDATE_VERSION
 	npm uninstall @kui-shell/builder
 	npm uninstall @kui-shell/core
-	npm uninstall @kui-shell/plugin-k8s
 	npm uninstall @kui-shell/plugin-bash-like
 	npm uninstall @kui-shell/plugin-core-support
 	npm uninstall @kui-shell/plugin-proxy-support
@@ -17,13 +15,23 @@ update-client:
 	npm uninstall @kui-shell/webpack
 	npm install --save-dev @kui-shell/builder@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/core@${KUI_UPDATE_VERSION}
-	npm install --save @kui-shell/plugin-k8s@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/plugin-bash-like@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/plugin-core-support@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/plugin-proxy-support@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/plugin-editor@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/proxy@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/webpack@${KUI_UPDATE_VERSION}
+endif
+ifdef KUBEUI_UPDATE_VERSION
+	npm uninstall @kui-shell/plugin-kubeui
+	npm uninstall @kui-shell/plugin-helmui
+	npm uninstall @kui-shell/plugin-logui
+	npm uninstall @kui-shell/plugin-openshift
+	npm install --save @kui-shell/plugin-kubeui@${KUBEUI_UPDATE_VERSION}
+	npm install --save @kui-shell/plugin-helmui@${KUBEUI_UPDATE_VERSION}
+	npm install --save @kui-shell/plugin-logui@${KUBEUI_UPDATE_VERSION}
+	npm install --save @kui-shell/plugin-openshift@${KUBEUI_UPDATE_VERSION}
+endif
 	npm install
 
 .PHONY: import-css
@@ -34,14 +42,14 @@ import-css:
 compile-css:
 	npm run build:css
 
-.PHONY: fix-webpack-path
-fix-webpack-path:
-	@echo Adding public path to webpack config file:
-	sed -i'.bak' "s/publicPath: '\/'/publicPath: '\/kui\/'/g" node_modules/@kui-shell/webpack/webpack.config.js 
-	diff node_modules/@kui-shell/webpack/webpack.config.js   node_modules/@kui-shell/webpack/webpack.config.js.bak || echo '      ^ finished replacing publicPath in webpack.config.js'
+.PHONY: fix-webpack-function
+fix-webpack-function:
+	@echo Adding jsonpFunction to webpack config file:
+	sed -i'.bak' "s/output: {/output: { jsonpFunction: 'webpackJsonpFunction3',/g" node_modules/@kui-shell/webpack/webpack.config.js 
+	diff node_modules/@kui-shell/webpack/webpack.config.js   node_modules/@kui-shell/webpack/webpack.config.js.bak || echo '      ^ finished replacing jsonpFunction in webpack.config.js'
 
 .PHONY: webpack
-webpack: compile-css fix-webpack-path
+webpack: compile-css fix-webpack-function
 	WEB_COMPRESS=gzip npx kui-build-webpack
 
 .PHONY: clean-client

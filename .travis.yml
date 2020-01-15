@@ -53,6 +53,7 @@ matrix:
     language: node_js
     addons:
       chrome: stable
+      firefox: latest
     node_js:
       - "10"
     env:
@@ -69,12 +70,8 @@ matrix:
       - make headless
       - make build-image
     script:
-      - make run-all-tests
-    after_success:
       - make release
-    after_failure:
-      - make release
-      - cat client/selenium-debug.log
+      - make run-all-tests BROWSER=firefox
 
   # --- x86 Deploy to Artifactory ---
   - stage: build

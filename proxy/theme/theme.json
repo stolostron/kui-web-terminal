@@ -16,6 +16,7 @@
   "userAgent": "Kui-Shell",
   "highlightTheme": "mono-blue",
   "defaultTheme": "Light",
+  "defaultContext": ["kubeui"],
   "themes": [
     { "name": "Light", "css": "themes/light.css", "description": "Default Light", "style": "light" },
     { "name": "Dark", "css": "themes/dark.css", "description": "Default Dark", "style": "dark" },

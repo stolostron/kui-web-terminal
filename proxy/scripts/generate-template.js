@@ -73,21 +73,14 @@ mcmKuiLink.href = '/kui/mcm-kui.css'
 
 headElement.appendChild(mcmKuiLink)
 
-// Fix path to KUI main.js file
+// Get all scripts and links
 const scripts = Array.from(document.querySelectorAll('script'))
-const mainScript = scripts.find(script => script.src.startsWith('main') && script.src.endsWith('bundle.js'))
-mainScript.src = '/kui/' + mainScript.src
-
-// Fix icon path
 const links = Array.from(document.querySelectorAll('link'))
-const iconLink = links.find(link => link.href.endsWith('kui.ico'))
-if(iconLink){
-  iconLink.href = '/kui/' + iconLink.href
-}
 
 // Fix inline webpack script
 const inlineWebpackScript = scripts.find(script => script.innerHTML.includes('window[\'_kuiWebpackResourceRoot\']') )
 inlineWebpackScript.innerHTML = inlineWebpackScript.innerHTML.replace('window[\'_kuiWebpackResourceRoot\']',';window[\'_kuiWebpackResourceRoot\']')
+
 // Fix nonce
 //iterate through scripts/links, and replace nonce with variable
 const nonceScripts = scripts.filter(script => script.nonce === nonceReplace)
@@ -101,7 +94,7 @@ for(let link of nonceLinks){
 }
 
 // CSS hack for search
-const searchCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-search', 'src-web', 'styles', 'index.css')
+const searchCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-search', 'mdist', 'src-web', 'styles', 'index.css')
 const staticAssetsPath = path.join(__dirname, '..', 'app', 'public')
 fs.copyFileSync(searchCssPath, staticAssetsPath + '/plugin-search.css')
 

@@ -59,7 +59,7 @@
     flex-basis: unset;
 
     .sidecar-top-stripe {
-      .bx--tabs li[data-mode="version"] {
+      .bx--tabs li[data-mode="version"], .bx--tabs li[data-mode="summary"] {
         display: none;
       }
     }
