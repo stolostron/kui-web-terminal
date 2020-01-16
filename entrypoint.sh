@@ -12,4 +12,4 @@ if [ ! -z ${ENABLE_EXTENSIONS} ] && [ ${ENABLE_EXTENSIONS} = 'true' ] ; then
     fi
 fi
 echo 'starting'
-#npm start
+npm start
