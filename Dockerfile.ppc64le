@@ -120,8 +120,9 @@ COPY ./tmp/kui /kui-proxy/kui
 COPY ./client/dist/webpack /kui-proxy/kui/app/public
 RUN mv /kui-proxy/kui/app/public/kui/* /kui-proxy/kui/app/public
 
+COPY ./entrypoint.sh /kui-proxy/kui/
 RUN cd /kui-proxy/kui
 
 RUN chmod 751 /home && chmod 751 /kui-proxy && chmod 751 /kui-proxy/kui
 
-CMD [ "npm", "start" ]
+CMD [ "/kui-proxy/kui/entrypoint.sh" ]
