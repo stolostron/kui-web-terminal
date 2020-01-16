@@ -1,10 +1,10 @@
 #!/bin/sh -e
 
 # Licensed Materials - Property of IBM
-# Copyright IBM Corporation 2020. All Rights Reserved.
-# U.S. Government Users Restricted Rights -
-# Use, duplication or disclosure restricted by GSA ADP
-# IBM Corporation - initial API and implementation
+# (c) Copyright IBM Corporation 2020. All Rights Reserved.
+# Note to U.S. Government Users Restricted Rights:
+# Use, duplication or disclosure restricted by GSA ADP Schedule
+# Contract with IBM Corp.
 
 
 if [ ! -z ${ENABLE_EXTENSIONS} ] && [ ${ENABLE_EXTENSIONS} = 'true' ] ; then
