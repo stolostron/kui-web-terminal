@@ -126,4 +126,4 @@ RUN cd /kui-proxy/kui
 # Folder permissions
 RUN chmod 751 /home && chmod 751 /kui-proxy && chmod 751 /kui-proxy/kui
 
-CMD [ "/kui-proxy/kui/entrypoint.sh" ]
+ENTRYPOINT [ "/kui-proxy/kui/entrypoint.sh" ]
