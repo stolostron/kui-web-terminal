@@ -35,24 +35,12 @@
     "zh_CN": "Visual Web Terminal 是将图形用户界面的便利性与命令行界面的速度相组合的接口。在运行命令后，将以交互式表格格式返回数据，这可在您选择表中的项时显示有关此项的更多详细信息。\n \n 除了特定于 Visual Web Terminal 的命令，还支持以下命令：\n * 选中的基本“bash”命令\n * “cloudctl”命令\n * “helm”命令\n * “istioctl”命令\n * “kubectl”命令\n * “oc”命令\n \n**应用程序**\n \n 您可以通过 Visual Web Terminal 使用“kubectl”命令来查看和访问有关环境中的应用程序的信息。\n \n * 显示所有应用程序：\n \n  “kubectl get applications”\n \n * 显示所有部署：\n \n “kubectl get deployments”\n \n * 显示所有通道：\n \n “kubectl get channels”\n \n **搜索**（仅在集群上安装 IBM Cloud Pak for Multicloud Management 时可用）\n \n 您可以使用“search”命令在整个连接的云管理环境中搜索字符串或属性。 可以通过向搜索命令末尾添加过滤器来使用过滤器缩小搜索结果的范围。\n \n “search”命令返回按表格式进行分类的结果。 您可以通过选择想要用于排序的数据的列标题，对表中的数据进行排序。\n \n 要查看有关表中返回的某个项的其他详细信息，请选择此项的名称。\n \n * IP 地址搜索的示例：\n \n “search 192.0.0.1”\n \n * 使用过滤器的搜索示例：\n \n 资源种类：\n \n “search kind:deployment”\n \n * 所有者：\n \n search owner:jdoe\n \n * 多个过滤器：\n \n “search kind:deployment owner:jdoe”",
     "zh_TW": "「視覺化 Web 終端機」是一種介面，結合圖形使用者介面的便利與指令行介面的速度。執行指令之後，會以互動式表格格式傳回資料，當您在表格中選取該項目時，該格式可以顯示項目的更多相關明細。\n \n 除了「視覺化 Web 終端機」的特定指令之外，也支援下列指令：\n * 所選取的基本 `bash` 指令\n * `cloudctl` 指令\n * `helm` 指令\n * `istioctl` 指令\n * `kubectl` 指令\n * `oc` 指令\n \n**應用程式**\n \n 您可以透過搭配使用 `kubectl` 指令與「視覺化 Web 終端機」，檢視及存取環境中應用程式的相關資訊。\n \n * 顯示所有應用程式：\n \n `kubectl get applications`\n \n * 顯示所有部署：\n \n `kubectl get deployments`\n \n * 顯示所有通道：\n \n `kubectl get channels`\n \n **搜尋**（僅當 IBM Cloud Pak for Multicloud Management 安裝在叢集上時可用）\n \n 您可以透過使用 `search` 指令，在整個連接的雲端管理環境中搜尋字串或屬性。 您可以透過將過濾器新增至搜尋指令的結尾，以過濾器縮小您的搜尋結果的範圍。\n \n `search` 指令傳回以表格格式按類型分類的結果。 您可以透過為您要用於排序的資料選取直欄標題，排序表格中的資料。\n \n 若要檢視表格中傳回之項目的相關其他詳細資料，請選取項目的名稱。\n \n * 搜尋 IP 位址的範例：\n \n `search 192.0.0.1`\n \n * 使用過濾器的搜尋範例：\n \n 資源類型：\n \n `search kind:deployment`\n \n * 擁有者：\n \n search owner:jdoe\n \n * 多個過濾器：\n \n `search kind:deployment owner:jdoe`"
   },
-  "defaultTheme": "IBM Light",
+  "defaultTheme": "Carbon Gray10",
   "cssHome": "/kui/",
   "resourceRoot": "/kui",
   "contextRoot": "/kui",
   "defaultContext": ["kubeui"],
   "contentSecurityPolicy": "default-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' file: 'nonce-{kuiNonce}' data:; script-src 'self' 'nonce-{kuiNonce}' 'unsafe-eval'; font-src 'self' file:; connect-src 'self' wss:",
-  "themes": [
-    {
-      "name": "IBM Light",
-      "css": "/kui/themes/carbon-gray10.css",
-      "style": "light"
-    },
-    {
-      "name": "IBM Dark",
-      "css": "/kui/themes/carbon-gray90.css",
-      "style": "dark"
-    }
-  ],
   "css": [],
   "cssOverrides": [
     "top-tab-stripe-alt.css",

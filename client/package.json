@@ -24,6 +24,7 @@
   "dependencies": {
     "@kui-shell/core": "5.7.22",
     "@kui-shell/plugin-bash-like": "5.7.22",
+    "@kui-shell/plugin-carbon-themes": "^5.7.42",
     "@kui-shell/plugin-core-support": "5.7.22",
     "@kui-shell/plugin-editor": "5.7.22",
     "@kui-shell/plugin-helmui": "0.1.9",

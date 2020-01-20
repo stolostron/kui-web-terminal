@@ -10,6 +10,7 @@ ifdef KUI_UPDATE_VERSION
 	npm uninstall @kui-shell/plugin-bash-like
 	npm uninstall @kui-shell/plugin-core-support
 	npm uninstall @kui-shell/plugin-proxy-support
+	npm uninstall @kui-shell/plugin-carbon-themes
 	npm uninstall @kui-shell/plugin-editor
 	npm uninstall @kui-shell/proxy
 	npm uninstall @kui-shell/webpack
@@ -17,6 +18,7 @@ ifdef KUI_UPDATE_VERSION
 	npm install --save @kui-shell/core@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/plugin-bash-like@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/plugin-core-support@${KUI_UPDATE_VERSION}
+	npm install --save @kui-shell/plugin-carbon-themes@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/plugin-proxy-support@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/plugin-editor@${KUI_UPDATE_VERSION}
 	npm install --save @kui-shell/proxy@${KUI_UPDATE_VERSION}
