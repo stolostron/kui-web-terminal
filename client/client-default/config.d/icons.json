@@ -1,0 +1,8 @@
+{
+  "favicon": "/common-nav/graphics/ICP-favicon.png",
+  "filesystem": {
+    "darwin": "icons/icns/kui.icns",
+    "win32": "icons/ico/kui.ico",
+    "linux": "icons/png/kui.png"
+  }
+}

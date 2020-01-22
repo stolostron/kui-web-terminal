@@ -179,10 +179,8 @@ export K8S_CLUSTER_PASSWORD=your-icp-password
 | client-update-plugins   |    Updates the /client package.json plugin packages. Should run 'make download-plugins' first. |
 | compile-css             |    Compiles the internal SCSS files into CSS. |
 | fix-webpack-function        |    Redefines the webpack function to the open-source webpack configuration. |
-| import-css              |    Updates the CSS files from the open-source KUI repository. |
 | install-client          |    Installs the /client package.json npm packages. |
 | update-client           |    Updates the /client KUI dependencies based on KUI_UPDATE_VERSION, KUBEUI_UPDATE_VERSION variable. |
-| update-nls              |    Updates the getting started content strings in client/theme/theme.json with content from client/nls directory |
 | webpack                 |    Builds the open-source KUI webpack component. |
 
 ### Proxy

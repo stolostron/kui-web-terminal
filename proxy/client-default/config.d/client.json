@@ -1,0 +1,7 @@
+{
+  "resourceRoot": "/kui",
+  "cssOverrides": ["top-tab-stripe-alt.css", "ibm-plex.css"],
+  "userAgent": "Kui-Shell",
+  "contextRoot": "/kui",
+  "contentSecurityPolicy": "default-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' file: 'nonce-{kuiNonce}' data:; script-src 'self' 'nonce-{kuiNonce}' 'unsafe-eval'; font-src 'self' file:; connect-src 'self' wss:"
+}

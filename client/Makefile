@@ -36,10 +36,6 @@ ifdef KUBEUI_UPDATE_VERSION
 endif
 	npm install
 
-.PHONY: import-css
-import-css:
-	@bash scripts/import-css.sh
-
 .PHONY: compile-css
 compile-css:
 	npm run build:css
@@ -73,7 +69,3 @@ client-update-plugins:
 	npm install ../plugin-downloads/plugin-search.tgz
 	npm uninstall @kui-shell/plugin-kui-addons
 	npm install ../plugin-downloads/plugin-kui-addons.tgz
-
-.PHONY: update-nls
-update-nls:
-	node ./scripts/nls-automation.js

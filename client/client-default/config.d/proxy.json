@@ -1,0 +1,9 @@
+{
+  "millisBeforeProxyConnectionWarning": null,
+  "proxyServer": {
+    "url": "/kui/exec",
+    "needleOptions": {
+      "rejectUnauthorized": false
+    }
+  }
+}
