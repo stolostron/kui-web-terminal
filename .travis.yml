@@ -73,6 +73,7 @@ matrix:
       - make release
       - make run-all-tests BROWSER=firefox
 
+
   # --- x86 Deploy to Artifactory ---
   - stage: build
     name: "Build x86"
@@ -109,6 +110,8 @@ matrix:
     env:
       - JOBNAME=Power PUSH_REPO=integration 
     before_install:
+      - sudo apt-get update
+      - sudo apt-get install jq
       - make init
       - make docker-login
       - make download-clis
