@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "node_modules/@kui-shell/core/main/main.js",
   "scripts": {
-    "build:css": "sass --no-source-map --style=compressed styles/mcm-kui.scss dist/webpack/mcm-kui.css",
-    "test:e2e": "nightwatch",
-    "test:install-selenium": "selenium-standalone install --version=3.141.5 --drivers.chrome.version=2.36"
+    "build:css": "sass --no-source-map --style=compressed styles/mcm-kui.scss dist/webpack/mcm-kui.css"
   },
   "keywords": [],
   "author": "",
@@ -18,11 +16,8 @@
     "@types/mocha": "5.2.7",
     "@types/node": "12.0.10",
     "mocha": "6.1.4",
-    "nightwatch": "^1.2.1",
     "sass": "^1.22.1",
-    "selenium-standalone": "^6.16.0",
-    "typescript": "3.5.2",
-    "xml2json": "^0.11.0"
+    "typescript": "3.5.2"
   },
   "dependencies": {
     "@kui-shell/client": "file:client-default",

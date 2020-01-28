@@ -175,7 +175,6 @@ export K8S_CLUSTER_PASSWORD=your-icp-password
 | Command                 |    Description  |
 | ---------------         | --------------- |
 | clean-client            |    Removes the /build, /kui-webpack-tmp, and /node_modules in the /client directory. |
-| client-tests            |    Runs the Nightwatch tests against a container from a "mcm-kui-proxy:latest" local image. |
 | client-update-plugins   |    Updates the /client package.json plugin packages. Should run 'make download-plugins' first. |
 | compile-css             |    Compiles the internal SCSS files into CSS. |
 | fix-webpack-function        |    Redefines the webpack function to the open-source webpack configuration. |

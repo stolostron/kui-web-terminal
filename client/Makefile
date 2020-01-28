@@ -55,13 +55,6 @@ clean-client:
 	rm -rf build
 	rm -rf kui-webpack-tmp
 	rm -rf node_modules
-
-.PHONY: client-tests
-client-tests:
-	if [ ! -d "test-output" ]; then \
-		mkdir test-output; \
-	fi
-	npm run test:e2e
 	
 .PHONY: client-update-plugins
 client-update-plugins:
