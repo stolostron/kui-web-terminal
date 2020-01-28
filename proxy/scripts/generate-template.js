@@ -12,7 +12,7 @@ const path = require('path')
 const jsdom = require('jsdom')
 const { JSDOM } = jsdom
 
-const htmlPath = path.join(__dirname, '..', '..', 'client', 'dist', 'webpack', 'index.html')
+const htmlPath = path.join(__dirname, '..', '..', 'client', 'dist', 'webpack', 'kui', 'index.html')
 const kuiHtml = fs.readFileSync(htmlPath, 'utf8')
 const kuiDom = new JSDOM(kuiHtml)
 const { document } = kuiDom.window
@@ -80,6 +80,7 @@ const links = Array.from(document.querySelectorAll('link'))
 // Fix inline webpack script
 const inlineWebpackScript = scripts.find(script => script.innerHTML.includes('window[\'_kuiWebpackResourceRoot\']') )
 inlineWebpackScript.innerHTML = inlineWebpackScript.innerHTML.replace('window[\'_kuiWebpackResourceRoot\']',';window[\'_kuiWebpackResourceRoot\']')
+inlineWebpackScript.innerHTML = inlineWebpackScript.innerHTML.replace('window[\'_kuiWebpackHash\']', ';window[\'_kuiWebpackHash\']')
 
 // Fix nonce
 //iterate through scripts/links, and replace nonce with variable
