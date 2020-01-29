@@ -20,6 +20,7 @@ CHECK2e=" Copyright IBM Corporation 2017, 2019. All Rights Reserved."
 CHECK2f=" Copyright IBM Corporation 2016, 2019. All Rights Reserved."
 CHECK2g=" Copyright IBM Corporation 2018, 2019. All Rights Reserved."
 CHECK2h=" Copyright IBM Corporation 2017, 2020. All Rights Reserved."
+CHECK2i=" Copyright IBM Corporation 2020. All Rights Reserved."
 #LINE3="${COMMENT_PREFIX}Note to U.S. Government Users Restricted Rights:"
 CHECK3=" Note to U.S. Government Users Restricted Rights:"
 #LINE4="${COMMENT_PREFIX}Use, duplication or disclosure restricted by GSA ADP Schedule"
@@ -71,7 +72,8 @@ for f in `find . -type f ! -iname ".*" ! -path "./download-*.sh" ! -path "./.key
         && "$HEADER" != *"${CHECK2e}"*
         && "$HEADER" != *"${CHECK2f}"*
         && "$HEADER" != *"${CHECK2g}"*
-        && "$HEADER" != *"${CHECK2h}"* ]]; then
+        && "$HEADER" != *"${CHECK2h}"*
+        && "$HEADER" != *"${CHECK2i}"* ]]; then
         printf "Missing copyright\n  >>Could not find [${LIC_ARY[$i]}] in the file $f\n"
         ERROR=1
         break
