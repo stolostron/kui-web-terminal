@@ -1,5 +1,5 @@
 #
-# Copyright 2019 IBM Corporation
+# Copyright 2019, 2020 IBM Corporation
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 ARG ARCH
 
-FROM hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com/build-images/node-dubnium-ubi8-minimal-ppc64le:8.1-279
+FROM hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com/build-images/node-dubnium-ubi8-minimal-ppc64le:8.1-398
 
 ARG VCS_REF
 ARG VCS_URL

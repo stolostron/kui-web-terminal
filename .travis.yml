@@ -79,7 +79,7 @@ matrix:
   # --- x86 Deploy to Artifactory ---
   - stage: build
     name: "Build x86"
-    if: (branch = master) AND (type = push)
+    if: (branch = 3.4.2) AND (type = push)
     os: linux
     language: node_js
     node_js:
@@ -104,7 +104,7 @@ matrix:
   # -- PPC Deploy to Artifactory ---
   - stage: build
     name: "Build PPC"
-    if: (branch = master) AND (type = push)
+    if: (branch = 3.4.2) AND (type = push)
     os: linux-ppc64le
     language: node_js
     node_js:
@@ -129,7 +129,7 @@ matrix:
  # -- s390x Deploy to Artifactory ---
   - stage: build
     name: "Build s390x"
-    if: (branch = master) AND (type = push)
+    if: (branch = 3.4.2) AND (type = push)
     os: linux-s390
     language: node_js
     node_js:

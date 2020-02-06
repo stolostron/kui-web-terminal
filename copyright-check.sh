@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Licensed Materials - Property of IBM
-# (c) Copyright IBM Corporation 2018, 2019. All Rights Reserved.
+# (c) Copyright IBM Corporation 2018, 2020. All Rights Reserved.
 # Note to U.S. Government Users Restricted Rights:
 # Use, duplication or disclosure restricted by GSA ADP Schedule
 # Contract with IBM Corp.
@@ -19,6 +19,8 @@ CHECK2d=" Copyright IBM Corporation 2019. All Rights Reserved."
 CHECK2e=" Copyright IBM Corporation 2017, 2019. All Rights Reserved."
 CHECK2f=" Copyright IBM Corporation 2016, 2019. All Rights Reserved."
 CHECK2g=" Copyright IBM Corporation 2018, 2019. All Rights Reserved."
+CHECK2h=" Copyright IBM Corporation 2018, 2020. All Rights Reserved."
+CHECK2i=" Copyright IBM Corporation 2019, 2020. All Rights Reserved."
 #LINE3="${COMMENT_PREFIX}Note to U.S. Government Users Restricted Rights:"
 CHECK3=" Note to U.S. Government Users Restricted Rights:"
 #LINE4="${COMMENT_PREFIX}Use, duplication or disclosure restricted by GSA ADP Schedule"
@@ -69,7 +71,9 @@ for f in `find . -type f ! -iname ".*" ! -path "./download-*.sh" ! -path "./.key
         && "$HEADER" != *"${CHECK2d}"*
         && "$HEADER" != *"${CHECK2e}"*
         && "$HEADER" != *"${CHECK2f}"*
-        && "$HEADER" != *"${CHECK2g}"* ]]; then
+        && "$HEADER" != *"${CHECK2g}"*
+        && "$HEADER" != *"${CHECK2h}"*
+        && "$HEADER" != *"${CHECK2i}"* ]]; then
         printf "Missing copyright\n  >>Could not find [${LIC_ARY[$i]}] in the file $f\n"
         ERROR=1
         break

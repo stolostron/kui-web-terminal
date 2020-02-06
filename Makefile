@@ -190,7 +190,7 @@ endif
 
 .PHONY: run
 run:
-	$(MAKE) -C tests run
+	$(MAKE) -C tests run DOCKER_IMAGE=$(DOCKER_IMAGE) DOCKER_TAG=$(DOCKER_TAG)
 
 .PHONY: run-all-tests
 run-all-tests:
