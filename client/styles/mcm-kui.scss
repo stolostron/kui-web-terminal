@@ -56,7 +56,13 @@
 
 #sidecar {
   .sidecar-header {
-    flex-basis: unset;
+
+    &-name-content {
+      .entity-name-line .entity-name {
+        word-break: unset;
+        max-height: unset;
+      }
+    }
 
     .sidecar-top-stripe {
       .bx--tabs li[data-mode="version"], .bx--tabs li[data-mode="summary"] {
