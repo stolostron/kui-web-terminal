@@ -64,11 +64,6 @@
       }
     }
 
-    .sidecar-top-stripe {
-      .bx--tabs li[data-mode="version"], .bx--tabs li[data-mode="summary"] {
-        display: none;
-      }
-    }
   }
   .sidecar-content-container { // helm get sidecar table display corrections
     .result-as-table.repl-result {
