@@ -85,3 +85,8 @@
     }
   }
 }
+
+// Hack to disable screenshot feature
+.kui--repl-prompt-buttons--screenshot, .screenshot-button {
+  display: none !important;
+}
