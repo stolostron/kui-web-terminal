@@ -20,6 +20,7 @@ module.exports = {
     "import"
     ],
     "rules": {
+        "no-unused-vars": "warn",
         "no-console": "off",
         "import/no-unresolved": ["error",
         {

@@ -36,8 +36,12 @@ const {getUser,NOBODY_GID,deleteUser} = require('../lib/userUtils')
 const {
   setValidCredentials
 } = require('../../kui/node_modules/@kui-shell/core/core/capabilities') */
-const accessTokenKey = 'cfc-access-token-cookie'
+
 const sessionKey = 'kui_websocket_auth'
+
+const TokenFromCookieENV = process.env["TOKEN_FROM_COOKIE"] 
+const TokenFromCookie = TokenFromCookieENV? TokenFromCookieENV.toLowerCase() !== "false" : true  // if TokenFromCookieENV not set or is not false, will get token from cookie, otherwise, get token from header
+const AccessTokenKey = (process.env["ACCESS_TOKEN_KEY"] || 'cfc-access-token-cookie').toLowerCase()
 
 const mainPath = join(dirname(require.resolve('@kui-shell/core')), 'main/main.js')
 const { main: wssMain } = require('@kui-shell/plugin-bash-like')
@@ -179,7 +183,8 @@ module.exports = (server, port) => {
           port,
           host: req.headers.host
           }) */
-        const accessToken = parseCookie(req.headers.cookie || '')[accessTokenKey] 
+
+        const accessToken = TokenFromCookie? parseCookie(req.headers.cookie || '')[AccessTokenKey] : req.headers[AccessTokenKey] || '';
         
         user = await getUser(accessToken)
         const { type, cookie, response } = await main(
@@ -204,13 +209,13 @@ module.exports = (server, port) => {
         const code = response.code || response.statusCode || 200
         res.status(code).json({ type, response })
       } catch (err) {
-        debug('exception in command execution', err.code, err.message, err)
+        console.error('exception in command execution', err.code, err.message, err)
         //if user has been created, remove the user
         if(user && user.name && user.created){
           try{
             deleteUser(user.name)
           }catch(e){
-            debug('cannot delete user:',e)
+            console.error('cannot delete user:',e)
           }
         }
 

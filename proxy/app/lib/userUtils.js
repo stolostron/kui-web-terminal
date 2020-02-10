@@ -13,8 +13,10 @@ const child_process=require('child_process');
 const exec = util.promisify(child_process.exec);
 const LINUX_DISTRO = process.env["LINUX_DISTRO"];
 const INSECURE_MODE = process.env["INSECURE_MODE"];
-const {verifyAccessToken, ICP_EXTERNAL_URL, getNamespace} = require('./securityUtils');
+const LOGIN_TIMEOUT = 20000;
 const NOBODY_GID = parseInt(process.env.NOBODY_GID || '99',10);
+
+const loginTools = require('./securityUtils').getLoginTools();
 //mapping of cookie->uid
 let nextUID=65536;
 
@@ -65,8 +67,6 @@ module.exports.deleteUser = async (username) => {
 const setupUserEnv = (user)=>{
     let userEnv = {};
     for (let e in process.env) userEnv[e] = process.env[e];
-    //userEnv["CLOUDCTL_ACCESS_TOKEN"] = user.accessToken;
-    //userEnv["CLOUDCTL_ID_TOKEN"] = user.idToken;
     userEnv["CLOUDCTL_COLOR"] = false;
     userEnv["USER"] = user.name;
     userEnv["HOME"] = user.home;
@@ -74,18 +74,20 @@ const setupUserEnv = (user)=>{
     return userEnv;
 }
 
+
 const loginUser = (user, namespace, accessToken, idToken) =>{
-    const loginArgs = ["login", "-a", ICP_EXTERNAL_URL, "-n", namespace, "--skip-ssl-validation"];
-    const loginEnv = Object.assign({}, user.env,{"CLOUDCTL_ACCESS_TOKEN":accessToken,"CLOUDCTL_ID_TOKEN":idToken})
+    const loginArgs = loginTools.getLoginArgs(namespace,accessToken,idToken)
+    const loginEnv = loginTools.getLoginEnvs(user.env,accessToken,idToken)
     const loginOpts = {
         cwd: loginEnv["HOME"],
         env: loginEnv,
-        timeout: 20000,
+        timeout: LOGIN_TIMEOUT,
         uid: user.uid,
         gid: NOBODY_GID
     }
     return new Promise(function(resolve, reject) {
-        let loginProc = child_process.spawn('/usr/local/bin/cloudctl', loginArgs, loginOpts);
+        let loginProc = child_process.spawn(loginTools.getLoginCMD(), loginArgs, loginOpts);
+        setTimeout(()=>{ loginProc.kill(); reject('timeout');}, LOGIN_TIMEOUT);
         loginProc.stdin.end();
         let loginOutput = '';
         loginProc.stdout.on("data", function (data) {
@@ -104,7 +106,7 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
             return resolve();
           }
           // login failed, close the terminal
-          console.log('user ' + user.name + ' login failed in terminal with exit code ' + code);
+          console.error('user ' + user.name + ' login failed in terminal with exit code ' + code);
     
           let errMsg = "";
           let lines = loginOutput.split('\n');
@@ -112,63 +114,13 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
             errMsg = lines[i];
             if (errMsg != "") break;
           }
+          console.error(errMsg)
           reject(errMsg);
         });
     })
 }
 
-const updateKubeServerConfig = user => {
-  let config = {}
-  try {
-    config = require(`${user.env["HOME"]}/.cloudctl/cloudctl.json`)
-  } catch(e) {
-    console.error('failed to import cloudctl.json with error: ', e)
-  }
-  const kubeArgs = ["config", "set-cluster", config['cluster-name'], "--server=https://kubernetes.default.svc:443", "--insecure-skip-tls-verify=true"];
-  const kubeOpts = {
-      cwd: user.env["HOME"],
-      env: user.env,
-      timeout: 20000,
-      uid: user.uid,
-      gid: NOBODY_GID
-  }
-  return new Promise(function(resolve) {
-    if (!config['cluster-name']) {
-      console.log('failed to read cluster-name from config, aborting kube api server rewrite')
-      return resolve()
-    }
 
-    let kubeProc = child_process.spawn('/usr/local/bin/kubectl', kubeArgs, kubeOpts)
-    kubeProc.stdin.end()
-    let kubeOutput = ''
-    kubeProc.stdout.on("data", function (data) {
-      kubeOutput += String(data);
-    })
-    kubeProc.stderr.on("data", function (data) {
-      kubeOutput += String(data);
-    })
-    kubeProc.on("error", function (err) {
-      console.error(user.name + " kube api server rewrite failed.")
-      console.error(err.toString())
-    })
-    kubeProc.on("exit", function (code) {
-      if (code == 0) {
-        console.log('user ' + user.name + ' kube api server rewrite success ')
-        return resolve()
-      }
-
-      console.log('user ' + user.name + ' kube api server rewrite failed with exit code ' + code)
-
-      let errMsg = ""
-      let lines = kubeOutput.split('\n')
-      for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
-        errMsg = lines[i]
-        if (errMsg != "") break
-      }
-      resolve(errMsg) // we won't fail the whole login
-    })
-  })
-}
 
 /**
  * This function is async, and it will return a user object {uid,env} for the cookie.
@@ -184,8 +136,8 @@ module.exports.getUser = async (token) => {
     if(!INSECURE_MODE){
         debug('start user validation')
         try{
-            idToken = await verifyAccessToken(token)
-            namespace = await getNamespace(token)
+            idToken = await loginTools.verifyAccessToken(token)
+            namespace = await loginTools.getNamespace(token)
         }catch(e){
             debug('user token validation failed')
             throw e
@@ -204,7 +156,7 @@ module.exports.getUser = async (token) => {
         if(!INSECURE_MODE){
             await loginUser(user,namespace,accessToken,idToken);
             if (process.env.NODE_ENV !== 'development') {
-              await updateKubeServerConfig(user);
+              await loginTools.postSetup(user);
             }
         }
         return user;
