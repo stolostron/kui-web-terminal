@@ -87,8 +87,8 @@ matrix:
       - JOBNAME=AMD64 PUSH_REPO=integration 
     before_install:
       - make init
-      - make docker-login
-      - make download-clis
+      # - make docker-login
+      # - make download-clis
     install:
       - make install
     script:
