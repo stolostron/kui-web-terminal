@@ -144,7 +144,6 @@ RUN cp /usr/bin/bash /usr/bin/rbash \
     && ln -s /usr/bin/rvim /usr/local/bin/vim \
     && ln -s /usr/bin/rvim /usr/local/bin/vi \
     && ln -s /usr/bin/tail /usr/local/bin/tail \
-    && ln -s /usr/local/helm/linux-${ARCH}/helm /usr/local/bin/helm_original \
     && chmod 755 /etc/profile.d/*.sh \
     && chmod 755 /usr/local/bin/* 
 
