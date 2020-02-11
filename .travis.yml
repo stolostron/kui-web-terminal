@@ -32,22 +32,22 @@ env:
 matrix:
   include:
     # --- Just linting ---
-  - stage: linting
-    name: "Push linting"
-    os: linux
-    language: node_js
-    node_js:
-      - "10"
-    env:
-      - JOBNAME=AMD64
-    before_install:
-      - make init
-    install: 
-      # - make download-plugins
-      - make install-proxy
-    script:
-      - make lint-proxy
-      - make copyright-check
+  # - stage: linting
+  #   name: "Push linting"
+  #   os: linux
+  #   language: node_js
+  #   node_js:
+  #     - "10"
+  #   env:
+  #     - JOBNAME=AMD64
+  #   before_install:
+  #     - make init
+  #   install: 
+  #     # - make download-plugins
+  #     - make install-proxy
+  #   script:
+  #     - make lint-proxy
+  #     - make copyright-check
 
   # --- Integration testing ---
   - stage: test-pr
