@@ -24,6 +24,11 @@ branches:
     - /^v[0-9]+\..*$/
     - /^release-[0-9]+\..*$/
 
+env:
+  global:
+    - COMPONENT_INIT_COMMAND=${TRAVIS_BUILD_DIR}/build/install-dependencies.sh
+    - COMPONENT_BUILD_COMMAND=${TRAVIS_BUILD_DIR}/build/build.sh
+
 matrix:
   include:
     # --- Just linting ---
@@ -57,20 +62,11 @@ matrix:
     node_js:
       - "10"
     env:
-      - JOBNAME=AMD64 DOCKER_TAG=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g')
+      - JOBNAME=AMD64 COMPONENT_VERSION=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g')
     before_install:
       - make init
-      # - make test-module
-      # - make docker-logins
-      # - make download-clis
-    install:
-      - make install
-    before_script:
-      - make webpack
-      - make headless
-      - make build-image
     script:
-      - echo empty
+      - make component/build
       # - make release
       # - make run-all-tests BROWSER=firefox
 

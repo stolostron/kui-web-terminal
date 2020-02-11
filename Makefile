@@ -74,7 +74,7 @@ endif
 # 	exit -1
 # endif
 
--include $(shell curl -so .build-harness -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.v3.raw" "https://raw.githubusercontent.com/open-cluster-management/build-harness/master/templates/Makefile.build-harness"; echo .build-harness)
+-include $(shell curl -H 'Authorization: token ${GITHUB_TOKEN}' -H 'Accept: application/vnd.github.v4.raw' -L https://api.github.com/repos/open-cluster-management/build-harness-extensions/contents/templates/Makefile.build-harness-bootstrap -o .build-harness-bootstrap; echo .build-harness-bootstrap)
 
 SHELL := /bin/bash
 
@@ -171,7 +171,7 @@ copyright-check:
 .PHONY: build-image
 build-image: docker-login-edge
 	@echo "Building mcm-kui image"
-	$(SELF) docker:build
+	$(SELF) docker/build
 
 # Push docker image to artifactory
 .PHONY: release
