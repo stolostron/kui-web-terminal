@@ -38,7 +38,7 @@ matrix:
     before_install:
       - make init
     install: 
-      - make download-plugins
+      # - make download-plugins
       - make install-proxy
     script:
       - make lint-proxy
@@ -60,9 +60,9 @@ matrix:
       - JOBNAME=AMD64 DOCKER_TAG=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g')
     before_install:
       - make init
-      - make test-module
-      - make docker-logins
-      - make download-clis
+      # - make test-module
+      # - make docker-logins
+      # - make download-clis
     install:
       - make install
     before_script:
@@ -70,8 +70,9 @@ matrix:
       - make headless
       - make build-image
     script:
-      - make release
-      - make run-all-tests BROWSER=firefox
+      - echo empty
+      # - make release
+      # - make run-all-tests BROWSER=firefox
 
 
   # --- x86 Deploy to Artifactory ---
@@ -94,57 +95,57 @@ matrix:
       - make webpack
       - make headless
       - make build-image
-      - make release
-      - make release PUSH_RHEL=true
-      - make release DOCKER_TAG=latest
-      - make release DOCKER_TAG=latest-rhel
+      # - make release
+      # - make release PUSH_RHEL=true
+      # - make release DOCKER_TAG=latest
+      # - make release DOCKER_TAG=latest-rhel
 
   # -- PPC Deploy to Artifactory ---
-  - stage: build
-    name: "Build PPC"
-    if: (branch = master) AND (type = push)
-    os: linux-ppc64le
-    language: node_js
-    node_js:
-      - "10"
-    env:
-      - JOBNAME=Power PUSH_REPO=integration 
-    before_install:
-      - sudo apt-get update
-      - sudo apt-get install jq
-      - make init
-      - make docker-login
-      - make download-clis
-    install:
-      - make install
-    script:
-      - make webpack
-      - make headless
-      - make build-image
-      - make release
-      - make release DOCKER_TAG=latest
+  # - stage: build
+  #   name: "Build PPC"
+  #   if: (branch = master) AND (type = push)
+  #   os: linux-ppc64le
+  #   language: node_js
+  #   node_js:
+  #     - "10"
+  #   env:
+  #     - JOBNAME=Power PUSH_REPO=integration 
+  #   before_install:
+  #     - sudo apt-get update
+  #     - sudo apt-get install jq
+  #     - make init
+  #     - make docker-login
+  #     - make download-clis
+  #   install:
+  #     - make install
+  #   script:
+  #     - make webpack
+  #     - make headless
+  #     - make build-image
+  #     - make release
+  #     - make release DOCKER_TAG=latest
 
 
 
  # -- s390x Deploy to Artifactory ---
-  - stage: build
-    name: "Build s390x"
-    if: (branch = master) AND (type = push)
-    os: linux-s390
-    language: node_js
-    node_js:
-      - "10"
-    env:
-      - JOBNAME=s390x PUSH_REPO=integration 
-    before_install:
-      - make init
-      - make docker-logins
-      - make download-clis
-    install:
-      - make install
-    script:
-      - make webpack
-      - make headless
-      - make build-image
-      - make release
-      - make release DOCKER_TAG=latest
+  # - stage: build
+  #   name: "Build s390x"
+  #   if: (branch = master) AND (type = push)
+  #   os: linux-s390
+  #   language: node_js
+  #   node_js:
+  #     - "10"
+  #   env:
+  #     - JOBNAME=s390x PUSH_REPO=integration 
+  #   before_install:
+  #     - make init
+  #     - make docker-logins
+  #     - make download-clis
+  #   install:
+  #     - make install
+  #   script:
+  #     - make webpack
+  #     - make headless
+  #     - make build-image
+  #     - make release
+  #     - make release DOCKER_TAG=latest

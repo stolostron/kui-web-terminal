@@ -74,7 +74,7 @@ ifndef ARTIFACTORY_TOKEN
 	exit -1
 endif
 
--include $(shell curl -so .build-harness -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.v3.raw" "https://raw.github.ibm.com/ICP-DevOps/build-harness/master/templates/Makefile.build-harness"; echo .build-harness)
+-include $(shell curl -so .build-harness -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.v3.raw" "https://raw.github.com/open-cluster-management/build-harness/master/templates/Makefile.build-harness"; echo .build-harness)
 
 SHELL := /bin/bash
 

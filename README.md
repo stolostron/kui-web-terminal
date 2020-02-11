@@ -1,5 +1,5 @@
 # kui-proxy
-[![Build Status](https://travis.ibm.com/IBMPrivateCloud/mcm-kui.svg?token=CBwKyJRuBcV6xpq9sj7x&branch=master)](https://travis.ibm.com/IBMPrivateCloud/mcm-kui)
+[![Build Status](https://travis-ci.com/open-cluster-management/mcm-kui.svg?token=QyqNARqbMTFfLxWqTpsi&branch=master)](https://travis-ci.com/open-cluster-management/mcm-kui)
 
 Docker image for the KUI UI and proxy to be used in ICP
 
