@@ -17,8 +17,6 @@ DOCKER_NAMESPACE=ibmcom
 CLOUDCTL_VER=latest
 CLOUDCTL_IMAGE=$DOCKER_REGISTRY/$DOCKER_NAMESPACE/icp-platform-api-$ARCH:$CLOUDCTL_VER
 
-rm -rf downloads
-mkdir -p downloads
 
 # echo "Downloading cloudctl $CLOUDCTL_IMAGE ..."
 # docker pull $CLOUDCTL_IMAGE
