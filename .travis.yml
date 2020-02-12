@@ -67,6 +67,7 @@ matrix:
       - make init
     script:
       - make component/build
+      - docker images
       # - make release
       # - make run-all-tests BROWSER=firefox
 
