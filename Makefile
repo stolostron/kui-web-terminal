@@ -169,7 +169,7 @@ copyright-check:
 	@bash ./copyright-check.sh
 
 .PHONY: build-image
-build-image: docker-login-edge
+build-image:
 	@echo "Building mcm-kui image"
 	$(SELF) docker/build
 
