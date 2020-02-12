@@ -13,6 +13,7 @@ git:
 branches:
   only:
     - master
+    - build-changes
     - /^[0-9]+\..*$/
     - /^v[0-9]+\..*$/
     - /^release-[0-9]+\..*$/
