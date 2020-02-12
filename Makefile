@@ -133,7 +133,7 @@ webpack:
 	$(SELF) dust-template
 
 .PHONY: download-clis
-download-clis: docker-login
+download-clis:
 	@./download-clis.sh
 
 

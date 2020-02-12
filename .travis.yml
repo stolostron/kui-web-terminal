@@ -38,6 +38,7 @@ jobs:
   include:
     - stage: unit-test
       name: "Run linting"
+      if: type = pull_request
       script:
         - make component/test/unit
     - stage: build

@@ -16,7 +16,6 @@ client/kui-webpack-tmp
 tmp
 tmp/kui
 .keys
-plugin-downloads
 variables
 build-harness
 build-harness-extensions
@@ -26,3 +25,4 @@ BIG-T-CSV
 awsom-output
 wicked_cli.log
 downloads
+plugin-downloads
