@@ -26,9 +26,9 @@ env:
     - COMPONENT_E2E_TEST_COMMAND=${TRAVIS_BUILD_DIR}/build/run-e2e-tests.sh
 
 stages:
-  - build
   - unit-test
-  # - test-e2e
+  - build
+  - test-e2e
   # - publish
 
 before_script:
@@ -36,6 +36,10 @@ before_script:
 
 jobs:
   include:
+    - stage: unit-test
+      name: "Run linting"
+      script:
+        - make component/test/unit
     - stage: build
       name: "Build and push kui-web-terminal image"
       script:
@@ -43,14 +47,10 @@ jobs:
         - make component/build
         - make component/push
         - make component/push COMPONENT_VERSION=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g') COMPONENT_TAG_EXTENSION=""
-    - stage: unit-test
-      name: "Run linting"
-      script:
-        - make component/test/unit
     - stage: test-e2e
       name: "Run functional tests"
       if: type = pull_request
-      before_script:
+      before_install:
         - make test-module
       script:
         - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export COMPONENT_TAG_EXTENSION="-PR${TRAVIS_PULL_REQUEST}-${TRAVIS_COMMIT}"; fi;
