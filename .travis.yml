@@ -27,7 +27,7 @@ env:
 
 stages:
   - build
-  # - unit-test
+  - unit-test
   # - test-e2e
   # - publish
 
@@ -43,18 +43,20 @@ jobs:
         - make component/build
         - make component/push
         - make component/push COMPONENT_VERSION=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g') COMPONENT_TAG_EXTENSION=""
-    # - stage: unit-test
-    #   name: "Run linting"
-    #   script:
-    #     - make component/test/unit
-    # - stage: test-e2e
-    #   name: "Run functional tests"
-    #   if: type = pull_request
-    #   script:
-    #     #Check out a clusterpool, set up oc, deploy, run e2e tests, and return clusterpool cluster
-    #     - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export COMPONENT_TAG_EXTENSION="-PR${TRAVIS_PULL_REQUEST}-${TRAVIS_COMMIT}"; fi;
-    #     - make component/pull
-    #     - make component/test/e2e
+    - stage: unit-test
+      name: "Run linting"
+      script:
+        - make component/test/unit
+    - stage: test-e2e
+      name: "Run functional tests"
+      if: type = pull_request
+      before_script:
+        - make test-module
+      script:
+        #Check out a clusterpool, set up oc, deploy, run e2e tests, and return clusterpool cluster
+        - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export COMPONENT_TAG_EXTENSION="-PR${TRAVIS_PULL_REQUEST}-${TRAVIS_COMMIT}"; fi;
+        - make component/pull
+        - make component/test/e2e
     # - stage: publish
     #   name: "Publish the image to quay with an official version/sha tag and publish entry to integration pipeline stage"
     #   if: type = push AND branch =~ /^release-[0-9]+\..*$/

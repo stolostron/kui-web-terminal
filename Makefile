@@ -190,12 +190,13 @@ endif
 
 .PHONY: run
 run:
-	$(MAKE) -C tests run DOCKER_IMAGE=$(DOCKER_IMAGE) DOCKER_TAG=$(DOCKER_TAG)
+	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE_AND_TAG)
 
 .PHONY: run-all-tests
 run-all-tests:
 ifeq ($(TEST_LOCAL), true)
-	$(SELF) run > /dev/null
+	# $(SELF) run > /dev/null
+	$(SELF) run
 	$(MAKE) -C tests setup-dependencies
 	$(MAKE) -C tests run-all-tests
 else

@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
 
-make test-module
+export DOCKER_IMAGE_AND_TAG=${1}
+
 make run-all-tests
