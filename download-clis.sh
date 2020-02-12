@@ -60,3 +60,13 @@ CLOUDCTL_IMAGE=$DOCKER_REGISTRY/$DOCKER_NAMESPACE/icp-platform-api-$ARCH:$CLOUDC
 # echo "Downloaded helm-linux-${ARCH}.tar.gz to downloads/"
 # [[ ! -f "downloads/oc-linux-${ARCH}" ]] && echo "download oc failed" && exit -1
 # echo "Downloaded oc-linux-${ARCH} to downloads/"
+
+if [ "$ARCH" = "amd64" ]; then
+  echo "Downloading oc & kubectl ..."
+  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.3.0/openshift-client-linux-4.3.0.tar.gz | tar -xvz -C ./downloads/ oc kubectl  
+  [[ ! -f "downloads/oc" ]] && echo "download oc failed" && exit -1
+  mv ./downloads/oc ./downloads/oc-linux-amd64
+  [[ ! -f "downloads/kubectl" ]] && echo "download kubectl failed" && exit -1
+  mv ./downloads/kubectl ./downloads/kubectl-linux-amd64
+  echo "Downloaded openshift origin to downloads/"
+fi
