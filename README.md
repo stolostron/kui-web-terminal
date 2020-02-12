@@ -1,7 +1,7 @@
 # kui-proxy
 [![Build Status](https://travis-ci.com/open-cluster-management/mcm-kui.svg?token=QyqNARqbMTFfLxWqTpsi&branch=master)](https://travis-ci.com/open-cluster-management/mcm-kui)
 
-Docker image for the KUI UI and proxy to be used in ICP
+Docker image for the KUI UI and proxy to be used in Visual Web Terminal
 
 ## Before you build
 Building kui requires homebrew, gtar, and jq.
