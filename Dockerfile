@@ -15,11 +15,11 @@ ARG IMAGE_SUMMARY
 ARG IMAGE_OPENSHIFT_TAGS
 ARG ARCH
 
-# ADD downloads/kubectl-linux-${ARCH} /usr/local/bin/kubectl
+ADD downloads/kubectl-linux-${ARCH} /usr/local/bin/kubectl
 # ADD downloads/helm-linux-${ARCH}.tar.gz /usr/local/helm/
 ADD downloads/cloudctl-linux-${ARCH} /usr/local/bin/cloudctl
 # ADD downloads/istioctl-linux-${ARCH} /usr/local/bin/istioctl
-# ADD downloads/oc-linux-${ARCH} /usr/local/bin/oc
+ADD downloads/oc-linux-${ARCH} /usr/local/bin/oc
 # add bin for helm
 ADD root /
 
