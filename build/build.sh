@@ -2,6 +2,6 @@
 set -e
 
 make install
-# make webpack
-# make headless
+make webpack
+make headless
 make build-image
