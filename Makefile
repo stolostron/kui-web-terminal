@@ -195,8 +195,7 @@ run:
 .PHONY: run-all-tests
 run-all-tests:
 ifeq ($(TEST_LOCAL), true)
-	# $(SELF) run > /dev/null
-	$(SELF) run
+	$(SELF) run > /dev/null
 	$(MAKE) -C tests setup-dependencies
 	$(MAKE) -C tests run-all-tests
 else
@@ -223,5 +222,5 @@ awsom:
 
 .PHONY: test-module
 test-module:
-	sed -i "s/git@github.ibm.com:/https:\/\/$(GITHUB_USER):$(GITHUB_TOKEN)@github.ibm.com\//" .gitmodules
+	sed -i "s/git@github.com:/https:\/\/$(GITHUB_USER):$(GITHUB_TOKEN)@github.com\//" .gitmodules
 	git submodule update --init --recursive
