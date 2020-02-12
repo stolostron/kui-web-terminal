@@ -50,6 +50,8 @@ jobs:
     - stage: test-e2e
       name: "Run functional tests"
       if: type = pull_request
+      addons:
+        firefox: latest
       before_install:
         - make test-module
       script:
