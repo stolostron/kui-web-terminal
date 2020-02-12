@@ -29,7 +29,7 @@ IMAGE_OPENSHIFT_TAGS = visual terminal
 DOCKER_USER ?= $(ARTIFACTORY_USER)
 DOCKER_PASS ?= $(ARTIFACTORY_TOKEN)
 
-DOCKER_IMAGE ?= mcm-kui-proxy
+DOCKER_IMAGE ?= kui-web-terminal
 
 ifeq ($(PUSH_RHEL), true)
 	DOCKER_TAG ?= $(SEMVERSION)-rhel
