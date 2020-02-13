@@ -225,3 +225,4 @@ test-module:
 show-env:
 	echo $(BUILD_HARNESS_OS)
 	echo $(BUILD_HARNESS_ARCH)
+	echo $(OS)
