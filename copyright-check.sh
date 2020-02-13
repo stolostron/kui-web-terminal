@@ -38,7 +38,7 @@ ERROR=0
 
 echo "##### Copyright check #####"
 #Loop through all files. Ignore .FILENAME types
-for f in `find . -type f ! -iname ".*" ! -path "./download-*.sh" ! -path "./.keys/*" ! -path "./build-harness/*" ! -path "./downloads/*" ! -path "./ossc/*" ! -path "./plugin-downloads/*" ! -path "./scripts/*" ! -path "./testcerts/*" ! -path "./tests/*" ! -path "./proxy/node_modules*" ! -path "./client/node_modules/*" ! -path "./client/kui-webpack-tmp/*" ! -path "./tmp/*" ! -path "./client/scripts/*" ! -path "./proxy/scripts/*"`; do
+for f in `find . -type f ! -iname ".*" ! -path "./download-*.sh" ! -path "./.keys/*" ! -path "./build-harness/*" ! -path "./downloads/*" ! -path "./ossc/*" ! -path "./plugin-downloads/*" ! -path "./build/*" ! -path "./scripts/*" ! -path "./testcerts/*" ! -path "./tests/*" ! -path "./proxy/node_modules*" ! -path "./client/node_modules/*" ! -path "./client/kui-webpack-tmp/*" ! -path "./tmp/*" ! -path "./client/scripts/*" ! -path "./proxy/scripts/*"`; do
   if [ ! -f "$f" ] || [ "$f" = "./copyright-check.sh" ]; then
     continue
   fi
