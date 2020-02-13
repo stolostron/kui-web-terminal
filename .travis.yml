@@ -32,7 +32,7 @@ stages:
   - publish
 
 before_script:
-  - make init
+  - make
 
 jobs:
   include:
