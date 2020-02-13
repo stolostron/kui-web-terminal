@@ -40,5 +40,6 @@ jobs:
       name: "Run linting"
       if: type = pull_request
       script:
+        - make show-env
         - make jq/install
         - make jq/search
