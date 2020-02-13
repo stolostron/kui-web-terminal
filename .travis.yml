@@ -48,7 +48,7 @@ jobs:
         - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export COMPONENT_TAG_EXTENSION="-PR${TRAVIS_PULL_REQUEST}-${TRAVIS_COMMIT}"; fi;
         - make component/build
         - make component/push
-        - make component/push COMPONENT_VERSION=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g') COMPONENT_TAG_EXTENSION=""
+        - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then make component/push COMPONENT_VERSION=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g') COMPONENT_TAG_EXTENSION=""; fi;
     - stage: test-e2e
       name: "Run functional tests"
       if: type = pull_request

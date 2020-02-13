@@ -38,7 +38,6 @@ else
 endif
 
 ARCH := $(shell uname -m)
-OS ?= $(shell uname -r | cut -d '.' -f6)
 
 ifeq ($(ARCH), x86_64)
 	ARCH = amd64
