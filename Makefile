@@ -220,3 +220,8 @@ awsom:
 test-module:
 	sed -i "s/git@github.com:/https:\/\/$(GITHUB_USER):$(GITHUB_TOKEN)@github.com\//" .gitmodules
 	git submodule update --init --recursive
+
+.PHONY: show-env
+show-env:
+	echo $(BUILD_HARNESS_OS)
+	echo $(BUILD_HARNESS_ARCH)
