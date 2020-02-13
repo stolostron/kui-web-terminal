@@ -20,7 +20,9 @@ downloads
 plugin-downloads
 variables
 build-harness
+build-harness-extensions
 .build-harness
+.build-harness-bootstrap
 BIG-T-CSV
 awsom-output
 wicked_cli.log

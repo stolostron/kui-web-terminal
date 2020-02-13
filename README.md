@@ -1,7 +1,7 @@
 # kui-proxy
-[![Build Status](https://travis.ibm.com/IBMPrivateCloud/mcm-kui.svg?token=CBwKyJRuBcV6xpq9sj7x&branch=master)](https://travis.ibm.com/IBMPrivateCloud/mcm-kui)
+[![Build Status](https://travis-ci.com/open-cluster-management/mcm-kui.svg?token=QyqNARqbMTFfLxWqTpsi&branch=master)](https://travis-ci.com/open-cluster-management/mcm-kui)
 
-Docker image for the KUI UI and proxy to be used in ICP
+Docker image for the KUI UI and proxy to be used in Visual Web Terminal
 
 ## Before you build
 Building kui requires homebrew, gtar, and jq.
@@ -126,7 +126,7 @@ download "github-repo-name" "release-tgz-filename" "release-version"
 
 ## How to Run Image Locally
 1. If you don't already have the test submodule, initialize and fetch the automated tests repo by running `git submodule update --init --recursive`
-2. Follow the steps in [mcm-kui-tests](https://github.ibm.com/IBMPrivateCloud/mcm-kui-tests#how-to-run-nightwatch-tests) to set up env vars:
+2. Follow the steps in [mcm-kui-tests](https://github.com/open-cluster-management/mcm-kui-tests#how-to-run-nightwatch-tests) to set up env vars:
 ```
 export K8S_CLUSTER_MASTER_IP=https://your.cluster.ip:port
 export K8S_CLUSTER_USER=your-icp-username
@@ -137,7 +137,7 @@ export K8S_CLUSTER_PASSWORD=your-icp-password
 ## How to run Nightwatch tests
 
 1. If you don't already have the test submodule, initialize and fetch the automated tests repo by running `git submodule update --init --recursive`
-2. Follow the steps in [mcm-kui-tests](https://github.ibm.com/IBMPrivateCloud/mcm-kui-tests#how-to-run-nightwatch-tests).
+2. Follow the steps in [mcm-kui-tests](https://github.com/open-cluster-management/mcm-kui-tests).
 
 ## Makefile Commands
 

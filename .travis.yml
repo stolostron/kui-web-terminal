@@ -3,16 +3,9 @@ services:
   - docker
   - xvfb
 
-cache:
-  apt: true
-  directories:
-    - "$TRAVIS_CACHE_DIR"
-
-before_cache:
-  - sudo rm -rf $TRAVIS_CACHE_DIR/selenium-standalone
-
-notifications:
-  email: false
+language: node_js
+node_js:
+  - "10"
 
 git:
   submodules: false
@@ -24,127 +17,50 @@ branches:
     - /^v[0-9]+\..*$/
     - /^release-[0-9]+\..*$/
 
-matrix:
+env:
+  global:
+    - COMPONENT_TAG_EXTENSION="-${TRAVIS_COMMIT}"
+    - COMPONENT_INIT_COMMAND=${TRAVIS_BUILD_DIR}/build/install-dependencies.sh
+    - COMPONENT_BUILD_COMMAND=${TRAVIS_BUILD_DIR}/build/build.sh
+    - COMPONENT_UNIT_TEST_COMMAND=${TRAVIS_BUILD_DIR}/build/run-unit-tests.sh
+    - COMPONENT_E2E_TEST_COMMAND=${TRAVIS_BUILD_DIR}/build/run-e2e-tests.sh
+
+stages:
+  - unit-test
+  - build
+  - test-e2e
+  - publish
+
+before_script:
+  - make init
+
+jobs:
   include:
-    # --- Just linting ---
-  - stage: linting
-    name: "Push linting"
-    os: linux
-    language: node_js
-    node_js:
-      - "10"
-    env:
-      - JOBNAME=AMD64
-    before_install:
-      - make init
-    install: 
-      - make download-plugins
-      - make install-proxy
-    script:
-      - make lint-proxy
-      - make copyright-check
-
-  # --- Integration testing ---
-  - stage: test-pr
-    name: "PR tests"
-    if: type = pull_request
-    os: linux
-    dist: trusty
-    language: node_js
-    addons:
-      chrome: stable
-      firefox: latest
-    node_js:
-      - "10"
-    env:
-      - JOBNAME=AMD64 DOCKER_TAG=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g')
-    before_install:
-      - make init
-      - make test-module
-      - make docker-logins
-      - make download-clis
-    install:
-      - make install
-    before_script:
-      - make webpack
-      - make headless
-      - make build-image
-    script:
-      - make release
-      - make run-all-tests BROWSER=firefox
-
-
-  # --- x86 Deploy to Artifactory ---
-  - stage: build
-    name: "Build x86"
-    if: (branch = master) AND (type = push)
-    os: linux
-    language: node_js
-    node_js:
-      - "10"
-    env:
-      - JOBNAME=AMD64 PUSH_REPO=integration 
-    before_install:
-      - make init
-      - make docker-login
-      - make download-clis
-    install:
-      - make install
-    script:
-      - make webpack
-      - make headless
-      - make build-image
-      - make release
-      - make release PUSH_RHEL=true
-      - make release DOCKER_TAG=latest
-      - make release DOCKER_TAG=latest-rhel
-
-  # -- PPC Deploy to Artifactory ---
-  - stage: build
-    name: "Build PPC"
-    if: (branch = master) AND (type = push)
-    os: linux-ppc64le
-    language: node_js
-    node_js:
-      - "10"
-    env:
-      - JOBNAME=Power PUSH_REPO=integration 
-    before_install:
-      - sudo apt-get update
-      - sudo apt-get install jq
-      - make init
-      - make docker-login
-      - make download-clis
-    install:
-      - make install
-    script:
-      - make webpack
-      - make headless
-      - make build-image
-      - make release
-      - make release DOCKER_TAG=latest
-
-
-
- # -- s390x Deploy to Artifactory ---
-  - stage: build
-    name: "Build s390x"
-    if: (branch = master) AND (type = push)
-    os: linux-s390
-    language: node_js
-    node_js:
-      - "10"
-    env:
-      - JOBNAME=s390x PUSH_REPO=integration 
-    before_install:
-      - make init
-      - make docker-logins
-      - make download-clis
-    install:
-      - make install
-    script:
-      - make webpack
-      - make headless
-      - make build-image
-      - make release
-      - make release DOCKER_TAG=latest
+    - stage: unit-test
+      name: "Run linting"
+      if: type = pull_request
+      script:
+        - make component/test/unit
+    - stage: build
+      name: "Build and push kui-web-terminal image"
+      script:
+        - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export COMPONENT_TAG_EXTENSION="-PR${TRAVIS_PULL_REQUEST}-${TRAVIS_COMMIT}"; fi;
+        - make component/build
+        - make component/push
+        - make component/push COMPONENT_VERSION=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g') COMPONENT_TAG_EXTENSION=""
+    - stage: test-e2e
+      name: "Run functional tests"
+      if: type = pull_request
+      addons:
+        firefox: latest
+      before_install:
+        - make test-module
+      script:
+        - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export COMPONENT_TAG_EXTENSION="-PR${TRAVIS_PULL_REQUEST}-${TRAVIS_COMMIT}"; fi;
+        - make component/pull
+        - make component/test/e2e
+    - stage: publish
+      name: "Publish the image to quay with an official version/sha tag and publish entry to integration pipeline stage"
+      if: type = push AND branch =~ /^release-[0-9]+\..*$/
+      script:
+        - make pipeline-manifest/update PIPELINE_MANIFEST_COMPONENT_SHA256=${TRAVIS_COMMIT} PIPELINE_MANIFEST_COMPONENT_REPO=${TRAVIS_REPO_SLUG} PIPELINE_MANIFEST_BRANCH=${TRAVIS_BRANCH}

@@ -29,7 +29,7 @@ IMAGE_OPENSHIFT_TAGS = visual terminal
 DOCKER_USER ?= $(ARTIFACTORY_USER)
 DOCKER_PASS ?= $(ARTIFACTORY_TOKEN)
 
-DOCKER_IMAGE ?= mcm-kui-proxy
+DOCKER_IMAGE ?= kui-web-terminal
 
 ifeq ($(PUSH_RHEL), true)
 	DOCKER_TAG ?= $(SEMVERSION)-rhel
@@ -69,12 +69,8 @@ ifndef GITHUB_TOKEN
 	$(info GITHUB_TOKEN not defined)
 	exit -1
 endif
-ifndef ARTIFACTORY_TOKEN 
-	$(info ARTIFACTORY_TOKEN not defined)
-	exit -1
-endif
 
--include $(shell curl -so .build-harness -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.v3.raw" "https://raw.github.ibm.com/ICP-DevOps/build-harness/master/templates/Makefile.build-harness"; echo .build-harness)
+-include $(shell curl -H 'Authorization: token ${GITHUB_TOKEN}' -H 'Accept: application/vnd.github.v4.raw' -L https://api.github.com/repos/open-cluster-management/build-harness-extensions/contents/templates/Makefile.build-harness-bootstrap -o .build-harness-bootstrap; echo .build-harness-bootstrap)
 
 SHELL := /bin/bash
 
@@ -133,7 +129,7 @@ webpack:
 	$(SELF) dust-template
 
 .PHONY: download-clis
-download-clis: docker-login
+download-clis:
 	@./download-clis.sh
 
 
@@ -169,9 +165,9 @@ copyright-check:
 	@bash ./copyright-check.sh
 
 .PHONY: build-image
-build-image: docker-login-edge
+build-image:
 	@echo "Building mcm-kui image"
-	$(SELF) docker:build
+	$(SELF) docker/build
 
 # Push docker image to artifactory
 .PHONY: release
@@ -190,7 +186,7 @@ endif
 
 .PHONY: run
 run:
-	$(MAKE) -C tests run DOCKER_IMAGE=$(DOCKER_IMAGE) DOCKER_TAG=$(DOCKER_TAG)
+	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE_AND_TAG)
 
 .PHONY: run-all-tests
 run-all-tests:
@@ -222,5 +218,5 @@ awsom:
 
 .PHONY: test-module
 test-module:
-	sed -i "s/git@github.ibm.com:/https:\/\/$(GITHUB_USER):$(GITHUB_TOKEN)@github.ibm.com\//" .gitmodules
+	sed -i "s/git@github.com:/https:\/\/$(GITHUB_USER):$(GITHUB_TOKEN)@github.com\//" .gitmodules
 	git submodule update --init --recursive

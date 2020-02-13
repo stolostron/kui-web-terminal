@@ -16,9 +16,8 @@ ARG IMAGE_OPENSHIFT_TAGS
 ARG ARCH
 
 ADD downloads/kubectl-linux-${ARCH} /usr/local/bin/kubectl
-ADD downloads/helm-linux-${ARCH}.tar.gz /usr/local/helm/
+ADD downloads/helm-linux-${ARCH} /usr/local/helm/helm
 ADD downloads/cloudctl-linux-${ARCH} /usr/local/bin/cloudctl
-ADD downloads/istioctl-linux-${ARCH} /usr/local/bin/istioctl
 ADD downloads/oc-linux-${ARCH} /usr/local/bin/oc
 # add bin for helm
 ADD root /
@@ -144,7 +143,7 @@ RUN cp /usr/bin/bash /usr/bin/rbash \
     && ln -s /usr/bin/rvim /usr/local/bin/vim \
     && ln -s /usr/bin/rvim /usr/local/bin/vi \
     && ln -s /usr/bin/tail /usr/local/bin/tail \
-    && ln -s /usr/local/helm/linux-${ARCH}/helm /usr/local/bin/helm_original \
+    && ln -s /usr/local/helm/helm /usr/local/bin/helm_original \
     && chmod 755 /etc/profile.d/*.sh \
     && chmod 755 /usr/local/bin/* 
 
