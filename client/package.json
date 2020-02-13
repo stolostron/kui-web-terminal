@@ -33,8 +33,8 @@
     "@kui-shell/plugin-logui": "^1.0.9",
     "@kui-shell/plugin-openshift": "^1.0.9",
     "@kui-shell/plugin-proxy-support": "^6.0.13",
-    "@kui-shell/proxy": "^6.0.13",
     "@kui-shell/plugin-search": "file:../plugin-downloads/plugin-search.tgz",
+    "@kui-shell/proxy": "^6.0.13",
     "@kui-shell/webpack": "^6.0.13",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
