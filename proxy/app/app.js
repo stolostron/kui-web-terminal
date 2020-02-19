@@ -86,7 +86,6 @@ if (process.env.NODE_ENV === 'development') {
 process.on('SIGINT', () => process.exit())
 
 exports.setServer = (server, port) => {
-  const isProd = process.env.NODE_ENV === 'production'
   app.use('/kui/exec', ExecRouter(server, port))
   app.use('/status', statusRoute)
   app.use('/kui', defaultRoute)
