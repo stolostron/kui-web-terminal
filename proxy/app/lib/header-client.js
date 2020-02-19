@@ -11,10 +11,10 @@
 var request = require('./request')
 var httpUtil = require('./http-util')
 
-const PLATFORM_HEADER_CONTEXT_PATH = '/multicloud/header'
+const HEADER_CONTEXT_PATH = '/multicloud/header'
 
 exports.getHeader = (req, cb) => {
-  const options = httpUtil.getOptions(req, `${process.env.ICP_EXTERNAL_URL}${PLATFORM_HEADER_CONTEXT_PATH}/api/v1/header?serviceId=kui&dev=false`)
+  const options = httpUtil.getOptions(req, `${process.env.ICP_EXTERNAL_URL}${HEADER_CONTEXT_PATH}/api/v1/header?serviceId=kui&dev=false`)
   const cookie = `acm-access-token-cookie=${process.env.AUTH_TOKEN}`
 
   options.headers = {
