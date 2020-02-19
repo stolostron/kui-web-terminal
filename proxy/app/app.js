@@ -31,7 +31,6 @@ const logger = require('morgan')
 const cors = require('cors')
 const consolidate = require('consolidate')
 const proxy = require('http-proxy-middleware')
-const inspect = require('security-middleware')
 
 const ExecRouter = require('./routes/exec')
 const defaultRoute = require('./routes/index')
@@ -88,10 +87,10 @@ process.on('SIGINT', () => process.exit())
 
 exports.setServer = (server, port) => {
   const isProd = process.env.NODE_ENV === 'production'
-  app.use('/kui/exec', isProd && inspect.app(), ExecRouter(server, port))
+  app.use('/kui/exec', ExecRouter(server, port))
   app.use('/status', statusRoute)
-  app.use('/kui', isProd && inspect.ui(), defaultRoute)
-  app.use('/kui', isProd && inspect.ui(), expressStaticGzip(path.join(__dirname, 'public')))
+  app.use('/kui', defaultRoute)
+  app.use('/kui', expressStaticGzip(path.join(__dirname, 'public')))
 }
 
 exports.app = app
