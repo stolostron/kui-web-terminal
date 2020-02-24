@@ -30,7 +30,12 @@ exports.getHeader = (req, cb) => {
     if (err) {
       return cb(err, null)
     }
+    try{
+      const jsonObj=JSON.parse(result.body)
+      cb(err,jsonObj)
+    }catch(e){
+      return cb(e,null)
+    }
 
-    cb(err, JSON.parse(result.body))
   })
 }
