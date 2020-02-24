@@ -20,10 +20,11 @@ exports.getHeader = (req, cb) => {
 
   const options = httpUtil.getOptions(req, `${HEADER_URL}${HEADER_CONTEXT_PATH}/api/v1/header?serviceId=kui&dev=false`)
   const cookie = `acm-access-token-cookie=${process.env.AUTH_TOKEN}`
-
+  const acmToken = req.cookies && req.cookies['acm-access-token-cookie']
   options.headers = {
     "Accept-Language": req.headers['accept-language'],
     Cookie: process.env.NODE_ENV === 'development' ? cookie : req.headers.cookie,
+    Authorization: req.headers.Authorization || req.headers.authorization || `Bearer ${acmToken}`,
    }
 
   request(options, null, [200, 201, 204], (err, result) => {
