@@ -59,12 +59,12 @@ if (process.env.NODE_ENV === 'development') {
   const contextPath = '/' + process.env.KUI_INGRESS_PATH
 
   app.use((req, res, next) => {
-    const cookie = `cfc-acs-auth-cookie=${process.env.AUTH_TOKEN}; cfc-access-token-cookie=${process.env.AUTH_TOKEN}`
+    const cookie = `acm-access-token-cookie=${process.env.AUTH_TOKEN}`
     req.headers.cookie = cookie
     next()
   })
 
-  app.use('/common-nav', cookieParser(), proxy({
+  app.use('/multicloud/header', cookieParser(), proxy({
     target: process.env.ICP_EXTERNAL_URL,
     changeOrigin: true,
     secure: false,

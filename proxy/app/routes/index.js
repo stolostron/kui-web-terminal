@@ -20,19 +20,23 @@ router.get('/', function (req, res, next) {
     next()
     return
   }
-  const nonce = crypto.randomBytes(16).toString('base64');
+
+  const nonce = crypto.randomBytes(16).toString('base64')
+
   headerClient.getHeader(req, (err, headerRes) => {
     if (err) {
       console.error('Request for header failed: ', err)
-      return res.render('main', Object.assign({ header: '', propsH: '', stateH: '', filesH: '',kuiNonce: nonce}))
+      return res.render('main', Object.assign({ header: '', propsH: '', stateH: '', filesH: '', kuiNonce: nonce }))
     }
 
-    const { headerHtml: header, props: propsH, state: stateH, files: filesH} = headerRes
-    if(process.env.NODE_ENV === 'development') {
+    const { headerHtml: header, props: propsH, state: stateH, files: filesH } = headerRes
+
+    if (process.env.NODE_ENV === 'development') {
       lodash.forOwn(filesH, value => {
         value.path = `/kui/api/proxy${value.path}` //preprend with proxy route
       })
     }
+
     try {
       let langs = req.headers['accept-language'].split(',');
       res.render('main', Object.assign({
@@ -43,7 +47,6 @@ router.get('/', function (req, res, next) {
         kuiNonce: nonce,
         lang: langs[0]
       }))
-
     } catch(e) {
       console.error(e)
     }
