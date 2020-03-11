@@ -1,0 +1,80 @@
+{
+  "src_folders": [
+    "build-tools/tests/e2e"
+  ],
+  "output_folder": "build-tools/test-output/e2e",
+  "custom_assertions_path": "build-tools/tests/assertions",
+  "page_objects_path": "build-tools/tests/page-objects",
+  "custom_commands_path": "build-tools/tests/commands",
+  "globals_path": "build-tools/tests/utils/globals.js",
+  "test_settings": {
+    "default": {
+      "launch_url": "//SET DYNAMICALLY VIA CONFIG",
+      "silent": true,
+      "screenshots": {
+        "enabled": true,
+        "path": "test-output/e2e/screenshots",
+        "on_failure": true
+      },
+      "globals": {
+        "waitForConditionTimeout": 10000
+      }
+    },
+    "remote": {
+      "launch_url": "${CLUSTER}"
+    },
+    "chrome": {
+      "webdriver": {
+        "start_process" : true,
+        "server_path": "node_modules/.bin/chromedriver",
+        "cli_args": ["--verbose"],
+        "port": 9515
+      },
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true,
+        "chromeOptions": {
+          "w3c": false,
+          "args" : [
+            "window-size=1024,768",
+            "--no-sandbox",
+            "--disable-gpu"
+          ]
+        }
+      }
+    },
+    "firefox": {
+      "webdriver": {
+        "start_process" : true,
+        "server_path": "node_modules/.bin/geckodriver",
+        "cli_args": ["--log", "debug"],
+        "port": 4444
+      },
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "javascriptEnabled": true,
+        "acceptInsecureCerts": true,
+        "version": ""
+      }
+    },
+    "safari": {
+      "webdriver": {
+        "start_process" : true,
+        "server_path": "/usr/bin/safaridriver",
+        "port": 4445,
+        "use_legacy_jsonwire": false
+      },
+      "desiredCapabilities": {
+        "browserName": "safari",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      }
+    },
+    "ie": {
+      "desiredCapabilities": {
+        "browserName": "internet explorer"
+      }
+    }
+  }
+}

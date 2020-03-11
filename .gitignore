@@ -1,5 +1,6 @@
 **/.DS_Store
-proxy/node_modules
+# Leave in for vendorized
+# proxy/node_modules
 proxy/.keys
 proxy/build
 proxy/dist
@@ -10,14 +11,16 @@ client/build
 client/packages/app/build
 client/packages/app/src/main.ts
 client/dist
-client/node_modules
+# Leave in for vendorized
+# client/node_modules
 client/plugins/plugin-sample
 client/kui-webpack-tmp
 tmp
 tmp/kui
 .keys
-downloads
-plugin-downloads
+# Leave in for vendorized
+# downloads
+# plugin-downloads
 variables
 build-harness
 build-harness-extensions
@@ -26,3 +29,7 @@ build-harness-extensions
 BIG-T-CSV
 awsom-output
 wicked_cli.log
+# override build harness vendoring
+!vbh/.build-harness-vendorized
+!vbh/build-harness
+!vbh/build-harness-extensions
