@@ -158,4 +158,5 @@ RUN cd /kui-proxy/kui
 # Folder permissions
 RUN chmod 751 /home && chmod 751 /kui-proxy && chmod 751 /kui-proxy/kui
 
+ENV NODE_ENV production
 CMD [ "npm", "start" ]
