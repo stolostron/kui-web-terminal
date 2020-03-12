@@ -198,7 +198,10 @@ class CloudPakTools {
 
 class OpenshiftTools {
   constructor(){
-    this.clusterURL = "https://kubernetes.default.svc:443" // TODO: use a more general url for API server
+    this.clusterURL = "https://kubernetes.default.svc:443" 
+    if(process.env.NODE_ENV === 'development' && process.env.OPENSHIFT_API_SERVER){
+      this.clusterURL = process.env.OPENSHIFT_API_SERVER
+    }
   }
   
   getNamespace(accessToken){
