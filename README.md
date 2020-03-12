@@ -11,8 +11,8 @@ Building kui requires homebrew, gtar, and jq.
 
 Specify some environment variables
 ```
-export ARTIFACTORY_USER=myArtifactoryEmail
-export ARTIFACTORY_TOKEN=myArtifactoryAPIKey
+<!-- export ARTIFACTORY_USER=myArtifactoryEmail
+export ARTIFACTORY_TOKEN=myArtifactoryAPIKey -->
 export GITHUB_TOKEN=myGithubToken
 ```
 
@@ -99,7 +99,7 @@ download "github-repo-name" "release-tgz-filename" "release-version"
 5. Commit the `download-plugins.sh` and the `package-lock.json` in the `client/` and `proxy/` directories.  Failure to update the `package-lock.json` files will result in integrity check failures.
 
 
-## How to Deploy to ICP
+<!-- ## How to Deploy to ICP
 1. Get the latest chart and image
    - Latest chart:
    https://na.artifactory.swg-devops.com:443/artifactory/hyc-cloud-private-integration-helm-local/ibm-mcm-kui-99.99.99.tgz
@@ -122,15 +122,15 @@ download "github-repo-name" "release-tgz-filename" "release-version"
 
 3. Use KUI by visiting `https://your.cluster.ip:port/kui` 
 
-4. Login with `cloudctl login`
+4. Login with `cloudctl login` -->
 
 ## How to Run Image Locally
 1. If you don't already have the test submodule, initialize and fetch the automated tests repo by running `git submodule update --init --recursive`
 2. Follow the steps in [mcm-kui-tests](https://github.com/open-cluster-management/mcm-kui-tests#how-to-run-nightwatch-tests) to set up env vars:
 ```
 export K8S_CLUSTER_MASTER_IP=https://your.cluster.ip:port
-export K8S_CLUSTER_USER=your-icp-username
-export K8S_CLUSTER_PASSWORD=your-icp-password
+export K8S_CLUSTER_USER=your-username
+export K8S_CLUSTER_PASSWORD=your-password
 ```
 3. `make run`
 
@@ -145,26 +145,26 @@ export K8S_CLUSTER_PASSWORD=your-icp-password
 | Command                 |    Description  |
 | ---------------         | --------------- |
 | awsom                   |    Runs the wicked scan and BIG-T-CSV automation tools. |
-| build-image             |    Builds the MCM-KUI docker image. |
+| build-image             |    Builds the kui-web-terminal docker image. |
 | clean-client            |    Removes the /build, /kui-webpack-tmp, and /node_modules in the /client directory. |
 | clean-downloads         |    Removes the /downloads and /plugin-downloads directories. |
 | clean-kui               |    Runs the commands for clean-client, clean-proxy, and clean-downloads. |
 | clean-proxy             |    Removes the tmp directory in root and the build and node_modules directories in /proxy. |
-| docker-login            |    Docker login to the integration artifactory registry. |
-| docker-login-dev        |    Docker login to the scratch artifactory registry. | 
-| docker-login-edge       |    Docker login to the edge artifactory registry. |
-| docker-logins           |    Docker login to the integration and scratch artifactory registries. |
+<!-- | docker-login            |    Docker login to the integration artifactory registry. | -->
+<!-- | docker-login-dev        |    Docker login to the scratch artifactory registry. |  -->
+<!-- | docker-login-edge       |    Docker login to the edge artifactory registry. | -->
+<!-- | docker-logins           |    Docker login to the integration and scratch artifactory registries. | -->
 | download-clis           |    Downloads the CLI binaries to the /downloads directory. |
 | download-plugins        |    Downloads the plugin packages to the /plugin-downloads directory. |
-| dust-template           |    Generates the Dust template that renders the MCM KUI UI. |
+| dust-template           |    Generates the Dust template that renders the kui-web-terminal UI. |
 | headless                |    Builds the open-source KUI proxy component. |
-| init                    |    Downloads the CICD build-harness. |
+<!-- | init                    |    Downloads the CICD build-harness. | -->
 | install                 |    Downloads plugin dependencies and npm installs /client and /proxy dependencies. |
 | install-client          |    Installs the /client package.json npm packages. | 
 | install-proxy           |    Installs the /proxy package.json npm packages. |
 | lint                    |    Runs linting on the /proxy directory. |
 | lint-proxy              |    Runs linting on the /proxy directory. |
-| release                 |    Pushes the MCM-KUI docker image to the docker registry. |
+<!-- | release                 |    Pushes the MCM-KUI docker image to the docker registry. | -->
 | run                     |    Runs the proxy image. |
 | run-all-tests           |    Runs the Nightwatch tests from the mcm-kui-tests repo. |
 | update-kui              |    Updates the open-source KUI dependencies based on KUI_UPDATE_VERSION, KUBEUI_UPDATE_VERSION variable. |
@@ -177,7 +177,7 @@ export K8S_CLUSTER_PASSWORD=your-icp-password
 | clean-client            |    Removes the /build, /kui-webpack-tmp, and /node_modules in the /client directory. |
 | client-update-plugins   |    Updates the /client package.json plugin packages. Should run 'make download-plugins' first. |
 | compile-css             |    Compiles the internal SCSS files into CSS. |
-| fix-webpack-function        |    Redefines the webpack function to the open-source webpack configuration. |
+| fix-webpack-function    |    Redefines the webpack function to the open-source webpack configuration. |
 | install-client          |    Installs the /client package.json npm packages. |
 | update-client           |    Updates the /client KUI dependencies based on KUI_UPDATE_VERSION, KUBEUI_UPDATE_VERSION variable. |
 | webpack                 |    Builds the open-source KUI webpack component. |
