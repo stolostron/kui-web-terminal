@@ -37,7 +37,6 @@ jobs:
   include:
     - stage: unit-test
       name: "Run linting"
-      if: type = pull_request
       script:
         - make component/test/unit
     - stage: build
@@ -62,7 +61,7 @@ jobs:
         - make component/test/e2e
     - stage: release-ff
       name: "Push commits to current release branch"
-      if: type = pull_request
+      if: type = push AND branch =~ /^master$/
       script:
         - make
         - make release-ff
