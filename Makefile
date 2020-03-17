@@ -21,7 +21,7 @@ IMAGE_DISPLAY_NAME = Visual Web Terminal
 IMAGE_DESCRIPTION = Visual Web Terminal provides a web based terminal window with enhanced interactive visualzations of command results
 IMAGE_DESCRIPTION_SHORT = Visual Web Terminal 
 IMAGE_MAINTAINER = kui@us.ibm.com
-IMAGE_VENDOR = IBM
+IMAGE_VENDOR = Red Hat
 IMAGE_SUMMARY = $(IMAGE_DESCRIPTION)
 IMAGE_OPENSHIFT_TAGS = visual terminal 
 
