@@ -113,10 +113,6 @@ WORKDIR /kui-proxy/kui
 #     which \
 #     && microdnf clean all
 # 
-# When using ubi8/nodejs-10 base image, need to use yum instead of microdnf
-RUN yum update --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos -y && rm -rf /var/cache/yum
-RUN yum install --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos shadow-utils -y && rm -rf /var/cache/yum
-RUN yum install --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos which -y && rm -rf /var/cache/yum
 ###########
 
 RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
