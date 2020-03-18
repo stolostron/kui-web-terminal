@@ -1,6 +1,9 @@
 ARG ARCH
 
-FROM registry.access.redhat.com/ubi8-minimal:8.1-398
+# To support downstream builds, use full ubi8 + nodeJS 10 built in until an official
+# ubi8-minimal/nodejs-10 base image may become available.
+# FROM registry.access.redhat.com/ubi8-minimal:8.1-398
+FROM registry.access.redhat.com/ubi8/nodejs-10:1
 
 ARG VCS_REF
 ARG VCS_URL
@@ -44,38 +47,41 @@ LABEL org.label-schema.vendor="Red Hat" \
 ADD licenses/license.txt /licenses
 ADD licenses/packages.yaml /licenses
 
+# Not needed based on use of ubi8/nodejs-10 base image above
 # Add NodeJS to the image
-ENV NODE_VERSION=10.16.3
+# ENV NODE_VERSION=10.16.3
 ENV PATH="${PATH}:/node/bin"
 
-RUN microdnf install gzip tar && \
-    mkdir /node && \
-    NodeImage=node-v${NODE_VERSION}-linux-$(uname -m | sed 's/x86_64/x64/').tar.gz && \
-    for key in \
-      94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
-      FD3A5288F042B6850C66B31F09FE44734EB7990E \
-      71DCFD284A79C3B38668286BC97EC7A07EDE3FC1 \
-      DD8F2338BAE7501E3DD5AC78C273792F7D83545D \
-      C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8 \
-      B9AE9905FFD7803F25714661B63B535A4C206CA9 \
-      77984A986EBC2AA786BC0F66B01FBB92821C587A \
-      8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600 \
-      4ED778F539E3634C779C87C6D7062848A1AB005C \
-      A48C2BEE680E841632CD4E44F07496B3EB3C1762 \
-      B9E2F5981AA6E0CD28160D9FF13993A75599653C \
-      ; do \
-      gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key" || \
-      gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys "$key" || \
-      gpg --batch --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ; \
-    done && \
-    curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/$NodeImage" && \
-    curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" && \
-    gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc && \
-    grep " $NodeImage\$" SHASUMS256.txt | sha256sum -c - && \
-    tar -zxf $NodeImage -C /node  --strip-components=1 && \
-    rm -f $NodeImage SHASUMS256.txt.asc && \
-    microdnf remove tar gzip && \
-    microdnf clean all
+# Not needed based on use of ubi8/nodejs-10 base image above
+# RUN microdnf install gzip tar && \
+#     mkdir /node && \
+#     NodeImage=node-v${NODE_VERSION}-linux-$(uname -m | sed 's/x86_64/x64/').tar.gz && \
+#     for key in \
+#       94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
+#       FD3A5288F042B6850C66B31F09FE44734EB7990E \
+#       71DCFD284A79C3B38668286BC97EC7A07EDE3FC1 \
+#       DD8F2338BAE7501E3DD5AC78C273792F7D83545D \
+#       C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8 \
+#       B9AE9905FFD7803F25714661B63B535A4C206CA9 \
+#       77984A986EBC2AA786BC0F66B01FBB92821C587A \
+#       8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600 \
+#       4ED778F539E3634C779C87C6D7062848A1AB005C \
+#       A48C2BEE680E841632CD4E44F07496B3EB3C1762 \
+#       B9E2F5981AA6E0CD28160D9FF13993A75599653C \
+#       ; do \
+#       gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key" || \
+#       gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys "$key" || \
+#       gpg --batch --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ; \
+#     done && \
+#     curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/$NodeImage" && \
+#     curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" && \
+#     gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc && \
+#     grep " $NodeImage\$" SHASUMS256.txt | sha256sum -c - && \
+#     tar -zxf $NodeImage -C /node  --strip-components=1 && \
+#     rm -f $NodeImage SHASUMS256.txt.asc && \
+#     microdnf remove tar gzip && \
+#     microdnf clean all
+# End section
 
 ENV PORT 3000
 EXPOSE 3000/tcp
@@ -85,8 +91,9 @@ EXPOSE 3000/tcp
 # is intended only for testing, do not use this for productioncd 
 # ENV PASSPHRASE kuishell
 ENV NOBODY_GID 65534
+# Not needed based on use of ubi8/nodejs-10 base image above
 # For use when using ubi-minimal image
-ENV LINUX_DISTRO rhel
+# ENV LINUX_DISTRO rhel
 
 WORKDIR /kui-proxy/kui
 
@@ -97,17 +104,19 @@ WORKDIR /kui-proxy/kui
 # ENV KUI_HELM_CLIENTS_DIR=/usr/local/bin
 # ENV HELM_LATEST_VERSION="${KUI_HELM_CLIENTS_DIR}"/helm
 
-# Following was for alpine image
-# RUN apk add --no-cache ca-certificates bash git
-#
-# For UBI need to use microdnf (UBI already includes bash but needs shadow-utils for adduser)
-RUN microdnf install \
-    ca-certificates \
-    shadow-utils \
-    vim-minimal \
-    which \
-    && microdnf clean all
-
+# Not needed based on use of ubi8/nodejs-10 base image above
+# For UBI-minimal need to use microdnf (UBI already includes bash but needs shadow-utils for adduser)
+# RUN microdnf install \
+#     ca-certificates \
+#     shadow-utils \
+#     vim-minimal \
+#     which \
+#     && microdnf clean all
+# 
+# When using ubi8/nodejs-10 base image, need to use yum instead of microdnf
+RUN yum update --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos -y && rm -rf /var/cache/yum
+RUN yum install --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos shadow-utils -y && rm -rf /var/cache/yum
+RUN yum install --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos which -y && rm -rf /var/cache/yum
 ###########
 
 RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
