@@ -95,6 +95,9 @@ ENV NOBODY_GID 65534
 # For use when using ubi-minimal image
 # ENV LINUX_DISTRO rhel
 
+# ubi8/nodejs-10 base image seems to need this
+USER root
+
 WORKDIR /kui-proxy/kui
 
 
