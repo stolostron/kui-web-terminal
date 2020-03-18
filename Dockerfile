@@ -91,9 +91,9 @@ EXPOSE 3000/tcp
 # is intended only for testing, do not use this for productioncd 
 # ENV PASSPHRASE kuishell
 ENV NOBODY_GID 65534
-# Not needed based on use of ubi8/nodejs-10 base image above
-# For use when using ubi-minimal image
-# ENV LINUX_DISTRO rhel
+
+# For use when using ubi or ubi-minimal image
+ENV LINUX_DISTRO rhel
 
 # ubi8/nodejs-10 base image seems to need this
 USER root
