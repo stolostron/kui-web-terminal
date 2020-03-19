@@ -1,9 +1,7 @@
 ARG ARCH
 
-# For vendorization test, use full ubi8 + nodeJS 10 built in
-# For reference ubi8-minimal (wihtout NodeJS) is 33.1 MB
-# and full ubi8/nodejs-10:1 is 240 MB
-# ubi-8-minimal + nodeJS 10.16.3 + KUI code + CLIs is 272.8 MB (239.7 MB added to ubi8-minimal)
+# To support downstream builds, use full ubi8 + nodeJS 10 built in until an official
+# ubi8-minimal/nodejs-10 base image may become available.
 # FROM registry.access.redhat.com/ubi8-minimal:8.1-398
 FROM registry.access.redhat.com/ubi8/nodejs-10:1
 
@@ -27,12 +25,12 @@ ADD downloads/oc-linux-${ARCH} /usr/local/bin/oc
 # add bin for helm
 ADD root /
 
-LABEL org.label-schema.vendor="IBM" \
+LABEL org.label-schema.vendor="Red Hat" \
       org.label-schema.name="$IMAGE_NAME" \
       org.label-schema.description="$IMAGE_DESCRIPTION" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url=$VCS_URL \
-      org.label-schema.license="Licensed Materials - Property of IBM" \
+      org.label-schema.license="Red Hat Advanced Cluster Management for Kubernetes EULA" \
       org.label-schema.schema-version="1.0" \
       name="$IMAGE_NAME" \
       maintainer="$IMAGE_MAINTAINER" \
@@ -49,8 +47,9 @@ LABEL org.label-schema.vendor="IBM" \
 ADD licenses/license.txt /licenses
 ADD licenses/packages.yaml /licenses
 
+# Not needed based on use of ubi8/nodejs-10 base image above
 # Add NodeJS to the image
-ENV NODE_VERSION=10.16.3
+# ENV NODE_VERSION=10.16.3
 ENV PATH="${PATH}:/node/bin"
 
 # For vendorization, using ubi8 with nodeJS already included so can skip this section
@@ -92,8 +91,12 @@ EXPOSE 3000/tcp
 # is intended only for testing, do not use this for productioncd 
 # ENV PASSPHRASE kuishell
 ENV NOBODY_GID 65534
-# For use when using ubi-minimal image
+
+# For use when using ubi or ubi-minimal image
 ENV LINUX_DISTRO rhel
+
+# ubi8/nodejs-10 base image does not assume this like ubi-minimal
+USER root
 
 WORKDIR /kui-proxy/kui
 
@@ -104,9 +107,7 @@ WORKDIR /kui-proxy/kui
 # ENV KUI_HELM_CLIENTS_DIR=/usr/local/bin
 # ENV HELM_LATEST_VERSION="${KUI_HELM_CLIENTS_DIR}"/helm
 
-# Following was for alpine image
-# RUN apk add --no-cache ca-certificates bash git
-#
+# Not needed based on use of ubi8/nodejs-10 base image above
 # For UBI-minimal need to use microdnf (UBI already includes bash but needs shadow-utils for adduser)
 # RUN microdnf install \
 #     ca-certificates \
@@ -115,10 +116,6 @@ WORKDIR /kui-proxy/kui
 #     which \
 #     && microdnf clean all
 # 
-# For vendorization with full ubi8 image, need to use yum to install shadow-utils to add to bash
-RUN yum update --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos -y && rm -rf /var/cache/yum
-RUN yum install --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos shadow-utils -y && rm -rf /var/cache/yum
-RUN yum install --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos which -y && rm -rf /var/cache/yum
 ###########
 
 RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
