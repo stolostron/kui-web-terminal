@@ -160,7 +160,7 @@ COPY ./tmp/kui /kui-proxy/kui
 # copy the client webpack bundles and other artifacts into the proxy app/public folder
 COPY ./client/dist/webpack /kui-proxy/kui/app/public
 RUN mv /kui-proxy/kui/app/public/kui/* /kui-proxy/kui/app/public
-COPY ./client/fonts /kui-proxy/kui/app/public/
+COPY ./client/fonts /kui-proxy/kui/app/public/fonts
 
 RUN cd /kui-proxy/kui
 
