@@ -191,3 +191,4 @@ export K8S_CLUSTER_PASSWORD=your-password
 | lint-proxy              |    Runs linting on the /proxy directory. |
 | proxy-update-plugins    |    Updates the /proxy package.json plugin packages. Should run 'make download-plugins' first. |
 | update-proxy            |    Updates the /proxy KUI dependencies based on KUI_UPDATE_VERSION variable. |
+ 
