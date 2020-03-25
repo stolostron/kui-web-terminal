@@ -12,6 +12,9 @@ function fold_end() {
 export DOCKER_IMAGE_AND_TAG=${1}
 export USER_NAME=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g')
 
+# To block build of unnecessary docker image during make webpack
+export NO_DOCKER=true
+
 fold_start download-clis "DOWNLOADING CLIS"
 make download-clis
 fold_end download-clis
