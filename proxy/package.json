@@ -12,17 +12,17 @@
     "npm": ">=6.9.0"
   },
   "devDependencies": {
-    "@kui-shell/builder": "^6.0.17",
+    "@kui-shell/builder": "^6.0.18",
     "eslint": "^6.0.1",
     "eslint-plugin-import": "^2.11.0",
     "jsdom": "^15.1.1"
   },
   "dependencies": {
     "@kui-shell/client": "file:client-default",
-    "@kui-shell/core": "^6.0.17",
-    "@kui-shell/plugin-bash-like": "^6.0.17",
-    "@kui-shell/plugin-core-support": "^6.0.17",
-    "@kui-shell/plugin-editor": "^6.0.17",
+    "@kui-shell/core": "^6.0.18",
+    "@kui-shell/plugin-bash-like": "^6.0.18",
+    "@kui-shell/plugin-core-support": "^6.0.18",
+    "@kui-shell/plugin-editor": "^6.0.18",
     "@kui-shell/plugin-helmui": "^1.0.16",
     "@kui-shell/plugin-kubeui": "^1.0.16",
     "@kui-shell/plugin-kui-addons": "file:../plugin-downloads/plugin-kui-addons.tgz",
