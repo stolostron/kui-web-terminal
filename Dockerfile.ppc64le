@@ -40,9 +40,6 @@ LABEL org.label-schema.vendor="Red Hat" \
       io.k8s.description="$IMAGE_DESCRIPTION" \
       io.openshift.tags="$IMAGE_OPENSHIFT_TAGS"
 
-RUN mkdir -p /licenses
-ADD licenses/license.txt /licenses
-ADD licenses/packages.yaml /licenses
 
 ENV PORT 3000
 EXPOSE 3000/tcp
