@@ -43,9 +43,6 @@ LABEL org.label-schema.vendor="Red Hat" \
       io.k8s.description="$IMAGE_DESCRIPTION" \
       io.openshift.tags="$IMAGE_OPENSHIFT_TAGS"
 
-# RUN mkdir -p /licenses
-ADD licenses/license.txt /licenses
-ADD licenses/packages.yaml /licenses
 
 # Not needed based on use of ubi8/nodejs-10 base image above
 # Add NodeJS to the image
