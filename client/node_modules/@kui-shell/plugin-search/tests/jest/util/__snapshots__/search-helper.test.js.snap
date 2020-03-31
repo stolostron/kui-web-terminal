@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search helper should convert search -h to a query 1`] = `
+Object {
+  "filters": Array [],
+  "keywords": Array [
+    "-h",
+  ],
+}
+`;
+
+exports[`Search helper should convert search completions:=1 to a query 1`] = `
+Object {
+  "filters": Array [
+    Object {
+      "property": "completions",
+      "values": Array [
+        "=1",
+      ],
+    },
+  ],
+  "keywords": Array [],
+}
+`;
+
+exports[`Search helper should convert search kind:pod,deployment namespace:kube-system to a query 1`] = `
+Object {
+  "filters": Array [
+    Object {
+      "property": "kind",
+      "values": Array [
+        "pod",
+        "deployment",
+      ],
+    },
+    Object {
+      "property": "namespace",
+      "values": Array [
+        "kube-system",
+      ],
+    },
+  ],
+  "keywords": Array [],
+}
+`;
+
+exports[`Search helper should convert search pod,deployment to a query 1`] = `
+Object {
+  "filters": Array [],
+  "keywords": Array [
+    "pod,deployment",
+  ],
+}
+`;
+
+exports[`Search helper should convert search related:resources kind:pod to a query 1`] = `
+Object {
+  "filters": Array [
+    Object {
+      "property": "kind",
+      "values": Array [
+        "pod",
+      ],
+    },
+  ],
+  "keywords": Array [],
+}
+`;
+
+exports[`Search helper should convert search summary kind:pod name:nvidia-device-plugin-r2674 namespace:kube-system to a query 1`] = `
+Object {
+  "filters": Array [
+    Object {
+      "property": "kind",
+      "values": Array [
+        "pod",
+      ],
+    },
+    Object {
+      "property": "name",
+      "values": Array [
+        "nvidia-device-plugin-r2674",
+      ],
+    },
+    Object {
+      "property": "namespace",
+      "values": Array [
+        "kube-system",
+      ],
+    },
+  ],
+  "keywords": Array [],
+}
+`;

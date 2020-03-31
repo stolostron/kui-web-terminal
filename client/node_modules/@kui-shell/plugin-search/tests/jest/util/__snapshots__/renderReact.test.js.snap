@@ -1,0 +1,615 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering react components for searched query data table should render a data table 1`] = `
+<div
+  class="search-kui-plugin"
+>
+  <div
+    class="search--resource"
+  >
+    <div
+      class="search--resource-table"
+    >
+      <div
+        class="search--resource-table-header"
+      >
+        <div>
+          <button
+            class="search--resource-table-header-button"
+          >
+            <span
+              class="linked-resources"
+            >
+              pod(4)
+            </span>
+            <span
+              class="arrow-up"
+            >
+              ▲
+            </span>
+          </button>
+        </div>
+      </div>
+      <table
+        class="bx--data-table bx--data-table--no-border"
+      >
+        <thead>
+          <tr>
+            <th
+              scope="col"
+            >
+              <div
+                class="bx--table-sort-v2 bx--table-sort-v2--ascending"
+                data-key="name"
+              >
+                <span
+                  class="bx--table-header-label"
+                >
+                  Name
+                  <span
+                    class="arrow-header-label"
+                  >
+                    <span>
+                      ▲
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </th>
+            <th
+              scope="col"
+            >
+              <div
+                class="bx--table-sort-v2 bx--table-sort-v2--ascending"
+                data-key="namespace"
+              >
+                <span
+                  class="bx--table-header-label"
+                >
+                  Namespace
+                  <span
+                    class="arrow-header-label"
+                  >
+                    <span>
+                      ▲
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </th>
+            <th
+              scope="col"
+            >
+              <div
+                class="bx--table-sort-v2 bx--table-sort-v2--ascending"
+                data-key="cluster"
+              >
+                <span
+                  class="bx--table-header-label"
+                >
+                  Cluster
+                  <span
+                    class="arrow-header-label"
+                  >
+                    <span>
+                      ▲
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </th>
+            <th
+              scope="col"
+            >
+              <div
+                class="bx--table-sort-v2 bx--table-sort-v2--ascending"
+                data-key="status"
+              >
+                <span
+                  class="bx--table-header-label"
+                >
+                  Status
+                  <span
+                    class="arrow-header-label"
+                  >
+                    <span>
+                      ▲
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </th>
+            <th
+              scope="col"
+            >
+              <div
+                class="bx--table-sort-v2 bx--table-sort-v2--ascending"
+                data-key="restarts"
+              >
+                <span
+                  class="bx--table-header-label"
+                >
+                  Restarts
+                  <span
+                    class="arrow-header-label"
+                  >
+                    <span>
+                      ▲
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </th>
+            <th
+              scope="col"
+            >
+              <div
+                class="bx--table-sort-v2 bx--table-sort-v2--ascending"
+                data-key="hostIP"
+              >
+                <span
+                  class="bx--table-header-label"
+                >
+                  Host IP
+                  <span
+                    class="arrow-header-label"
+                  >
+                    <span>
+                      ▲
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </th>
+            <th
+              scope="col"
+            >
+              <div
+                class="bx--table-sort-v2 bx--table-sort-v2--ascending"
+                data-key="podIP"
+              >
+                <span
+                  class="bx--table-header-label"
+                >
+                  Pod IP
+                  <span
+                    class="arrow-header-label"
+                  >
+                    <span>
+                      ▲
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </th>
+            <th
+              scope="col"
+            >
+              <div
+                class="bx--table-sort-v2 bx--table-sort-v2--ascending"
+                data-key="created"
+              >
+                <span
+                  class="bx--table-header-label"
+                >
+                  Created
+                  <span
+                    class="arrow-header-label"
+                  >
+                    <span>
+                      ▲
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </th>
+            <th
+              scope="col"
+            />
+          </tr>
+        </thead>
+        <tbody
+          aria-live="polite"
+        >
+          <tr
+            class="bx--data-table--compact"
+          >
+            <td
+              tabindex="0"
+            >
+              search-search-collector-768b94548b-w5pg5
+            </td>
+            <td>
+              kube-system
+            </td>
+            <td>
+              local-cluster
+            </td>
+            <td>
+              <div>
+                <svg
+                  aria-hidden="true"
+                  class="status-success"
+                  focusable="false"
+                  height="16"
+                  preserveAspectRatio="xMidYMid meet"
+                  style="will-change: transform;"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8,1C4.1,1,1,4.1,1,8c0,3.9,3.1,7,7,7s7-3.1,7-7C15,4.1,11.9,1,8,1z M7,11L4.3,8.3l0.9-0.8L7,9.3l4-3.9l0.9,0.8L7,11z"
+                  />
+                  <path
+                    d="M7,11L4.3,8.3l0.9-0.8L7,9.3l4-3.9l0.9,0.8L7,11z"
+                    data-icon-path="inner-path"
+                    opacity="0"
+                  />
+                </svg>
+                <span
+                  class="status-name"
+                >
+                  Running
+                </span>
+              </div>
+            </td>
+            <td>
+              34
+            </td>
+            <td>
+              1.1.1.1
+            </td>
+            <td>
+              1.1.1.1
+            </td>
+            <td>
+              6 months ago
+            </td>
+            <td
+              tabindex="0"
+            >
+              <svg
+                aria-hidden="true"
+                class="table-action"
+                focusable="false"
+                height="16"
+                preserveAspectRatio="xMidYMid meet"
+                style="will-change: transform;"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 6H7V12H6zM9 6H10V12H9z"
+                />
+                <path
+                  d="M2 3v1h1v10c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4h1V3H2zM4 14V4h8v10H4zM6 1H10V2H6z"
+                />
+              </svg>
+            </td>
+          </tr>
+          <tr
+            class="bx--data-table--compact"
+          >
+            <td
+              tabindex="0"
+            >
+              internal-management-ingress-dnj88
+            </td>
+            <td>
+              kube-system
+            </td>
+            <td>
+              local-cluster
+            </td>
+            <td>
+              <div>
+                <svg
+                  aria-hidden="true"
+                  class="status-success"
+                  focusable="false"
+                  height="16"
+                  preserveAspectRatio="xMidYMid meet"
+                  style="will-change: transform;"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8,1C4.1,1,1,4.1,1,8c0,3.9,3.1,7,7,7s7-3.1,7-7C15,4.1,11.9,1,8,1z M7,11L4.3,8.3l0.9-0.8L7,9.3l4-3.9l0.9,0.8L7,11z"
+                  />
+                  <path
+                    d="M7,11L4.3,8.3l0.9-0.8L7,9.3l4-3.9l0.9,0.8L7,11z"
+                    data-icon-path="inner-path"
+                    opacity="0"
+                  />
+                </svg>
+                <span
+                  class="status-name"
+                >
+                  Running
+                </span>
+              </div>
+            </td>
+            <td>
+              0
+            </td>
+            <td>
+              1.1.1.1
+            </td>
+            <td>
+              1.1.1.1
+            </td>
+            <td>
+              6 months ago
+            </td>
+            <td
+              tabindex="0"
+            >
+              <svg
+                aria-hidden="true"
+                class="table-action"
+                focusable="false"
+                height="16"
+                preserveAspectRatio="xMidYMid meet"
+                style="will-change: transform;"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 6H7V12H6zM9 6H10V12H9z"
+                />
+                <path
+                  d="M2 3v1h1v10c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4h1V3H2zM4 14V4h8v10H4zM6 1H10V2H6z"
+                />
+              </svg>
+            </td>
+          </tr>
+          <tr
+            class="bx--data-table--compact"
+          >
+            <td
+              tabindex="0"
+            >
+              k8s-kmsplugin-1.1.1.1
+            </td>
+            <td>
+              kube-system
+            </td>
+            <td>
+              local-cluster
+            </td>
+            <td>
+              <div>
+                <svg
+                  aria-hidden="true"
+                  class="status-success"
+                  focusable="false"
+                  height="16"
+                  preserveAspectRatio="xMidYMid meet"
+                  style="will-change: transform;"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8,1C4.1,1,1,4.1,1,8c0,3.9,3.1,7,7,7s7-3.1,7-7C15,4.1,11.9,1,8,1z M7,11L4.3,8.3l0.9-0.8L7,9.3l4-3.9l0.9,0.8L7,11z"
+                  />
+                  <path
+                    d="M7,11L4.3,8.3l0.9-0.8L7,9.3l4-3.9l0.9,0.8L7,11z"
+                    data-icon-path="inner-path"
+                    opacity="0"
+                  />
+                </svg>
+                <span
+                  class="status-name"
+                >
+                  Running
+                </span>
+              </div>
+            </td>
+            <td>
+              0
+            </td>
+            <td>
+              1.1.1.1
+            </td>
+            <td>
+              1.1.1.1
+            </td>
+            <td>
+              6 months ago
+            </td>
+            <td
+              tabindex="0"
+            >
+              <svg
+                aria-hidden="true"
+                class="table-action"
+                focusable="false"
+                height="16"
+                preserveAspectRatio="xMidYMid meet"
+                style="will-change: transform;"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 6H7V12H6zM9 6H10V12H9z"
+                />
+                <path
+                  d="M2 3v1h1v10c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4h1V3H2zM4 14V4h8v10H4zM6 1H10V2H6z"
+                />
+              </svg>
+            </td>
+          </tr>
+          <tr
+            class="bx--data-table--compact"
+          >
+            <td
+              tabindex="0"
+            >
+              icp-memcached-5bd5ddbd86-9ckrj
+            </td>
+            <td>
+              kube-system
+            </td>
+            <td>
+              local-cluster
+            </td>
+            <td>
+              <div>
+                <svg
+                  aria-hidden="true"
+                  class="status-success"
+                  focusable="false"
+                  height="16"
+                  preserveAspectRatio="xMidYMid meet"
+                  style="will-change: transform;"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8,1C4.1,1,1,4.1,1,8c0,3.9,3.1,7,7,7s7-3.1,7-7C15,4.1,11.9,1,8,1z M7,11L4.3,8.3l0.9-0.8L7,9.3l4-3.9l0.9,0.8L7,11z"
+                  />
+                  <path
+                    d="M7,11L4.3,8.3l0.9-0.8L7,9.3l4-3.9l0.9,0.8L7,11z"
+                    data-icon-path="inner-path"
+                    opacity="0"
+                  />
+                </svg>
+                <span
+                  class="status-name"
+                >
+                  Running
+                </span>
+              </div>
+            </td>
+            <td>
+              0
+            </td>
+            <td>
+              1.1.1.1
+            </td>
+            <td>
+              1.1.1.1
+            </td>
+            <td>
+              6 months ago
+            </td>
+            <td
+              tabindex="0"
+            >
+              <svg
+                aria-hidden="true"
+                class="table-action"
+                focusable="false"
+                height="16"
+                preserveAspectRatio="xMidYMid meet"
+                style="will-change: transform;"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 6H7V12H6zM9 6H10V12H9z"
+                />
+                <path
+                  d="M2 3v1h1v10c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4h1V3H2zM4 14V4h8v10H4zM6 1H10V2H6z"
+                />
+              </svg>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div
+        aria-label=""
+        class="bx--modal bx--modal-tall"
+        id="remove-resource-modal"
+        role="presentation"
+      >
+        <span
+          class="bx--visually-hidden"
+          role="link"
+          tabindex="0"
+        >
+          Focus sentinel
+        </span>
+        <div
+          aria-label=""
+          aria-modal="true"
+          class="bx--modal-container"
+          role="dialog"
+          tabindex="-1"
+        >
+          <div
+            class="bx--modal-header"
+          >
+            
+            <h3
+              class="bx--modal-header__heading"
+              id="bx--modal-header__heading--modal-2"
+            />
+            <button
+              aria-label="close the modal"
+              class="bx--modal-close"
+              title="close the modal"
+              type="button"
+            >
+              <svg
+                aria-label="close the modal"
+                class="bx--modal-close__icon"
+                focusable="false"
+                height="20"
+                preserveAspectRatio="xMidYMid meet"
+                role="img"
+                style="will-change: transform;"
+                viewBox="0 0 32 32"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            aria-labelledby="bx--modal-header__heading--modal-2"
+            class="bx--modal-content"
+          />
+          <div
+            class="bx--modal-footer"
+          >
+            <button
+              class="bx--btn bx--btn--secondary"
+              tabindex="0"
+              type="button"
+            >
+              Cancel
+            </button>
+            <button
+              class="bx--btn bx--btn--primary"
+              inputref="[object Object]"
+              tabindex="0"
+              type="button"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+        <span
+          class="bx--visually-hidden"
+          role="link"
+          tabindex="0"
+        >
+          Focus sentinel
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

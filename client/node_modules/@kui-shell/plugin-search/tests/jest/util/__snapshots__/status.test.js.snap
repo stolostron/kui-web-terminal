@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Return status - completed 1`] = `
+Array [
+  "Completed",
+  "Succeeded",
+]
+`;
+
+exports[`Return status - completed 2`] = `
+<ForwardRef(CheckmarkFilled16)
+  className="status-completed"
+/>
+`;
+
+exports[`Return status - failed 1`] = `
+Array [
+  "Failed",
+  "CrashLoopBackOff",
+  "ImagePullBackOff",
+  "ErrImagePull",
+  "Error",
+  "OOMKilled",
+  "Init:OOMKilled",
+]
+`;
+
+exports[`Return status - failed 2`] = `
+<ForwardRef(ErrorFilled16)
+  className="status-failed"
+/>
+`;
+
+exports[`Return status - success 1`] = `
+Array [
+  "Running",
+  "DEPLOYED",
+  "Active",
+  "OK",
+  "Available",
+  "Ready",
+]
+`;
+
+exports[`Return status - success 2`] = `
+<ForwardRef(CheckmarkFilled16)
+  className="status-success"
+/>
+`;
+
+exports[`Return status - unknown 1`] = `
+Array [
+  "Unknown",
+]
+`;
+
+exports[`Return status - unknown 2`] = `
+<ForwardRef(Unknown16)
+  className="status-unknown"
+/>
+`;
+
+exports[`Return status - warning 1`] = `
+Array [
+  "Pending",
+  "Terminating",
+  "ContainerCreating",
+]
+`;
+
+exports[`Return status - warning 2`] = `
+<ForwardRef(WarningFilled16)
+  className="status-warning"
+/>
+`;

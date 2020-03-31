@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Get query count should get query count 1`] = `Promise {}`;
+
+exports[`Get query count should get query count 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Array [
+        Object {
+          "__typename": "userSearch",
+          "description": "All pods",
+          "id": "1573570796760",
+          "name": "All pods",
+          "searchText": "kind:pod",
+        },
+        Object {
+          "__typename": "userSearch",
+          "description": "All deployments",
+          "id": "1573570796793",
+          "name": "All deployments",
+          "searchText": "kind:deployments",
+        },
+      ],
+    ],
+    Array [
+      Array [
+        Object {
+          "__typename": "userSearch",
+          "description": "All pods",
+          "id": "1573570796760",
+          "name": "All pods",
+          "searchText": "kind:pod",
+        },
+        Object {
+          "__typename": "userSearch",
+          "description": "All deployments",
+          "id": "1573570796793",
+          "name": "All deployments",
+          "searchText": "kind:deployments",
+        },
+      ],
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Saved Search command should return saved searches 1`] = `Promise {}`;
+
+exports[`Saved Search command should return saved searches 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "argv": Array [
+          "savedsearches",
+        ],
+        "command": "savedsearches",
+      },
+    ],
+    Array [
+      Object {
+        "argv": Array [
+          "savedsearches",
+        ],
+        "command": "savedsearches",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;

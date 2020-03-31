@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Resources/Query sidecar build related should build a related resources node element - clickable list 1`] = `
+<div
+  class="scrollable bx--tile-related"
+>
+  <a
+    class="bx--link bx--tile bx--tile--clickable"
+    tabindex="0"
+  >
+    <div
+      class="bx--tile-container"
+    >
+      <span
+        class="bx--structured-list-td-related-header"
+      >
+        1
+      </span>
+      <br />
+      <span
+        class="bx--structured-list-td-body"
+      >
+        Related release
+      </span>
+    </div>
+  </a>
+</div>
+`;
+
+exports[`Resources/Query sidecar build related should build a related resources node element - structured list 1`] = `
+<div
+  class="scrollable bx--structured-list--summary"
+>
+  <section
+    aria-label="Structured list section"
+    class="bx--structured-list"
+  >
+    <div
+      class="bx--structured-list-tbody"
+    >
+      <div
+        class="bx--structured-list-row bx--structured-list-rowclick"
+      >
+        <div
+          class="bx--structured-list-td"
+          tabindex="0"
+        >
+          <span
+            class="bx--structured-list-td-related-header"
+          >
+            1
+          </span>
+          <br />
+          <span
+            class="bx--structured-list-td-body"
+          >
+            Related release
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Resources/Query sidecar related mode should render a tab entity for the selected resource related resources 1`] = `
+Object {
+  "badges": Array [
+    "audit-logging-fluentd-ds-elk-config",
+  ],
+  "content": <div
+    class="scrollable bx--structured-list--summary"
+  >
+    <section
+      aria-label="Structured list section"
+      class="bx--structured-list"
+    >
+      <div
+        class="bx--structured-list-tbody"
+      >
+        <div
+          class="bx--structured-list-row bx--structured-list-rowclick"
+        >
+          <div
+            class="bx--structured-list-td"
+            tabindex="0"
+          >
+            <span
+              class="bx--structured-list-td-related-header"
+            >
+              1
+            </span>
+            <br />
+            <span
+              class="bx--structured-list-td-body"
+            >
+              Related release
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>,
+  "isEntity": true,
+  "modes": Array [
+    Object {
+      "defaultMode": true,
+      "direct": [Function],
+      "label": "Related Resources",
+      "leaveBottomStripeAlone": true,
+      "mode": "related",
+    },
+  ],
+  "name": "audit-logging-fluentd-ds-elk-config",
+  "packageName": "kube-system",
+  "type": "custom",
+  "viewName": "configmap",
+}
+`;
