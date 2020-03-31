@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Is search available should return if search is available 1`] = `false`;
+
+exports[`Rendering search available should render that search is installed 1`] = `
+<div
+  class="is-search-available"
+>
+  <div>
+    <p>
+      The search service is installed and available.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Rendering search available should render that search is installed, but is not available 1`] = `
+<div
+  class="is-search-available"
+>
+  <div>
+    <p>
+      <span
+        class="oops"
+      >
+        The search service is installed, but the connection was not completed. Refresh the page to try connecting again. If the problem persists, contact your cluster administrator.
+      </span>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Rendering search available should render that search is not installed 1`] = `
+<div
+  class="is-search-available"
+>
+  <div>
+    <p>
+      The search service is not installed on this cluster. 
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Rendering search available should render that there was an issue checking if search was installed 1`] = `
+<div
+  class="is-search-available"
+>
+  <div>
+    <p>
+      <span
+        class="oops"
+      >
+        The search service is unavailable. If the problem persist, contact your cluster administrator.
+      </span>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Search command should call doSearch 1`] = `Promise {}`;
+
+exports[`Search command should call doSearch 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "argv": Array [
+          "search",
+          "kind:pod",
+          "name:logging-elk-filebeat-ds-62jxh",
+        ],
+        "command": Array [
+          "search kind:pod name:logging-elk-filebeat-ds-62jxh",
+        ],
+      },
+    ],
+    Array [
+      Object {
+        "argv": Array [
+          "search",
+          "kind:pod",
+          "name:logging-elk-filebeat-ds-62jxh",
+        ],
+        "command": Array [
+          "search kind:pod name:logging-elk-filebeat-ds-62jxh",
+        ],
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Search plugin state should get an updated plugin state 1`] = `
+Object {
+  "default": Array [
+    "cluster",
+    "kind",
+    "label",
+    "name",
+    "namespace",
+    "status",
+  ],
+  "enabled": false,
+  "error": "Error: Connection timeout",
+  "searchSchema": Array [
+    "cluster",
+    "kind",
+    "label",
+    "name",
+    "namespace",
+    "status",
+    "apiVersion",
+    "available",
+    "created",
+  ],
+}
+`;
+
+exports[`Search plugin state should get the plugin state 1`] = `
+Object {
+  "default": Array [
+    "cluster",
+    "kind",
+    "label",
+    "name",
+    "namespace",
+    "status",
+  ],
+  "enabled": undefined,
+  "error": undefined,
+  "searchSchema": Array [],
+}
+`;
+
+exports[`Search plugin state should return a default array of filter values 1`] = `
+Array [
+  "cluster",
+  "kind",
+  "label",
+  "name",
+  "namespace",
+  "status",
+]
+`;
+
+exports[`Search plugin state should set the error value 1`] = `"Error: Connection timeout"`;
+
+exports[`Search plugin state should set the plugin state to false 1`] = `false`;
+
+exports[`Search plugin state should set the plugin state to true 1`] = `true`;
+
+exports[`Search plugin state should set the searchSchema filter values 1`] = `
+Array [
+  "cluster",
+  "kind",
+  "label",
+  "name",
+  "namespace",
+  "status",
+  "apiVersion",
+  "available",
+  "created",
+]
+`;

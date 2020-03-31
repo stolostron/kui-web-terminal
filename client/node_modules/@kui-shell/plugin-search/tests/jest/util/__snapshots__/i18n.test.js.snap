@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`i18n should localize the string in the correct language 1`] = `"Search"`;
+
+exports[`i18n should localize the string in the correct language 2`] = `"Search [+Search]"`;
+
+exports[`i18n should localize the string in the correct language 3`] = `"Logs"`;
+
+exports[`i18n should localize the string in the correct language 4`] = `"Related Resources"`;
+
+exports[`i18n should localize the string in the correct language 5`] = `"Summary"`;
+
+exports[`i18n should localize the string in the correct language 6`] = `"Related resources for search results: {0}"`;
+
+exports[`i18n should localize the string in the correct language 7`] = `"View Related Resources"`;
+
+exports[`i18n should localize the string in the correct language 8`] = `"Loading results"`;
+
+exports[`i18n should localize the string in the correct language 9`] = `"No search results found."`;
+
+exports[`i18n should localize the string in the correct language 10`] = `"No resources found."`;
+
+exports[`i18n should localize the string in the correct language 11`] = `"No logs found"`;
+
+exports[`i18n should localize the string in the correct language 12`] = `"Search items"`;
+
+exports[`i18n should localize the string in the correct language 13`] = `"Results"`;

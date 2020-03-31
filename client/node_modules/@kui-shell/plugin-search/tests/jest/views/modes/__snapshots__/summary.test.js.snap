@@ -1,0 +1,381 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`summary mode should build a resource summary node element 1`] = `
+<div
+  class="scrollable bx--structured-list--summary"
+>
+  <section
+    aria-label="Structured list section"
+    class="bx--structured-list"
+  >
+    <div
+      class="bx--structured-list-tbody"
+    >
+      <div
+        class="bx--structured-list-row"
+      >
+        <div
+          class="bx--structured-list-td"
+        >
+          <span
+            class="bx--structured-list-td-header"
+          >
+            apiVersion
+          </span>
+          <br />
+          <span
+            class="bx--structured-list-td-body"
+          >
+            v1
+          </span>
+        </div>
+      </div>
+      <div
+        class="bx--structured-list-row"
+      >
+        <div
+          class="bx--structured-list-td"
+        >
+          <span
+            class="bx--structured-list-td-header"
+          >
+            kind
+          </span>
+          <br />
+          <span
+            class="bx--structured-list-td-body"
+          >
+            Pod
+          </span>
+        </div>
+      </div>
+      <div
+        class="bx--structured-list-row"
+      >
+        <div
+          class="bx--structured-list-td"
+        >
+          <span
+            class="bx--structured-list-td-header"
+          >
+            name
+          </span>
+          <br />
+          <span
+            class="bx--structured-list-td-body"
+          >
+            nginx
+          </span>
+        </div>
+      </div>
+      <div
+        class="bx--structured-list-row"
+      >
+        <div
+          class="bx--structured-list-td"
+        >
+          <span
+            class="bx--structured-list-td-header"
+          >
+            namespace
+          </span>
+          <br />
+          <span
+            class="bx--structured-list-td-body"
+          >
+            kube-system
+          </span>
+        </div>
+      </div>
+      <div
+        class="bx--structured-list-row"
+      >
+        <div
+          class="bx--structured-list-td"
+        >
+          <span
+            class="bx--structured-list-td-header"
+          >
+            cluster
+          </span>
+          <br />
+          <span
+            class="bx--structured-list-td-body"
+          >
+            local-cluster
+          </span>
+        </div>
+      </div>
+      <div
+        class="bx--structured-list-row"
+      >
+        <div
+          class="bx--structured-list-td"
+        >
+          <span
+            class="bx--structured-list-td-header"
+          >
+            selfLink
+          </span>
+          <br />
+          <span
+            class="bx--structured-list-td-body"
+          >
+            /api/v1/namespaces/kube-system/pods/nginx
+          </span>
+        </div>
+      </div>
+      <div
+        class="bx--structured-list-row"
+      >
+        <div
+          class="bx--structured-list-td"
+        >
+          <span
+            class="bx--structured-list-td-header"
+          >
+            container
+          </span>
+          <br />
+          <span
+            class="bx--structured-list-td-body"
+          >
+            fake-container
+          </span>
+        </div>
+      </div>
+      <div
+        class="bx--structured-list-row"
+      >
+        <div
+          class="bx--structured-list-td"
+        >
+          <span
+            class="bx--structured-list-td-header"
+          >
+            metadata
+          </span>
+          <br />
+          <span
+            class="bx--structured-list-td-body"
+          >
+            [object Object]
+          </span>
+        </div>
+      </div>
+      <div
+        class="bx--structured-list-row"
+      >
+        <div
+          class="bx--structured-list-td"
+        >
+          <span
+            class="bx--structured-list-td-header"
+          >
+            spec
+          </span>
+          <br />
+          <span
+            class="bx--structured-list-td-body"
+          >
+            [object Object]
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`summary mode should render a tab entity for the resource summary 1`] = `
+Object {
+  "content": <div
+    class="scrollable bx--structured-list--summary"
+  >
+    <section
+      aria-label="Structured list section"
+      class="bx--structured-list"
+    >
+      <div
+        class="bx--structured-list-tbody"
+      >
+        <div
+          class="bx--structured-list-row"
+        >
+          <div
+            class="bx--structured-list-td"
+          >
+            <span
+              class="bx--structured-list-td-header"
+            >
+              apiVersion
+            </span>
+            <br />
+            <span
+              class="bx--structured-list-td-body"
+            >
+              v1
+            </span>
+          </div>
+        </div>
+        <div
+          class="bx--structured-list-row"
+        >
+          <div
+            class="bx--structured-list-td"
+          >
+            <span
+              class="bx--structured-list-td-header"
+            >
+              kind
+            </span>
+            <br />
+            <span
+              class="bx--structured-list-td-body"
+            >
+              Pod
+            </span>
+          </div>
+        </div>
+        <div
+          class="bx--structured-list-row"
+        >
+          <div
+            class="bx--structured-list-td"
+          >
+            <span
+              class="bx--structured-list-td-header"
+            >
+              name
+            </span>
+            <br />
+            <span
+              class="bx--structured-list-td-body"
+            >
+              nginx
+            </span>
+          </div>
+        </div>
+        <div
+          class="bx--structured-list-row"
+        >
+          <div
+            class="bx--structured-list-td"
+          >
+            <span
+              class="bx--structured-list-td-header"
+            >
+              namespace
+            </span>
+            <br />
+            <span
+              class="bx--structured-list-td-body"
+            >
+              kube-system
+            </span>
+          </div>
+        </div>
+        <div
+          class="bx--structured-list-row"
+        >
+          <div
+            class="bx--structured-list-td"
+          >
+            <span
+              class="bx--structured-list-td-header"
+            >
+              cluster
+            </span>
+            <br />
+            <span
+              class="bx--structured-list-td-body"
+            >
+              local-cluster
+            </span>
+          </div>
+        </div>
+        <div
+          class="bx--structured-list-row"
+        >
+          <div
+            class="bx--structured-list-td"
+          >
+            <span
+              class="bx--structured-list-td-header"
+            >
+              selfLink
+            </span>
+            <br />
+            <span
+              class="bx--structured-list-td-body"
+            >
+              /api/v1/namespaces/kube-system/pods/nginx
+            </span>
+          </div>
+        </div>
+        <div
+          class="bx--structured-list-row"
+        >
+          <div
+            class="bx--structured-list-td"
+          >
+            <span
+              class="bx--structured-list-td-header"
+            >
+              container
+            </span>
+            <br />
+            <span
+              class="bx--structured-list-td-body"
+            >
+              fake-container
+            </span>
+          </div>
+        </div>
+        <div
+          class="bx--structured-list-row"
+        >
+          <div
+            class="bx--structured-list-td"
+          >
+            <span
+              class="bx--structured-list-td-header"
+            >
+              metadata
+            </span>
+            <br />
+            <span
+              class="bx--structured-list-td-body"
+            >
+              [object Object]
+            </span>
+          </div>
+        </div>
+        <div
+          class="bx--structured-list-row"
+        >
+          <div
+            class="bx--structured-list-td"
+          >
+            <span
+              class="bx--structured-list-td-header"
+            >
+              spec
+            </span>
+            <br />
+            <span
+              class="bx--structured-list-td-body"
+            >
+              [object Object]
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>,
+  "defaultMode": true,
+  "label": "Summary",
+  "mode": "summaryTab",
+  "order": 1,
+}
+`;

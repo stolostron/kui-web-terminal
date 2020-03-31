@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Resource helper getAge should get the age of fake-name from the moment it was created (2019-09-17T18:13:28Z) 1`] = `"6 months ago"`;
+
+exports[`Resource helper getAge should get the age of fake-name2 from the moment it was created (2019-09-17T18:00:29Z) 1`] = `"6 months ago"`;

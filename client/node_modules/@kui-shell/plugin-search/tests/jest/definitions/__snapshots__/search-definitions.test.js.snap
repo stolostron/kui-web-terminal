@@ -1,0 +1,664 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search definitions should an return an object of columns and actions for application resources 1`] = `
+Object {
+  "actions": Array [
+    "table.actions.applications.remove",
+  ],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for applicationrelationship resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "source",
+    },
+    Object {
+      "key": "destination",
+    },
+    Object {
+      "key": "type",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for cluster resources 1`] = `
+Object {
+  "actions": Array [
+    "table.actions.cluster.edit.labels",
+  ],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "nodes",
+    },
+    Object {
+      "key": "klusterletVersion",
+    },
+    Object {
+      "key": "kubernetesVersion",
+      "msgKey": "k8sVersion",
+    },
+    Object {
+      "key": "cpu",
+    },
+    Object {
+      "key": "storage",
+    },
+    Object {
+      "key": "memory",
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for configmap resources 1`] = `
+Object {
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for cronjob resources 1`] = `
+Object {
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "schedule",
+    },
+    Object {
+      "key": "suspend",
+    },
+    Object {
+      "key": "active",
+    },
+    Object {
+      "key": "lastSchedule",
+      "transform": [Function],
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for daemonset resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "desired",
+    },
+    Object {
+      "key": "current",
+    },
+    Object {
+      "key": "ready",
+    },
+    Object {
+      "key": "updated",
+    },
+    Object {
+      "key": "available",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for deployable resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "chartUrl",
+    },
+    Object {
+      "key": "dependencies",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for deployment resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "desired",
+    },
+    Object {
+      "key": "current",
+    },
+    Object {
+      "key": "ready",
+    },
+    Object {
+      "key": "available",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for genericresource resources 1`] = `
+Object {
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for job resources 1`] = `
+Object {
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "completions",
+    },
+    Object {
+      "key": "parallelism",
+    },
+    Object {
+      "key": "successful",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for namespace resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "status",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for node resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "role",
+    },
+    Object {
+      "key": "architecture",
+    },
+    Object {
+      "key": "osImage",
+    },
+    Object {
+      "key": "cpu",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for persistentvolume resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "type",
+    },
+    Object {
+      "key": "status",
+    },
+    Object {
+      "key": "capacity",
+    },
+    Object {
+      "key": "accessModes",
+      "msgKey": "accessMode",
+    },
+    Object {
+      "key": "claimRef",
+      "msgKey": "claim",
+    },
+    Object {
+      "key": "reclaimPolicy",
+    },
+    Object {
+      "key": "path",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for persistentvolumeclaim resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "status",
+    },
+    Object {
+      "key": "persistentVolume",
+      "msgKey": "persistent.volume",
+    },
+    Object {
+      "key": "requests",
+    },
+    Object {
+      "key": "accessModes",
+      "msgKey": "accessMode",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for placementbinding resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "subjects",
+    },
+    Object {
+      "key": "placementpolicy",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for placementpolicy resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "replicas",
+    },
+    Object {
+      "key": "decisions",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for pod resources 1`] = `
+Object {
+  "actions": Array [
+    "table.actions.pod.logs",
+    "table.actions.remove",
+  ],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "status",
+    },
+    Object {
+      "key": "restarts",
+    },
+    Object {
+      "key": "hostIP",
+    },
+    Object {
+      "key": "podIP",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for policy resources 1`] = `
+Object {
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "remediationAction",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for release resources 1`] = `
+Object {
+  "actions": Array [
+    "table.actions.remove",
+  ],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "status",
+    },
+    Object {
+      "key": "chartName",
+    },
+    Object {
+      "key": "chartVersion",
+    },
+    Object {
+      "key": "updated",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for replicaset resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "desired",
+    },
+    Object {
+      "key": "current",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for savedSearches resources 1`] = `
+Object {
+  "actions": Array [
+    "table.actions.remove",
+  ],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "description",
+    },
+    Object {
+      "key": "searchText",
+    },
+    Object {
+      "key": "count",
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for secret resources 1`] = `
+Object {
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "type",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for service resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Search definitions should an return an object of columns and actions for statefulset resources 1`] = `
+Object {
+  "actions": Array [],
+  "columns": Array [
+    Object {
+      "key": "name",
+    },
+    Object {
+      "key": "namespace",
+    },
+    Object {
+      "key": "cluster",
+    },
+    Object {
+      "key": "desired",
+    },
+    Object {
+      "key": "current",
+    },
+    Object {
+      "key": "created",
+      "transform": [Function],
+    },
+  ],
+}
+`;
