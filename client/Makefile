@@ -47,6 +47,10 @@ fix-webpack-function:
 	@echo Adding jsonpFunction to webpack config file:
 	sed -i'.bak' "s/output: {/output: { jsonpFunction: 'webpackJsonpFunction3',/g" node_modules/@kui-shell/webpack/webpack.config.js 
 	diff node_modules/@kui-shell/webpack/webpack.config.js   node_modules/@kui-shell/webpack/webpack.config.js.bak || echo '      ^ finished replacing jsonpFunction in webpack.config.js'
+	sed -i'.bak' "s/env: process.env/process.env && execOptions.env ? {...process.env,...execOptions.env} : execOptions.env? execOptions.env : process.env /g" node_modules/@kui-shell/webpack/plugin-proxy-support/dist/lib/proxy-executor.js 
+	sed -i'.bak' "s/env: process.env/process.env && execOptions.env ? {...process.env,...execOptions.env} : execOptions.env? execOptions.env : process.env /g" node_modules/@kui-shell/webpack/plugin-proxy-support/mdist/lib/proxy-executor.js 
+	diff node_modules/@kui-shell/webpack/plugin-proxy-support/dist/lib/proxy-executor.js   node_modules/@kui-shell/webpack/plugin-proxy-support/dist/lib/proxy-executor.js.bak || echo '      ^ finished replacing jsonpFunction in webpack.config.js'
+	diff node_modules/@kui-shell/webpack/plugin-proxy-support/mdist/lib/proxy-executor.js   node_modules/@kui-shell/webpack/plugin-proxy-support/mdist/lib/proxy-executor.js.bak || echo '      ^ finished replacing jsonpFunction in webpack.config.js'
 
 .PHONY: webpack
 webpack: compile-css fix-webpack-function
