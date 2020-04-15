@@ -16,8 +16,6 @@ if [ -z ${K8S_BASE_DOMAIN} ] ; then
     K8S_BASE_DOMAIN=`echo ${K8S_CLUSTER_MASTER_IP} | sed 's/^.*\.apps\.//g' | sed 's/\/.*$//g' 
 fi
 
-echo "Base Domain: ${K8S_BASE_DOMAIN}"
-
 # set up options.yaml & test-output folder
 mkdir -p test-output
 
@@ -31,4 +29,4 @@ EOF
 
 # start test container
 echo "Testing with image: ${TEST_IMAGE_AND_TAG}"
-docker run -it --volume $(pwd)/test-output:/results --volume $(pwd)/options.yaml:/resources/options.yaml ${TEST_IMAGE_AND_TAG}
+docker run -it --network="host" -e TEST_LOCAL=true --volume $(pwd)/test-output:/results --volume $(pwd)/options.yaml:/resources/options.yaml ${TEST_IMAGE_AND_TAG}
