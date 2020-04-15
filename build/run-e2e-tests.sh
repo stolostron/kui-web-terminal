@@ -13,7 +13,7 @@ make run
 
 # get base domain
 if [ -z ${K8S_BASE_DOMAIN} ] ; then
-    K8S_BASE_DOMAIN=`echo ${K8S_CLUSTER_MASTER_IP} | sed 's/^.*\.apps\.//g' | sed 's/\/.*$//g' 
+    K8S_BASE_DOMAIN=`echo ${K8S_CLUSTER_MASTER_IP} | sed 's/^.*\.apps\.//g' | sed 's/\/.*$//g'`
 fi
 
 # set up options.yaml & test-output folder
