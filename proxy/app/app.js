@@ -45,10 +45,6 @@ app.set('view engine', 'dust')
 app.set('view cache', true)
 
 // app.use(compression())
-app.use(cors(
-  // TODO cors config, e.g.
-  // { origin: 'https://localhost:8080' }
-))
 app.use(express.json())
 app.use(logger('dev'))
 app.use(express.json())

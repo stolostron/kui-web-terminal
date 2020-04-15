@@ -198,7 +198,6 @@ module.exports = (server, port) => {
           )
 
         if (cookie) {
-          res.header('Access-Control-Allow-Credentials', 'true')
           res.cookie(cookie.key, cookie.value, {
             httpOnly: true, // clients are not allowed to read this cookie
             secure: process.env.KUI_USE_HTTP !== 'true', // https required?
