@@ -122,7 +122,10 @@ RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && sed -i -e 's|^PATH=.*|PATH=/usr/local/bin|g' /etc/skel/.bashrc \
     && echo "alias ls='ls -l'" >> /etc/skel/.bash_profile \
     && echo "alias vi='rvim'" >> /etc/skel/.bash_profile \
-    && echo "alias vim='rvim'" >> /etc/skel/.bash_profile
+    && echo "alias vim='rvim'" >> /etc/skel/.bash_profile \
+    && echo "enable -n kill"  >> /etc/skel/.bash_profile \
+    && echo "enable -n unalias" >> /etc/skel/.bash_profile \
+    && echo "alias kill=kill_disabled" >> /etc/skel/.bash_profile 
 
 RUN cp /usr/bin/bash /usr/bin/rbash \
     && mv /usr/bin/vi /usr/bin/rvim \
