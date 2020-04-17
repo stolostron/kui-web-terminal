@@ -120,10 +120,12 @@ RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && sed -i '$ a DIR_MODE=0700' /etc/default/useradd \
     && sed -i -e 's/PS1=\"\[\\u@\\h \\W\]/PS1=\"/g' /etc/bashrc \
     && sed -i -e 's|^PATH=.*|PATH=/usr/local/bin|g' /etc/skel/.bashrc \
-    && echo "alias ls='ls -l'" >> /etc/skel/.bash_profile
+    && echo "alias ls='ls -l'" >> /etc/skel/.bash_profile \
+    && echo "alias vi='rvim'" >> /etc/skel/.bash_profile \
+    && echo "alias vim='rvim'" >> /etc/skel/.bash_profile
 
 RUN cp /usr/bin/bash /usr/bin/rbash \
-    && cp /usr/bin/vi /usr/bin/rvim \
+    && mv /usr/bin/vi /usr/bin/rvim \
     && ln -s /bin/cat /usr/local/bin/cat \
     && ln -s /bin/chmod /usr/local/bin/chmod \
     && ln -s /bin/cp /usr/local/bin/cp \
@@ -145,8 +147,7 @@ RUN cp /usr/bin/bash /usr/bin/rbash \
     && ln -s /usr/bin/dirname /usr/local/bin/dirname \
     && ln -s /usr/bin/head /usr/local/bin/head \
     && ln -s /usr/bin/printf /usr/local/bin/printf \
-    && ln -s /usr/bin/rvim /usr/local/bin/vim \
-    && ln -s /usr/bin/rvim /usr/local/bin/vi \
+    && ln -s /usr/bin/rvim /usr/local/bin/rvim \
     && ln -s /usr/bin/tail /usr/local/bin/tail \
     && ln -s /usr/local/helm/helm /usr/local/bin/helm_original \
     && chmod 755 /etc/profile.d/*.sh \

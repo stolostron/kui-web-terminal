@@ -65,7 +65,8 @@ function main(cmdline, execOptions, server, port, host,user, locale) {
         DEVMODE: true,
         KUI_HEADLESS: true,
         KUI_REPL_MODE: 'stdout',
-        KUI_EXEC_OPTIONS: JSON.stringify(execOptions)
+        KUI_EXEC_OPTIONS: JSON.stringify(execOptions),
+        KUBE_EDITOR: 'rvim'
       })
     }
 
