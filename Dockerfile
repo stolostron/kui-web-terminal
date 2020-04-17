@@ -125,7 +125,7 @@ RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && echo "alias vim='rvim'" >> /etc/skel/.bash_profile
 
 RUN cp /usr/bin/bash /usr/bin/rbash \
-    && cp /usr/bin/vi /usr/bin/rvim \
+    && mv /usr/bin/vi /usr/bin/rvim \
     && ln -s /bin/cat /usr/local/bin/cat \
     && ln -s /bin/chmod /usr/local/bin/chmod \
     && ln -s /bin/cp /usr/local/bin/cp \
