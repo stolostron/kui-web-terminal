@@ -126,7 +126,7 @@ RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && echo "enable -n kill"  >> /etc/skel/.bash_profile \
     && echo "enable -n unalias" >> /etc/skel/.bash_profile \
     && echo "alias kill=kill_disabled" >> /etc/skel/.bash_profile  \
-    && echo "readonly KUBE_EDITOR=rvim" >> /etc/skel/.bash_profile  \
+    && echo "readonly KUBE_EDITOR=rvim" >> /etc/skel/.bash_profile 
 
 RUN cp /usr/bin/bash /usr/bin/rbash \
     && mv /usr/bin/vi /usr/bin/rvim \
