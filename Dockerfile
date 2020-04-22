@@ -153,6 +153,7 @@ RUN cp /usr/bin/bash /usr/bin/rbash \
     && ln -s /usr/bin/printf /usr/local/bin/printf \
     && ln -s /usr/bin/rvim /usr/local/bin/rvim \
     && ln -s /usr/bin/tail /usr/local/bin/tail \
+    && ln -s /usr/bin/sleep /usr/local/bin/sleep \
     && ln -s /usr/local/helm/helm /usr/local/bin/helm_original \
     && chmod 755 /etc/profile.d/*.sh \
     && chmod 755 /usr/local/bin/* 
