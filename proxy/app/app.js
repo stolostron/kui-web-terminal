@@ -39,6 +39,8 @@ const statusRoute = require('./routes/status')
 
 const app = express()
 
+app.disable('x-powered-by')
+
 app.engine('dust', consolidate.dust)
 app.set('env', 'production')
 app.set('views', __dirname + '/views')
