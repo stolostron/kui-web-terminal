@@ -12,7 +12,6 @@ const express = require('express')
 const router = express.Router()
 const headerClient = require('../lib/header-client')
 const lodash = require('lodash')
-const crypto = require('crypto');
 
 /** GET home page. */
 router.get('/', function (req, res, next) {
@@ -21,7 +20,7 @@ router.get('/', function (req, res, next) {
     return
   }
 
-  const nonce = crypto.randomBytes(16).toString('base64')
+  const nonce = res.locals.nonce || ''
 
   headerClient.getHeader(req, (err, headerRes) => {
     if (err) {

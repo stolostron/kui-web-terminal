@@ -28,7 +28,8 @@ const expressStaticGzip = require("express-static-gzip");
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
-const cors = require('cors')
+const crypto = require('crypto');
+const csp = require('helmet-csp')
 const consolidate = require('consolidate')
 const proxy = require('http-proxy-middleware')
 
@@ -45,6 +46,48 @@ app.set('env', 'production')
 app.set('views', __dirname + '/views')
 app.set('view engine', 'dust')
 app.set('view cache', true)
+
+// generate nonce for cps
+app.use((req, res, next)=>{
+  res.locals.nonce = crypto.randomBytes(16).toString('base64')
+  next()
+})
+// setup csp
+app.use(csp({
+  // Specify directives as normal.
+  directives: {
+    defaultSrc: ["'none'"],
+    scriptSrc: ["'self'", "'unsafe-inline'",(req, res) => `'nonce-${res.locals.nonce}'`],
+    styleSrc: ["'self'","'unsafe-inline'"],
+    fontSrc: ["'self'"],
+    connectSrc: ["'self'",'wss:'],
+    imgSrc: ["'self'", 'data:',(req, res) => `'nonce-${res.locals.nonce}'`],
+    upgradeInsecureRequests: true,
+    workerSrc: false  // This is not set.
+  },
+
+  // This module will detect common mistakes in your directives and throw errors
+  // if it finds any. To disable this, enable "loose mode".
+  loose: false,
+
+  // Set to true if you only want browsers to report errors, not block them.
+  // You may also set this to a function(req, res) in order to decide dynamically
+  // whether to use reportOnly mode, e.g., to allow for a dynamic kill switch.
+  reportOnly: false,
+
+  // Set to true if you want to blindly set all headers: Content-Security-Policy,
+  // X-WebKit-CSP, and X-Content-Security-Policy.
+  setAllHeaders: true,
+
+  // Set to true if you want to disable CSP on Android where it can be buggy.
+  disableAndroid: false,
+
+  // Set to false if you want to completely disable any user-agent sniffing.
+  // This may make the headers less compatible but it will be much faster.
+  // This defaults to `true`.
+  browserSniff: true
+}))
+
 
 // app.use(compression())
 app.use(express.json())
