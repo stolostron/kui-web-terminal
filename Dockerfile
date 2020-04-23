@@ -123,6 +123,7 @@ RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && echo "alias ls='ls -l'" >> /etc/skel/.bash_profile \
     && echo "alias vi='rvim'" >> /etc/skel/.bash_profile \
     && echo "alias vim='rvim'" >> /etc/skel/.bash_profile \
+    && echo "alias sed='sed --posix'" >> /etc/skel/.bash_profile \
     && echo "enable -n kill"  >> /etc/skel/.bash_profile \
     && echo "enable -n unalias" >> /etc/skel/.bash_profile \
     && echo "alias kill=kill_disabled" >> /etc/skel/.bash_profile  \
