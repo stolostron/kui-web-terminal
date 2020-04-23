@@ -1,5 +1,5 @@
 {
-  "favicon": "/common-nav/graphics/ICP-favicon.png",
+  "favicon": "/multicloud/header/graphics/RHACM-Favicon.svg",
   "filesystem": {
     "darwin": "icons/icns/kui.icns",
     "win32": "icons/ico/kui.ico",
