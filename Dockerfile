@@ -125,7 +125,6 @@ RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && echo "alias vim='rvim'" >> /etc/skel/.bash_profile \
     && echo "enable -n kill"  >> /etc/skel/.bash_profile \
     && echo "enable -n unalias" >> /etc/skel/.bash_profile \
-    && echo "alias kill=kill_disabled" >> /etc/skel/.bash_profile  \
     && echo "readonly KUBE_EDITOR=rvim" >> /etc/skel/.bash_profile 
 
 RUN cp /usr/bin/bash /usr/bin/rbash \
@@ -141,7 +140,6 @@ RUN cp /usr/bin/bash /usr/bin/rbash \
     && ln -s /bin/mv /usr/local/bin/mv \
     && ln -s /bin/readlink /usr/local/bin/readlink \
     && ln -s /bin/rm /usr/local/bin/rm \
-    && ln -s /bin/sed /usr/local/bin/sed \
     && ln -s /bin/touch /usr/local/bin/touch \
     && ln -s /bin/uname /usr/local/bin/uname \
     && ln -s /usr/bin/base64 /usr/local/bin/base64 \
