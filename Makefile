@@ -1,5 +1,6 @@
 
-GIT_REMOTE_URL = $(shell git config --get remote.origin.url)
+# Removing this for vendorization (re-defined below in vendorized build harness)
+# GIT_REMOTE_URL = $(shell git config --get remote.origin.url)
 GITHUB_USER ?= $(ARTIFACTORY_USER)
 GITHUB_USER := $(shell echo $(GITHUB_USER) | sed 's/@/%40/g')
 GITHUB_TOKEN ?= 
@@ -9,10 +10,15 @@ DOCKER_SCRATCH_REGISTRY ?= hyc-cloud-private-scratch-docker-local.artifactory.sw
 DOCKER_INTEGRATION_REGISTRY ?= hyc-cloud-private-integration-docker-local.artifactory.swg-devops.com
 DOCKER_FIXPACK_VIRTUAL_REGISTRY ?= hyc-cloud-private-fixpack-docker-virtual.artifactory.swg-devops.com
 
+# Only use git commands if it exists
+ifdef GIT
 WORKING_CHANGES = $(shell git status --porcelain)
+endif
+
 BUILD_DATE = $(shell date +%m/%d@%H:%M:%S)
-GIT_COMMIT = $(shell git rev-parse --short HEAD)
-VCS_REF = $(if $(WORKING_CHANGES),$(GIT_COMMIT)-$(BUILD_DATE),$(GIT_COMMIT))
+# Removing these next two for vendorization (re-defined below in vendorized build harness)
+# GIT_COMMIT = $(shell git rev-parse --short HEAD)
+# VCS_REF = $(if $(WORKING_CHANGES),$(GIT_COMMIT)-$(BUILD_DATE),$(GIT_COMMIT))
 APP_VERSION ?= $(if $(shell cat VERSION 2> /dev/null),$(shell cat VERSION 2> /dev/null),0.0.1)
 # IMAGE_VERSION is only used in an image label so set it to this release version
 # IMAGE_VERSION ?= $(APP_VERSION)-$(GIT_COMMIT)
@@ -69,9 +75,29 @@ ifndef GITHUB_TOKEN
 	exit -1
 endif
 
--include $(shell curl -H 'Authorization: token ${GITHUB_TOKEN}' -H 'Accept: application/vnd.github.v4.raw' -L https://api.github.com/repos/open-cluster-management/build-harness-extensions/contents/templates/Makefile.build-harness-bootstrap -o .build-harness-bootstrap; echo .build-harness-bootstrap)
+# Removing this for vendorization (re-defined below in vendorized build harness)
+# -include $(shell curl -H 'Authorization: token ${GITHUB_TOKEN}' -H 'Accept: application/vnd.github.v4.raw' -L https://api.github.com/repos/open-cluster-management/build-harness-extensions/contents/templates/Makefile.build-harness-bootstrap -o .build-harness-bootstrap; echo .build-harness-bootstrap)
 
 SHELL := /bin/bash
+
+# For vendorized build harness
+BEFORE_SCRIPT := $(shell build/before-make.sh)
+
+USE_VENDORIZED_BUILD_HARNESS ?=
+
+ifndef USE_VENDORIZED_BUILD_HARNESS
+-include $(shell curl -s -H 'Authorization: token ${GITHUB_TOKEN}' -H 'Accept: application/vnd.github.v4.raw' -L https://api.github.com/repos/open-cluster-management/build-harness-extensions/contents/templates/Makefile.build-harness-bootstrap -o .build-harness-bootstrap; echo .build-harness-bootstrap)
+else
+-include vbh/.build-harness-vendorized
+endif
+
+# Only use git commands if it exists
+ifdef GIT
+GIT_COMMIT      = $(shell git rev-parse --short HEAD)
+GIT_REMOTE_URL  = $(shell git config --get remote.origin.url)
+VCS_REF     = $(if $(shell git status --porcelain),$(GIT_COMMIT)-$(BUILD_DATE),$(GIT_COMMIT))
+endif
+# End section for vendorized build harness
 
 .PHONY: docker-login-dev docker-login docker-login-edge docker-logins 
 docker-login-dev:
