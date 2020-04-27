@@ -64,10 +64,8 @@ if [ "$ARCH" = "amd64" ]; then
   mv ./downloads/kubectl ./downloads/kubectl-linux-amd64
   echo "Downloaded openshift origin to downloads/"
 
-  echo "Downloading helm ..."
-  curl -fksSL https://get.helm.sh/helm-v2.16.1-linux-amd64.tar.gz | tar -xvz -C ./downloads/ linux-amd64/helm  
-  [[ ! -f "downloads/linux-amd64/helm" ]] && echo "download helm failed" && exit -1
-  mv ./downloads/linux-amd64/helm ./downloads/helm-linux-amd64 
-  rmdir ./downloads/linux-amd64
+  echo "Downloading helm v3..."
+  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64 -o ./downloads/helm-linux-amd64  
+  [[ ! -f "downloads/helm-linux-amd64" ]] && echo "download helm failed" && exit -1
 
 fi
