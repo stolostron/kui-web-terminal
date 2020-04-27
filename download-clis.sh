@@ -14,6 +14,8 @@ ARCH=$(uname -m | sed 's/x86_64/amd64/g')
 DOCKER_REGISTRY=hyc-cloud-private-integration-docker-local.artifactory.swg-devops.com
 DOCKER_NAMESPACE=ibmcom
 
+mkdir ./downloads
+
 if [ "$ARCH" = "amd64" ]; then
   echo "Downloading oc & kubectl ..."
   curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.3.0/openshift-client-linux-4.3.0.tar.gz | tar -xvz -C ./downloads/ oc kubectl  
