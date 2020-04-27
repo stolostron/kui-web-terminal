@@ -58,7 +58,7 @@ app.use(csp({
   directives: {
     defaultSrc: ["'none'"],
     scriptSrc: ["'self'", "'unsafe-inline'",(req, res) => `'nonce-${res.locals.nonce}'`],
-    styleSrc: ["'self'",`'nonce-${res.locals.nonce}'`],
+    styleSrc: ["'self'",(req, res) => `'nonce-${res.locals.nonce}'`],
     fontSrc: ["'self'"],
     connectSrc: ["'self'",'wss:'],
     imgSrc: ["'self'", 'data:',(req, res) => `'nonce-${res.locals.nonce}'`],
