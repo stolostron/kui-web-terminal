@@ -76,11 +76,13 @@ headElement.appendChild(mcmKuiLink)
 // Get all scripts and links
 const scripts = Array.from(document.querySelectorAll('script'))
 const links = Array.from(document.querySelectorAll('link'))
+const styles = Array.from(document.querySelectorAll('style'))
 
 // Fix inline webpack script
 const inlineWebpackScript = scripts.find(script => script.innerHTML.includes('window[\'_kuiWebpackResourceRoot\']') )
 inlineWebpackScript.innerHTML = inlineWebpackScript.innerHTML.replace('window[\'_kuiWebpackResourceRoot\']',';window[\'_kuiWebpackResourceRoot\']')
 inlineWebpackScript.innerHTML = inlineWebpackScript.innerHTML.replace('window[\'_kuiWebpackHash\']', ';window[\'_kuiWebpackHash\']')
+inlineWebpackScript.innerHTML = inlineWebpackScript.innerHTML.replace(nonceReplace, noncePlaceHolder)
 
 // Fix nonce
 //iterate through scripts/links, and replace nonce with variable
@@ -92,6 +94,10 @@ for(let script of nonceScripts){
 const nonceLinks = links.filter(link => link.nonce === nonceReplace)
 for(let link of nonceLinks){
   link.nonce = noncePlaceHolder
+}
+
+for(let style of styles){
+  style.nonce = noncePlaceHolder
 }
 
 const staticAssetsPath = path.join(__dirname, '..', 'app', 'public')
