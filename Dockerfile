@@ -19,11 +19,9 @@ ARG IMAGE_OPENSHIFT_TAGS
 ARG ARCH
 
 ADD downloads/kubectl-linux-${ARCH} /usr/local/bin/kubectl
-ADD downloads/helm-linux-${ARCH} /usr/local/helm/helm
+ADD downloads/helm-linux-${ARCH} /usr/local/bin/helm
 ADD downloads/cloudctl-linux-${ARCH} /usr/local/bin/cloudctl
 ADD downloads/oc-linux-${ARCH} /usr/local/bin/oc
-# add bin for helm
-ADD root /
 
 LABEL org.label-schema.vendor="Red Hat" \
       org.label-schema.name="$IMAGE_NAME" \
@@ -152,7 +150,6 @@ RUN cp /usr/bin/bash /usr/bin/rbash \
     && ln -s /usr/bin/rvim /usr/local/bin/rvim \
     && ln -s /usr/bin/tail /usr/local/bin/tail \
     && ln -s /usr/bin/sleep /usr/local/bin/sleep \
-    && ln -s /usr/local/helm/helm /usr/local/bin/helm_original \
     && chmod 755 /etc/profile.d/*.sh \
     && chmod 755 /usr/local/bin/* 
 
