@@ -65,8 +65,8 @@ if [ "$ARCH" = "amd64" ]; then
   echo "Downloaded openshift origin to downloads/"
 
   echo "Downloading helm v3..."
-  curl -fkSL https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64 -o ./downloads/helm-linux-amd64
-  chmod +x ./downloads/helm-linux-amd64
+  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64 -o ./downloads/helm-linux-amd64
   [[ ! -f "downloads/helm-linux-amd64" ]] && echo "download helm failed" && exit -1
+  echo "Downloaded helm v3 to downloads/"
 
 fi
