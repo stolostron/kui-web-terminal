@@ -20,7 +20,6 @@ ARG ARCH
 
 ADD downloads/kubectl-linux-${ARCH} /usr/local/bin/kubectl
 ADD downloads/helm-linux-${ARCH} /usr/local/bin/helm
-ADD downloads/cloudctl-linux-${ARCH} /usr/local/bin/cloudctl
 ADD downloads/oc-linux-${ARCH} /usr/local/bin/oc
 
 LABEL org.label-schema.vendor="Red Hat" \
