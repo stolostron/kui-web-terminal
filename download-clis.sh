@@ -15,9 +15,7 @@ DOCKER_REGISTRY=hyc-cloud-private-integration-docker-local.artifactory.swg-devop
 DOCKER_NAMESPACE=ibmcom
 
 # Create downloads directory for CLI binaries if it does not exist 
-if [ ! -f "downloads" ]; then
-  mkdir ./downloads
-fi
+mkdir -p ./downloads
 
 if [ "$ARCH" = "amd64" ]; then
   echo "Downloading oc & kubectl ..."
