@@ -1,6 +1,6 @@
 **/.DS_Store
-# (placeholder) Do not ignore proxy/node_modules if/when we enable vendorizing of the master branch
-proxy/node_modules
+# Do not ignore proxy/node_modules for vendorizing this release-1.0.0 branch
+# proxy/node_modules
 proxy/.keys
 proxy/build
 proxy/dist
@@ -11,16 +11,16 @@ client/build
 client/packages/app/build
 client/packages/app/src/main.ts
 client/dist
-# (placeholder) Do not ignore client/node_modules if/when we enable vendorizing of the master branch
-client/node_modules
+# Do not ignore client/node_modules for vendorizing this release-1.0.0 branch
+# client/node_modules
 client/plugins/plugin-sample
 client/kui-webpack-tmp
 tmp
 tmp/kui
 .keys
-# (placeholder) Do not ignore downloads and plugin-downloads if/when we enable vendorizing of the master branch
-downloads
-plugin-downloads
+# Do not ignore downloads and plugin-downloads for vendorizing this release-1.0.0 branch
+# downloads
+# plugin-downloads
 variables
 build-harness
 build-harness-extensions

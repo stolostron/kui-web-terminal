@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HTTP Client - GET return a axios request object with urlType - [svc] - GET 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "post",
+      "search",
+      Object {
+        "operationName": "savedSearches",
+        "query": "query savedSearches {
+  items: savedSearches {
+    id
+    name
+    description
+    searchText
+    __typename
+  }
+}
+",
+        "variables": Object {},
+      },
+    ],
+    Array [
+      "get",
+      "svc",
+      undefined,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`HTTP Client - POST return a axios request object with urlType - [search] - POST 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "post",
+      "search",
+      Object {
+        "operationName": "savedSearches",
+        "query": "query savedSearches {
+  items: savedSearches {
+    id
+    name
+    description
+    searchText
+    __typename
+  }
+}
+",
+        "variables": Object {},
+      },
+    ],
+    Array [
+      "get",
+      "svc",
+      undefined,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;

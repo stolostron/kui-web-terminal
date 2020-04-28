@@ -1,0 +1,3 @@
+[submodule "kui-tests"]
+	path = kui-tests
+	url = https://github.com/open-cluster-management/mcm-kui-tests
