@@ -14,8 +14,8 @@ ARCH=$(uname -m | sed 's/x86_64/amd64/g')
 DOCKER_REGISTRY=hyc-cloud-private-integration-docker-local.artifactory.swg-devops.com
 DOCKER_NAMESPACE=ibmcom
 
-# Create downloads directory for CLI binaries
-mkdir ./downloads
+# Create downloads directory for CLI binaries if it does not exist 
+mkdir -p ./downloads
 
 if [ "$ARCH" = "amd64" ]; then
   echo "Downloading oc & kubectl ..."
