@@ -9,18 +9,17 @@
 
 // Structure or layout changes only
  #header {
-  #configure-client-modal {
-    .command-container {
-      width: 135%;
-    }
-  }
-
   #resource-modal-container {
     .bx--modal-header {
-      width: 100%;
+      width: unset;
     }
     .bx--modal-content {
       width: 100%;
+      padding: 0 5%;
+      
+      .bx--list-box__field {
+        height: 100%;
+      }
     }
     .bx--modal-footer {
       background-color: inherit;
@@ -28,17 +27,14 @@
   }
  }
 
- // Theme specific overrides
-//  body[kui-theme="IBM Light"] {
-//   #header {
-//     #configure-client-modal {
-//     }
-  
-//     #resource-modal-container {
-  
-//     }
-//    }
-//  }
+//  Theme specific overrides
+ body[kui-theme="IBM Light"] {
+  #header {
+    #resource-modal-container {
+
+    }
+   }
+ }
 
  body[kui-theme="IBM Dark"] {
   #header {
