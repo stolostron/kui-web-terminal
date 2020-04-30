@@ -8,59 +8,50 @@
  *******************************************************************************/
 
 // Structure or layout changes only
- #header {
-  #resource-modal-container {
-    .bx--modal-header {
-      width: unset;
-    }
-    .bx--modal-content {
-      width: 100%;
-      padding: 0 5%;
-      
-      .bx--list-box__field {
-        height: 100%;
-      }
-    }
-    .bx--modal-footer {
-      background-color: inherit;
+#resource-modal-container {
+  .bx--modal-header {
+    width: unset;
+  }
+  .bx--modal-content {
+    width: 100%;
+    padding: 0 5%;
+
+    .bx--list-box__field {
+      height: 100%;
     }
   }
- }
+  .bx--modal-footer {
+    background-color: inherit;
+  }
+}
+
 
 //  Theme specific overrides
- body[kui-theme="IBM Light"] {
-  #header {
-    #resource-modal-container {
+//  body[kui-theme="IBM Light"] {
+//   #header {
+//     #resource-modal-container {
 
-    }
-   }
- }
+//     }
+//    }
+//  }
 
  body[kui-theme="IBM Dark"] {
-  #header {
-    #configure-client-modal {
-      .bx--modal-header__heading, .cli-link {
-        color: rgb(245, 245, 245)
-      }
-      .command-container {
-        color: #171717;
-      }
-    }
-  
-    #resource-modal-container {
-      .bx--modal-container {
-        background-color: #f2f4f8;
+  // #header {
 
-        .bx--modal-content, .bx--modal-header__heading {
-          color: #161616;
-        }
+  // }
+  #resource-modal-container {
+    .bx--modal-container {
+      background-color: #f2f4f8;
 
-        .bx--modal-footer {
-          .bx--btn--secondary {
-            background-color: #393939;
-          }
+      .bx--modal-content, .bx--modal-header__heading {
+        color: #161616;
+      }
+
+      .bx--modal-footer {
+        .bx--btn--secondary {
+          background-color: #393939;
         }
       }
     }
-   }
+  }
  }
