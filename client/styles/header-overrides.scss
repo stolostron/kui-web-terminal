@@ -23,6 +23,10 @@
   .bx--modal-footer {
     background-color: inherit;
   }
+
+  #create-resource-select {
+    width: 30%;
+  }
 }
 
 
@@ -42,12 +46,6 @@
 
       .bx--modal-content, .bx--modal-header__heading {
         color: #161616;
-      }
-
-      .bx--modal-footer {
-        .bx--btn--secondary {
-          background-color: #393939;
-        }
       }
     }
   }

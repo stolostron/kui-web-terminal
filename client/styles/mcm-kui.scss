@@ -20,6 +20,10 @@
   }
 }
 
+.kui-header__title {
+  display: inline-flex;
+}
+
 .result-table-outer .max-width-id-like { // fix table cell truncation issue
   max-width: unset;
   overflow: auto;
