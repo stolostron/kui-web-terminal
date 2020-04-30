@@ -27,7 +27,7 @@
 
 
 //  Theme specific overrides
-//  body[kui-theme="IBM Light"] {
+//  body[kui-theme="Carbon Gray10"] {
 //   #header {
 //     #resource-modal-container {
 
@@ -35,10 +35,7 @@
 //    }
 //  }
 
- body[kui-theme="IBM Dark"] {
-  // #header {
-
-  // }
+ body[kui-theme="Carbon Gray90"] {
   #resource-modal-container {
     .bx--modal-container {
       background-color: #f2f4f8;
