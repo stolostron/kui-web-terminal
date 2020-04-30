@@ -20,6 +20,12 @@
   }
 }
 
+// Make the page title show up
+.kui-header__title {
+  display: inline-flex !important; // hack because it's hard to override
+  font-weight: 400;
+}
+
 .result-table-outer .max-width-id-like { // fix table cell truncation issue
   max-width: unset;
   overflow: auto;
