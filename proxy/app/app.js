@@ -1,6 +1,6 @@
 /*
-* Copyright (c) 2020 Red Hat, Inc.
-*/
+ * Copyright (c) 2020 Red Hat, Inc.
+ */
  
  /*******************************************************************************
  * Licensed Materials - Property of IBM
