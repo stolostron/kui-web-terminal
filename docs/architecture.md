@@ -105,3 +105,5 @@ https://github.com/open-cluster-management/kui-web-terminal/blob/master/proxy/sc
 - hard to create a plugin
   - oss kui needs more docs
   - oss kui didn't design APIs well (they expect every plugin to be self contained at first, now they start to have reusable tables/sidecar, but still missing many functions)
+- hard to do development
+  - without a fork, if there is any bug of oss kui, we have to debug in npm packages, and which happens a lot.
