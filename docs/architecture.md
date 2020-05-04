@@ -101,6 +101,7 @@ https://github.com/open-cluster-management/kui-web-terminal/blob/master/proxy/sc
   - every time we update kui(even minor version updates), our integration will break
 - everything is build time
   - oss kui plugin model requires `npm install`/`npm uninstall` not possible to enable/disable at runtime
+  - build time so it cannot be user specific
 - hard to create a plugin
   - oss kui needs more docs
   - oss kui didn't design APIs well (they expect every plugin to be self contained at first, now they start to have reusable tables/sidecar, but still missing many functions)
