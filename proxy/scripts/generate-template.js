@@ -97,8 +97,8 @@ for(let link of nonceLinks){
 const staticAssetsPath = path.join(__dirname, '..', 'app', 'public')
 
 // CSS hack for search
-const searchCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-search', 'mdist', 'src-web', 'styles', 'index.css')
-fs.copyFileSync(searchCssPath, staticAssetsPath + '/plugin-search.css')
+//const searchCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-search', 'mdist', 'src-web', 'styles', 'index.css')
+//fs.copyFileSync(searchCssPath, staticAssetsPath + '/plugin-search.css')
 
 // CSS hack for plugin-carbon-themes css files
 const carbonPluginCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-carbon-themes', 'web', 'css')
