@@ -9,6 +9,8 @@ Building kui requires homebrew, gtar, and jq.
 - Install gtar: `brew install gnu-tar`
 - Install jq: `brew install jq`
 
+- Install nodejs v10.18: https://nodejs.org/ru/blog/release/v10.18.0/.  For example, on MacOS, https://nodejs.org/dist/v10.18.0/node-v10.18.0.pkg
+
 Specify some environment variables
 ```
 export GITHUB_USER=your-user-name
