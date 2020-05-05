@@ -80,9 +80,6 @@ endif
 
 SHELL := /bin/bash
 
-# For vendorized build harness
-BEFORE_SCRIPT := $(shell build/before-make.sh)
-
 USE_VENDORIZED_BUILD_HARNESS ?=
 
 ifndef USE_VENDORIZED_BUILD_HARNESS
