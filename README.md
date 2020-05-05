@@ -11,15 +11,12 @@ Building kui requires homebrew, gtar, and jq.
 
 Specify some environment variables
 ```
-<!-- export ARTIFACTORY_USER=myArtifactoryEmail
-export ARTIFACTORY_TOKEN=myArtifactoryAPIKey -->
 export GITHUB_TOKEN=myGithubToken
 ```
 
 Before building images, you will need to download all executables and plugins:
 ```
 make init
-make docker-login
 make download-clis
 make download-plugins
 ```
@@ -150,21 +147,15 @@ export K8S_CLUSTER_PASSWORD=your-password
 | clean-downloads         |    Removes the /downloads and /plugin-downloads directories. |
 | clean-kui               |    Runs the commands for clean-client, clean-proxy, and clean-downloads. |
 | clean-proxy             |    Removes the tmp directory in root and the build and node_modules directories in /proxy. |
-<!-- | docker-login            |    Docker login to the integration artifactory registry. | -->
-<!-- | docker-login-dev        |    Docker login to the scratch artifactory registry. |  -->
-<!-- | docker-login-edge       |    Docker login to the edge artifactory registry. | -->
-<!-- | docker-logins           |    Docker login to the integration and scratch artifactory registries. | -->
 | download-clis           |    Downloads the CLI binaries to the /downloads directory. |
 | download-plugins        |    Downloads the plugin packages to the /plugin-downloads directory. |
 | dust-template           |    Generates the Dust template that renders the kui-web-terminal UI. |
 | headless                |    Builds the open-source KUI proxy component. |
-<!-- | init                    |    Downloads the CICD build-harness. | -->
 | install                 |    Downloads plugin dependencies and npm installs /client and /proxy dependencies. |
 | install-client          |    Installs the /client package.json npm packages. | 
 | install-proxy           |    Installs the /proxy package.json npm packages. |
 | lint                    |    Runs linting on the /proxy directory. |
 | lint-proxy              |    Runs linting on the /proxy directory. |
-<!-- | release                 |    Pushes the MCM-KUI docker image to the docker registry. | -->
 | run                     |    Runs the proxy image. |
 | run-all-tests           |    Runs the Nightwatch tests from the mcm-kui-tests repo. |
 | update-kui              |    Updates the open-source KUI dependencies based on KUI_UPDATE_VERSION, KUBEUI_UPDATE_VERSION variable. |
