@@ -1,4 +1,4 @@
-# kui-proxy
+# kui-web-terminal
 [![Build Status](https://travis-ci.com/open-cluster-management/kui-web-terminal.svg?token=XE6GVz1S58Uhs2nyhnqs&branch=master)](https://travis-ci.com/open-cluster-management/kui-web-terminal)
 
 Docker image for the KUI UI and proxy to be used in Visual Web Terminal
