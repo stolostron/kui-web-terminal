@@ -80,12 +80,6 @@ endif
 
 SHELL := /bin/bash
 
-# For vendorized build harness=
-BEFORE_SCRIPT :=
-ifneq ("$(wildcard build/before-make.sh)","")
-	BEFORE_SCRIPT := $(shell build/before-make.sh)
-endif
-
 USE_VENDORIZED_BUILD_HARNESS ?=
 
 ifndef USE_VENDORIZED_BUILD_HARNESS
