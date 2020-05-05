@@ -101,13 +101,13 @@ const staticAssetsPath = path.join(__dirname, '..', 'app', 'public')
 //fs.copyFileSync(searchCssPath, staticAssetsPath + '/plugin-search.css')
 
 // CSS hack for plugin-carbon-themes css files
-const carbonPluginCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-carbon-themes', 'web', 'css')
+/*const carbonPluginCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-carbon-themes', 'web', 'css')
 const stripeName = 'top-tab-stripe-alt.css'
 const stripePath = path.join(carbonPluginCssPath, stripeName)
 const plexName = 'ibm-plex.css'
 const plexPath = path.join(carbonPluginCssPath, plexName)
 fs.copyFileSync(stripePath, `${staticAssetsPath}/${stripeName}`)
-fs.copyFileSync(plexPath, `${staticAssetsPath}/${plexName}`)
+fs.copyFileSync(plexPath, `${staticAssetsPath}/${plexName}`)*/
 
 const domOutput = document.documentElement.innerHTML
 const viewsPath = path.join(__dirname, '..', 'app', 'views')
