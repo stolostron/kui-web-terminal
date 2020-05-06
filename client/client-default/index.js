@@ -7,6 +7,10 @@
  * Contract with IBM Corp.
  *******************************************************************************/
 'use strict'
+import React from 'react'
+import { Kui } from '@kui-shell/plugin-client-common'
 
 // use alternate directly
-module.exports = require('@kui-shell/plugin-client-alternate') // plugin-client-common includes the basic styling of Kui
+export default function BottomInputClient(props) {
+    return React.createElement(Kui, {...props,...{bottomInput:true}})
+}
