@@ -18,6 +18,7 @@ ifdef KUI_UPDATE_VERSION
 	npm uninstall @kui-shell/proxy
 	npm uninstall @kui-shell/webpack
 	npm uninstall @kui-shell/plugin-kubectl
+	npm uninstall @kui-shell/plugin-client-alternate
 	npm install @kui-shell/builder@${KUI_UPDATE_VERSION}
 	npm install @kui-shell/core@${KUI_UPDATE_VERSION}
 	npm install @kui-shell/react@${KUI_UPDATE_VERSION}
@@ -31,6 +32,7 @@ ifdef KUI_UPDATE_VERSION
 	npm install @kui-shell/webpack@${KUI_UPDATE_VERSION}
 	npm install @kui-shell/plugin-kubectl@${KUI_UPDATE_VERSION}
 	npm install @kui-shell/plugin-wskflow@${KUI_UPDATE_VERSION} 
+	npm install @kui-shell/plugin-client-alternate@${KUI_UPDATE_VERSION}
 endif
 	npm install
 
