@@ -41,11 +41,11 @@ compile-css:
 .PHONY: fix-webpack-function
 fix-webpack-function:
 	@echo Adding jsonpFunction to webpack config file:
-	sed -i'.bak' "s/output: {/output: { jsonpFunction: 'webpackJsonpFunction3',/g" node_modules/@kui-shell/webpack/webpack.config.js 
+	sed -i'.bak' "s/optimization.minimizer = .*/optimization.minimize = false/g" node_modules/@kui-shell/webpack/webpack.config.js 
 	diff node_modules/@kui-shell/webpack/webpack.config.js   node_modules/@kui-shell/webpack/webpack.config.js.bak || echo '      ^ finished replacing jsonpFunction in webpack.config.js'
 
 .PHONY: webpack
-webpack: compile-css 
+webpack: compile-css fix-webpack-function
 	npx kui-compile
 	WEB_COMPRESS=gzip npx kui-build-webpack
 
