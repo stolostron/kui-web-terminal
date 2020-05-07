@@ -158,6 +158,7 @@ COPY ./tmp/kui /kui-proxy/kui
 COPY ./client/dist/webpack /kui-proxy/kui/app/public
 RUN mv /kui-proxy/kui/app/public/kui/* /kui-proxy/kui/app/public
 COPY ./client/fonts /kui-proxy/kui/app/public/fonts
+COPY ./proxy/app/views/main.dust /kui-proxy/kui/app/views/main.dust
 
 RUN cd /kui-proxy/kui
 

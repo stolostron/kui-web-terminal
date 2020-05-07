@@ -77,11 +77,6 @@ headElement.appendChild(mcmKuiLink)
 const scripts = Array.from(document.querySelectorAll('script'))
 const links = Array.from(document.querySelectorAll('link'))
 
-// Fix inline webpack script
-const inlineWebpackScript = scripts.find(script => script.innerHTML.includes('window[\'_kuiWebpackResourceRoot\']') )
-inlineWebpackScript.innerHTML = inlineWebpackScript.innerHTML.replace('window[\'_kuiWebpackResourceRoot\']',';window[\'_kuiWebpackResourceRoot\']')
-inlineWebpackScript.innerHTML = inlineWebpackScript.innerHTML.replace('window[\'_kuiWebpackHash\']', ';window[\'_kuiWebpackHash\']')
-
 // Fix nonce
 //iterate through scripts/links, and replace nonce with variable
 const nonceScripts = scripts.filter(script => script.nonce === nonceReplace)
@@ -94,7 +89,7 @@ for(let link of nonceLinks){
   link.nonce = noncePlaceHolder
 }
 
-const staticAssetsPath = path.join(__dirname, '..', 'app', 'public')
+// const staticAssetsPath = path.join(__dirname, '..', 'app', 'public')
 
 // CSS hack for search
 //const searchCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-search', 'mdist', 'src-web', 'styles', 'index.css')

@@ -6,11 +6,4 @@
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
  *******************************************************************************/
-'use strict'
-import React from 'react'
-import { Kui } from '@kui-shell/plugin-client-common'
-
-// use alternate directly
-export default function BottomInputClient(props) {
-    return React.createElement(Kui, {...props,...{bottomInput:true}})
-}
+require('@kui-shell/plugin-client-common')
