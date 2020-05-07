@@ -142,7 +142,7 @@ function main(cmdline, execOptions, server, port, host,user, locale) {
             mode: 'raw',
             content: {
               proto,
-              port: process.env.KUI_PROXY_COHOSTED ? -1 : port,
+              port: -1,
               path: (process.env.KUI_INGRESS_PATH != undefined) ? 
               `/${process.env.KUI_INGRESS_PATH}/bash/${N}` : `/bash/${N}`
             }

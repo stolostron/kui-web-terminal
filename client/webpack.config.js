@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FontConfigWebpackPlugin = require('font-config-webpack-plugin')
+const {DefinePlugin} = require('webpack')
 
 const mode = process.env.MODE || 'development'
 
@@ -40,7 +41,8 @@ module.exports = {
     ]
   },
   output: {
-    path: path.resolve('./dist/webpack/kui')
+    path: path.resolve('./dist/webpack/kui'),
+    publicPath: '/kui'
   },
   node: {
     fs: 'empty',
@@ -69,6 +71,9 @@ module.exports = {
       filename: './index.html'
     }),
     new MiniCssExtractPlugin(),
-    new FontConfigWebpackPlugin()
+    new FontConfigWebpackPlugin(),
+    new DefinePlugin({
+      'process.env.DEBUG': JSON.stringify('*')
+    })
   ]
 }
