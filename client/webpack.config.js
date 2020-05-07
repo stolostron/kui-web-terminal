@@ -47,7 +47,7 @@ module.exports = {
     // eslint-disable-next-line @typescript-eslint/camelcase
     child_process: 'empty'
   },
-  externals: ['net', 'node-pty-prebuilt-multiarch','readline','module'],
+  externals: ['net', 'node-pty-prebuilt-multiarch','readline','module','electron'],
   devServer: {
     port: 9080,
 
