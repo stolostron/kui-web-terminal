@@ -42,7 +42,7 @@ module.exports = {
   },
   output: {
     path: path.resolve('./dist/webpack/kui'),
-    publicPath: '/kui'
+    publicPath: '/kui/'
   },
   node: {
     fs: 'empty',
