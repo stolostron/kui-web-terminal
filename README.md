@@ -1,4 +1,4 @@
-# kui-proxy
+# kui-web-terminal
 [![Build Status](https://travis-ci.com/open-cluster-management/kui-web-terminal.svg?token=XE6GVz1S58Uhs2nyhnqs&branch=master)](https://travis-ci.com/open-cluster-management/kui-web-terminal)
 
 Docker image for the KUI UI and proxy to be used in Visual Web Terminal
@@ -9,8 +9,11 @@ Building kui requires homebrew, gtar, and jq.
 - Install gtar: `brew install gnu-tar`
 - Install jq: `brew install jq`
 
+- Install nodejs v10.18: https://nodejs.org/ru/blog/release/v10.18.0/.  For example, on MacOS, https://nodejs.org/dist/v10.18.0/node-v10.18.0.pkg
+
 Specify some environment variables
 ```
+export GITHUB_USER=your-user-name
 export GITHUB_TOKEN=myGithubToken
 ```
 
@@ -43,7 +46,7 @@ make build-image
 ```
 
 
-### To build the client part only 
+### To build the client part only
 
 1. install the dependencies for the client
 ```
@@ -60,7 +63,7 @@ make webpack
 ```
 make install-proxy
 ```
-2. build the _proxy_ 
+2. build the _proxy_
 ```
 make headless
 ```
@@ -117,7 +120,7 @@ download "github-repo-name" "release-tgz-filename" "release-version"
     helm install --set proxy.clusterIP=your.icp.ip,proxy.clusterPort=8443 --name mcm-kui --namespace default ibm-mcm-kui-99.99.99.tgz --tls
    ```
 
-3. Use KUI by visiting `https://your.cluster.ip:port/kui` 
+3. Use KUI by visiting `https://your.cluster.ip:port/kui`
 
 4. Login with `cloudctl login` -->
 
@@ -152,7 +155,7 @@ export K8S_CLUSTER_PASSWORD=your-password
 | dust-template           |    Generates the Dust template that renders the kui-web-terminal UI. |
 | headless                |    Builds the open-source KUI proxy component. |
 | install                 |    Downloads plugin dependencies and npm installs /client and /proxy dependencies. |
-| install-client          |    Installs the /client package.json npm packages. | 
+| install-client          |    Installs the /client package.json npm packages. |
 | install-proxy           |    Installs the /proxy package.json npm packages. |
 | lint                    |    Runs linting on the /proxy directory. |
 | lint-proxy              |    Runs linting on the /proxy directory. |
@@ -182,4 +185,3 @@ export K8S_CLUSTER_PASSWORD=your-password
 | lint-proxy              |    Runs linting on the /proxy directory. |
 | proxy-update-plugins    |    Updates the /proxy package.json plugin packages. Should run 'make download-plugins' first. |
 | update-proxy            |    Updates the /proxy KUI dependencies based on KUI_UPDATE_VERSION variable. |
- 
