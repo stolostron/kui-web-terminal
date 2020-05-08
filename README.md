@@ -23,10 +23,6 @@ make init
 make download-clis
 make download-plugins
 ```
-**NOTE:** Ignore the error message
-```
- build/before-make.sh: Command not found
-```
 
 Make sure that you run the `download-clis.sh` script at least once before proceeding with your build.
 
