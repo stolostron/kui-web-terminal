@@ -26,6 +26,11 @@ const sassLoaderChain = [
 ]
 
 module.exports = {
+  optimization: {
+    minimize: false,
+    namedModules: true,
+    namedChunks: true
+  },
   module: {
     rules: [
       {
