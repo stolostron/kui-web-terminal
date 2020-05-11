@@ -7,6 +7,8 @@ proxy/dist
 proxy/kui
 proxy/app/views/main.dust
 proxy/app/public/plugin-search.css
+proxy/app/public/ibm-plex.css
+proxy/app/public/top-tab-stripe-alt.css
 client/build
 client/packages/app/build
 client/packages/app/src/main.ts
