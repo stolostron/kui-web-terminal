@@ -37,6 +37,7 @@ async function createUser(user) {
     else {
       adduserCmd = "umask 0077 && rbash -c 'useradd --uid " + user.uid + " --home-dir " + user.home + " --comment \"\" " + user.name + "'"
     }
+    adduserCmd = adduserCmd + ` && chmod a-w ${user.home}/.bashrc && chmod a-w ${user.home}/.bash_profile`
   
     console.log('creating user: ' + adduserCmd)
     await exec(adduserCmd, {
