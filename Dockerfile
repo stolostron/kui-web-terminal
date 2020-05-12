@@ -117,12 +117,12 @@ RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && sed -i '$ a DIR_MODE=0700' /etc/default/useradd \
     && sed -i -e 's/PS1=\"\[\\u@\\h \\W\]/PS1=\"/g' /etc/bashrc \
     && sed -i -e 's|^PATH=.*|PATH=/usr/local/bin|g' /etc/skel/.bashrc \
-    && echo "alias ls='ls -l'" >> /etc/skel/.bash_profile \
-    && echo "alias vi='rvim'" >> /etc/skel/.bash_profile \
-    && echo "alias vim='rvim'" >> /etc/skel/.bash_profile \
-    && echo "enable -n kill"  >> /etc/skel/.bash_profile \
-    && echo "enable -n unalias" >> /etc/skel/.bash_profile \
-    && echo "readonly KUBE_EDITOR=rvim" >> /etc/skel/.bash_profile 
+    && echo "alias ls='ls -l'" >> /etc/skel/.bashrc \
+    && echo "alias vi='rvim'" >> /etc/skel/.bashrc \
+    && echo "alias vim='rvim'" >> /etc/skel/.bashrc \
+    && echo "enable -n kill"  >> /etc/skel/.bashrc \
+    && echo "enable -n unalias" >> /etc/skel/.bashrc \
+    && echo "readonly KUBE_EDITOR=rvim" >> /etc/skel/.bashrc 
 
 RUN cp /usr/bin/bash /usr/bin/rbash \
     && mv /usr/bin/vi /usr/bin/rvim \
