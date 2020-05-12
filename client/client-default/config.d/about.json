@@ -1,7 +1,16 @@
 {
-  "modes": [
-    { "mode": "about", "content": "about:content", "contentType": "text/markdown" },
-    { "mode": "gettingStarted", "content": "gettingStarted:content", "contentType": "text/markdown" },
-    { "mode": "configure", "contentFrom": "themes" }
+  "menus": [
+    {
+      "label": "Kui",
+      "items": [
+        { "mode": "about", "content": "about:content", "contentType": "text/markdown" },
+        { "mode": "gettingStarted", "content": "gettingStarted:content", "contentType": "text/markdown" },
+        { "mode": "configure", "contentFrom": "themes" }
+      ]
+    }
+  ],
+  "links": [
+    { "label": "Kubectl Help", "command": "kubectl --help" },
+    { "label": "API Resources", "command": "kubectl api-resources" }
   ]
 }
