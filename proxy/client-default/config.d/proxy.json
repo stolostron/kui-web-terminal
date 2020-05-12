@@ -7,5 +7,5 @@
     }
   },
   "shellExe": "/usr/bin/rbash",
-  "shellOpts": ["-r"]
+  "shellOpts": ["-r","-i","-c", "--"]
 }
