@@ -14,13 +14,34 @@
  * limitations under the License.
  */
 
-import * as React from 'react'
-import { render } from 'react-dom'
-import { Kui } from '@kui-shell/plugin-client-common'
+import * as React from "react";
+import { render } from "react-dom";
+import {
+  Kui,
+  ContextWidgets,
+  MeterWidgets,
+} from "@kui-shell/plugin-client-common";
+import {
+  CurrentContext,
+  CurrentNamespace,
+} from "@kui-shell/plugin-kubectl/components";
+import { ClusterUtilization } from "@kui-shell/plugin-kubectl/view-utilization";
+import { ProxyOfflineIndicator } from "@kui-shell/plugin-proxy-support";
 
-
-
-const wrapper = document.querySelector('.main')
+const wrapper = document.querySelector(".main");
 if (wrapper) {
-  render(<Kui  bottomInput />, wrapper)
+  render(
+    <Kui bottomInput>
+      <ContextWidgets>
+        <CurrentContext />
+        <CurrentNamespace />
+      </ContextWidgets>
+
+      <MeterWidgets>
+        <ClusterUtilization />
+        <ProxyOfflineIndicator />
+      </MeterWidgets>
+    </Kui>,
+    wrapper
+  );
 }
