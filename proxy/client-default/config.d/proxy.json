@@ -5,5 +5,7 @@
     "needleOptions": {
       "rejectUnauthorized": false
     }
-  }
+  },
+  "shellExe": "/bin/rbash",
+  "shellOpts": ["-r"]
 }
