@@ -6,6 +6,6 @@
       "rejectUnauthorized": false
     }
   },
-  "shellExe": "/bin/rbash",
+  "shellExe": "/usr/bin/rbash",
   "shellOpts": ["-r"]
 }
