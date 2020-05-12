@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Red Hat, Inc.
+
 /*******************************************************************************
  * Licensed Materials - Property of IBM
  * (c) Copyright IBM Corporation 2019. All Rights Reserved.
@@ -37,6 +39,8 @@ async function createUser(user) {
     else {
       adduserCmd = "umask 0077 && rbash -c 'useradd --uid " + user.uid + " --home-dir " + user.home + " --comment \"\" " + user.name + "'"
     }
+    adduserCmd = adduserCmd + ` && chmod a-w ${user.home}/.bashrc && chmod a-w ${user.home}/.bash_profile`
+    adduserCmd = adduserCmd + ` && chown 0:0 ${user.home}/.bashrc && chown 0:0 ${user.home}/.bash_profile`
   
     console.log('creating user: ' + adduserCmd)
     await exec(adduserCmd, {
