@@ -39,6 +39,7 @@ async function createUser(user) {
     }
     //add security lock for bashrc & bash_profile
     adduserCmd = adduserCmd + ` && chmod a-w ${user.home}/.bashrc && chmod a-w ${user.home}/.bash_profile`
+    adduserCmd = adduserCmd + ` && chown 0:0 ${user.home}/.bashrc && chown 0:0 ${user.home}/.bash_profile`
   
     console.log('creating user: ' + adduserCmd)
     await exec(adduserCmd, {
