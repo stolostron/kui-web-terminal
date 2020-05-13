@@ -17,6 +17,9 @@ client/dist
 client/node_modules
 client/plugins/plugin-sample
 client/kui-webpack-tmp
+client/src/**/*.js
+client/src/**/*.js.map
+client/src/**/*.d.ts
 tmp
 tmp/kui
 .keys

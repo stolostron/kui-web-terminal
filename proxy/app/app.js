@@ -61,7 +61,7 @@ app.use(csp({
   // Specify directives as normal.
   directives: {
     defaultSrc: ["'none'"],
-    scriptSrc: ["'self'", "'unsafe-inline'",(req, res) => `'nonce-${res.locals.nonce}'`],
+    scriptSrc: ["'self'", "'unsafe-inline'","'unsafe-eval'",(req, res) => `'nonce-${res.locals.nonce}'`],
     styleSrc: ["'self'","'unsafe-inline'"],
     fontSrc: ["'self'"],
     connectSrc: ["'self'",'wss:'],

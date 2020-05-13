@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2020 Red Hat, Inc.
+ */
 /*******************************************************************************
  * Licensed Materials - Property of IBM
  * (c) Copyright IBM Corporation 2019. All Rights Reserved.
@@ -77,11 +80,6 @@ headElement.appendChild(mcmKuiLink)
 const scripts = Array.from(document.querySelectorAll('script'))
 const links = Array.from(document.querySelectorAll('link'))
 
-// Fix inline webpack script
-const inlineWebpackScript = scripts.find(script => script.innerHTML.includes('window[\'_kuiWebpackResourceRoot\']') )
-inlineWebpackScript.innerHTML = inlineWebpackScript.innerHTML.replace('window[\'_kuiWebpackResourceRoot\']',';window[\'_kuiWebpackResourceRoot\']')
-inlineWebpackScript.innerHTML = inlineWebpackScript.innerHTML.replace('window[\'_kuiWebpackHash\']', ';window[\'_kuiWebpackHash\']')
-
 // Fix nonce
 //iterate through scripts/links, and replace nonce with variable
 const nonceScripts = scripts.filter(script => script.nonce === nonceReplace)
@@ -94,20 +92,20 @@ for(let link of nonceLinks){
   link.nonce = noncePlaceHolder
 }
 
-const staticAssetsPath = path.join(__dirname, '..', 'app', 'public')
+// const staticAssetsPath = path.join(__dirname, '..', 'app', 'public')
 
 // CSS hack for search
-const searchCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-search', 'mdist', 'src-web', 'styles', 'index.css')
-fs.copyFileSync(searchCssPath, staticAssetsPath + '/plugin-search.css')
+//const searchCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-search', 'mdist', 'src-web', 'styles', 'index.css')
+//fs.copyFileSync(searchCssPath, staticAssetsPath + '/plugin-search.css')
 
 // CSS hack for plugin-carbon-themes css files
-const carbonPluginCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-carbon-themes', 'web', 'css')
+/*const carbonPluginCssPath = path.join(__dirname, '..', '..', 'client', 'node_modules', '@kui-shell', 'plugin-carbon-themes', 'web', 'css')
 const stripeName = 'top-tab-stripe-alt.css'
 const stripePath = path.join(carbonPluginCssPath, stripeName)
 const plexName = 'ibm-plex.css'
 const plexPath = path.join(carbonPluginCssPath, plexName)
 fs.copyFileSync(stripePath, `${staticAssetsPath}/${stripeName}`)
-fs.copyFileSync(plexPath, `${staticAssetsPath}/${plexName}`)
+fs.copyFileSync(plexPath, `${staticAssetsPath}/${plexName}`)*/
 
 const domOutput = document.documentElement.innerHTML
 const viewsPath = path.join(__dirname, '..', 'app', 'views')
