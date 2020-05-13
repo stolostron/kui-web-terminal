@@ -2,6 +2,8 @@ const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FontConfigWebpackPlugin = require('font-config-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+const requireAll = require('require-all')
 const {DefinePlugin} = require('webpack')
 
 const mode = process.env.MODE || 'development'
@@ -24,6 +26,12 @@ const sassLoaderChain = [
   'css-loader',
   'sass-loader'
 ]
+
+const clientBase =  'node_modules/@kui-shell/client'
+
+const clientOptions = requireAll(path.resolve(path.join(clientBase, 'config.d')))
+console.log(clientOptions)
+clientOptions.style.bodyCss = ['not-electron']
 
 module.exports = {
   optimization: {
@@ -78,9 +86,14 @@ module.exports = {
     warnings: false
   },
   plugins: [
+    new CopyPlugin([
+      { from: path.join(clientBase, 'icons'), to: 'icons/' },
+      { from: path.join(clientBase, 'images'), to: 'images/' }
+    ]),
     new HtmlWebPackPlugin({
       template: './src/index.html.ejs',
-      filename: './index.html'
+      filename: './index.html',
+      clientOptions
     }),
     new MiniCssExtractPlugin(),
     new FontConfigWebpackPlugin(),

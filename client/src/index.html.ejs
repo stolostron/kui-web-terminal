@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title><%= htmlWebpackPlugin.options.clientOptions.name.productTitle %></title>
+
+    <!-- css overrides go here -->
+    <%= htmlWebpackPlugin.tags.headTags.map(_ => { _.attributes.nonce="{kuiNonce}"; return _ }).join('\n') %>
+
+    <link rel="shortcut icon" href="<%= htmlWebpackPlugin.options.clientOptions.icons.favicon %>" />
+
+    <script nonce="kuiDefaultNonce">
+      window['_kuiNonce'] = '{kuiNonce}';
+    </script>
+  </head>
+  <body>
+    <div class="page">
+      <div class="main"></div>
+    </div>
+  </body>
+</html>
