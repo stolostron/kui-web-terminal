@@ -1,4 +1,7 @@
 /*
+ * Copyright (c) 2020 Red Hat, Inc.
+ */
+/*
  * Copyright 2017-20 IBM Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,11 +34,7 @@ import {
     commandLine: CommandLine,
     { toBeCompleted }: TabCompletionSpec
   ): Promise<CompletionResponse[]> {
-    if (commandLine.argvNoOptions[0] === 'search') {
-      if (/kind:/.test(toBeCompleted)) {
-        return ['pod', 'deployment', 'secret']
-      }
-    }
+    return 
   }
   
   /**
