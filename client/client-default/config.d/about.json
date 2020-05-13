@@ -1,7 +1,7 @@
 {
   "menus": [
     {
-      "label": "Kui",
+      "label": "Visual Web Terminal",
       "items": [
         { "mode": "about", "content": "about:content", "contentType": "text/markdown" },
         { "mode": "gettingStarted", "content": "gettingStarted:content", "contentType": "text/markdown" },
@@ -11,6 +11,7 @@
   ],
   "links": [
     { "label": "Kubectl Help", "command": "kubectl --help" },
+    { "label": "oc Help", "command": "oc --help" },
     { "label": "API Resources", "command": "kubectl api-resources" }
   ]
 }
