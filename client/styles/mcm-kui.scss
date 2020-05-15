@@ -18,80 +18,80 @@
   height: calc(100% - 76px) // resize to accomodate common header
 }
 
-.still-loading { // input bar is visible while kui is loading
-  .kui--input-stripe {
-    visibility: hidden;
-  }
-}
+// .still-loading { // input bar is visible while kui is loading
+//   .kui--input-stripe {
+//     visibility: hidden;
+//   }
+// }
 
-// Make the page title show up
-.kui-header__title {
-  display: inline-flex !important; // hack because it's hard to override
-  font-weight: 400;
-}
+// // Make the page title show up
+// .kui-header__title {
+//   display: inline-flex !important; // hack because it's hard to override
+//   font-weight: 400;
+// }
 
-.result-table-outer .max-width-id-like { // fix table cell truncation issue
-  max-width: unset;
-  overflow: auto;
-  text-overflow: unset;
-  white-space: unset;
-}
+// .result-table-outer .max-width-id-like { // fix table cell truncation issue
+//   max-width: unset;
+//   overflow: auto;
+//   text-overflow: unset;
+//   white-space: unset;
+// }
 
-.result-as-table.result-as-multi-table { // helm status table display corrections
-  .repl-result.repl-result {
-    display: block;
+// .result-as-table.result-as-multi-table { // helm status table display corrections
+//   .repl-result.repl-result {
+//     display: block;
 
-    .result-table-outer-wrapper {
-      display: block;
-      margin-top: 1.5rem;
+//     .result-table-outer-wrapper {
+//       display: block;
+//       margin-top: 1.5rem;
 
-      &:first-of-type {
-        margin-top: 0;
-      }
+//       &:first-of-type {
+//         margin-top: 0;
+//       }
 
-      & > div {
-        padding-right: 0;
-      }
+//       & > div {
+//         padding-right: 0;
+//       }
   
-      .result-table-outer {
-        padding-right: 0;
-        width: 100%;
-        .result-table {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
+//       .result-table-outer {
+//         padding-right: 0;
+//         width: 100%;
+//         .result-table {
+//           width: 100%;
+//         }
+//       }
+//     }
+//   }
+// }
 
-#sidecar {
-  .sidecar-header {
+// #sidecar {
+//   .sidecar-header {
 
-    &-name-content {
-      .entity-name-line .entity-name {
-        word-break: unset;
-        max-height: unset;
-      }
-    }
+//     &-name-content {
+//       .entity-name-line .entity-name {
+//         word-break: unset;
+//         max-height: unset;
+//       }
+//     }
 
-  }
-  .sidecar-content-container { // helm get sidecar table display corrections
-    .result-as-table.repl-result {
-      display: block;
+//   }
+//   .sidecar-content-container { // helm get sidecar table display corrections
+//     .result-as-table.repl-result {
+//       display: block;
   
-      .result-table-outer-wrapper {
-        margin-top: 1.5rem;
-        display: block;
+//       .result-table-outer-wrapper {
+//         margin-top: 1.5rem;
+//         display: block;
   
-        &:first-of-type {
-          margin-top: 0;
-        }
-      }
-    }
-  }
-}
+//         &:first-of-type {
+//           margin-top: 0;
+//         }
+//       }
+//     }
+//   }
+// }
 
-// Hack to disable screenshot feature
-.kui--repl-prompt-buttons--screenshot, .screenshot-button {
-  display: none !important;
-}
+// // Hack to disable screenshot feature
+// .kui--repl-prompt-buttons--screenshot, .screenshot-button {
+//   display: none !important;
+// }
