@@ -46,7 +46,7 @@ jobs:
       script:
         - make sonar/js/jest-init
         - make component/test/unit
-        - sonar-scanner --debug
+        #- sonar-scanner --debug
         - make sonar/js
     - stage: build
       if: type = pull_request OR (type = push AND branch =~ /^release-[0-9]+\..*$/)
