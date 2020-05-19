@@ -44,10 +44,8 @@ jobs:
     - stage: unit-test
       name: "Run linting"
       script:
-        - make sonar/js/jest-init
         - make component/test/unit
         - sonar-scanner --debug
-        - make sonar/js
     - stage: build
       if: type = pull_request OR (type = push AND branch =~ /^release-[0-9]+\..*$/)
       name: "Build and push kui-web-terminal image"
