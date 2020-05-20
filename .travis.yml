@@ -15,6 +15,12 @@ branches:
     - master
     - /^release-[0-9]+\..*$/
 
+addons:
+  sonarcloud:
+    organization: "open-cluster-management"
+    token:
+      secure: "bVqGaU7lSi2Tzi7MaCqsf1FihMmlb9GhLicMY3/KPgvKMJ/nIgIX030rz2PDBeGuWdq7bqMNe2Vekfw8sqotJDPmudYfKbUx7DqNSakBlEcwegELDEIMjqslslK9sgqUaiCy4S6eNTS0ogBtRCLkL1s6p2e9IMHD7GQXajjxZu6p6o+iCa5g3g09P0IANUk5HDE1dg6OcOQTtvLUlGzcpeA0WRx7e4pORn8pCF+id4HA/iChW2u2adMErd8xR9J2KCPic9E5jU6vKm0caTK6eFcyWDcgd22uWYqcgNy+RN4zqyDS+YZrIPAEHcpKALbdOQHWw/Nb35YwY9T6YN6Cp3BCKva9nx/JxqJmgMn2LTzzGnaJxAcHyhhEvAu0qO9S+DVuXoQCtumcx5+j372CcMheFMYGjiXztTycTGS6cmpT+9FtptV4jy5Fyr3rykOQs1LrpL9Q9FZ5pu/snjdyFD8VVrDvhBUVRyrp5SHzQFPsmHT+BLP7tPvwcQ4ZKRM8usoFXs8wPDB9fGiem0JFFI3qKYtw/n2KMhsLHDsUEEunRwEuImt/jR/BQWsmgHF8BVXHMTgvN+pEbpwmRCeT2pjcA1OyuRJ6oQyO3uFLroM3sXEha0be9hL/241kFFpAf2eXdBLbPA1MxOqqUjE9YUV7PDTBk78eWeXfRhTlAi0="
+
 env:
   global:
     - COMPONENT_TAG_EXTENSION="-${TRAVIS_COMMIT}"
@@ -36,9 +42,10 @@ before_script:
 jobs:
   include:
     - stage: unit-test
-      name: "Run linting"
+      name: "Run linting, sonar scan"
       script:
         - make component/test/unit
+        - sonar-scanner --debug
     - stage: build
       if: type = pull_request OR (type = push AND branch =~ /^release-[0-9]+\..*$/)
       name: "Build and push kui-web-terminal image"
