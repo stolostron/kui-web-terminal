@@ -127,7 +127,7 @@ function getBodyMessage(body) {
 
 function addRequestHeaders(options, req) {
   for (var i in FORWARD_HEADERS) {
-    if (FORWARD_HEADERS.hasOwnProperty(i)) {
+    if (Object.prototype.hasOwnProperty.call(FORWARD_HEADERS, i)) {
       var value = req.get(i)
       if (value) {
         // forward headers as-is if true, or renamed if new name is specified
