@@ -21,7 +21,7 @@ exports.requestUrl = function(options) {
     var qs = options.qs,
         query = []
     for (var i in qs) {
-      if (qs.hasOwnProperty(i)) {
+      if (Object.prototype.hasOwnProperty.call(qs, i)) {
         query.push(encodeURIComponent(i) + '=' + encodeURIComponent(options.qs[i]))
       }
     }
@@ -43,7 +43,7 @@ exports.serializeIncomingRequest = function(req) {
   // headers
   if (req.headers) {
     for (var i in req.headers) {
-      if (req.headers.hasOwnProperty(i)) {
+      if (Object.prototype.hasOwnProperty.call(req.headers, i)) {
         var value = redactHeader(i, req.headers[i])
         buf.push(capitalizeHeaderName(i), ': ', value, '\n')
       }
@@ -76,7 +76,7 @@ exports.serializeRequest = function(options) {
     buf.push('Content-Type: application/x-www-form-urlencoded\n')
   }
   for (var i in options.headers) {
-    if (options.headers.hasOwnProperty(i)) {
+    if (Object.prototype.hasOwnProperty.call(options.headers, i)) {
       var value = redactHeader(i, options.headers[i])
       buf.push(i, ': ', value, '\n')
     }
@@ -108,7 +108,7 @@ exports.serializeResponse = function(res) {
 
   // headers
   for (var i in res.headers) {
-    if (res.headers.hasOwnProperty(i)) {
+    if (Object.prototype.hasOwnProperty.call(res.headers, i)) {
       var value = redactHeader(i, res.headers[i])
       buf.push(capitalizeHeaderName(i), ': ', value, '\n')
     }
@@ -180,7 +180,7 @@ function redactUrl(urlParam) {
     if (query) {
       var queryObj = querystring.parse(query)
       for (var i in queryObj) {
-        if (queryObj.hasOwnProperty(i)) {
+        if (Object.prototype.hasOwnProperty.call(queryObj, i)) {
           switch (i) {
           case 'token':
             queryObj[i] = '***'
