@@ -30,11 +30,11 @@ import {
 } from "@kui-shell/plugin-kubectl/components";
 import { ClusterUtilization } from "@kui-shell/plugin-kubectl/view-utilization";
 import { ProxyOfflineIndicator } from "@kui-shell/plugin-proxy-support";
-
+import { productName } from '@kui-shell/client/config.d/name.json'
 const wrapper = document.querySelector(".main");
 if (wrapper) {
   render(
-    <Kui bottomInput>
+    <Kui bottomInput productName={productName}>
       <ContextWidgets>
         <CurrentContext />
         <CurrentNamespace />
