@@ -33,8 +33,9 @@ KUI process will be able to execute corresponding plugins for each command base 
   - installed only on client side
   - inject to kui's page for customized input bar & tokens
 - [configs](https://github.com/open-cluster-management/kui-web-terminal/tree/master/client/client-default): all configs
-  - added for 6.0.x
-  - may not be the same if using 8.0.x
+  - [about](https://github.com/open-cluster-management/kui-web-terminal/blob/master/client/client-default/config.d/about.json)
+  - [name](https://github.com/open-cluster-management/kui-web-terminal/blob/master/client/client-default/config.d/name.json)
+  - [proxy settings](https://github.com/open-cluster-management/kui-web-terminal/blob/master/client/client-default/config.d/proxy.json)
 - [plugin carbon themes](https://github.com/IBM/kui/tree/master/plugins/plugin-carbon-themes)
   - IBM carbon themes we are using
 
@@ -69,6 +70,8 @@ When user open a kui page, the following will happen:
 
 
 ## rbash
+- in v8, we have to set up in [config.d/proxy.json](https://github.com/open-cluster-management/kui-web-terminal/blob/master/client/client-default/config.d/proxy.json) as default shell in oss KUI is `/bin/bash`
+- in v6, we set env var `SHELL=/bin/rbash`
 - only allow user to execute commands in /usr/local/bin
 
    https://github.com/open-cluster-management/kui-web-terminal/blob/master/Dockerfile#L127-L153
@@ -77,12 +80,28 @@ When user open a kui page, the following will happen:
 
     https://github.com/open-cluster-management/kui-web-terminal/blob/master/Dockerfile#L115-L125
 
+## Scalability
+Issue: https://github.com/open-cluster-management/backlog/issues/564
+### Auto Scale (Not Supported)
+KUI has an https request before websocket connection, so it's not easy to scale. 
+(e.g. We have a https request & websocket connection, if these two requests doesn't go to the same pod, kui will not work.)
+
+ICP ingress doesn't support sticky session, so we will not support HPA.
+
+### Performance of Single Pod
+Because each tab will trigger a creation of KUI subprocess, which is node.js process, which takes at least 10MB. A user open 30 tabs in KUI will makes us hit our memory limit.
+
+`kubectl`/`helm` commands are pretty cpu intensive, and we have tested with sending 10 concurrent `kubectl get po` every 10 seconds, we will hit our cpu limits, and kui will drop/timeout some of the commands if we increase the number of concurrent commands we send.
+
+
 ## Others
 ### Hacks for header
-We want to render header, but kui's html is generated inside kui's npm package.
+We want to render header, but before v8, kui's html is generated inside kui's npm package.
 
 Used a script to modify the kui's html page to allow us inject header & other logic:
 https://github.com/open-cluster-management/kui-web-terminal/blob/master/proxy/scripts/generate-template.js
+
+We are still using it for v8, but it's possible that we can refactor it.
 
 ## Limitations
 - kui has weird design of plugin convention (same code to run on both client & server)
@@ -106,6 +125,6 @@ https://github.com/open-cluster-management/kui-web-terminal/blob/master/proxy/sc
   - build time so it cannot be user specific
 - hard to create a plugin
   - oss kui needs more docs
-  - oss kui didn't design APIs well (they expect every plugin to be self contained at first, now they start to have reusable tables/sidecar, but still missing many functions)
+  - oss kui didn't design APIs well (they expect every plugin to be self contained at first, now they start to have reusable tables/sidecar, but still missing many functions & docs)
 - hard to do development
-  - without a fork, if there is any bug of oss kui, we have to debug in npm packages, and which happens a lot.
+  - without a fork, if there is any bug of oss kui, we have to debug in npm packages, which happens a lot.
