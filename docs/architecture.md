@@ -114,7 +114,7 @@ We are still using it for v8, but it's possible that we can refactor it.
   - `kubectl` commands can be very cpu consuming. According to some tests, currently we can at most support 10 concurrent clients sending `kubectl` requests (as we have 300m cpu limits)
   - hard to scale: current architecture has websocket & user home folder (stateful), so need sticky session if we are doing horizontal scaling.
 - non-persistent home folder
-  - every time websocket closed we remove home folder
+  - every time a websocket is closed we remove home folder
 - potential security problems
   - rbash is easy to hack
   - we are using root account
@@ -122,7 +122,7 @@ We are still using it for v8, but it's possible that we can refactor it.
   - every time we update kui(even minor version updates), our integration will break
 - everything is build time
   - oss kui plugin model requires `npm install`/`npm uninstall` not possible to enable/disable at runtime
-  - build time so it cannot be user specific
+  - build time (before we build downstream container) so it cannot be very user specific
 - hard to create a plugin
   - oss kui needs more docs
   - oss kui didn't design APIs well (they expect every plugin to be self contained at first, now they start to have reusable tables/sidecar, but still missing many functions & docs)
