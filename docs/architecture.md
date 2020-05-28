@@ -54,7 +54,7 @@ When user open a kui page, the following will happen:
 
      https://github.com/open-cluster-management/kui-web-terminal/blob/master/proxy/app/routes/exec.js
 3. client connect websocket, and show ready
-
+4. when websocket is closed, child process will be closed. Details: [stdio-channel.ts](https://github.com/IBM/kui/blob/master/plugins/plugin-bash-like/src/pty/stdio-channel.ts)
 
 ## User Command Flow
 - If a command only requires front-end plugin (search), will be executed in front-end.
