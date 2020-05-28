@@ -1,5 +1,7 @@
 # Current Architecture
 
+[swimlane](https://swimlanes.io/#pVRNb9swDL3rV/DUJgFsoT0aww7LDi2GYsXSrcdZVrhYsy15EtVs/36U4qTpkBYtZsCARfPrvUeKDPVYwTcTourhHhu4Qz8YywchxPcKFouLErbYBKc7JAj8xhF+OA+odAsWt0CqWSyEWPYGLcGVCwTFe1ihf0APN8pYuPVOYwgVtERjgPr28+oOJP5GDeeNCu1RATeiPa+FOBGesi6dJTahr0B7VISggHAYIQb2nkWzlq0bcP6aBLXT0LuNsTVsDbVArkML7J5zefwVkaFo5zqDMFN6KJROaYrsWOx+zOHZUp++XsMqNuMe/HLXcDiYYGbdGsuf4cg2z9ym0F1PLU5A15DAbSaALxa9P7B5pey6z2Q5G8hHzer5HmqZWJeRM17UcDYhr9P5ss4NPArCkRY1GWdLCKQ8QW8CoTV2w3EnHYWwjrASJ3sBExLHQ+p7z0OG6p0jGNP0hZCrLZmcyfv6w43sojkPMPaRFStS/0VvOiyF+IisaM8ECzH2qAIz1qLuMnfOLg9tzZjbaPNnyplnsZJMKbWxKbUb5FRGNr1r5KAYppe7gkH+W1gGr+VIf2TIQpQUhHiqOLx7UY/U1RF9Z8eDkQlRMJrxeaWP9q3ivbTrpEijGPhj0v8R++lGvwXLdHFclvAl2jwoTO7A7oHviVcmTYD2YftdlB41mgc82NeK1BtITxdOpEM4C8bPXw==)
+
 ## Client & Proxy
 [Client](https://github.com/open-cluster-management/kui-web-terminal/tree/master/client) is the front-end code.
 [Proxy](https://github.com/open-cluster-management/kui-web-terminal/tree/master/proxy) is the server. 
