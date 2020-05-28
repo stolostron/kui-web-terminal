@@ -1,7 +1,11 @@
 {
-  "modes": [
-    { "mode": "about", "content": "about:content", "contentType": "text/markdown" },
-    { "mode": "gettingStarted", "content": "gettingStarted:content", "contentType": "text/markdown" },
-    { "mode": "configure", "contentFrom": "themes" }
+  "menus": [
+    {
+      "label": "Visual Web Terminal",
+      "items": [
+        { "mode": "about", "content": "about:content", "contentType": "text/markdown" },
+        { "mode": "gettingStarted", "content": "gettingStarted:content", "contentType": "text/markdown" }
+      ]
+    }
   ]
 }

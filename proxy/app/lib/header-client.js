@@ -16,7 +16,7 @@ const HEADER_URL = process.env.HEADER_SERVICE || process.env.ICP_EXTERNAL_URL
 
 exports.getHeader = (req, cb) => {
 
-  process.env.NODE_ENV === 'development' && cb(true)
+  if(process.env.NODE_ENV === 'development'){ return cb(true)}
 
   const options = httpUtil.getOptions(req, `${HEADER_URL}${HEADER_CONTEXT_PATH}/api/v1/header?serviceId=kui&dev=false`)
   const cookie = `acm-access-token-cookie=${process.env.AUTH_TOKEN}`

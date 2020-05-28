@@ -1,4 +1,4 @@
-# kui-proxy
+# kui-web-terminal
 [![Build Status](https://travis-ci.com/open-cluster-management/kui-web-terminal.svg?token=XE6GVz1S58Uhs2nyhnqs&branch=master)](https://travis-ci.com/open-cluster-management/kui-web-terminal)
 
 Docker image for the KUI UI and proxy to be used in Visual Web Terminal
@@ -9,17 +9,17 @@ Building kui requires homebrew, gtar, and jq.
 - Install gtar: `brew install gnu-tar`
 - Install jq: `brew install jq`
 
+- Install nodejs v10.18: https://nodejs.org/ru/blog/release/v10.18.0/.  For example, on MacOS, https://nodejs.org/dist/v10.18.0/node-v10.18.0.pkg
+
 Specify some environment variables
 ```
-<!-- export ARTIFACTORY_USER=myArtifactoryEmail
-export ARTIFACTORY_TOKEN=myArtifactoryAPIKey -->
+export GITHUB_USER=your-user-name
 export GITHUB_TOKEN=myGithubToken
 ```
 
 Before building images, you will need to download all executables and plugins:
 ```
 make init
-make docker-login
 make download-clis
 make download-plugins
 ```
@@ -46,7 +46,7 @@ make build-image
 ```
 
 
-### To build the client part only 
+### To build the client part only
 
 1. install the dependencies for the client
 ```
@@ -63,7 +63,7 @@ make webpack
 ```
 make install-proxy
 ```
-2. build the _proxy_ 
+2. build the _proxy_
 ```
 make headless
 ```
@@ -120,7 +120,7 @@ download "github-repo-name" "release-tgz-filename" "release-version"
     helm install --set proxy.clusterIP=your.icp.ip,proxy.clusterPort=8443 --name mcm-kui --namespace default ibm-mcm-kui-99.99.99.tgz --tls
    ```
 
-3. Use KUI by visiting `https://your.cluster.ip:port/kui` 
+3. Use KUI by visiting `https://your.cluster.ip:port/kui`
 
 4. Login with `cloudctl login` -->
 
@@ -150,21 +150,15 @@ export K8S_CLUSTER_PASSWORD=your-password
 | clean-downloads         |    Removes the /downloads and /plugin-downloads directories. |
 | clean-kui               |    Runs the commands for clean-client, clean-proxy, and clean-downloads. |
 | clean-proxy             |    Removes the tmp directory in root and the build and node_modules directories in /proxy. |
-<!-- | docker-login            |    Docker login to the integration artifactory registry. | -->
-<!-- | docker-login-dev        |    Docker login to the scratch artifactory registry. |  -->
-<!-- | docker-login-edge       |    Docker login to the edge artifactory registry. | -->
-<!-- | docker-logins           |    Docker login to the integration and scratch artifactory registries. | -->
 | download-clis           |    Downloads the CLI binaries to the /downloads directory. |
 | download-plugins        |    Downloads the plugin packages to the /plugin-downloads directory. |
 | dust-template           |    Generates the Dust template that renders the kui-web-terminal UI. |
 | headless                |    Builds the open-source KUI proxy component. |
-<!-- | init                    |    Downloads the CICD build-harness. | -->
 | install                 |    Downloads plugin dependencies and npm installs /client and /proxy dependencies. |
-| install-client          |    Installs the /client package.json npm packages. | 
+| install-client          |    Installs the /client package.json npm packages. |
 | install-proxy           |    Installs the /proxy package.json npm packages. |
 | lint                    |    Runs linting on the /proxy directory. |
 | lint-proxy              |    Runs linting on the /proxy directory. |
-<!-- | release                 |    Pushes the MCM-KUI docker image to the docker registry. | -->
 | run                     |    Runs the proxy image. |
 | run-all-tests           |    Runs the Nightwatch tests from the mcm-kui-tests repo. |
 | update-kui              |    Updates the open-source KUI dependencies based on KUI_UPDATE_VERSION, KUBEUI_UPDATE_VERSION variable. |
@@ -191,4 +185,3 @@ export K8S_CLUSTER_PASSWORD=your-password
 | lint-proxy              |    Runs linting on the /proxy directory. |
 | proxy-update-plugins    |    Updates the /proxy package.json plugin packages. Should run 'make download-plugins' first. |
 | update-proxy            |    Updates the /proxy KUI dependencies based on KUI_UPDATE_VERSION variable. |
- 

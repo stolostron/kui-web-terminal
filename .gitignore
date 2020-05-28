@@ -7,6 +7,8 @@ proxy/dist
 proxy/kui
 proxy/app/views/main.dust
 proxy/app/public/plugin-search.css
+proxy/app/public/ibm-plex.css
+proxy/app/public/top-tab-stripe-alt.css
 client/build
 client/packages/app/build
 client/packages/app/src/main.ts
@@ -15,6 +17,9 @@ client/dist
 client/node_modules
 client/plugins/plugin-sample
 client/kui-webpack-tmp
+client/src/**/*.js
+client/src/**/*.js.map
+client/src/**/*.d.ts
 tmp
 tmp/kui
 .keys

@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Red Hat, Inc.
+
 /*******************************************************************************
  * Licensed Materials - Property of IBM
  * (c) Copyright IBM Corporation 2017, 2019. All Rights Reserved.
@@ -125,11 +127,13 @@ function getBodyMessage(body) {
 
 function addRequestHeaders(options, req) {
   for (var i in FORWARD_HEADERS) {
-    var value = req.get(i)
-    if (value) {
-      // forward headers as-is if true, or renamed if new name is specified
-      var name = (FORWARD_HEADERS[i] === true) ? i : FORWARD_HEADERS[i]
-      addHeader(options, name, value)
+    if (Object.prototype.hasOwnProperty.call(FORWARD_HEADERS, i)) {
+      var value = req.get(i)
+      if (value) {
+        // forward headers as-is if true, or renamed if new name is specified
+        var name = (FORWARD_HEADERS[i] === true) ? i : FORWARD_HEADERS[i]
+        addHeader(options, name, value)
+      }
     }
   }
 }

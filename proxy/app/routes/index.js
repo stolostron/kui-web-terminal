@@ -29,7 +29,9 @@ router.get('/', function (req, res, next) {
   headerClient.getHeader(req, (err, headerRes) => {
     if (err) {
       console.error('Request for header failed: ', err)
-      return res.render('main', Object.assign({ header: '', propsH: '', stateH: '', filesH: '', kuiNonce: nonce }))
+      res.render('main', Object.assign({ header: '', propsH: '', stateH: '', filesH: '', kuiNonce: nonce }))
+      console.log('finished render')
+      return
     }
 
     const { headerHtml: header, props: propsH, state: stateH, files: filesH } = headerRes
