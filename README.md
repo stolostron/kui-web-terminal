@@ -66,7 +66,7 @@ export GITHUB_TOKEN=myGithubToken
 
 ## How to build
 
-_The .travis.yml is always a good place to reference the build steps as well._
+_The .travis.yml is always a good place to reference the build steps._
 
 ### Prerequisites:
 Before building images, you will need to download all executables and plugins:
@@ -140,7 +140,7 @@ make clean-kui
 ---
 
 ## How to integrate/update plugins (LEGACY)
-1. Make sure you have a GitHub release asset .tgz file.
+1. Make sure you have a GitHub release asset .tgz file. (e.g. https://github.com/open-cluster-management/plugin-kui-addons/releases)
 2. In the `download-plugins.sh` script, add a line to download your plugin:
 ```
 download "github-repo-name" "release-tgz-filename" "release-version"
@@ -166,22 +166,22 @@ _We only support client/front-end KUI plugins_
 
 ## How to run image locally
 1. `oc login` to your OpenShift cluster; we will use the kube token from this login to create the `acm-access-token-cookie` to fetch the RHACM header and perform the `oc login` in the terminal session.
-2. If you don't already have the test submodule, initialize and fetch the automated tests repo by running `git submodule update --init --recursive`
+2. If you don't already have the test submodule, initialize and fetch the automated tests repo by running `git submodule update --init --recursive`.  The docker run make target in step 4 has a dependency on the test submodule Makefile.
 3. Follow the steps in [mcm-kui-tests](https://github.com/open-cluster-management/mcm-kui-tests#how-to-run-nightwatch-tests) to set up env vars:
 ```
 export K8S_CLUSTER_MASTER_IP=https://your.cluster.ip:port
 export K8S_CLUSTER_USER=your-username
 export K8S_CLUSTER_PASSWORD=your-password
 ```
-4. `make run DOCKER_IMAGE_AND_TAG=<your kui-web-terminal image name>`
+4. `make run DOCKER_IMAGE_AND_TAG=<your kui-web-terminal image name (e.g. quay.io/open-cluster-management/kui-web-terminal:1.0.0)>`
 
 ---
 
 ## How to debug kui-web-terminal
 Proxy/Server: 
 - Add an environment variable to the container:  `DEBUG='*'`
-Client/UI:
-- Browser developer tools > Application tab > Local Storage > Add `debug='*'`'
+Client/UI (from the VWT page):
+- Browser developer tools > Application tab > Local Storage > Add `debug='*'`'.  View logs in Browser developer tools > Console tab.
 - Browser developer tools > Network tab > Filter requests by WebSocket/WS > Click the request in the table > Click Messages tab
 
 ---
@@ -196,7 +196,8 @@ Client/UI:
 ## How to run kui-web-terminal tests
 
 1. If you don't already have the test submodule, initialize and fetch the automated tests repo by running `git submodule update --init --recursive`
-2. Follow the steps in [mcm-kui-tests](https://github.com/open-cluster-management/mcm-kui-tests).
+2. `cd tests`
+3. Follow the steps in [mcm-kui-tests](https://github.com/open-cluster-management/mcm-kui-tests).
 
 ---
 
