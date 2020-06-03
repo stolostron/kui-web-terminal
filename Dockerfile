@@ -92,6 +92,9 @@ ENV LINUX_DISTRO rhel
 # ubi8/nodejs-10 base image seems to need this
 USER root
 
+# keep image up-to-date by pulling latest fixes
+RUN yum -y update
+
 WORKDIR /kui-proxy/kui
 
 
