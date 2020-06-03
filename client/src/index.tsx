@@ -35,7 +35,7 @@ import { productName } from '@kui-shell/client/config.d/name.json'
 const wrapper = document.querySelector(".main");
 if (wrapper) {
   render(
-    <Kui bottomInput={<CustomSearchInput/>} productName={productName}>
+    <Kui bottomInput={<CustomSearchInput/>} productName={productName} noPromptContext prompt="&#x276f;">
       <ContextWidgets>
         <CurrentContext />
         <CurrentNamespace />
