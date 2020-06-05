@@ -28,6 +28,7 @@ import {
   CurrentContext,
   CurrentNamespace,
 } from "@kui-shell/plugin-kubectl/components";
+import CustomSearchInput from "@kui-shell/plugin-search/mdist/components/CustomSearchInput"
 import { ClusterUtilization } from "@kui-shell/plugin-kubectl/view-utilization";
 import { ProxyOfflineIndicator } from "@kui-shell/plugin-proxy-support";
 import { productName } from '@kui-shell/client/config.d/name.json'
@@ -36,7 +37,7 @@ import CustomSearchInput from '@kui-shell/plugin-search/mdist/components/CustomS
 const wrapper = document.querySelector(".main");
 if (wrapper) {
   render(
-    <Kui bottomInput={<CustomSearchInput/>} productName={productName}>
+    <Kui bottomInput={<CustomSearchInput/>} productName={productName} noPromptContext prompt="&#x276f;">
       <ContextWidgets>
         <CurrentContext />
         <CurrentNamespace />
