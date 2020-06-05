@@ -32,7 +32,6 @@ import CustomSearchInput from "@kui-shell/plugin-search/mdist/components/CustomS
 import { ClusterUtilization } from "@kui-shell/plugin-kubectl/view-utilization";
 import { ProxyOfflineIndicator } from "@kui-shell/plugin-proxy-support";
 import { productName } from '@kui-shell/client/config.d/name.json'
-import CustomSearchInput from '@kui-shell/plugin-search/mdist/components/CustomSearchInput'
 
 const wrapper = document.querySelector(".main");
 if (wrapper) {
