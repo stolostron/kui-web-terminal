@@ -64,6 +64,7 @@ module.exports = {
     ]
   },
   output: {
+    jsonpFunction: 'webpackJsonpFunction3',
     path: path.resolve('./dist/webpack/kui'),
     publicPath: '/kui/'
   },
