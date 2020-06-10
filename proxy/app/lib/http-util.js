@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Red Hat, Inc.
+
 /*******************************************************************************
  * Licensed Materials - Property of IBM
  * (c) Copyright IBM Corporation 2017, 2019. All Rights Reserved.
@@ -19,7 +21,9 @@ exports.requestUrl = function(options) {
     var qs = options.qs,
         query = []
     for (var i in qs) {
-      query.push(encodeURIComponent(i) + '=' + encodeURIComponent(options.qs[i]))
+      if (Object.prototype.hasOwnProperty.call(qs, i)) {
+        query.push(encodeURIComponent(i) + '=' + encodeURIComponent(options.qs[i]))
+      }
     }
     if (query.length) {
       return options.url += '?' + query.join('&')
@@ -39,8 +43,10 @@ exports.serializeIncomingRequest = function(req) {
   // headers
   if (req.headers) {
     for (var i in req.headers) {
-      var value = redactHeader(i, req.headers[i])
-      buf.push(capitalizeHeaderName(i), ': ', value, '\n')
+      if (Object.prototype.hasOwnProperty.call(req.headers, i)) {
+        var value = redactHeader(i, req.headers[i])
+        buf.push(capitalizeHeaderName(i), ': ', value, '\n')
+      }
     }
   }
   if (req.body && typeof req.body === 'string') {
@@ -70,8 +76,10 @@ exports.serializeRequest = function(options) {
     buf.push('Content-Type: application/x-www-form-urlencoded\n')
   }
   for (var i in options.headers) {
-    var value = redactHeader(i, options.headers[i])
-    buf.push(i, ': ', value, '\n')
+    if (Object.prototype.hasOwnProperty.call(options.headers, i)) {
+      var value = redactHeader(i, options.headers[i])
+      buf.push(i, ': ', value, '\n')
+    }
   }
 
   // body
@@ -100,8 +108,10 @@ exports.serializeResponse = function(res) {
 
   // headers
   for (var i in res.headers) {
-    var value = redactHeader(i, res.headers[i])
-    buf.push(capitalizeHeaderName(i), ': ', value, '\n')
+    if (Object.prototype.hasOwnProperty.call(res.headers, i)) {
+      var value = redactHeader(i, res.headers[i])
+      buf.push(capitalizeHeaderName(i), ': ', value, '\n')
+    }
   }
 
   // body
@@ -170,9 +180,11 @@ function redactUrl(urlParam) {
     if (query) {
       var queryObj = querystring.parse(query)
       for (var i in queryObj) {
-        switch (i) {
-        case 'token':
-          queryObj[i] = '***'
+        if (Object.prototype.hasOwnProperty.call(queryObj, i)) {
+          switch (i) {
+          case 'token':
+            queryObj[i] = '***'
+          }
         }
       }
       urlObj.query = querystring.stringify(queryObj)

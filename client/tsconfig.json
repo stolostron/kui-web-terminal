@@ -15,5 +15,8 @@
       "experimentalDecorators": true,
       "resolveJsonModule": true,
       "lib": ["dom", "esnext", "es6", "dom.iterable", "scripthost"]
-    }
+    },
+    "references": [
+      {}
+    ]
 }
