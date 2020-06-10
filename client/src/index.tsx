@@ -34,7 +34,7 @@ import { productName } from '@kui-shell/client/config.d/name.json'
 const wrapper = document.querySelector(".main");
 if (wrapper) {
   render(
-    <Kui bottomInput productName={productName}>
+    <Kui bottomInput productName={productName} noPromptContext prompt="&#x276f;">
       <ContextWidgets>
         <CurrentContext />
         <CurrentNamespace />
