@@ -10,10 +10,10 @@
  *******************************************************************************/
 'use strict'
 
-var httpUtil = require('./http-util'),
+let httpUtil = require('./http-util'),
     request = require('requestretry')
 
-var REQUEST_DEFAULTS = {
+let REQUEST_DEFAULTS = {
   strictSSL: false,
   maxSockets: 200,
   timeout: 15 * 1000,
@@ -22,16 +22,16 @@ var REQUEST_DEFAULTS = {
   retryStrategy: request.RetryStrategies.HTTPOrNetworkError
 }
 
-var FORWARD_HEADERS = {
+let FORWARD_HEADERS = {
   'Accept-Language': true,
   'Authorization': true,
   'X-Client-IP': true,
   'User-Agent': 'X-Client-User-Agent'
 }
 
-var defaultSlowThreshold = 10 * 1000
+let defaultSlowThreshold = 10 * 1000
 
-var requestNum = 1
+let requestNum = 1
 
 /**
  * A convenience wrapper around the request module that adds SSO authentication,
@@ -50,33 +50,34 @@ var requestNum = 1
 module.exports = function (options, req, acceptedStatusCodes, callback, logger, slowThreshold, reqOptions) {
   request = request.defaults(reqOptions || REQUEST_DEFAULTS)
   slowThreshold = slowThreshold || defaultSlowThreshold
-  var requestId = '#' + requestNum++
+  let requestId = '#' + requestNum
+  requestNum++
   if (req) {
     addRequestHeaders(options, req)
   }
 
-  var agentOptions = options.agentOptions || {}
+  let agentOptions = options.agentOptions || {}
   agentOptions.securityOptions = 'SSL_OP_NO_SSLv3'
   agentOptions.secureProtocol = 'TLSv1_2_method'
   options.agentOptions = agentOptions
 
   if (logger) {
-    var calledFrom = new Error('Called From:')
+    let calledFrom = new Error('Called From:')
     logRequest(options, logger, requestId)
   }
-  var startTime = new Date()
+  let startTime = new Date()
 
   request(options, (error, res, body) => {
-    var endTime = new Date()
+    let endTime = new Date()
     if (error) {
-      var error2 = new Error(getBodyMessage(body))
+      let error2 = new Error(getBodyMessage(body))
       error2.details = 'Error making request: ' + error + '\n' + httpUtil.serializeRequest(options) + '\n' + error + '\n'
       error2.statusCode = error.statusCode
       callback(error2, res, body)
       return
     }
     if (logger) {
-      var duration = endTime - startTime
+      let duration = endTime - startTime
       if (duration >= slowThreshold) {
         logSlowResponse(options, res, logger, duration)
       }
@@ -96,12 +97,12 @@ module.exports = function (options, req, acceptedStatusCodes, callback, logger, 
           ].join(''))
         }
         if (req && req.res) {
-          var res2 = req.res
+          let res2 = req.res
           res2.status(500).send('Error: 500 Internal Server Error')
         }
       }
     } else {
-      var invalidResponseError = new Error(getBodyMessage(body))
+      let invalidResponseError = new Error(getBodyMessage(body))
       invalidResponseError.statusCode = res.statusCode
       invalidResponseError.details = 'Unexpected response code ' + res.statusCode + ' from request:\n' + httpUtil.serializeRequest(options) + '\n' + httpUtil.serializeResponse(res)
       invalidResponseError.message = (body.error && body.error.message) || body.message
@@ -116,7 +117,7 @@ function getBodyMessage(body) {
   }
   if (typeof body === 'string' || body instanceof String) {
     try {
-      var jsonBody = JSON.parse(body)
+      let jsonBody = JSON.parse(body)
       return jsonBody ? jsonBody.message : ''
     } catch (syntaxErrorException) {
       return ''
@@ -126,12 +127,12 @@ function getBodyMessage(body) {
 }
 
 function addRequestHeaders(options, req) {
-  for (var i in FORWARD_HEADERS) {
+  for (let i in FORWARD_HEADERS) {
     if (Object.prototype.hasOwnProperty.call(FORWARD_HEADERS, i)) {
-      var value = req.get(i)
+      let value = req.get(i)
       if (value) {
         // forward headers as-is if true, or renamed if new name is specified
-        var name = (FORWARD_HEADERS[i] === true) ? i : FORWARD_HEADERS[i]
+        let name = (FORWARD_HEADERS[i] === true) ? i : FORWARD_HEADERS[i]
         addHeader(options, name, value)
       }
     }
@@ -139,7 +140,7 @@ function addRequestHeaders(options, req) {
 }
 
 function addHeader(options, name, value) {
-  var headers = options.headers
+  let headers = options.headers
   if (!headers) {
     headers = options.headers = {}
   }
@@ -148,14 +149,14 @@ function addHeader(options, name, value) {
 
 function logRequest(options, logger, requestId) {
   if (logger.isDebugEnabled()) {
-    var requestStr = httpUtil.serializeRequest(options)
+    let requestStr = httpUtil.serializeRequest(options)
     logger.debug('request ' + requestId + '\n' + requestStr)
   }
 }
 
 function logResponse(res, options, logger, requestId, duration) {
   if (logger.isDebugEnabled()) {
-    var responseStr = httpUtil.serializeResponse(res)
+    let responseStr = httpUtil.serializeResponse(res)
     logger.debug('response ' + requestId + ' - ' + duration + ' ms\n' + responseStr)
   } else if (logger.isInfoEnabled()) {
     logger.info([(options.method || 'GET'), ' ', httpUtil.requestUrl(options), ' ', res.statusCode, ' HTTP/1.1 (', duration, ' ms)'].join(''))

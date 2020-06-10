@@ -13,8 +13,8 @@ const debug = require('debug')('proxy/userUtils');
 const util = require('util');
 const child_process=require('child_process');
 const exec = util.promisify(child_process.exec);
-const LINUX_DISTRO = process.env["LINUX_DISTRO"];
-const INSECURE_MODE = process.env["INSECURE_MODE"];
+const LINUX_DISTRO = process.env['LINUX_DISTRO'];
+const INSECURE_MODE = process.env['INSECURE_MODE'];
 const LOGIN_TIMEOUT = 20000;
 const NOBODY_GID = parseInt(process.env.NOBODY_GID || '99',10);
 
@@ -28,11 +28,12 @@ let nextUID=65536;
  * @param user an object to receive return data
  */
 async function createUser(user) {
-    user.uid = nextUID++;
-    user.name = "u_"+ user.uid;
-    user.home = "/home/" + user.uid;
+    user.uid = nextUID;
+    nextUID++;
+    user.name = 'u_'+ user.uid;
+    user.home = '/home/' + user.uid;
     let adduserCmd = ''
-    if ( LINUX_DISTRO != 'rhel' ) {
+    if ( LINUX_DISTRO !== 'rhel' ) {
       adduserCmd = "umask 0077 && rbash -c 'adduser --uid " + user.uid + " --home " + user.home + " --gecos \"\" --disabled-login --disabled-password " + user.name + "'"
       //adduserCmd = "umask 0077 && rbash -c 'adduser -u " + user.uid + " -m  --comment \"\" -d " + user.home + " " + user.name + "'"
     }
@@ -41,19 +42,19 @@ async function createUser(user) {
     }
     adduserCmd = adduserCmd + ` && chmod a-w ${user.home}/.bashrc && chmod a-w ${user.home}/.bash_profile`
     adduserCmd = adduserCmd + ` && chown 0:0 ${user.home}/.bashrc && chown 0:0 ${user.home}/.bash_profile`
-  
+
     console.log('creating user: ' + adduserCmd)
     await exec(adduserCmd, {
       stdio: [0,1,2],
       timeout: 5000
     }).then(function () {
-        console.log("user created")
+        console.log('user created')
     })
  }
 
 module.exports.deleteUser = async (username) => {
     let deleteUserCmd = '';
-    if ( LINUX_DISTRO != 'rhel' )
+    if ( LINUX_DISTRO !== 'rhel' )
     {
       deleteUserCmd = "rbash -c 'deluser --remove-home --quiet " + username + "'";
     }
@@ -65,15 +66,17 @@ module.exports.deleteUser = async (username) => {
       stdio: [0,1,2],
       timeout: 5000
     });
-    console.log("user deleted");
+    console.log('user deleted');
 }
 
 const setupUserEnv = (user)=>{
     let userEnv = {};
-    for (let e in process.env) userEnv[e] = process.env[e];
-    userEnv["CLOUDCTL_COLOR"] = false;
-    userEnv["USER"] = user.name;
-    userEnv["HOME"] = user.home;
+    for (const e in process.env) {
+      userEnv[e] = process.env[e];
+    };
+    userEnv['CLOUDCTL_COLOR'] = false;
+    userEnv['USER'] = user.name;
+    userEnv['HOME'] = user.home;
     //user.env=userEnv;
     return userEnv;
 }
@@ -83,40 +86,42 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
     const loginArgs = loginTools.getLoginArgs(namespace,accessToken,idToken)
     const loginEnv = loginTools.getLoginEnvs(user.env,accessToken,idToken)
     const loginOpts = {
-        cwd: loginEnv["HOME"],
+        cwd: loginEnv['HOME'],
         env: loginEnv,
         timeout: LOGIN_TIMEOUT,
         uid: user.uid,
         gid: NOBODY_GID
     }
     return new Promise(function(resolve, reject) {
-        let loginProc = child_process.spawn(loginTools.getLoginCMD(), loginArgs, loginOpts);
+        const loginProc = child_process.spawn(loginTools.getLoginCMD(), loginArgs, loginOpts);
         setTimeout(()=>{ loginProc.kill(); reject('timeout');}, LOGIN_TIMEOUT);
         loginProc.stdin.end();
         let loginOutput = '';
-        loginProc.stdout.on("data", function (data) {
+        loginProc.stdout.on('data', function (data) {
           loginOutput += String(data);
         });
-        loginProc.stderr.on("data", function (data) {
+        loginProc.stderr.on('data', function (data) {
           loginOutput += String(data);
         });
-        loginProc.on("error", function (err) {
-          console.error(user.name + " login failed.");
+        loginProc.on('error', function (err) {
+          console.error(user.name + ' login failed.');
           console.error(err.toString());
         });
-        loginProc.on("exit", function (code) {
+        loginProc.on('exit', function (code) {
           if (code == 0) {
             console.log('user ' + user.name + ' login complete in terminal ');
             return resolve();
           }
           // login failed, close the terminal
           console.error('user ' + user.name + ' login failed in terminal with exit code ' + code);
-    
-          let errMsg = "";
+
+          let errMsg = '';
           let lines = loginOutput.split('\n');
           for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
             errMsg = lines[i];
-            if (errMsg != "") break;
+            if (errMsg !== '') {
+               break;
+            }
           }
           console.error(errMsg)
           reject(errMsg);
@@ -128,8 +133,8 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
 
 /**
  * This function is async, and it will return a user object {uid,env} for the cookie.
- * if the user is not created before, it will create a new one within the container. 
- * @param {*} token a string of accessToken, will be used as a key for user mapping 
+ * if the user is not created before, it will create a new one within the container.
+ * @param {*} token a string of accessToken, will be used as a key for user mapping
  */
 module.exports.getUser = async (token) => {
 
@@ -147,8 +152,8 @@ module.exports.getUser = async (token) => {
             throw e
         }
     }
-    
-    
+
+
     //create new user with home folder set
     //It's possible to have one user set up two different UIDs because we didn't add locks
     try{
@@ -168,6 +173,6 @@ module.exports.getUser = async (token) => {
         debug('failed in creating users:', e);
         throw e;
     }
-    
+
 }
 module.exports.NOBODY_GID = NOBODY_GID;

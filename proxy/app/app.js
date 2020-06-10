@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2020 Red Hat, Inc.
  */
- 
+
  /*******************************************************************************
  * Licensed Materials - Property of IBM
  * (c) Copyright IBM Corporation 2019. All Rights Reserved.
@@ -28,7 +28,7 @@
  */
 
 const express = require('express')
-const expressStaticGzip = require("express-static-gzip");
+const expressStaticGzip = require(express-static-gzip);
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')

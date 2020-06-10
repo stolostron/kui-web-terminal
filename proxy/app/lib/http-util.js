@@ -10,7 +10,7 @@
  *******************************************************************************/
 'use strict'
 
-var querystring = require('querystring'),
+let querystring = require('querystring'),
     url = require('url')
 
 /**
@@ -18,9 +18,9 @@ var querystring = require('querystring'),
  */
 exports.requestUrl = function(options) {
   if (options.qs) {
-    var qs = options.qs,
+    let qs = options.qs,
         query = []
-    for (var i in qs) {
+    for (let i in qs) {
       if (Object.prototype.hasOwnProperty.call(qs, i)) {
         query.push(encodeURIComponent(i) + '=' + encodeURIComponent(options.qs[i]))
       }
@@ -38,13 +38,13 @@ exports.requestUrl = function(options) {
  */
 exports.serializeIncomingRequest = function(req) {
   // request line
-  var buf = [ req.method, ' ', redactUrl(req.originalUrl), ' HTTP/1.1\n' ]
+  let buf = [ req.method, ' ', redactUrl(req.originalUrl), ' HTTP/1.1\n' ]
 
   // headers
   if (req.headers) {
-    for (var i in req.headers) {
+    for (let i in req.headers) {
       if (Object.prototype.hasOwnProperty.call(req.headers, i)) {
-        var value = redactHeader(i, req.headers[i])
+        let value = redactHeader(i, req.headers[i])
         buf.push(capitalizeHeaderName(i), ': ', value, '\n')
       }
     }
@@ -61,29 +61,29 @@ exports.serializeIncomingRequest = function(req) {
  */
 exports.serializeRequest = function(options) {
   // request line
-  var buf = [ (options.method || 'GET'), ' ', exports.requestUrl(options), ' HTTP/1.1\n' ]
+  let buf = [ (options.method || 'GET'), ' ', exports.requestUrl(options), ' HTTP/1.1\n' ]
 
   // headers
   if (options.json) {
     buf.push('Accept: application/json\n')
   }
-  var isJSON = typeof options.json === 'object'
-  var isForm = options.form
+  let isJSON = typeof options.json === 'object'
+  let isForm = options.form
   if (isJSON) {
     buf.push('Content-Type: application/json\n')
   }
   else if (isForm) {
     buf.push('Content-Type: application/x-www-form-urlencoded\n')
   }
-  for (var i in options.headers) {
+  for (let i in options.headers) {
     if (Object.prototype.hasOwnProperty.call(options.headers, i)) {
-      var value = redactHeader(i, options.headers[i])
+      let value = redactHeader(i, options.headers[i])
       buf.push(i, ': ', value, '\n')
     }
   }
 
   // body
-  var body = options.body
+  let body = options.body
   if (!body) {
     if (isJSON) {
       body = JSON.stringify(options.json)
@@ -104,19 +104,19 @@ exports.serializeRequest = function(options) {
  */
 exports.serializeResponse = function(res) {
   // status line
-  var buf = [ 'HTTP/', res.httpVersion, ' ', res.statusCode, '\n']
+  let buf = [ 'HTTP/', res.httpVersion, ' ', res.statusCode, '\n']
 
   // headers
-  for (var i in res.headers) {
+  for (let i in res.headers) {
     if (Object.prototype.hasOwnProperty.call(res.headers, i)) {
-      var value = redactHeader(i, res.headers[i])
+      let value = redactHeader(i, res.headers[i])
       buf.push(capitalizeHeaderName(i), ': ', value, '\n')
     }
   }
 
   // body
   if (res.body) {
-    var body = redactBody(typeof res.body === 'object' ? JSON.stringify(res.body) : res.body)
+    let body = redactBody(typeof res.body === 'object' ? JSON.stringify(res.body) : res.body)
     buf.push('\n', body, '\n')
   }
   return buf.join('')
@@ -161,7 +161,7 @@ function redactHeader(name, value) {
   switch (name) {
   case 'authorization':
     // show the first word if there are multiple (e.g. 'Bearer', 'Basic')
-    var words = value.split(' ')
+    let words = value.split(' ')
     return words.length > 1 ? words[0] + ' ***' : '***'
   case 'cookie':
   case 'x-auth-token':
@@ -175,11 +175,11 @@ function redactHeader(name, value) {
  */
 function redactUrl(urlParam) {
   try {
-    var urlObj = url.parse(urlParam),
+    let urlObj = url.parse(urlParam),
         query = urlObj.query
     if (query) {
-      var queryObj = querystring.parse(query)
-      for (var i in queryObj) {
+      let queryObj = querystring.parse(query)
+      for (let i in queryObj) {
         if (Object.prototype.hasOwnProperty.call(queryObj, i)) {
           switch (i) {
           case 'token':
