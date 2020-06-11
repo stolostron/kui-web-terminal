@@ -127,8 +127,12 @@ class CloudPakTools {
           }
           const resourceObj = JSON.parse(body)
 
-          const namespaceList = resourceObj.filter(function (namespace) { return namespace.scope === 'namespace' && namespace.actions.includes('R') })
-          const namespacelistArr = namespaceList.map(function (namespacename) { return namespacename.namespaceId })
+          const namespaceList = resourceObj.filter(function (namespace) { 
+            return (namespace.scope === 'namespace' && namespace.actions.includes('R'))
+            })
+          const namespacelistArr = namespaceList.map(function (namespacename) {
+            return namespacename.namespaceId
+            })
 
           if (namespacelistArr.length > 0) {
             const filteredArr = namespacelistArr.filter(function (str) { return str !== '' && !self.namespaceBlackList.includes(str) })

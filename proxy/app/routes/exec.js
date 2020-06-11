@@ -44,7 +44,7 @@ const {
 const sessionKey = 'kui_websocket_auth'
 
 const TokenFromCookieENV = process.env['TOKEN_FROM_COOKIE']
-const TokenFromCookie = TokenFromCookieENV? TokenFromCookieENV.toLowerCase() !== 'false' : true  
+const TokenFromCookie = TokenFromCookieENV? TokenFromCookieENV.toLowerCase() !== 'false' : true
 // if TokenFromCookieENV not set or is not false, will get token from cookie, otherwise, get token from header
 const AccessTokenKey = (process.env['ACCESS_TOKEN_KEY'] || 'cfc-access-token-cookie').toLowerCase()
 

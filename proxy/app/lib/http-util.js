@@ -83,7 +83,7 @@ exports.serializeRequest = function(options) {
   }
 
   // body
-  const body = options.body
+  let body = options.body
   if (!body) {
     if (isJSON) {
       body = JSON.stringify(options.json)
