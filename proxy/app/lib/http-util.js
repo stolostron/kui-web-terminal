@@ -161,7 +161,7 @@ function redactHeader(name, value) {
   switch (name) {
   case 'authorization':
     // show the first word if there are multiple (e.g. 'Bearer', 'Basic')
-    let words = value.split(' ')
+    var words = value.split(' ')
     return words.length > 1 ? words[0] + ' ***' : '***'
   case 'cookie':
   case 'x-auth-token':

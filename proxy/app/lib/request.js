@@ -60,6 +60,7 @@ module.exports = function (options, req, acceptedStatusCodes, callback, logger, 
   agentOptions.securityOptions = 'SSL_OP_NO_SSLv3'
   agentOptions.secureProtocol = 'TLSv1_2_method'
   options.agentOptions = agentOptions
+  let calledFrom = new Error('Called From:')
 
   if (logger) {
     let calledFrom = new Error('Called From:')
