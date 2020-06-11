@@ -10,7 +10,7 @@
  *******************************************************************************/
 'use strict'
 
-const httpUtil = require('./http-util'),
+let httpUtil = require('./http-util'),
     request = require('requestretry')
 
 const REQUEST_DEFAULTS = {
@@ -140,7 +140,7 @@ function addRequestHeaders(options, req) {
 }
 
 function addHeader(options, name, value) {
-  const headers = options.headers
+  let headers = options.headers
   if (!headers) {
     headers = options.headers = {}
   }
