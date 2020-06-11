@@ -38,7 +38,7 @@ exports.requestUrl = function(options) {
  */
 exports.serializeIncomingRequest = function(req) {
   // request line
-  const buf = [ req.method, ' ', redactUrl(req.originalUrl), ' HTTP/1.1\n' ]
+  let buf = [ req.method, ' ', redactUrl(req.originalUrl), ' HTTP/1.1\n' ]
 
   // headers
   if (req.headers) {
@@ -61,7 +61,7 @@ exports.serializeIncomingRequest = function(req) {
  */
 exports.serializeRequest = function(options) {
   // request line
-  const buf = [ (options.method || 'GET'), ' ', exports.requestUrl(options), ' HTTP/1.1\n' ]
+  let buf = [ (options.method || 'GET'), ' ', exports.requestUrl(options), ' HTTP/1.1\n' ]
 
   // headers
   if (options.json) {
@@ -104,7 +104,7 @@ exports.serializeRequest = function(options) {
  */
 exports.serializeResponse = function(res) {
   // status line
-  const buf = [ 'HTTP/', res.httpVersion, ' ', res.statusCode, '\n']
+  let buf = [ 'HTTP/', res.httpVersion, ' ', res.statusCode, '\n']
 
   // headers
   for (const i in res.headers) {
@@ -175,10 +175,10 @@ function redactHeader(name, value) {
  */
 function redactUrl(urlParam) {
   try {
-    const urlObj = url.parse(urlParam),
+    let urlObj = url.parse(urlParam),
         query = urlObj.query
     if (query) {
-      const queryObj = querystring.parse(query)
+      let queryObj = querystring.parse(query)
       for (const i in queryObj) {
         if (Object.prototype.hasOwnProperty.call(queryObj, i)) {
           switch (i) {
