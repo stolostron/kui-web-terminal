@@ -90,7 +90,7 @@ class CloudPakTools {
         const lines = kubeOutput.split('\n')
         for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
           errMsg = lines[i]
-          if (errMsg !== '') { 
+          if (errMsg !== '') {
             break
           }
         }
@@ -127,11 +127,11 @@ class CloudPakTools {
           }
           const resourceObj = JSON.parse(body)
 
-          let namespaceList = resourceObj.filter(function (namespace) { return namespace.scope === 'namespace' && namespace.actions.includes('R') })
+          const namespaceList = resourceObj.filter(function (namespace) { return namespace.scope === 'namespace' && namespace.actions.includes('R') })
           const namespacelistArr = namespaceList.map(function (namespacename) { return namespacename.namespaceId })
 
           if (namespacelistArr.length > 0) {
-            let filteredArr = namespacelistArr.filter(function (str) { return str !== '' && !self.namespaceBlackList.includes(str) })
+            const filteredArr = namespacelistArr.filter(function (str) { return str !== '' && !self.namespaceBlackList.includes(str) })
 
             if (filteredArr.length > 0) {
               console.log('selecting namespace: ', filteredArr[0])
@@ -202,7 +202,7 @@ class CloudPakTools {
 
 class OpenshiftTools {
   constructor(){
-    this.clusterURL = 'https://kubernetes.default.svc:443' 
+    this.clusterURL = 'https://kubernetes.default.svc:443'
     if(process.env.NODE_ENV === 'development' && process.env.OPENSHIFT_API_SERVER){
       this.clusterURL = process.env.OPENSHIFT_API_SERVER
     }

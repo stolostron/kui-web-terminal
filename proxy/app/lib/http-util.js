@@ -10,7 +10,7 @@
  *******************************************************************************/
 'use strict'
 
-let querystring = require('querystring'),
+const querystring = require('querystring'),
     url = require('url')
 
 /**
@@ -18,9 +18,9 @@ let querystring = require('querystring'),
  */
 exports.requestUrl = function(options) {
   if (options.qs) {
-    let qs = options.qs,
+    const qs = options.qs,
         query = []
-    for (let i in qs) {
+    for (const i in qs) {
       if (Object.prototype.hasOwnProperty.call(qs, i)) {
         query.push(encodeURIComponent(i) + '=' + encodeURIComponent(options.qs[i]))
       }
@@ -38,13 +38,13 @@ exports.requestUrl = function(options) {
  */
 exports.serializeIncomingRequest = function(req) {
   // request line
-  let buf = [ req.method, ' ', redactUrl(req.originalUrl), ' HTTP/1.1\n' ]
+  const buf = [ req.method, ' ', redactUrl(req.originalUrl), ' HTTP/1.1\n' ]
 
   // headers
   if (req.headers) {
-    for (let i in req.headers) {
+    for (const i in req.headers) {
       if (Object.prototype.hasOwnProperty.call(req.headers, i)) {
-        let value = redactHeader(i, req.headers[i])
+        const value = redactHeader(i, req.headers[i])
         buf.push(capitalizeHeaderName(i), ': ', value, '\n')
       }
     }
@@ -61,29 +61,29 @@ exports.serializeIncomingRequest = function(req) {
  */
 exports.serializeRequest = function(options) {
   // request line
-  let buf = [ (options.method || 'GET'), ' ', exports.requestUrl(options), ' HTTP/1.1\n' ]
+  const buf = [ (options.method || 'GET'), ' ', exports.requestUrl(options), ' HTTP/1.1\n' ]
 
   // headers
   if (options.json) {
     buf.push('Accept: application/json\n')
   }
-  let isJSON = typeof options.json === 'object'
-  let isForm = options.form
+  const isJSON = typeof options.json === 'object'
+  const isForm = options.form
   if (isJSON) {
     buf.push('Content-Type: application/json\n')
   }
   else if (isForm) {
     buf.push('Content-Type: application/x-www-form-urlencoded\n')
   }
-  for (let i in options.headers) {
+  for (const i in options.headers) {
     if (Object.prototype.hasOwnProperty.call(options.headers, i)) {
-      let value = redactHeader(i, options.headers[i])
+      const value = redactHeader(i, options.headers[i])
       buf.push(i, ': ', value, '\n')
     }
   }
 
   // body
-  let body = options.body
+  const body = options.body
   if (!body) {
     if (isJSON) {
       body = JSON.stringify(options.json)
@@ -104,19 +104,19 @@ exports.serializeRequest = function(options) {
  */
 exports.serializeResponse = function(res) {
   // status line
-  let buf = [ 'HTTP/', res.httpVersion, ' ', res.statusCode, '\n']
+  const buf = [ 'HTTP/', res.httpVersion, ' ', res.statusCode, '\n']
 
   // headers
-  for (let i in res.headers) {
+  for (const i in res.headers) {
     if (Object.prototype.hasOwnProperty.call(res.headers, i)) {
-      let value = redactHeader(i, res.headers[i])
+      const value = redactHeader(i, res.headers[i])
       buf.push(capitalizeHeaderName(i), ': ', value, '\n')
     }
   }
 
   // body
   if (res.body) {
-    let body = redactBody(typeof res.body === 'object' ? JSON.stringify(res.body) : res.body)
+    const body = redactBody(typeof res.body === 'object' ? JSON.stringify(res.body) : res.body)
     buf.push('\n', body, '\n')
   }
   return buf.join('')
@@ -175,11 +175,11 @@ function redactHeader(name, value) {
  */
 function redactUrl(urlParam) {
   try {
-    let urlObj = url.parse(urlParam),
+    const urlObj = url.parse(urlParam),
         query = urlObj.query
     if (query) {
-      let queryObj = querystring.parse(query)
-      for (let i in queryObj) {
+      const queryObj = querystring.parse(query)
+      for (const i in queryObj) {
         if (Object.prototype.hasOwnProperty.call(queryObj, i)) {
           switch (i) {
           case 'token':
