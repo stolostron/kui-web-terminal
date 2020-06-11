@@ -135,7 +135,9 @@ class CloudPakTools {
             })
 
           if (namespacelistArr.length > 0) {
-            const filteredArr = namespacelistArr.filter(function (str) { return str !== '' && !self.namespaceBlackList.includes(str) })
+            const filteredArr = namespacelistArr.filter(function (str) {
+              return str !== '' && !self.namespaceBlackList.includes(str)
+            })
 
             if (filteredArr.length > 0) {
               console.log('selecting namespace: ', filteredArr[0])
