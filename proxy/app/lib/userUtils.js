@@ -93,7 +93,7 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
         gid: NOBODY_GID
     }
     return new Promise(function(resolve, reject) {
-        const loginProc = child_process.spawn(loginTools.getLoginCMD(), loginArgs, loginOpts);
+        let loginProc = child_process.spawn(loginTools.getLoginCMD(), loginArgs, loginOpts);
         setTimeout(()=>{ loginProc.kill(); reject('timeout');}, LOGIN_TIMEOUT);
         loginProc.stdin.end();
         let loginOutput = '';
