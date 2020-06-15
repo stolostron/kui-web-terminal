@@ -153,18 +153,18 @@ class CloudPakTools {
       if (!accessToken) {
         return reject(new Error('Unable to verify user info. Access token is blank.'));
       }
-      const userInfoUrl = url.parse(self.clusterURL + '/idprovider/v1/auth/exchangetoken');
+      const userInfoUrl = url.parse(self.clusterURL + "/idprovider/v1/auth/exchangetoken");
       console.log('verify token with ' + userInfoUrl.href);
       let req = https.request({
         protocol: userInfoUrl.protocol,
         hostname: userInfoUrl.hostname,
         port: userInfoUrl.port,
         path: userInfoUrl.path,
-        method: 'POST',
+        method: "POST",
         rejectUnauthorized: false, // we are using the icp-management-ingress and it never has a valid cert for the service name
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+          "Accept": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
         },
         json: true,
         form: {
@@ -200,7 +200,7 @@ class CloudPakTools {
 
 class OpenshiftTools {
   constructor(){
-    this.clusterURL = 'https://kubernetes.default.svc:443'
+    this.clusterURL = "https://kubernetes.default.svc:443"
     if(process.env.NODE_ENV === 'development' && process.env.OPENSHIFT_API_SERVER){
       this.clusterURL = process.env.OPENSHIFT_API_SERVER
     }
@@ -219,7 +219,7 @@ class OpenshiftTools {
     return this.clusterURL;
   }
   getLoginArgs(namespace,accessToken,idToken){
-    return ['login', '--insecure-skip-tls-verify=true',`--server=${this.clusterURL}`,  `--token=${accessToken}`];
+    return ["login", "--insecure-skip-tls-verify=true",`--server=${this.clusterURL}`,  `--token=${accessToken}`];
   }
   getLoginEnvs(userEnv,accessToken,idToken){
     return Object.assign({}, userEnv);
