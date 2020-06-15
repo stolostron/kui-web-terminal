@@ -50,7 +50,8 @@ var requestNum = 1
 module.exports = function (options, req, acceptedStatusCodes, callback, logger, slowThreshold, reqOptions) {
   request = request.defaults(reqOptions || REQUEST_DEFAULTS)
   slowThreshold = slowThreshold || defaultSlowThreshold
-  var requestId = '#' + requestNum++
+  const requestId = '#' + requestNum
+  requestNum++
   if (req) {
     addRequestHeaders(options, req)
   }
