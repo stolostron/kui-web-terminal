@@ -83,9 +83,9 @@ class CloudPakTools {
           console.log('user ' + user.name + ' kube api server rewrite success ')
           return resolve()
         }
-  
+
         console.log('user ' + user.name + ' kube api server rewrite failed with exit code ' + code)
-  
+
         let errMsg = ""
         let lines = kubeOutput.split('\n')
         for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
@@ -124,13 +124,13 @@ class CloudPakTools {
             return reject(new Error("Unable to get user namspaces. Status code " + res.statusCode + " returned."));
           }
           let resourceObj = JSON.parse(body)
-  
+
           let namespaceList = resourceObj.filter(function (namespace) { return namespace.scope == "namespace" && namespace.actions.includes("R") })
           let namespacelistArr = namespaceList.map(function (namespacename) { return namespacename.namespaceId })
-  
+
           if (namespacelistArr.length > 0) {
             let filteredArr = namespacelistArr.filter(function (str) { return str != "" && !self.namespaceBlackList.includes(str) })
-  
+
             if (filteredArr.length > 0) {
               console.log('selecting namespace: ', filteredArr[0])
               return resolve(filteredArr[0])
@@ -155,7 +155,7 @@ class CloudPakTools {
       }
       const userInfoUrl = url.parse(self.clusterURL + '/idprovider/v1/auth/exchangetoken');
       console.log('verify token with ' + userInfoUrl.href);
-      const req = https.request({
+      let req = https.request({
         protocol: userInfoUrl.protocol,
         hostname: userInfoUrl.hostname,
         port: userInfoUrl.port,
@@ -242,6 +242,3 @@ exports.getLoginTools = ()=>{
   }
   return new CloudPakTools();
 }
-
-
-
