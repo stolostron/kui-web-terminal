@@ -71,7 +71,7 @@ module.exports.deleteUser = async (username) => {
 
 const setupUserEnv = (user)=>{
     let userEnv = {};
-    for (const e in process.env) {
+    for (let e in process.env) {
       userEnv[e] = process.env[e];
     }
     userEnv['CLOUDCTL_COLOR'] = false;
