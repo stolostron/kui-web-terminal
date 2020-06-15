@@ -36,7 +36,7 @@ class CloudPakTools {
     return this.clusterURL;
   }
   getLoginArgs(namespace,accessToken,idToken){
-    return ['login', '-a', this.clusterURL, '-n', namespace, '--skip-ssl-validation'];
+    return ["login", "-a", this.clusterURL, "-n", namespace, "--skip-ssl-validation"];
   }
   getLoginEnvs(userEnv,accessToken,idToken){
     return Object.assign({}, userEnv,{'CLOUDCTL_ACCESS_TOKEN':accessToken,'CLOUDCTL_ID_TOKEN':idToken});
@@ -51,9 +51,9 @@ class CloudPakTools {
     } catch(e) {
       console.error('failed to import cloudctl.json with error: ', e)
     }
-    const kubeArgs = ['config', 'set-cluster', config['cluster-name'], '--server=https://kubernetes.default.svc:443', '--insecure-skip-tls-verify=true'];
+    const kubeArgs = ["config", "set-cluster", config['cluster-name'], "--server=https://kubernetes.default.svc:443", "--insecure-skip-tls-verify=true"];
     const kubeOpts = {
-        cwd: user.env['HOME'],
+        cwd: user.env["HOME"],
         env: user.env,
         timeout: 20000,
         uid: user.uid,
