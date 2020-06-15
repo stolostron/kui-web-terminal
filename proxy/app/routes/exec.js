@@ -1,7 +1,7 @@
  /*
   * Copyright (c) 2020 Red Hat, Inc.
   */
- 
+
  /*******************************************************************************
  * Licensed Materials - Property of IBM
  * (c) Copyright IBM Corporation 2017, 2020. All Rights Reserved.
@@ -108,6 +108,8 @@ function main(cmdline, execOptions, server, port, host,user, locale) {
       // check if the user connected within the time period
       let connectedInTime = false
       const connectionTimeout = process.env.KUI_WEBSOCKET_TIMEOUT || 60000
+      console.log('connectioTimeout ', connectionTimeout)
+
       setTimeout(() => {
         if(!connectedInTime){
           console.log(`no websocket detected for ${uid}. cleaning process`)
@@ -195,10 +197,10 @@ module.exports = (server, port) => {
 
         user = await getUser(accessToken)
         const { type, cookie, response } = await main(
-          command, 
-          execOptions, 
-          server, 
-          port, 
+          command,
+          execOptions,
+          server,
+          port,
           req.headers.host,
           user,
           locale
