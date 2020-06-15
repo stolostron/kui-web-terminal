@@ -110,7 +110,7 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
             return resolve();
           }
           // login failed, close the terminal
-          console.error('user ' + user.name +  ' login failed in terminal with exit code ' + code);
+          console.error('user ' + user.name + ' login failed in terminal with exit code ' + code);
 
           let errMsg = "";
           let lines = loginOutput.split('\n');

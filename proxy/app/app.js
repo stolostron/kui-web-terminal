@@ -28,7 +28,7 @@
  */
 
 const express = require('express')
-const expressStaticGzip = require('express-static-gzip');
+const expressStaticGzip = require("express-static-gzip");
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')

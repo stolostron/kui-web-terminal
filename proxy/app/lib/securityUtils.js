@@ -132,13 +132,13 @@ class CloudPakTools {
             let filteredArr = namespacelistArr.filter(function (str) { return str != "" && !self.namespaceBlackList.includes(str) })
 
             if (filteredArr.length > 0) {
-              console.log('selecting namespace: ', filteredArr[0])
+              console.log("selecting namespace: ", filteredArr[0])
               return resolve(filteredArr[0])
             }
-            console.log('selecting namespace: ', namespaceList[0])
+            console.log("selecting namespace: ", namespaceList[0])
             return resolve(namespacelistArr[0])
           }
-          reject(new Error('User does not have any namespaces.'));
+          reject(new Error("User does not have any namespaces."));
         })
       });
       req.on('error', function (err) {
@@ -151,7 +151,7 @@ class CloudPakTools {
     const self = this
     return new Promise( (resolve, reject) =>{
       if (!accessToken) {
-        return reject(new Error('Unable to verify user info. Access token is blank.'));
+        return reject(new Error("Unable to verify user info. Access token is blank."));
       }
       const userInfoUrl = url.parse(self.clusterURL + "/idprovider/v1/auth/exchangetoken");
       console.log('verify token with ' + userInfoUrl.href);
