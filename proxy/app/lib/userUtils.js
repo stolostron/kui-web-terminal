@@ -28,8 +28,7 @@ let nextUID=65536;
  * @param user an object to receive return data
  */
 async function createUser(user) {
-    user.uid = nextUID;
-    nextUID++;
+    user.uid = nextUID++;
     user.name = 'u_'+ user.uid;
     user.home = '/home/' + user.uid;
     let adduserCmd = ''
