@@ -83,11 +83,11 @@ class CloudPakTools {
           console.log('user ' + user.name + ' kube api server rewrite success ')
           return resolve()
         }
-  
+
         console.log('user ' + user.name + ' kube api server rewrite failed with exit code ' + code)
-  
+
         let errMsg = ""
-        const lines = kubeOutput.split('\n')
+        let lines = kubeOutput.split('\n')
         for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
           errMsg = lines[i]
           if (errMsg !== '') {
@@ -127,7 +127,7 @@ class CloudPakTools {
           }
           const resourceObj = JSON.parse(body)
 
-          const namespaceList = resourceObj.filter(function (namespace) { 
+          const namespaceList = resourceObj.filter(function (namespace) {
             return (namespace.scope === 'namespace' && namespace.actions.includes('R'))
             })
           const namespacelistArr = namespaceList.map(function (namespacename) {
@@ -250,6 +250,3 @@ exports.getLoginTools = ()=>{
   }
   return new CloudPakTools();
 }
-
-
-
