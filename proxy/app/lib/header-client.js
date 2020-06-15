@@ -26,7 +26,7 @@ exports.getHeader = (req, cb) => {
   const cookie = `acm-access-token-cookie=${process.env.AUTH_TOKEN}`
   const acmToken = req.cookies && req.cookies['acm-access-token-cookie']
   options.headers = {
-    'Accept-Language': req.headers['accept-language'],
+    "Accept-Language": req.headers['accept-language'],
     Cookie: process.env.NODE_ENV === 'development' ? cookie : req.headers.cookie,
     Authorization: req.headers.Authorization || req.headers.authorization || `Bearer ${acmToken}`,
    }

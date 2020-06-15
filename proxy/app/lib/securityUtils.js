@@ -39,7 +39,7 @@ class CloudPakTools {
     return ["login", "-a", this.clusterURL, "-n", namespace, "--skip-ssl-validation"];
   }
   getLoginEnvs(userEnv,accessToken,idToken){
-    return Object.assign({}, userEnv,{'CLOUDCTL_ACCESS_TOKEN':accessToken,'CLOUDCTL_ID_TOKEN':idToken});
+    return Object.assign({}, userEnv,{"CLOUDCTL_ACCESS_TOKEN":accessToken,"CLOUDCTL_ID_TOKEN":idToken});
   }
   getLoginCMD(){
     return '/usr/local/bin/cloudctl';
@@ -68,17 +68,17 @@ class CloudPakTools {
       let kubeProc = child_process.spawn('/usr/local/bin/kubectl', kubeArgs, kubeOpts)
       kubeProc.stdin.end()
       let kubeOutput = ''
-      kubeProc.stdout.on('data', function (data) {
+      kubeProc.stdout.on("data", function (data) {
         kubeOutput += String(data);
       })
-      kubeProc.stderr.on('data', function (data) {
+      kubeProc.stderr.on("data", function (data) {
         kubeOutput += String(data);
       })
-      kubeProc.on('error', function (err) {
-        console.error(user.name + ' kube api server rewrite failed.')
+      kubeProc.on("error", function (err) {
+        console.error(user.name + " kube api server rewrite failed.")
         console.error(err.toString())
       })
-      kubeProc.on('exit', function (code) {
+      kubeProc.on("exit", function (code) {
         if (code == 0) {
           console.log('user ' + user.name + ' kube api server rewrite success ')
           return resolve()
@@ -171,7 +171,7 @@ class CloudPakTools {
           access_token: accessToken
         }
       }, function (res) {
-        let body = '';
+        let body = "";
         res.on('data', function (chunk) {
           body = body + chunk;
         });
