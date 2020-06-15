@@ -18,7 +18,7 @@ let querystring = require('querystring'),
  */
 exports.requestUrl = function(options) {
   if (options.qs) {
-    const qs = options.qs,
+    let qs = options.qs,
         query = []
     for (const i in qs) {
       if (Object.prototype.hasOwnProperty.call(qs, i)) {
