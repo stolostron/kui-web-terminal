@@ -13,8 +13,8 @@ const debug = require('debug')('proxy/userUtils');
 const util = require('util');
 const child_process=require('child_process');
 const exec = util.promisify(child_process.exec);
-const LINUX_DISTRO = process.env['LINUX_DISTRO'];
-const INSECURE_MODE = process.env['INSECURE_MODE'];
+const LINUX_DISTRO = process.env["LINUX_DISTRO"];
+const INSECURE_MODE = process.env["INSECURE_MODE"];
 const LOGIN_TIMEOUT = 20000;
 const NOBODY_GID = parseInt(process.env.NOBODY_GID || '99',10);
 
@@ -29,8 +29,8 @@ let nextUID=65536;
  */
 async function createUser(user) {
     user.uid = nextUID++;
-    user.name = 'u_'+ user.uid;
-    user.home = '/home/' + user.uid;
+    user.name = "u_"+ user.uid;
+    user.home = "/home/" + user.uid;
     let adduserCmd = ''
     if ( LINUX_DISTRO != 'rhel' ) {
       adduserCmd = "umask 0077 && rbash -c 'adduser --uid " + user.uid + " --home " + user.home + " --gecos \"\" --disabled-login --disabled-password " + user.name + "'"
@@ -47,7 +47,7 @@ async function createUser(user) {
       stdio: [0,1,2],
       timeout: 5000
     }).then(function () {
-        console.log('user created')
+        console.log("user created")
     })
  }
 
@@ -65,17 +65,15 @@ module.exports.deleteUser = async (username) => {
       stdio: [0,1,2],
       timeout: 5000
     });
-    console.log('user deleted');
+    console.log("user deleted");
 }
 
 const setupUserEnv = (user)=>{
     let userEnv = {};
-    for (let e in process.env) {
-      userEnv[e] = process.env[e];
-    }
-    userEnv['CLOUDCTL_COLOR'] = false;
-    userEnv['USER'] = user.name;
-    userEnv['HOME'] = user.home;
+    for (let e in process.env) userEnv[e] = process.env[e];
+    userEnv["CLOUDCTL_COLOR"] = false;
+    userEnv["USER"] = user.name;
+    userEnv["HOME"] = user.home;
     //user.env=userEnv;
     return userEnv;
 }
@@ -85,7 +83,7 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
     const loginArgs = loginTools.getLoginArgs(namespace,accessToken,idToken)
     const loginEnv = loginTools.getLoginEnvs(user.env,accessToken,idToken)
     const loginOpts = {
-        cwd: loginEnv['HOME'],
+        cwd: loginEnv["HOME"],
         env: loginEnv,
         timeout: LOGIN_TIMEOUT,
         uid: user.uid,
