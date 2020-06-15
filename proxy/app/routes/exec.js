@@ -108,7 +108,7 @@ function main(cmdline, execOptions, server, port, host,user, locale) {
       // check if the user connected within the time period
       let connectedInTime = false
       const connectionTimeout = process.env.KUI_WEBSOCKET_TIMEOUT || 60000
-      console.log('connectioTimeout ', connectionTimeout)
+      console.log('connectionTimeout ', connectionTimeout)
 
       setTimeout(() => {
         if(!connectedInTime){

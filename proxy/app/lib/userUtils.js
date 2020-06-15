@@ -33,7 +33,7 @@ async function createUser(user) {
     user.name = 'u_'+ user.uid;
     user.home = '/home/' + user.uid;
     let adduserCmd = ''
-    if ( LINUX_DISTRO !== 'rhel' ) {
+    if ( LINUX_DISTRO != 'rhel' ) {
       adduserCmd = "umask 0077 && rbash -c 'adduser --uid " + user.uid + " --home " + user.home + " --gecos \"\" --disabled-login --disabled-password " + user.name + "'"
       //adduserCmd = "umask 0077 && rbash -c 'adduser -u " + user.uid + " -m  --comment \"\" -d " + user.home + " " + user.name + "'"
     }
@@ -54,7 +54,7 @@ async function createUser(user) {
 
 module.exports.deleteUser = async (username) => {
     let deleteUserCmd = '';
-    if ( LINUX_DISTRO !== 'rhel' )
+    if ( LINUX_DISTRO != 'rhel' )
     {
       deleteUserCmd = "rbash -c 'deluser --remove-home --quiet " + username + "'";
     }
@@ -119,7 +119,7 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
           let lines = loginOutput.split('\n');
           for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
             errMsg = lines[i];
-            if (errMsg !== '') {
+            if (errMsg != "") {
                break;
             }
           }
