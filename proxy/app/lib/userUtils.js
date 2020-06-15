@@ -94,25 +94,25 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
         setTimeout(()=>{ loginProc.kill(); reject('timeout');}, LOGIN_TIMEOUT);
         loginProc.stdin.end();
         let loginOutput = '';
-        loginProc.stdout.on('data', function (data) {
+        loginProc.stdout.on("data", function (data) {
           loginOutput += String(data);
         });
-        loginProc.stderr.on('data', function (data) {
+        loginProc.stderr.on("data", function (data) {
           loginOutput += String(data);
         });
-        loginProc.on('error', function (err) {
-          console.error(user.name + ' login failed.');
+        loginProc.on("error", function (err) {
+          console.error(user.name + " login failed.");
           console.error(err.toString());
         });
-        loginProc.on('exit', function (code) {
+        loginProc.on("exit", function (code) {
           if (code == 0) {
             console.log('user ' + user.name + ' login complete in terminal ');
             return resolve();
           }
           // login failed, close the terminal
-          console.error('user ' + user.name + ' login failed in terminal with exit code ' + code);
+          console.error('user ' + user.name +  ' login failed in terminal with exit code ' + code);
 
-          let errMsg = '';
+          let errMsg = "";
           let lines = loginOutput.split('\n');
           for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
             errMsg = lines[i];
