@@ -70,7 +70,7 @@ module.exports = function (options, req, acceptedStatusCodes, callback, logger, 
   request(options, (error, res, body) => {
     const endTime = new Date()
     if (error) {
-      const error2 = new Error(getBodyMessage(body))
+      let error2 = new Error(getBodyMessage(body))
       error2.details = 'Error making request: ' + error + '\n' + httpUtil.serializeRequest(options) + '\n' + error + '\n'
       error2.statusCode = error.statusCode
       callback(error2, res, body)

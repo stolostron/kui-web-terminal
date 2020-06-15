@@ -10,7 +10,7 @@
  *******************************************************************************/
 'use strict'
 
-const querystring = require('querystring'),
+let querystring = require('querystring'),
     url = require('url')
 
 /**
