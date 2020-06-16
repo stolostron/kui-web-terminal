@@ -40,9 +40,6 @@ if (wrapper) {
         <CurrentNamespace />
       </ContextWidgets>
 
-      <MeterWidgets>
-        <ProxyOfflineIndicator />
-      </MeterWidgets>
     </Kui>,
     wrapper
   );
