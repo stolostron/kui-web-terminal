@@ -41,7 +41,6 @@ if (wrapper) {
       </ContextWidgets>
 
       <MeterWidgets>
-        <ClusterUtilization />
         <ProxyOfflineIndicator />
       </MeterWidgets>
     </Kui>,
