@@ -3,7 +3,9 @@ ARG ARCH
 # To support downstream builds, use full ubi8 + nodeJS 10 built in until an official
 # ubi8-minimal/nodejs-10 base image may become available.
 # FROM registry.access.redhat.com/ubi8-minimal:8.1-398
-FROM registry.access.redhat.com/ubi8/nodejs-12:latest
+FROM registry.access.redhat.com/ubi8/nodejs-10:1
+# New version needs debug - websocket not working
+# FROM registry.access.redhat.com/ubi8/nodejs-12:latest
 
 ARG VCS_REF
 ARG VCS_URL
