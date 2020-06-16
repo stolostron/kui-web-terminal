@@ -154,7 +154,7 @@ class CloudPakTools {
         return reject(new Error("Unable to verify user info. Access token is blank."));
       }
       const userInfoUrl = url.parse(self.clusterURL + "/idprovider/v1/auth/exchangetoken");
-      console.log('verify token with ' + userInfoUrl.href);
+      console.log("verify token with " + userInfoUrl.href);
       let req = https.request({
         protocol: userInfoUrl.protocol,
         hostname: userInfoUrl.hostname,
@@ -177,13 +177,13 @@ class CloudPakTools {
         });
         res.on('end', function () {
           if (res.statusCode < 200 || res.statusCode >= 300) {
-            return reject(new Error('Unable to verify user info. Status code ' + res.statusCode + ' returned.'));
+            return reject(new Error("Unable to verify user info. Status code " + res.statusCode + " returned."));
           }
           let json = JSON.parse(body);
           if (json.id_token) {
             return resolve(json.id_token);
           }
-          reject(new Error('Unable to verify user info. No id_token in exchangetoken response.'));
+          reject(new Error("Unable to verify user info. No id_token in exchangetoken response."));
         })
       });
       let data = querystring.stringify({
