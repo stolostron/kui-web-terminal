@@ -3,7 +3,9 @@ ARG ARCH
 # To support downstream builds, use full ubi8 + nodeJS 10 built in until an official
 # ubi8-minimal/nodejs-10 base image may become available.
 # FROM registry.access.redhat.com/ubi8-minimal:8.1-398
-FROM registry.access.redhat.com/ubi8/nodejs-12:latest
+# ORIG - but not working ... test previous one
+#FROM registry.access.redhat.com/ubi8/nodejs-12:latest
+FROM registry.access.redhat.com/ubi8/nodejs-10:1
 
 ARG VCS_REF
 ARG VCS_URL
@@ -82,7 +84,7 @@ EXPOSE 3000/tcp
 
 # ## Do not think this PASSPHRASE is used anymore...commenting out in anticipation of removing
 # default passphrase for the self-signed certificates; this Dockerfile
-# is intended only for testing, do not use this for productioncd 
+# is intended only for testing, do not use this for productioncd
 # ENV PASSPHRASE kuishell
 ENV NOBODY_GID 65534
 
@@ -112,7 +114,7 @@ WORKDIR /kui-proxy/kui
 #     vim-minimal \
 #     which \
 #     && microdnf clean all
-# 
+#
 ###########
 
 RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
@@ -125,7 +127,7 @@ RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && echo "alias vim='rvim'" >> /etc/skel/.bashrc \
     && echo "enable -n kill"  >> /etc/skel/.bashrc \
     && echo "enable -n unalias" >> /etc/skel/.bashrc \
-    && echo "readonly KUBE_EDITOR=rvim" >> /etc/skel/.bashrc 
+    && echo "readonly KUBE_EDITOR=rvim" >> /etc/skel/.bashrc
 
 RUN cp /usr/bin/bash /usr/bin/rbash \
     && mv /usr/bin/vi /usr/bin/rvim \
@@ -153,7 +155,7 @@ RUN cp /usr/bin/bash /usr/bin/rbash \
     && ln -s /usr/bin/tail /usr/local/bin/tail \
     && ln -s /usr/bin/sleep /usr/local/bin/sleep \
     && chmod 755 /etc/profile.d/*.sh \
-    && chmod 755 /usr/local/bin/* 
+    && chmod 755 /usr/local/bin/*
 
 
 COPY ./tmp/kui /kui-proxy/kui
