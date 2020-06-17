@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020 Red Hat, Inc.
+ */
+
 /*******************************************************************************
  * Licensed Materials - Property of IBM
  * (c) Copyright IBM Corporation 2019. All Rights Reserved.
@@ -8,8 +12,8 @@
  *******************************************************************************/
 'use strict'
 
-var request = require('./request')
-var httpUtil = require('./http-util')
+const request = require('./request')
+const httpUtil = require('./http-util')
 
 const HEADER_CONTEXT_PATH = '/multicloud/header'
 const HEADER_URL = process.env.HEADER_SERVICE || process.env.ICP_EXTERNAL_URL
@@ -22,7 +26,7 @@ exports.getHeader = (req, cb) => {
   const cookie = `acm-access-token-cookie=${process.env.AUTH_TOKEN}`
   const acmToken = req.cookies && req.cookies['acm-access-token-cookie']
   options.headers = {
-    "Accept-Language": req.headers['accept-language'],
+    'Accept-Language': req.headers['accept-language'],
     Cookie: process.env.NODE_ENV === 'development' ? cookie : req.headers.cookie,
     Authorization: req.headers.Authorization || req.headers.authorization || `Bearer ${acmToken}`,
    }
