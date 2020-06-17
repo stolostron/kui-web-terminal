@@ -12,8 +12,8 @@
  *******************************************************************************/
 'use strict'
 
-let request = require('./request')
-let httpUtil = require('./http-util')
+const request = require('./request')
+const httpUtil = require('./http-util')
 
 const HEADER_CONTEXT_PATH = '/multicloud/header'
 const HEADER_URL = process.env.HEADER_SERVICE || process.env.ICP_EXTERNAL_URL

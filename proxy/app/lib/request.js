@@ -10,7 +10,7 @@
  *******************************************************************************/
 'use strict'
 
-let httpUtil = require('./http-util'),
+const httpUtil = require('./http-util'),
     request = require('requestretry')
 
 const REQUEST_DEFAULTS = {
@@ -56,7 +56,7 @@ module.exports = function (options, req, acceptedStatusCodes, callback, logger, 
     addRequestHeaders(options, req)
   }
 
-  let agentOptions = options.agentOptions || {}
+  const agentOptions = options.agentOptions || {}
   agentOptions.securityOptions = 'SSL_OP_NO_SSLv3'
   agentOptions.secureProtocol = 'TLSv1_2_method'
   options.agentOptions = agentOptions
@@ -70,7 +70,7 @@ module.exports = function (options, req, acceptedStatusCodes, callback, logger, 
   request(options, (error, res, body) => {
     const endTime = new Date()
     if (error) {
-      let error2 = new Error(getBodyMessage(body))
+      const error2 = new Error(getBodyMessage(body))
       error2.details = 'Error making request: ' + error + '\n' + httpUtil.serializeRequest(options) + '\n' + error + '\n'
       error2.statusCode = error.statusCode
       callback(error2, res, body)
@@ -97,12 +97,12 @@ module.exports = function (options, req, acceptedStatusCodes, callback, logger, 
           ].join(''))
         }
         if (req && req.res) {
-          let res2 = req.res
+          const res2 = req.res
           res2.status(500).send('Error: 500 Internal Server Error')
         }
       }
     } else {
-      let invalidResponseError = new Error(getBodyMessage(body))
+      const invalidResponseError = new Error(getBodyMessage(body))
       invalidResponseError.statusCode = res.statusCode
       invalidResponseError.details = 'Unexpected response code ' + res.statusCode + ' from request:\n' + httpUtil.serializeRequest(options) + '\n' + httpUtil.serializeResponse(res)
       invalidResponseError.message = (body.error && body.error.message) || body.message
@@ -117,7 +117,7 @@ function getBodyMessage(body) {
   }
   if (typeof body === 'string' || body instanceof String) {
     try {
-      let jsonBody = JSON.parse(body)
+      const jsonBody = JSON.parse(body)
       return jsonBody ? jsonBody.message : ''
     } catch (syntaxErrorException) {
       return ''

@@ -119,7 +119,7 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
           let lines = loginOutput.split('\n');
           for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
             errMsg = lines[i];
-            if (errMsg != "") {
+            if (errMsg !== '') {
                break;
             }
           }

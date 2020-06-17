@@ -10,7 +10,7 @@
  *******************************************************************************/
 'use strict'
 
-let querystring = require('querystring'),
+const querystring = require('querystring'),
     url = require('url')
 
 /**
@@ -18,7 +18,7 @@ let querystring = require('querystring'),
  */
 exports.requestUrl = function(options) {
   if (options.qs) {
-    let qs = options.qs,
+    const qs = options.qs,
         query = []
     for (const i in qs) {
       if (Object.prototype.hasOwnProperty.call(qs, i)) {
@@ -38,7 +38,7 @@ exports.requestUrl = function(options) {
  */
 exports.serializeIncomingRequest = function(req) {
   // request line
-  let buf = [ req.method, ' ', redactUrl(req.originalUrl), ' HTTP/1.1\n' ]
+  const buf = [ req.method, ' ', redactUrl(req.originalUrl), ' HTTP/1.1\n' ]
 
   // headers
   if (req.headers) {
@@ -61,7 +61,7 @@ exports.serializeIncomingRequest = function(req) {
  */
 exports.serializeRequest = function(options) {
   // request line
-  let buf = [ (options.method || 'GET'), ' ', exports.requestUrl(options), ' HTTP/1.1\n' ]
+  const buf = [ (options.method || 'GET'), ' ', exports.requestUrl(options), ' HTTP/1.1\n' ]
 
   // headers
   if (options.json) {
@@ -104,7 +104,7 @@ exports.serializeRequest = function(options) {
  */
 exports.serializeResponse = function(res) {
   // status line
-  let buf = [ 'HTTP/', res.httpVersion, ' ', res.statusCode, '\n']
+  const buf = [ 'HTTP/', res.httpVersion, ' ', res.statusCode, '\n']
 
   // headers
   for (const i in res.headers) {
@@ -175,10 +175,10 @@ function redactHeader(name, value) {
  */
 function redactUrl(urlParam) {
   try {
-    let urlObj = url.parse(urlParam),
+    const urlObj = url.parse(urlParam),
         query = urlObj.query
     if (query) {
-      let queryObj = querystring.parse(query)
+      const queryObj = querystring.parse(query)
       for (const i in queryObj) {
         if (Object.prototype.hasOwnProperty.call(queryObj, i)) {
           switch (i) {
