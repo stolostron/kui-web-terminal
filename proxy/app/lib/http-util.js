@@ -26,7 +26,8 @@ exports.requestUrl = function(options) {
       }
     }
     if (query.length) {
-      return options.url += '?' + query.join('&')
+      const url = options.url + '?' + query.join('&')
+      return url
     }
   }
   return redactUrl(options.url)
@@ -161,7 +162,7 @@ function redactHeader(name, value) {
   switch (name) {
   case 'authorization':
     // show the first word if there are multiple (e.g. 'Bearer', 'Basic')
-    var words = value.split(' ')
+    const words = value.split(' ')
     return words.length > 1 ? words[0] + ' ***' : '***'
   case 'cookie':
   case 'x-auth-token':
