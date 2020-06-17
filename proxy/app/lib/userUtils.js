@@ -125,6 +125,7 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
           }
           console.error(errMsg)
           reject(errMsg);
+          return;
         });
     })
 }
