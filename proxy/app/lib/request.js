@@ -10,8 +10,8 @@
  *******************************************************************************/
 'use strict'
 
-let httpUtil = require('./http-util'),
-    request = require('requestretry')
+const httpUtil = require('./http-util')
+let request = require('requestretry')
 
 const REQUEST_DEFAULTS = {
   strictSSL: false,
