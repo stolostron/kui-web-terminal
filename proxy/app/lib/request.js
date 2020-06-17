@@ -10,7 +10,7 @@
  *******************************************************************************/
 'use strict'
 
-const httpUtil = require('./http-util'),
+let httpUtil = require('./http-util'),
     request = require('requestretry')
 
 const REQUEST_DEFAULTS = {
