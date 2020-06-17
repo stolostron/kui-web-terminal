@@ -56,7 +56,7 @@
     "@kui-shell/plugin-client-common": "^8.8.5",
     "@kui-shell/plugin-core-support": "^8.8.5",
     "@kui-shell/plugin-kubectl": "^8.8.5",
-    "@kui-shell/plugin-kui-addons": "file:../plugin-downloads/plugin-kui-addons.tgz",
+    "@kui-shell/plugin-kui-addons": "github:open-cluster-manatement/plugin-kui-addons",
     "@kui-shell/plugin-proxy-support": "^8.8.5",
     "@kui-shell/plugin-wskflow": "^8.8.5",
     "@kui-shell/react": "^8.8.5",
