@@ -26,8 +26,7 @@ exports.requestUrl = function(options) {
       }
     }
     if (query.length) {
-      const url = options.url + '?' + query.join('&')
-      return url
+      return options.url += '?' + query.join('&')
     }
   }
   return redactUrl(options.url)
