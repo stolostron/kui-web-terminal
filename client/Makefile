@@ -48,7 +48,7 @@ clean-client:
 	
 .PHONY: client-update-plugins
 client-update-plugins:
-	#npm uninstall @kui-shell/plugin-search
-	#npm install ../plugin-downloads/plugin-search.tgz
+	npm uninstall @kui-shell/plugin-search
+	npm install ../plugin-downloads/plugin-search.tgz
 	npm uninstall @kui-shell/plugin-kui-addons
 	npm install ../plugin-downloads/plugin-kui-addons.tgz
