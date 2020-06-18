@@ -58,6 +58,10 @@
     "@kui-shell/plugin-kubectl": "^8.10.0",
     "@kui-shell/plugin-kui-addons": "file:../plugin-downloads/plugin-kui-addons.tgz",
     "@kui-shell/plugin-proxy-support": "^8.10.0",
+    "@kui-shell/plugin-search": "file:../plugin-downloads/plugin-search.tgz",
+    "@kui-shell/plugin-wskflow": "^8.10.0",
+    "@kui-shell/react": "^8.10.0",
+    "@kui-shell/plugin-proxy-support": "^8.10.0",
     "@kui-shell/plugin-wskflow": "^8.10.0",
     "@kui-shell/react": "^8.10.0",
     "font-config-webpack-plugin": "^2.0.0"
