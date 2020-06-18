@@ -1,7 +1,7 @@
  /*
   * Copyright (c) 2020 Red Hat, Inc.
   */
- 
+
  /*******************************************************************************
  * Licensed Materials - Property of IBM
  * (c) Copyright IBM Corporation 2017, 2020. All Rights Reserved.
@@ -43,9 +43,10 @@ const {
 
 const sessionKey = 'kui_websocket_auth'
 
-const TokenFromCookieENV = process.env["TOKEN_FROM_COOKIE"] 
-const TokenFromCookie = TokenFromCookieENV? TokenFromCookieENV.toLowerCase() !== "false" : true  // if TokenFromCookieENV not set or is not false, will get token from cookie, otherwise, get token from header
-const AccessTokenKey = (process.env["ACCESS_TOKEN_KEY"] || 'cfc-access-token-cookie').toLowerCase()
+const TokenFromCookieENV = process.env['TOKEN_FROM_COOKIE']
+const TokenFromCookie = TokenFromCookieENV? TokenFromCookieENV.toLowerCase() !== 'false' : true
+// if TokenFromCookieENV not set or is not false, will get token from cookie, otherwise, get token from header
+const AccessTokenKey = (process.env['ACCESS_TOKEN_KEY'] || 'cfc-access-token-cookie').toLowerCase()
 
 const mainPath = join(dirname(require.resolve('@kui-shell/core')), 'main/main.js')
 const { main: wssMain } = require('@kui-shell/plugin-bash-like')
@@ -107,6 +108,8 @@ function main(cmdline, execOptions, server, port, host,user, locale) {
       // check if the user connected within the time period
       let connectedInTime = false
       const connectionTimeout = process.env.KUI_WEBSOCKET_TIMEOUT || 60000
+      console.log('connectionTimeout ', connectionTimeout)
+
       setTimeout(() => {
         if(!connectedInTime){
           console.log(`no websocket detected for ${uid}. cleaning process`)
@@ -143,7 +146,7 @@ function main(cmdline, execOptions, server, port, host,user, locale) {
             content: {
               proto,
               port: -1,
-              path: (process.env.KUI_INGRESS_PATH != undefined) ? 
+              path: (process.env.KUI_INGRESS_PATH != undefined) ?
               `/${process.env.KUI_INGRESS_PATH}/bash/${N}` : `/bash/${N}`
             }
           }
@@ -177,10 +180,10 @@ module.exports = (server, port) => {
         // so that our catch (err) below is used upon command execution failure
         execOptions.rethrowErrors = true
 
-        let locale = req.headers['accept-language'] && req.headers['accept-language'].split(',')[0]
+        const locale = req.headers['accept-language'] && req.headers['accept-language'].split(',')[0]
 
         /* if (execOptions && execOptions.credentials) {
-          // FIXME this should not be a global
+          // F I X M E this should not be a global
           setValidCredentials(execOptions.credentials)
         } */
 
@@ -191,13 +194,13 @@ module.exports = (server, port) => {
           }) */
 
         const accessToken = TokenFromCookie? parseCookie(req.headers.cookie || '')[AccessTokenKey] : req.headers[AccessTokenKey] || '';
-        
+
         user = await getUser(accessToken)
         const { type, cookie, response } = await main(
-          command, 
-          execOptions, 
-          server, 
-          port, 
+          command,
+          execOptions,
+          server,
+          port,
           req.headers.host,
           user,
           locale

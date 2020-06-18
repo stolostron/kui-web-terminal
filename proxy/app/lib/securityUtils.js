@@ -28,18 +28,18 @@ const child_process = require('child_process');
 
 class CloudPakTools {
   constructor(){
-    this.clusterURL = process.env["ICP_EXTERNAL_URL"] || "https://mycluster.icp:8443";
-    this.namespaceBlackList = ["cert-manager", "ibmcom", "istio-system", "platform", "services"];
+    this.clusterURL = process.env['ICP_EXTERNAL_URL'] || 'https://mycluster.icp:8443';
+    this.namespaceBlackList = ['cert-manager', 'ibmcom', 'istio-system', 'platform', 'services'];
   }
 
   getLoginURL(){
     return this.clusterURL;
   }
   getLoginArgs(namespace,accessToken,idToken){
-    return ["login", "-a", this.clusterURL, "-n", namespace, "--skip-ssl-validation"];
+    return ['login', '-a', this.clusterURL, '-n', namespace, '--skip-ssl-validation'];
   }
   getLoginEnvs(userEnv,accessToken,idToken){
-    return Object.assign({}, userEnv,{"CLOUDCTL_ACCESS_TOKEN":accessToken,"CLOUDCTL_ID_TOKEN":idToken});
+    return Object.assign({}, userEnv,{'CLOUDCTL_ACCESS_TOKEN':accessToken,'CLOUDCTL_ID_TOKEN':idToken});
   }
   getLoginCMD(){
     return '/usr/local/bin/cloudctl';
@@ -51,9 +51,9 @@ class CloudPakTools {
     } catch(e) {
       console.error('failed to import cloudctl.json with error: ', e)
     }
-    const kubeArgs = ["config", "set-cluster", config['cluster-name'], "--server=https://kubernetes.default.svc:443", "--insecure-skip-tls-verify=true"];
+    const kubeArgs = ['config', 'set-cluster', config['cluster-name'], '--server=https://kubernetes.default.svc:443', '--insecure-skip-tls-verify=true'];
     const kubeOpts = {
-        cwd: user.env["HOME"],
+        cwd: user.env['HOME'],
         env: user.env,
         timeout: 20000,
         uid: user.uid,
@@ -64,33 +64,35 @@ class CloudPakTools {
         console.log('failed to read cluster-name from config, aborting kube api server rewrite')
         return resolve()
       }
-  
+
       let kubeProc = child_process.spawn('/usr/local/bin/kubectl', kubeArgs, kubeOpts)
       kubeProc.stdin.end()
       let kubeOutput = ''
-      kubeProc.stdout.on("data", function (data) {
+      kubeProc.stdout.on('data', function (data) {
         kubeOutput += String(data);
       })
-      kubeProc.stderr.on("data", function (data) {
+      kubeProc.stderr.on('data', function (data) {
         kubeOutput += String(data);
       })
-      kubeProc.on("error", function (err) {
-        console.error(user.name + " kube api server rewrite failed.")
+      kubeProc.on('error', function (err) {
+        console.error(user.name + ' kube api server rewrite failed.')
         console.error(err.toString())
       })
-      kubeProc.on("exit", function (code) {
+      kubeProc.on('exit', function (code) {
         if (code == 0) {
           console.log('user ' + user.name + ' kube api server rewrite success ')
           return resolve()
         }
-  
+
         console.log('user ' + user.name + ' kube api server rewrite failed with exit code ' + code)
-  
+
         let errMsg = ""
         let lines = kubeOutput.split('\n')
         for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
           errMsg = lines[i]
-          if (errMsg != "") break
+          if (errMsg !== '') {
+            break
+          }
         }
         resolve(errMsg) // we won't fail the whole login
       })
@@ -100,45 +102,51 @@ class CloudPakTools {
   getNamespace(accessToken){
     const self=this;
     return new Promise(function (resolve, reject) {
-      const userNamespaceUrl = url.parse(self.clusterURL + "/idmgmt/identity/api/v1/teams/resources");
-      console.log("getting user namespaces with " + userNamespaceUrl.href);
+      const userNamespaceUrl = url.parse(self.clusterURL + '/idmgmt/identity/api/v1/teams/resources');
+      console.log('getting user namespaces with ' + userNamespaceUrl.href);
       let req = https.request({
         protocol: userNamespaceUrl.protocol,
         hostname: userNamespaceUrl.hostname,
         port: userNamespaceUrl.port,
         path: userNamespaceUrl.path,
-        method: "GET",
+        method: 'GET',
         rejectUnauthorized: false, // we are using the icp-management-ingress and it never has a valid cert for the service name
         headers: {
-          "Authorization": "Bearer " + accessToken,
-          "Accept": "application/json",
+          'Authorization': 'Bearer ' + accessToken,
+          'Accept': 'application/json',
         },
         json: true,
       }, function (res) {
-        let body = "";
+        let body = '';
         res.on('data', function (chunk) {
           body = body + chunk;
         });
         res.on('end', function () {
           if (res.statusCode < 200 || res.statusCode >= 300) {
-            return reject(new Error("Unable to get user namspaces. Status code " + res.statusCode + " returned."));
+            return reject(new Error('Unable to get user namspaces. Status code ' + res.statusCode + ' returned.'));
           }
-          let resourceObj = JSON.parse(body)
-  
-          let namespaceList = resourceObj.filter(function (namespace) { return namespace.scope == "namespace" && namespace.actions.includes("R") })
-          let namespacelistArr = namespaceList.map(function (namespacename) { return namespacename.namespaceId })
-  
+          const resourceObj = JSON.parse(body)
+
+          const namespaceList = resourceObj.filter(function (namespace) {
+            return (namespace.scope === 'namespace' && namespace.actions.includes('R'))
+            })
+          const namespacelistArr = namespaceList.map(function (namespacename) {
+            return namespacename.namespaceId
+            })
+
           if (namespacelistArr.length > 0) {
-            let filteredArr = namespacelistArr.filter(function (str) { return str != "" && !self.namespaceBlackList.includes(str) })
-  
+            const filteredArr = namespacelistArr.filter(function (str) {
+              return str !== '' && !self.namespaceBlackList.includes(str)
+            })
+
             if (filteredArr.length > 0) {
-              console.log("selecting namespace: ", filteredArr[0])
+              console.log('selecting namespace: ', filteredArr[0])
               return resolve(filteredArr[0])
             }
-            console.log("selecting namespace: ", namespaceList[0])
+            console.log('selecting namespace: ', namespaceList[0])
             return resolve(namespacelistArr[0])
           }
-          reject(new Error("User does not have any namespaces."));
+          reject(new Error('User does not have any namespaces.'));
         })
       });
       req.on('error', function (err) {
@@ -151,42 +159,42 @@ class CloudPakTools {
     const self = this
     return new Promise( (resolve, reject) =>{
       if (!accessToken) {
-        return reject(new Error("Unable to verify user info. Access token is blank."));
+        return reject(new Error('Unable to verify user info. Access token is blank.'));
       }
-      const userInfoUrl = url.parse(self.clusterURL + "/idprovider/v1/auth/exchangetoken");
-      console.log("verify token with " + userInfoUrl.href);
-      let req = https.request({
+      const userInfoUrl = url.parse(self.clusterURL + '/idprovider/v1/auth/exchangetoken');
+      console.log('verify token with ' + userInfoUrl.href);
+      const req = https.request({
         protocol: userInfoUrl.protocol,
         hostname: userInfoUrl.hostname,
         port: userInfoUrl.port,
         path: userInfoUrl.path,
-        method: "POST",
+        method: 'POST',
         rejectUnauthorized: false, // we are using the icp-management-ingress and it never has a valid cert for the service name
         headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         },
         json: true,
         form: {
           access_token: accessToken
         }
       }, function (res) {
-        let body = "";
+        let body = '';
         res.on('data', function (chunk) {
           body = body + chunk;
         });
         res.on('end', function () {
           if (res.statusCode < 200 || res.statusCode >= 300) {
-            return reject(new Error("Unable to verify user info. Status code " + res.statusCode + " returned."));
+            return reject(new Error('Unable to verify user info. Status code ' + res.statusCode + ' returned.'));
           }
-          let json = JSON.parse(body);
+          const json = JSON.parse(body);
           if (json.id_token) {
             return resolve(json.id_token);
           }
-          reject(new Error("Unable to verify user info. No id_token in exchangetoken response."));
+          reject(new Error('Unable to verify user info. No id_token in exchangetoken response.'));
         })
       });
-      let data = querystring.stringify({
+      const data = querystring.stringify({
         'access_token': accessToken
       });
       req.write(data);
@@ -200,12 +208,12 @@ class CloudPakTools {
 
 class OpenshiftTools {
   constructor(){
-    this.clusterURL = "https://kubernetes.default.svc:443" 
+    this.clusterURL = 'https://kubernetes.default.svc:443'
     if(process.env.NODE_ENV === 'development' && process.env.OPENSHIFT_API_SERVER){
       this.clusterURL = process.env.OPENSHIFT_API_SERVER
     }
   }
-  
+
   getNamespace(accessToken){
     return Promise.resolve('default'); //this will not be used when login
   }
@@ -219,7 +227,7 @@ class OpenshiftTools {
     return this.clusterURL;
   }
   getLoginArgs(namespace,accessToken,idToken){
-    return ["login", "--insecure-skip-tls-verify=true",`--server=${this.clusterURL}`,  `--token=${accessToken}`];
+    return ['login', '--insecure-skip-tls-verify=true',`--server=${this.clusterURL}`,  `--token=${accessToken}`];
   }
   getLoginEnvs(userEnv,accessToken,idToken){
     return Object.assign({}, userEnv);
@@ -235,13 +243,10 @@ class OpenshiftTools {
 }
 
 exports.getLoginTools = ()=>{
-  const UseCloudPakEnv = process.env.USE_CLOUDPAK_SETTINGS 
+  const UseCloudPakEnv = process.env.USE_CLOUDPAK_SETTINGS
   const UseCloudPak = UseCloudPakEnv? UseCloudPakEnv.toLowerCase() === 'true' :true // if not set or set to true, use cloudpak setups
   if(!UseCloudPak){
     return new OpenshiftTools();
   }
   return new CloudPakTools();
 }
-
-
-
