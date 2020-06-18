@@ -38,6 +38,7 @@
     "morgan": "1.9.1",
     "query-string": "^6.1.0",
     "requestretry": "^1.13.0",
-    "uuid": "3.3.2"
+    "uuid": "3.3.2",
+    "typescript": "^3.9.5"
   }
 }
