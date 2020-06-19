@@ -34,11 +34,11 @@ async function createUser(user) {
     user.home = '/home/' + user.uid;
     let adduserCmd = ''
     if ( LINUX_DISTRO !== 'rhel' ) {
-      adduserCmd = 'umask 0077 && rbash -c \'adduser --uid ' + user.uid + ' --home ' + user.home + ' --gecos \"\" --disabled-login --disabled-password ' + user.name + '\''
+      adduserCmd = 'umask 0077 && rbash -c \'adduser --uid ' + user.uid + ' --home ' + user.home + ' --gecos "" --disabled-login --disabled-password ' + user.name + '\''
       //adduserCmd = "umask 0077 && rbash -c 'adduser -u " + user.uid + " -m  --comment \"\" -d " + user.home + " " + user.name + "'"
     }
     else {
-      adduserCmd = 'umask 0077 && rbash -c \'useradd --uid ' + user.uid + ' --home-dir ' + user.home + ' --comment \"\" ' + user.name + '\''
+      adduserCmd = 'umask 0077 && rbash -c \'useradd --uid ' + user.uid + ' --home-dir ' + user.home + ' --comment "" ' + user.name + '\''
     }
     adduserCmd = adduserCmd + ` && chmod a-w ${user.home}/.bashrc && chmod a-w ${user.home}/.bash_profile`
     adduserCmd = adduserCmd + ` && chown 0:0 ${user.home}/.bashrc && chown 0:0 ${user.home}/.bash_profile`
