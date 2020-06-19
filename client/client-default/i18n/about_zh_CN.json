@@ -1,7 +1,0 @@
-{
-  "about": "关于",
-  "gettingStarted": "开始操作",
-  "configure": "配置",
-  "about:content": "Visual Web Terminal 提供新的开发体验，通过将各个 CLI 的强大功能与可视化的便利性相组合，构建云/本机应用程序。Visual Web Terminal 使您能够从各种工具运行命令、显示和浏览复杂的“JSON”和“YAML”数据模型，以及查看运作数据。使用 KUI 开放式源代码项目代码进行构建：https://github.com/IBM/kui。",
-  "gettingStarted:content": "Visual Web Terminal 是将图形用户界面的便利性与命令行界面的速度相组合的接口。在运行命令后，将以交互式表格格式返回数据，这可在您选择表中的项时显示有关此项的更多详细信息。\n \n 除了特定于 Visual Web Terminal 的命令，还支持以下命令：\n * 选中的基本“bash”命令\n * “cloudctl”命令\n * “helm”命令\n * “kubectl”命令\n * “oc”命令\n \n**应用程序**\n \n 您可以通过 Visual Web Terminal 使用“kubectl”命令来查看和访问有关环境中的应用程序的信息。\n \n * 显示所有应用程序：\n \n  “kubectl get applications”\n \n * 显示所有部署：\n \n “kubectl get deployments”\n \n * 显示所有通道：\n \n “kubectl get channels”\n \n **搜索**（仅在集群上安装 IBM Cloud Pak for Multicloud Management 时可用）\n \n 您可以使用“search”命令在整个连接的云管理环境中搜索字符串或属性。 可以通过向搜索命令末尾添加过滤器来使用过滤器缩小搜索结果的范围。\n \n “search”命令返回按表格式进行分类的结果。 您可以通过选择想要用于排序的数据的列标题，对表中的数据进行排序。\n \n 要查看有关表中返回的某个项的其他详细信息，请选择此项的名称。\n \n * IP 地址搜索的示例：\n \n “search 192.0.0.1”\n \n * 使用过滤器的搜索示例：\n \n 资源种类：\n \n “search kind:deployment”\n \n * 所有者：\n \n search owner:jdoe\n \n * 多个过滤器：\n \n “search kind:deployment owner:jdoe”"
-}
