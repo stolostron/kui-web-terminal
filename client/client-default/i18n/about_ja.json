@@ -1,7 +1,0 @@
-{
-  "about": "情報",
-  "gettingStarted": "始めに",
-  "configure": "構成",
-  "about:content": "Visual Web Terminal はさまざまな CLI の能力と可視化の利便性を組み合わせることで、クラウド・ネイティブのアプリケーションのビルドにおける新しい開発エクスペリエンスを提供します。 Visual Web Terminal を使用すると、さまざまなツールからコマンドを実行したり、複雑な「JSON」データ・モデルや「YAML」データ・モデルを表示およびナビゲートしたり、運用データを表示したりできます。 KUI オープン・ソース・プロジェクト・コード https://github.com/IBM/kui を使用してビルドされました。",
-  "gettingStarted:content": "Visual Web Terminal は、グラフィカル・ユーザー・インターフェースの利便性とコマンド・ライン・インターフェースのスピードを組み合わせたインターフェースです。 コマンドを実行すると、データは対話型のテーブル形式で返され、テーブル内の項目を選択すると、その項目の詳細を表示できます。\n \n Visual Web Terminal に固有のコマンドに加えて、以下のコマンドもサポートされています。\n * 選択された基本的な「bash」コマンド\n * 「cloudctl」コマンド\n * 「helm」コマンド\n * 「kubectl」コマンド \n * 「oc」コマンド\n \n**アプリケーション**\n \n Visual Web Terminal で「kubectl」コマンドを使用すると、環境内のアプリケーションに関する情報を表示およびアクセスできます。\n \n * すべてのアプリケーションの表示:\n \n 「kubectl get applications」\n \n * すべてのデプロイメントの表示:\n \n 「kubectl get deployments」\n \n * すべてのチャネルの表示:\n \n 「kubectl get channels」\n \n **検索** (IBM Cloud Pak for Multicloud Management がクラスターにインストールされている場合にのみ使用可能)\n \n 「search」コマンドを使用して、接続されているクラウド管理環境全体でストリングまたは属性を検索できます。 「search」コマンドの最後に追加することで、フィルターを使用して検索結果を絞り込むことができます。\n \n 「search」コマンドは、タイプで分類されたテーブル形式の結果を返します。 テーブル内のデータは、列見出しを選択すると、その列のデータで並べ替えることができます。\n \n テーブルに返された項目に関する追加の詳細を表示するには、その項目の名前を選択します。\n \n * IP アドレスの検索例:\n \n 「search 192.0.0.1」\n \n * フィルターを使用した検索例:\n \n リソースの種類:\n \n 「search kind:deployment」\n \n * 所有者:\n \n 「search owner:jdoe」\n \n * 複数のフィルター:\n \n 「search kind:deployment owner:jdoe」"
-}
