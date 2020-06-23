@@ -14,8 +14,8 @@ root
 ├── client
 │   └── client-default
 │         └── config.d (the custom configuration settings for RHACM integration)
-|         └── i18n (the globalized strings for the getting started feature; legacy) 
-|         └── icons 
+|         └── i18n (the globalized strings for the getting started feature; legacy)
+|         └── icons
 |         └── images
 |         └── index.js (legacy; not used)
 |         └── package.json
@@ -178,7 +178,7 @@ export K8S_CLUSTER_PASSWORD=your-password
 ---
 
 ## How to debug kui-web-terminal
-Proxy/Server: 
+Proxy/Server:
 - Add an environment variable to the container:  `DEBUG='*'`
 Client/UI (from the VWT page):
 - Browser developer tools > Application tab > Local Storage > Add `debug='*'`'.  View logs in Browser developer tools > Console tab.
@@ -186,10 +186,21 @@ Client/UI (from the VWT page):
 
 ---
 
-## How to upgrade the upstream KUI node module dependencies
+## How to upgrade the upstream KUI node module dependencies OR upgrade to a newer IBM (upstream) KUI
 1. Run `make update-kui KUI_UPDATE_VERSION=x.x.x`
 2. Wait for the client and proxy dependencies to finish installing.
 3. Commit the package.json and package-lock.json in both `/client` and `/proxy`
+
+---
+
+## How to update for security vulnerabilities
+1. Change to the `client` or `proxy` subdirectory
+2. Run `npm audit --production` to see the list of vulnerabilities
+3. Run `npm audit fix` to automatically fix issues
+4. Commit the package.json and package-lock.json in both `/client` and `/proxy`
+
+
+
 
 ---
 
