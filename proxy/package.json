@@ -1,7 +1,7 @@
 {
   "name": "kui-proxy",
   "version": "1.0.0",
-  "description": "Docker image for the KUI proxy to be used in ICP",
+  "description": "Docker image for the Visual Web Terminal proxy to be used in Advanced Cluster Management",
   "main": "node_modules/@kui-shell/core/main/main.js",
   "scripts": {
     "start": "./app/bin/www",
