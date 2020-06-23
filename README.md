@@ -194,9 +194,12 @@ Client/UI (from the VWT page):
 ---
 
 ## How to update for security vulnerabilities
-1. Change to the `client` or `proxy` subdirectory
-2. Run `npm audit --production` to see the list of vulnerabilities
-3. Run `npm audit fix` to automatically fix issues
+1. Change to the `/client` or `/proxy` subdirectory
+2. Run `npm audit --production` to see the list of vulnerabilities, dependency chain, advisory info, etc.
+3. Run `npm audit fix` to automatically fix issues.  Some issues might require you to manually
+make changes to your **dependencies** or get the [IBM KUI](https://github.com/IBM/kui) team to make changes to their files to 
+pull in new versions of packages.  
+
 4. Commit the package.json and package-lock.json in both `/client` and `/proxy`
 
 
