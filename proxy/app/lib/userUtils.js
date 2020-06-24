@@ -11,8 +11,8 @@
 
 const debug = require('debug')('proxy/userUtils');
 const util = require('util');
-const child_process=require('child_process');
-const exec = util.promisify(child_process.exec);
+const childProcess=require('child_process');
+const exec = util.promisify(childProcess.exec);
 const LINUX_DISTRO = process.env['LINUX_DISTRO'];
 const INSECURE_MODE = process.env['INSECURE_MODE'];
 const LOGIN_TIMEOUT = 20000;
@@ -33,12 +33,12 @@ async function createUser(user) {
     user.name = 'u_'+ user.uid;
     user.home = '/home/' + user.uid;
     let adduserCmd = ''
-    if ( LINUX_DISTRO != 'rhel' ) {
-      adduserCmd = "umask 0077 && rbash -c 'adduser --uid " + user.uid + " --home " + user.home + " --gecos \"\" --disabled-login --disabled-password " + user.name + "'"
+    if ( LINUX_DISTRO !== 'rhel' ) {
+      adduserCmd = 'umask 0077 && rbash -c \'adduser --uid ' + user.uid + ' --home ' + user.home + ' --gecos "" --disabled-login --disabled-password ' + user.name + '\''
       //adduserCmd = "umask 0077 && rbash -c 'adduser -u " + user.uid + " -m  --comment \"\" -d " + user.home + " " + user.name + "'"
     }
     else {
-      adduserCmd = "umask 0077 && rbash -c 'useradd --uid " + user.uid + " --home-dir " + user.home + " --comment \"\" " + user.name + "'"
+      adduserCmd = 'umask 0077 && rbash -c \'useradd --uid ' + user.uid + ' --home-dir ' + user.home + ' --comment "" ' + user.name + '\''
     }
     adduserCmd = adduserCmd + ` && chmod a-w ${user.home}/.bashrc && chmod a-w ${user.home}/.bash_profile`
     adduserCmd = adduserCmd + ` && chown 0:0 ${user.home}/.bashrc && chown 0:0 ${user.home}/.bash_profile`
@@ -54,12 +54,12 @@ async function createUser(user) {
 
 module.exports.deleteUser = async (username) => {
     let deleteUserCmd = '';
-    if ( LINUX_DISTRO != 'rhel' )
+    if ( LINUX_DISTRO !== 'rhel' )
     {
-      deleteUserCmd = "rbash -c 'deluser --remove-home --quiet " + username + "'";
+      deleteUserCmd = 'rbash -c \'deluser --remove-home --quiet ' + username + '\'';
     }
     else {
-      deleteUserCmd = "rbash -c 'userdel --remove " + username + "'";
+      deleteUserCmd = 'rbash -c \'userdel --remove ' + username + '\'';
     }
     console.log('deleting user: ' + deleteUserCmd);
     await exec(deleteUserCmd, {
@@ -70,14 +70,13 @@ module.exports.deleteUser = async (username) => {
 }
 
 const setupUserEnv = (user)=>{
-    let userEnv = {};
+    const userEnv = {};
     for (const e in process.env) {
       userEnv[e] = process.env[e];
     }
     userEnv['CLOUDCTL_COLOR'] = false;
     userEnv['USER'] = user.name;
     userEnv['HOME'] = user.home;
-    //user.env=userEnv;
     return userEnv;
 }
 
@@ -93,8 +92,11 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
         gid: NOBODY_GID
     }
     return new Promise(function(resolve, reject) {
-        let loginProc = child_process.spawn(loginTools.getLoginCMD(), loginArgs, loginOpts);
-        setTimeout(()=>{ loginProc.kill(); reject('timeout');}, LOGIN_TIMEOUT);
+        const loginProc = childProcess.spawn(loginTools.getLoginCMD(), loginArgs, loginOpts);
+        setTimeout(()=>{
+          loginProc.kill();
+          reject('timeout');
+        }, LOGIN_TIMEOUT);
         loginProc.stdin.end();
         let loginOutput = '';
         loginProc.stdout.on('data', function (data) {
@@ -108,7 +110,7 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
           console.error(err.toString());
         });
         loginProc.on('exit', function (code) {
-          if (code == 0) {
+          if (code === 0) {
             console.log('user ' + user.name + ' login complete in terminal ');
             return resolve();
           }
@@ -116,7 +118,7 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
           console.error('user ' + user.name + ' login failed in terminal with exit code ' + code);
 
           let errMsg = '';
-          let lines = loginOutput.split('\n');
+          const lines = loginOutput.split('\n');
           for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
             errMsg = lines[i];
             if (errMsg !== '') {
@@ -157,7 +159,7 @@ module.exports.getUser = async (token) => {
     //create new user with home folder set
     //It's possible to have one user set up two different UIDs because we didn't add locks
     try{
-        let user={};
+        const user={};
         await createUser(user);
         debug('return uid:',user.uid);
         user.env=setupUserEnv(user);
