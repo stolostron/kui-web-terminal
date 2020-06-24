@@ -32,9 +32,9 @@ env:
 stages:
   - unit-test
   - build
-  - test-e2e
+  #- test-e2e
   - release-ff
-  - publish
+  #- publish
 
 before_script:
   - make init
