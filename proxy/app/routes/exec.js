@@ -146,7 +146,7 @@ function main(cmdline, execOptions, server, port, host,user, locale) {
             content: {
               proto,
               port: -1,
-              path: (process.env.KUI_INGRESS_PATH != undefined) ?
+              path: (process.env.KUI_INGRESS_PATH !== undefined) ?
               `/${process.env.KUI_INGRESS_PATH}/bash/${N}` : `/bash/${N}`
             }
           }

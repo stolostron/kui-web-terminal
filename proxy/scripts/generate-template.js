@@ -23,8 +23,8 @@ const { document } = kuiDom.window
 const headElement = document.querySelector('head')
 const bodyElement = document.querySelector('body')
 
-const noncePlaceHolder = '{kuiNonce}' 
-const nonceReplace = 'kuiDefaultNonce' // all nonce set to this string will be replaced 
+const noncePlaceHolder = '{kuiNonce}'
+const nonceReplace = 'kuiDefaultNonce' // all nonce set to this string will be replaced
 
 // Header Elements ================================
 const headerContainer = document.createElement('div')
@@ -83,12 +83,12 @@ const links = Array.from(document.querySelectorAll('link'))
 // Fix nonce
 //iterate through scripts/links, and replace nonce with variable
 const nonceScripts = scripts.filter(script => script.nonce === nonceReplace)
-for(let script of nonceScripts){
+for(const script of nonceScripts){
   script.nonce = noncePlaceHolder
 }
 
 const nonceLinks = links.filter(link => link.nonce === nonceReplace)
-for(let link of nonceLinks){
+for(const link of nonceLinks){
   link.nonce = noncePlaceHolder
 }
 
