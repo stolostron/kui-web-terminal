@@ -3,7 +3,7 @@ ARG ARCH
 # To support downstream builds, use full ubi8 + nodeJS 10 built in until an official
 # ubi8-minimal/nodejs-10 base image may become available.
 # FROM registry.access.redhat.com/ubi8-minimal:8.1-398
-FROM registry.access.redhat.com/ubi8/nodejs-12:latest
+FROM registry.access.redhat.com/ubi8/nodejs-12:1
 
 ARG VCS_REF
 ARG VCS_URL
@@ -92,8 +92,11 @@ ENV LINUX_DISTRO rhel
 # ubi8/nodejs-10 base image seems to need this
 USER root
 
-# keep image up-to-date by pulling latest fixes
-RUN yum -y update
+# Remove nodejs-nodemon as 1) it is not needed by kui 2) it has package vulnerabilities
+# See: https://github.com/open-cluster-management/backlog/issues/2741
+# Keep image up-to-date 
+RUN yum -y remove nodejs-nodemon && \
+    yum -y update
 
 WORKDIR /kui-proxy/kui
 
