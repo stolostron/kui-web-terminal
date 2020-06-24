@@ -43,7 +43,7 @@ router.get('/', function (req, res, next) {
     }
 
     try {
-      let langs = req.headers['accept-language'].split(',');
+      const langs = req.headers['accept-language'].split(',');
       res.render('main', Object.assign({
         header: header,
         propsH: propsH,
