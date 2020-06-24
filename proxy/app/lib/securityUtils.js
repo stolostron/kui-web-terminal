@@ -13,7 +13,7 @@ const url = require('url');
 const https = require('https');
 const querystring = require('querystring');
 const NOBODY_GID = parseInt(process.env.NOBODY_GID || '99',10);
-const child_process = require('child_process');
+const childProcess = require('child_process');
 /* eslint-disable no-unused-vars*/
 
 // This file provides some different classes for different envs KUI will exute on. Supports IBM CloudPak and Openshift.
@@ -47,7 +47,7 @@ class CloudPakTools {
   postSetup(user){
     let config = {}
     try {
-      config = require(`${user.env["HOME"]}/.cloudctl/cloudctl.json`)
+      config = require(`${user.env['HOME']}/.cloudctl/cloudctl.json`)
     } catch(e) {
       console.error('failed to import cloudctl.json with error: ', e)
     }
@@ -65,7 +65,7 @@ class CloudPakTools {
         return resolve()
       }
 
-      let kubeProc = child_process.spawn('/usr/local/bin/kubectl', kubeArgs, kubeOpts)
+      const kubeProc = childProcess.spawn('/usr/local/bin/kubectl', kubeArgs, kubeOpts)
       kubeProc.stdin.end()
       let kubeOutput = ''
       kubeProc.stdout.on('data', function (data) {
@@ -79,15 +79,15 @@ class CloudPakTools {
         console.error(err.toString())
       })
       kubeProc.on('exit', function (code) {
-        if (code == 0) {
+        if (code === 0) {
           console.log('user ' + user.name + ' kube api server rewrite success ')
           return resolve()
         }
 
         console.log('user ' + user.name + ' kube api server rewrite failed with exit code ' + code)
 
-        let errMsg = ""
-        let lines = kubeOutput.split('\n')
+        let errMsg = ''
+        const lines = kubeOutput.split('\n')
         for (let i = lines.length-1; i > 0; i--) { // account for possible blank line
           errMsg = lines[i]
           if (errMsg !== '') {
@@ -104,7 +104,7 @@ class CloudPakTools {
     return new Promise(function (resolve, reject) {
       const userNamespaceUrl = url.parse(self.clusterURL + '/idmgmt/identity/api/v1/teams/resources');
       console.log('getting user namespaces with ' + userNamespaceUrl.href);
-      let req = https.request({
+      const req = https.request({
         protocol: userNamespaceUrl.protocol,
         hostname: userNamespaceUrl.hostname,
         port: userNamespaceUrl.port,
