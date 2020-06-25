@@ -1,10 +1,10 @@
 .PHONY: install-proxy
-install-proxy: 
+install-proxy:
 	npm install
 
 .PHONY: headless
-headless: 
-	QUIET=true NO_ZIPS=true npx kui-build-headless 
+headless:
+	QUIET=true NO_ZIPS=true npx kui-build-headless
 
 .PHONY: lint-proxy
 lint-proxy:
@@ -13,7 +13,10 @@ lint-proxy:
 .PHONY: clean-proxy
 clean-proxy:
 	rm -rf build
+	# Must cleanup node_modules AND package-lock.json or dependencies could get corrupt
 	rm -rf node_modules
+	-rm package-lock.json
+
 
 .PHONY: update-proxy
 update-proxy:
