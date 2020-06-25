@@ -1,7 +1,7 @@
 {
   "name": "kui-proxy",
   "version": "1.0.0",
-  "description": "Docker image for the KUI proxy to be used in ICP",
+  "description": "Docker image for the Visual Web Terminal proxy to be used in Advanced Cluster Management",
   "main": "node_modules/@kui-shell/core/main/main.js",
   "scripts": {
     "start": "./app/bin/www",
@@ -17,14 +17,14 @@
     "jsdom": "^15.1.1"
   },
   "dependencies": {
-    "@kui-shell/builder": "^8.10.0",
+    "@kui-shell/builder": "^8.10.3",
     "@kui-shell/client": "file:client-default",
-    "@kui-shell/core": "^8.10.0",
-    "@kui-shell/plugin-bash-like": "^8.10.0",
-    "@kui-shell/plugin-core-support": "^8.10.0",
-    "@kui-shell/plugin-kubectl": "^8.10.0",
+    "@kui-shell/core": "^8.10.3",
+    "@kui-shell/plugin-bash-like": "^8.10.3",
+    "@kui-shell/plugin-core-support": "^8.10.3",
+    "@kui-shell/plugin-kubectl": "^8.10.3",
     "@kui-shell/plugin-kui-addons": "file:../plugin-downloads/plugin-kui-addons.tgz",
-    "@kui-shell/react": "^8.10.0",
+    "@kui-shell/react": "^8.10.3",
     "consolidate": "^0.15.1",
     "cookie-parser": "1.4.4",
     "cors": "2.8.5",
@@ -33,7 +33,7 @@
     "express": "4.16.4",
     "express-static-gzip": "^1.1.3",
     "helmet-csp": "^2.10.0",
-    "http-proxy-middleware": "^0.18.0",
+    "http-proxy-middleware": "^0.19.2",
     "lodash": "^4.17.5",
     "morgan": "1.9.1",
     "query-string": "^6.1.0",
