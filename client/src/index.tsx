@@ -35,7 +35,13 @@ import { productName, connectSuccess } from '@kui-shell/client/config.d/name.jso
 const wrapper = document.querySelector(".main");
 if (wrapper) {
   render(
-    <Kui bottomInput={<CustomSearchInput/>} productName={productName} loadingDone={() => <pre>{connectSuccess}</pre>} noPromptContext prompt="&#x276f;">
+    <Kui bottomInput={<CustomSearchInput/>} 
+         productName={productName} 
+         loadingDone={() => <pre>{connectSuccess}</pre>} 
+         noPromptContext 
+         prompt="&#x276f;" 
+         disableTableTitle 
+         sidecarName="heroText">
       <ContextWidgets>
         <CurrentContext />
         <CurrentNamespace />
