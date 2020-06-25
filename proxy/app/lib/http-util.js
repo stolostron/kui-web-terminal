@@ -159,13 +159,15 @@ function redactBody(body) {
 function redactHeader(name, value) {
   name = name.toLowerCase()
   switch (name) {
-  case 'authorization':
-    // show the first word if there are multiple (e.g. 'Bearer', 'Basic')
-    var words = value.split(' ')
-    return words.length > 1 ? words[0] + ' ***' : '***'
-  case 'cookie':
-  case 'x-auth-token':
-    return '***'
+    case 'authorization': {
+      // show the first word if there are multiple (e.g. 'Bearer', 'Basic')
+      var words = value.split(' ')
+      return words.length > 1 ? words[0] + ' ***' : '***'
+    }
+    case 'cookie':
+    case 'x-auth-token': {
+      return '***'
+    }
   }
   return value
 }
