@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from '@patternfly/react-styles/css/components/Page/page';
 import { css } from '@patternfly/react-styles';
-import globalBreakpointMd from '@patternfly/react-tokens/dist/js/global_breakpoint_md';
+import globalBreakpointXl from '@patternfly/react-tokens/dist/js/global_breakpoint_xl';
 import { debounce } from '../../helpers/util';
 
 export enum PageLayouts {
@@ -28,6 +28,8 @@ export interface PageProps extends React.HTMLProps<HTMLDivElement> {
   role?: string;
   /** an id to use for the [role="main"] element */
   mainContainerId?: string;
+  /** tabIndex to use for the [role="main"] element, null to unset it */
+  mainTabIndex?: number | null;
   /**
    * If true, manages the sidebar open/close state and there is no need to pass the isNavOpen boolean into
    * the sidebar component or add a callback onNavToggle function into the PageHeader component
@@ -56,17 +58,10 @@ export interface PageState {
 
 export class Page extends React.Component<PageProps, PageState> {
   static defaultProps: PageProps = {
-    breadcrumb: null as React.ReactNode,
-    children: null as React.ReactNode,
-    className: '',
-    header: null as React.ReactNode,
-    sidebar: null as React.ReactNode,
-    skipToContent: null as React.ReactElement,
     isManagedSidebar: false,
     defaultManagedSidebarIsOpen: true,
     onPageResize: (): void => null,
-    mainContainerId: null as string,
-    role: undefined as string
+    mainTabIndex: -1
   };
 
   constructor(props: PageProps) {
@@ -101,14 +96,11 @@ export class Page extends React.Component<PageProps, PageState> {
     const { onPageResize } = this.props;
     const windowSize = window.innerWidth;
     // eslint-disable-next-line radix
-    const mobileView = windowSize < Number.parseInt(globalBreakpointMd.value, 10);
+    const mobileView = windowSize < Number.parseInt(globalBreakpointXl.value, 10);
     if (onPageResize) {
       onPageResize({ mobileView, windowSize });
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    this.setState(prevState => ({
-      mobileView
-    }));
+    this.setState({ mobileView });
   };
 
   onNavToggleMobile = () => {
@@ -139,6 +131,7 @@ export class Page extends React.Component<PageProps, PageState> {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       onPageResize,
       mainAriaLabel,
+      mainTabIndex,
       ...rest
     } = this.props;
     const { mobileView, mobileIsNavOpen, desktopIsNavOpen } = this.state;
@@ -159,7 +152,7 @@ export class Page extends React.Component<PageProps, PageState> {
             role={role}
             id={mainContainerId}
             className={css(styles.pageMain)}
-            tabIndex={-1}
+            tabIndex={mainTabIndex}
             aria-label={mainAriaLabel}
           >
             {breadcrumb && <section className={css(styles.pageMainBreadcrumb)}>{breadcrumb}</section>}
