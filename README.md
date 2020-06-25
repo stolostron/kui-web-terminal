@@ -97,7 +97,7 @@ make build-image
 
 ### To build the client part only
 
-1. Install the dependencies for the client
+1. Install the for client (NOTE: Prerequisite plugins not installed for you)
 ```
 make install-client
 ```
@@ -108,7 +108,7 @@ make webpack
 
 ### To build the proxy part only
 
-1. Install the dependencies for the proxy
+1. Install the proxy (NOTE: Prerequisite plugins not installed for you)
 ```
 make install-proxy
 ```
@@ -187,9 +187,11 @@ Client/UI (from the VWT page):
 ---
 
 ## How to upgrade the upstream KUI node module dependencies OR upgrade to a newer IBM (upstream) KUI
-1. Run `make update-kui KUI_UPDATE_VERSION=x.x.x`
-2. Wait for the client and proxy dependencies to finish installing.
-3. Commit the package.json and package-lock.json in both `/client` and `/proxy`
+1. Run `make clean-kui`
+2. Run `make download-plugins`
+3. Run `make update-kui KUI_UPDATE_VERSION=x.x.x`
+4. Wait for the client and proxy dependencies to finish installing.
+5. Commit the package.json and package-lock.json in both `/client` and `/proxy`
 
 ---
 
