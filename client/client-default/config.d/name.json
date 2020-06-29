@@ -2,6 +2,5 @@
   "productName": "Visual Web Terminal",
   "productTitle": "Red Hat Advanced Cluster Management for Kubernetes",
   "productSubName": "Visual Web Terminal",
-  "shellName": "Visual Web Terminal",
-  "connectSuccess": "Successfully connected to your cloud."
+  "shellName": "Visual Web Terminal"
 }
