@@ -31,13 +31,31 @@ import {
 import CustomSearchInput from "@kui-shell/plugin-search/mdist/components/CustomSearchInput"
 import { ClusterUtilization } from "@kui-shell/plugin-kubectl/view-utilization";
 import { ProxyOfflineIndicator } from "@kui-shell/plugin-proxy-support";
-import { productName, connectSuccess } from '@kui-shell/client/config.d/name.json'
+import { productName, connectSuccess } from '@kui-shell/client/config.d/name.json';
+
+import { Card } from '@kui-shell/plugin-client-common'
+function loadingDone(repl: REPL) {
+  return !inBrowser() ? (
+    undefined
+  ) : (
+    <Card
+      titleInHeader
+      bodyInHeader
+      title="Successfully connected to your cluster"
+      repl={repl}
+    >
+      To learn more, try getting started
+    </Card>
+  )
+}
+
 const wrapper = document.querySelector(".main");
 if (wrapper) {
   render(
     <Kui bottomInput={<CustomSearchInput/>}
          productName={productName}
-         loadingDone={() => <pre>{connectSuccess}</pre>}
+         //loadingDone={() => <pre>{connectSuccess}</pre>}
+         loadingDone={loadingDone}
          noPromptContext
          prompt="&#x276f;"
          disableTableTitle
