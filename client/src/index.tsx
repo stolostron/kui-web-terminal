@@ -34,14 +34,14 @@ import { ProxyOfflineIndicator } from "@kui-shell/plugin-proxy-support";
 import { productName, connectSuccess } from '@kui-shell/client/config.d/name.json';
 
 import { Card } from '@kui-shell/plugin-client-common'
+import { REPL } from '@kui-shell/core'
+
 function loadingDone(repl: REPL) {
-  return !inBrowser() ? (
-    undefined
-  ) : (
+  return (
     <Card
       titleInHeader
       bodyInHeader
-      title="Successfully connected to your cluster"
+      title=connectSuccess
       repl={repl}
     >
       To learn more, try getting started
