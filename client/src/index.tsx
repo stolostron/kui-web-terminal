@@ -41,7 +41,7 @@ function loadingDone(repl: REPL) {
     <Card
       titleInHeader
       bodyInHeader
-      title=connectSuccess
+      title={connectSuccess}
       repl={repl}
     >
       To learn more, try getting started
