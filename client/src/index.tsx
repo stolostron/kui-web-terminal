@@ -36,15 +36,17 @@ import { productName, connectSuccess } from '@kui-shell/client/config.d/name.jso
 import { Card } from '@kui-shell/plugin-client-common'
 import { REPL } from '@kui-shell/core'
 
+
 function loadingDone(repl: REPL) {
   return (
     <Card
       titleInHeader
       bodyInHeader
       title={connectSuccess}
+      icon={require('../icons/png/WelcomeLight.png')}
       repl={repl}
     >
-      To learn more, try getting started
+      To learn more, try Getting Started
     </Card>
   )
 }
