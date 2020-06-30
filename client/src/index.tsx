@@ -43,7 +43,7 @@ function loadingDone(repl: REPL) {
       titleInHeader
       bodyInHeader
       title={connectSuccess}
-      icon={require('../client-default/icons/png/WelcomeLight.png')}
+      //icon={require('../client-default/icons/png/WelcomeLight.png')}
       repl={repl}
     >
       To learn more, try Getting Started
@@ -57,7 +57,7 @@ if (wrapper) {
     <Kui bottomInput={<CustomSearchInput/>}
          productName={productName}
          //loadingDone={() => <pre>{connectSuccess}</pre>}
-         loadingDone={loadingDone}
+         //loadingDone={loadingDone}
          noPromptContext
          prompt="&#x276f;"
          disableTableTitle
