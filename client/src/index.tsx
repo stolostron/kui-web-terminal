@@ -35,7 +35,7 @@ import { productName, connectSuccess } from '@kui-shell/client/config.d/name.jso
 
 import { Card } from '@kui-shell/plugin-client-common'
 import { REPL } from '@kui-shell/core'
-import KuiIcon from '../client-default/icons/png/WelcomeLight.png'
+//import KuiIcon from '../client-default/icons/png/WelcomeLight.png'
 
 
 function loadingDone(repl: REPL) {
@@ -44,8 +44,8 @@ function loadingDone(repl: REPL) {
       titleInHeader
       bodyInHeader
       title={connectSuccess}
-      //icon={require('../client-default/icons/png/WelcomeLight.png')}
-      icon={KuiIcon}
+      icon={require('../client-default/icons/png/WelcomeLight.png')}
+      //icon={KuiIcon}
       repl={repl}
     >
       To learn more, type `getting started`
