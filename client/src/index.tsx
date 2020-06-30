@@ -35,7 +35,6 @@ import { productName, connectSuccess } from '@kui-shell/client/config.d/name.jso
 
 import { Card } from '@kui-shell/plugin-client-common'
 import { REPL } from '@kui-shell/core'
-//import KuiIcon from '../client-default/icons/png/WelcomeLight.png'
 
 
 function loadingDone(repl: REPL) {
@@ -45,7 +44,6 @@ function loadingDone(repl: REPL) {
       bodyInHeader
       title={connectSuccess}
       icon={require('../client-default/icons/png/WelcomeLight.png').default}
-      //icon={KuiIcon}
       repl={repl}
     >
       To learn more, type `getting started`
@@ -58,7 +56,6 @@ if (wrapper) {
   render(
     <Kui bottomInput={<CustomSearchInput/>}
          productName={productName}
-         //loadingDone={() => <pre>{connectSuccess}</pre>}
          loadingDone={loadingDone}
          noPromptContext
          prompt="&#x276f;"
