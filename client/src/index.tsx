@@ -43,7 +43,7 @@ function loadingDone(repl: REPL) {
       titleInHeader
       bodyInHeader
       title={connectSuccess}
-      icon={require('../icons/png/WelcomeLight.png')}
+      icon={require('../client-default/icons/png/WelcomeLight.png')}
       repl={repl}
     >
       To learn more, try Getting Started
