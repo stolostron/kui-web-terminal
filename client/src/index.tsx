@@ -44,7 +44,7 @@ function loadingDone(repl: REPL) {
       titleInHeader
       bodyInHeader
       title={connectSuccess}
-      icon={require('../client-default/icons/png/WelcomeLight.png')}
+      icon={require('../client-default/icons/png/WelcomeLight.png').default}
       //icon={KuiIcon}
       repl={repl}
     >
