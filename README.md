@@ -214,6 +214,12 @@ NOTE: More info at https://docs.npmjs.com/auditing-package-dependencies-for-secu
 1. If you don't already have the test submodule, initialize and fetch the automated tests repo by running `git submodule update --init --recursive`
 2. `cd tests`
 3. Follow the steps in [mcm-kui-tests](https://github.com/open-cluster-management/mcm-kui-tests).
+4. To update the test submodule on a branch with latest tests from [mcm-kui-tests](https://github.com/open-cluster-management/mcm-kui-tests)
+   - `cd tests` to go to the tests submodule folder in `kui-web-terminal`
+   - run `git pull origin master` to pull latest tests from the test repo
+   - that will put you in a git merge editor (just save the changes)
+   - `cd ..` to go back to the `kui-web-terminal` repo root directory
+   - `git commit -a -m 'your commit message'` then push your branch for the PR
 
 ---
 
