@@ -20,7 +20,8 @@ client/kui-webpack-tmp
 client/src/**/*.js
 client/src/**/*.js.map
 client/src/**/*.d.ts
-tmp
+# Only ignore top level tmp direcotry, Downstream must not ignore tmp nodejs package (unlesss cachito fixes this issue)
+./tmp
 tmp/kui
 .keys
 # (placeholder) Do not ignore downloads and plugin-downloads if/when we enable vendorizing of the master branch
