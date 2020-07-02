@@ -51,6 +51,8 @@ function loadingDone(repl: REPL) {
   )
 }
 
+const techPreview = "Tech Preview"
+
 const wrapper = document.querySelector(".main");
 if (wrapper) {
   render(
@@ -67,7 +69,7 @@ if (wrapper) {
       </ContextWidgets>
       <MeterWidgets>
         <TagWidget id='kui--tech-preview-tag' className='kui--tech-preview' type='ok'>
-          {strings('Tech Preview')}
+          {techPreview}
         </TagWidget>  
       </MeterWidgets>
 
