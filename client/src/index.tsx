@@ -60,6 +60,7 @@ if (wrapper) {
          noPromptContext
          prompt="&#x276f;"
          disableTableTitle
+         enableWatcherAutoPin
          sidecarName="heroText">
       <ContextWidgets>
         <CurrentContext />
