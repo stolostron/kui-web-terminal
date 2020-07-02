@@ -20,8 +20,8 @@ client/kui-webpack-tmp
 client/src/**/*.js
 client/src/**/*.js.map
 client/src/**/*.d.ts
-# ignoring tmp folder only in repo root as not specifying ./ means any tmp folder is ignored,
-# including the tmp npm module in the vendor directories
+# Only ignore top level tmp direcotry, Downstream must not ignore tmp nodejs package (unlesss cachito fixes this issue)
+# as not specifying "./" means any tmp folder is ignored, including the tmp npm module in the vendor directories
 ./tmp
 tmp/kui
 .keys
