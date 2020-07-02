@@ -98,10 +98,9 @@
 
 // Style for "Tech Preview" tag in the status bar
 .kui--tech-preview {
-  background-color: #D93F00;
+  color: #FFFFFF !important;
+  background-color: #D93F00 !important;
   border-radius: 3px;
-  width: 89px;
   height: 20px;
   text-align: center;
-  margin:auto;
 }
