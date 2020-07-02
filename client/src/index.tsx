@@ -36,6 +36,15 @@ import { productName, connectSuccess } from '@kui-shell/client/config.d/name.jso
 import { Card } from '@kui-shell/plugin-client-common'
 import { REPL } from '@kui-shell/core'
 
+function techPreviewTag() {
+  return (
+    <div class="kui--status-stripe-button">
+      <span class="kui--tech-preview-tag">
+        Tech Preview
+      </span>
+    </div>
+  )
+}
 
 function loadingDone(repl: REPL) {
   return (
@@ -65,6 +74,9 @@ if (wrapper) {
         <CurrentContext />
         <CurrentNamespace />
       </ContextWidgets>
+      <MeterWidgets>
+        {techPreviewTag}
+      </MeterWidgets>
 
     </Kui>,
     wrapper
