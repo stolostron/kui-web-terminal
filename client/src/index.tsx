@@ -51,6 +51,9 @@ function loadingDone(repl: REPL) {
   )
 }
 
+// The "Tech Preview" tag is added to the status bar below using the TagWidget
+// While it is not truly a MeterWidget, it is included in that tag as MeterWidgets
+// are positioned by KUI on the right side of the status bar which is the desired position.
 const techPreview = "Tech Preview"
 
 const wrapper = document.querySelector(".main");
