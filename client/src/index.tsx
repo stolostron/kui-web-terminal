@@ -35,7 +35,7 @@ import { ProxyOfflineIndicator } from "@kui-shell/plugin-proxy-support";
 import { productName, connectSuccess } from '@kui-shell/client/config.d/name.json';
 
 import { Card } from '@kui-shell/plugin-client-common'
-import { REPL, isStringResponse } from '@kui-shell/core'
+import { REPL } from '@kui-shell/core'
 
 function techPreviewTag() {
   return (
@@ -46,10 +46,6 @@ function techPreviewTag() {
     </div>
   )
 }
-
-<TagWidget id={buttonDesignation} type="error">
-{strings('Offline')}
-</TagWidget>
 
 function loadingDone(repl: REPL) {
   return (
