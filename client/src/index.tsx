@@ -46,7 +46,7 @@ function loadingDone(repl: REPL) {
       icon={require('../client-default/icons/png/WelcomeLight.png').default}
       repl={repl}
     >
-      To learn more, type `getting started`
+      To learn more, type [getting started](#kuiexec?command=getting%20started)
     </Card>
   )
 }
@@ -73,7 +73,7 @@ if (wrapper) {
       <MeterWidgets>
         <TagWidget id='kui--tech-preview-tag' className='kui--tech-preview' type='ok'>
           {techPreview}
-        </TagWidget>  
+        </TagWidget>
       </MeterWidgets>
 
     </Kui>,
