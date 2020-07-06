@@ -46,6 +46,7 @@ function loading(repl: REPL) {
       icon={require('../client-default/icons/png/WelcomeLight.png').default}
       repl={repl}
     >
+      Please wait...
     </Card>
   )
 }
@@ -75,7 +76,7 @@ if (wrapper) {
   render(
     <Kui bottomInput={<CustomSearchInput/>}
          productName={productName}
-         loading={loadingDone}
+         loading={loading}
          loadingDone={loadingDone}
          noPromptContext
          prompt="&#x276f;"
