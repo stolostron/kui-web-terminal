@@ -14,7 +14,7 @@ ifdef KUI_UPDATE_VERSION
 	npm uninstall @kui-shell/plugin-core-support
 	npm uninstall @kui-shell/plugin-proxy-support
 	npm uninstall @kui-shell/plugin-carbon-themes
-	npm uninstall @kui-shell/plugin-wskflow
+	# npm uninstall @kui-shell/plugin-wskflow
 	# npm uninstall @kui-shell/plugin-patternfly4-themes
 	npm uninstall @kui-shell/proxy
 	npm uninstall @kui-shell/plugin-kubectl
@@ -29,7 +29,7 @@ ifdef KUI_UPDATE_VERSION
 	# npm install @kui-shell/plugin-patternfly4-themes@${KUI_UPDATE_VERSION}
 	npm install --save-dev @kui-shell/proxy@${KUI_UPDATE_VERSION}
 	npm install @kui-shell/plugin-kubectl@${KUI_UPDATE_VERSION}
-	npm install @kui-shell/plugin-wskflow@${KUI_UPDATE_VERSION}
+	# npm install @kui-shell/plugin-wskflow@${KUI_UPDATE_VERSION}
 endif
 	npm ci
 
