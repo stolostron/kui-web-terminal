@@ -78,7 +78,7 @@ if (wrapper) {
     <Kui bottomInput={<CustomSearchInput/>}
          productName={productName}
 //         loading={loading}
-         loadingDone={loadingDone}
+//         loadingDone={loadingDone}
          noPromptContext
          prompt="&#x276f;"
          disableTableTitle
