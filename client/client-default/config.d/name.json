@@ -3,5 +3,6 @@
   "productTitle": "Red Hat Advanced Cluster Management for Kubernetes",
   "productSubName": "Visual Web Terminal",
   "shellName": "Visual Web Terminal",
-  "connectSuccess": "Visual Web Terminal is ready."
+  "connectSuccess": "Visual Web Terminal is ready.",
+  "connecting": "Please wait while Visual Web Terminal connects to your cluster..."
 }
