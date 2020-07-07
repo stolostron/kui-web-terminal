@@ -37,6 +37,7 @@ import { productName, connectSuccess } from '@kui-shell/client/config.d/name.jso
 import { Card } from '@kui-shell/plugin-client-common'
 import { REPL } from '@kui-shell/core'
 
+
 function loadingDone(repl: REPL) {
   return (
     <Card
@@ -46,10 +47,11 @@ function loadingDone(repl: REPL) {
       icon={require('../client-default/icons/png/WelcomeLight.png').default}
       repl={repl}
     >
-      To learn more, type `getting started`
+      To learn more, type [getting started](#kuiexec?command=getting%20started)
     </Card>
   )
 }
+
 
 // The "Tech Preview" tag is added to the status bar below using the TagWidget
 // While it is not truly a MeterWidget, it is included in that tag as MeterWidgets
@@ -73,7 +75,7 @@ if (wrapper) {
       <MeterWidgets>
         <TagWidget id='kui--tech-preview-tag' className='kui--tech-preview' type='ok'>
           {techPreview}
-        </TagWidget>  
+        </TagWidget>
       </MeterWidgets>
 
     </Kui>,
