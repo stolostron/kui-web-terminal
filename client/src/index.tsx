@@ -38,19 +38,19 @@ import { Card } from '@kui-shell/plugin-client-common'
 import { REPL } from '@kui-shell/core'
 
 
-//function loading(repl: REPL) {
-//  return (
-//    <Card
-//      titleInHeader
-//      bodyInHeader
-//      title={connecting}
-//      icon={require('../client-default/icons/png/WelcomeLight.png').default}
+function loading() {
+  return (
+    <Card
+      titleInHeader
+      bodyInHeader
+      title={connecting}
+      icon={require('../client-default/icons/png/WelcomeLight.png').default}
 //      repl={repl}
-//    >
-//      Please wait...
-//    </Card>
-//  )
-//}
+    >
+      Please wait...
+    </Card>
+  )
+}
 
 function loadingDone(repl: REPL) {
   return (
@@ -77,8 +77,8 @@ if (wrapper) {
   render(
     <Kui bottomInput={<CustomSearchInput/>}
          productName={productName}
-//         loading={loading}
-//         loadingDone={loadingDone}
+         loading={loading}
+         loadingDone={loadingDone}
          noPromptContext
          prompt="&#x276f;"
          disableTableTitle
