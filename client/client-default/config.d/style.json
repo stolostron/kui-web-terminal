@@ -1,3 +1,4 @@
 {
-  "defaultTheme": "Carbon Gray10"
+  "defaultTheme": "Carbon Gray10",
+  "bodyCss": "not-electron"
 }
