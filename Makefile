@@ -3,7 +3,7 @@
 # GIT_REMOTE_URL = $(shell git config --get remote.origin.url)
 GITHUB_USER ?= $(ARTIFACTORY_USER)
 GITHUB_USER := $(shell echo $(GITHUB_USER) | sed 's/@/%40/g')
-GITHUB_TOKEN ?= 
+GITHUB_TOKEN ?=
 
 DOCKER_EDGE_REGISTRY ?= hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com
 DOCKER_SCRATCH_REGISTRY ?= hyc-cloud-private-scratch-docker-local.artifactory.swg-devops.com
@@ -25,11 +25,11 @@ APP_VERSION ?= $(if $(shell cat VERSION 2> /dev/null),$(shell cat VERSION 2> /de
 IMAGE_VERSION = $(SEMVERSION)
 IMAGE_DISPLAY_NAME = Visual Web Terminal
 IMAGE_DESCRIPTION = Visual Web Terminal provides a web based terminal window with enhanced interactive visualzations of command results
-IMAGE_DESCRIPTION_SHORT = Visual Web Terminal 
+IMAGE_DESCRIPTION_SHORT = Visual Web Terminal
 IMAGE_MAINTAINER = kui@us.ibm.com
 IMAGE_VENDOR = Red Hat
 IMAGE_SUMMARY = $(IMAGE_DESCRIPTION)
-IMAGE_OPENSHIFT_TAGS = visual terminal 
+IMAGE_OPENSHIFT_TAGS = visual terminal
 
 
 DOCKER_USER ?= $(ARTIFACTORY_USER)
@@ -96,7 +96,7 @@ VCS_REF     = $(if $(shell git status --porcelain),$(GIT_COMMIT)-$(BUILD_DATE),$
 endif
 # End section for vendorized build harness
 
-.PHONY: docker-login-dev docker-login docker-login-edge docker-logins 
+.PHONY: docker-login-dev docker-login docker-login-edge docker-logins
 docker-login-dev:
 	$(SELF) docker:login DOCKER_REGISTRY=$(DOCKER_SCRATCH_REGISTRY)
 
@@ -129,15 +129,15 @@ download-plugins:
 	@bash download-plugins.sh
 
 .PHONY: install-client
-install-client: 
+install-client:
 	$(MAKE) -C client $@
 
 .PHONY: install-proxy
-install-proxy: 
+install-proxy:
 	$(MAKE) -C proxy $@
 
 .PHONY: install
-install: download-plugins install-proxy install-client 
+install: download-plugins install-proxy install-client
 	@echo npm install both client and proxy
 
 .PHONY: headless
@@ -191,6 +191,12 @@ build-image:
 	@echo "Building mcm-kui image"
 	$(SELF) docker/build
 
+.PHONY: build-test-image
+build-test-image:
+	$(MAKE) -C tests build-test-image
+	docker tag quay.io/open-cluster-management/kui-web-terminal-tests:dev $(TEST_IMAGE_AND_TAG)
+
+
 # Push docker image to artifactory
 .PHONY: release
 release:
@@ -208,7 +214,7 @@ endif
 
 .PHONY: run
 run:
-	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE_AND_TAG)
+	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE):$(DOCKER_TAG)
 
 .PHONY: run-all-tests
 run-all-tests:
@@ -230,7 +236,7 @@ update-plugins: download-plugins
 	$(MAKE) -C proxy proxy-update-plugins
 
 .PHONY: update-kui
-update-kui: 
+update-kui:
 	$(MAKE) -C client update-client
 	$(MAKE) -C proxy update-proxy
 
