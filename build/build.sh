@@ -10,7 +10,6 @@ function fold_end() {
 }
 
 export DOCKER_IMAGE_AND_TAG=${1}
-export TEST_IMAGE_AND_TAG=$(echo $DOCKER_IMAGE_AND_TAG | sed 's/kui-web-terminal:/kui-web-terminal-tests:/g')
 export USER_NAME=$(git log -1 --pretty="%aN" | sed 's/[^a-zA-Z0-9]*//g')
 
 # To block build of unnecessary docker image during make webpack
@@ -35,9 +34,5 @@ fold_end headless
 fold_start build-image "BUILD IMAGE"
 make build-image
 fold_end build-image
-
-fold_start build-test-image "BUILD TEST IMAGE"
-make build-test-image
-fold_end build-test-image
 
 docker tag $DOCKER_IMAGE_AND_TAG `echo $DOCKER_IMAGE_AND_TAG | sed "s/:.*/:${USER_NAME}/g"`

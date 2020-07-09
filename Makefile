@@ -191,12 +191,6 @@ build-image:
 	@echo "Building mcm-kui image"
 	$(SELF) docker/build
 
-.PHONY: build-test-image
-build-test-image:
-	$(MAKE) -C tests build-test-image
-	docker tag quay.io/open-cluster-management/kui-web-terminal-tests:dev $(TEST_IMAGE_AND_TAG)
-
-
 # Push docker image to artifactory
 .PHONY: release
 release:
@@ -214,7 +208,7 @@ endif
 
 .PHONY: run
 run:
-	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE):$(DOCKER_TAG)
+	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE_AND_TAG)
 
 .PHONY: run-all-tests
 run-all-tests:
