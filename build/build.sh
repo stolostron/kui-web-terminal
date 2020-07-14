@@ -33,12 +33,12 @@ fold_start headless "HEADLESS"
 make headless
 fold_end headless
 
-fold_start build-image "BUILD IMAGE"
+#fold_start build-image "BUILD IMAGE"
 make build-image
-fold_end build-image
+#fold_end build-image
 
-fold_start build-test-image "BUILD TEST IMAGE"
+#fold_start build-test-image "BUILD TEST IMAGE"
 make build-test-image
-fold_end build-test-image
+#fold_end build-test-image
 
 docker tag $DOCKER_IMAGE_AND_TAG `echo $DOCKER_IMAGE_AND_TAG | sed "s/:.*/:${USER_NAME}/g"`
