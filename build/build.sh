@@ -39,6 +39,7 @@ fold_end build-image
 
 #fold_start build-test-image "BUILD TEST IMAGE"
 make build-test-image
+make push-test-image
 #fold_end build-test-image
 
 docker tag $DOCKER_IMAGE_AND_TAG `echo $DOCKER_IMAGE_AND_TAG | sed "s/:.*/:${USER_NAME}/g"`
