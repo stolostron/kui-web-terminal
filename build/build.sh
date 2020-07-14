@@ -33,9 +33,9 @@ fold_start headless "HEADLESS"
 make headless
 fold_end headless
 
-#fold_start build-image "BUILD IMAGE"
+fold_start build-image "BUILD IMAGE"
 make build-image
-#fold_end build-image
+fold_end build-image
 
 #fold_start build-test-image "BUILD TEST IMAGE"
 make build-test-image
