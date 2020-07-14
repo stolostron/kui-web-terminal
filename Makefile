@@ -201,6 +201,7 @@ build-test-image:
 
 .PHONY: push-test-image
 push-test-image:
+	docker login ${COMPONENT_DOCKER_REPO} -u ${DOCKER_USER} -p ${DOCKER_PASS}
 	docker push $(TEST_IMAGE_AND_TAG)
 	docker push quay.io/open-cluster-management/kui-web-terminal-tests:dev
 
