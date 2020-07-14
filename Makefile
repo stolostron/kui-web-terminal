@@ -194,7 +194,8 @@ build-image:
 .PHONY: build-test-image
 build-test-image:
 	$(MAKE) -C tests build-test-image
-	docker tag quay.io/open-cluster-management/kui-web-terminal-tests:dev $(TEST_IMAGE_AND_TAG)
+	#docker tag quay.io/open-cluster-management/kui-web-terminal-tests:dev $(TEST_IMAGE_AND_TAG)
+	docker tag quay.io/open-cluster-management/kui-web-terminal-tests:dev $(DOCKER_IMAGE_AND_TAG)
 
 
 # Push docker image to artifactory
