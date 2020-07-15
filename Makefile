@@ -238,12 +238,11 @@ run:
 
 .PHONY: run-all-tests
 run-all-tests:
-	docker login ${COMPONENT_DOCKER_REPO} -u ${DOCKER_USER} -p ${DOCKER_PASS}
-
+	#docker login ${COMPONENT_DOCKER_REPO} -u ${DOCKER_USER} -p ${DOCKER_PASS}
 ifeq ($(TEST_LOCAL), true)
 	$(SELF) run > /dev/null
-	$(MAKE) -v -C tests setup-dependencies
-	$(MAKE) -v -C tests run-all-tests
+	$(MAKE) -C tests setup-dependencies
+	$(MAKE) -C tests run-all-tests
 else
 	@echo Tests are disabled, export TEST_LOCAL="true" to run tests.
 endif

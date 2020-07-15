@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-set -x
 
 export DOCKER_IMAGE_AND_TAG=${1}
 export TEST_IMAGE_AND_TAG=$(echo $DOCKER_IMAGE_AND_TAG | sed 's/kui-web-terminal:/kui-web-terminal-tests:/g')

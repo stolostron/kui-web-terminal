@@ -198,9 +198,23 @@ options:
     password: PASSWORD
 ```
 2. Run the following command against a cluster:
-```
-make run-test-image
-```
+- Directly via docker
+  ```
+  docker run \
+  -e BROWSER=${BROWSER} \
+  -e USE_USER=kube:admin \
+  --volume $(pwd)/options.yaml:/resources/options.yaml \
+  --volume $(pwd)/test-output:/results \
+  ${TEST_IMAGE_AND_TAG}
+
+  ```
+  Where:
+    - BROWSER is set to `firefox` or `chrome`
+    - TEST_IMAGE_AND_TAG is set to the image to run tests. For example `quay.io/open-cluster-management/kui-web-terminal-tests:dev`
+- Via Makefile
+  ```
+  make run-test-image
+  ```
 
 ---
 
