@@ -11,7 +11,6 @@ make -C tests login-oc
 make run-all-tests
 
 
-
 #Possible new way to run tests using dockerized container
 # WORK IN PROGRESS
 #
