@@ -175,6 +175,33 @@ export K8S_CLUSTER_PASSWORD=your-password
 ```
 4. `make run DOCKER_IMAGE_AND_TAG=<your kui-web-terminal image name (e.g. quay.io/open-cluster-management/kui-web-terminal:1.0.0)>`
 
+
+## Dockerized tests
+### Build dockerized tests image
+```
+make build-test-image
+```
+
+### Push dockerized tests image to quay
+NOTE: This is restricted to travis jobs
+```
+make push-test-image
+```
+
+### Run dockerized tests
+1. Modify `./options.yaml` to fill in the cluster info:
+```
+options:
+  hub:
+    baseDomain: CLUSTERNAME.demo.red-chesterfield.com
+    user: kubeadmin
+    password: PASSWORD
+```
+2. Run the following command against a cluster:
+```
+make run-test-image
+```
+
 ---
 
 ## How to debug kui-web-terminal

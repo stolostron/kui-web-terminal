@@ -211,14 +211,10 @@ push-test-image:
 run-test-image:
 	docker run \
 	-e BROWSER=${BROWSER} \
-	-e K8S_CLUSTER_MASTER_IP=$(K8S_CLUSTER_MASTER_IP) \
-	-e ICP_EXTERNAL_URL=$(ICP_EXTERNAL_URL) \
-	-e K8S_CLUSTER_USER=$(K8S_CLUSTER_USER) \
-	-e K8S_CLUSTER_PASSWORD=$(K8S_CLUSTER_PASSWORD) \
 	-e USE_USER=kube:admin \
 	--volume $(shell pwd)/options.yaml:/resources/options.yaml \
+	--volume $(shell pwd)/test-output:/results \
   ${TEST_IMAGE_AND_TAG}
-
 
 
 # Push docker image to artifactory
