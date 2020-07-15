@@ -62,6 +62,10 @@ ifeq ($(PUSH_REPO), fixpack)
 	DOCKER_NAMESPACE := ibmcom-$(ARCH)
 endif
 
+
+TEST_IMAGE_AND_TAG ?= $(COMPONENT_VERSION)-tests$(COMPONENT_TAG_EXTENSION)
+
+
 .PHONY: init\:
 init::
 	@mkdir -p variables
@@ -196,14 +200,24 @@ build-image:
 build-test-image:
 	$(MAKE) -C tests build-test-image
 	docker tag quay.io/open-cluster-management/kui-web-terminal-tests:dev $(TEST_IMAGE_AND_TAG)
-	#${COMPONENT_NAME}:${COMPONENT_VERSION}${COMPONENT_TAG_EXTENSION}
-	#docker tag quay.io/open-cluster-management/kui-web-terminal-tests:dev $(DOCKER_IMAGE_AND_TAG)
 
 .PHONY: push-test-image
 push-test-image:
 	docker login ${COMPONENT_DOCKER_REPO} -u ${DOCKER_USER} -p ${DOCKER_PASS}
 	docker push $(TEST_IMAGE_AND_TAG)
 	docker push quay.io/open-cluster-management/kui-web-terminal-tests:dev
+
+.PHONY: run-test-image
+run-test-image:
+	docker run \
+	-e BROWSER=${BROWSER} \
+	-e K8S_CLUSTER_MASTER_IP=$(K8S_CLUSTER_MASTER_IP) \
+	-e ICP_EXTERNAL_URL=$(ICP_EXTERNAL_URL) \
+	-e K8S_CLUSTER_USER=$(K8S_CLUSTER_USER) \
+	-e K8S_CLUSTER_PASSWORD=$(K8S_CLUSTER_PASSWORD) \
+	-e USE_USER=kube:admin \
+	--volume $(shell pwd)/options.yaml:/resources/options.yaml \
+  ${TEST_IMAGE_AND_TAG}
 
 
 
