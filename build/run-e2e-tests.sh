@@ -1,19 +1,20 @@
 #!/bin/bash
 set -e
+set -x
 
 export DOCKER_IMAGE_AND_TAG=${1}
+export TEST_IMAGE_AND_TAG=$(echo $DOCKER_IMAGE_AND_TAG | sed 's/kui-web-terminal:/kui-web-terminal-tests:/g')
 
 echo "Running image: ${DOCKER_IMAGE_AND_TAG}"
-sudo make -C tests install-oc
-make -C tests login-oc
+sudo make -v -C tests install-oc
+make -v -C tests login-oc
 # Original way to run tests
-make run-all-tests
+make -v run-all-tests
 
 
 #Possible new way to run tests using dockerized container
 # WORK IN PROGRESS
 #
-#export TEST_IMAGE_AND_TAG=$(echo $DOCKER_IMAGE_AND_TAG | sed 's/kui-web-terminal:/kui-web-terminal-tests:/g')
 #
 ## get base domain
 #    K8S_BASE_DOMAIN=`echo ${K8S_CLUSTER_MASTER_IP} | sed 's/^.*\.apps\.//g' | sed 's/\/.*$//g'`
