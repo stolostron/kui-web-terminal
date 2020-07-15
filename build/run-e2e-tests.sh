@@ -8,7 +8,7 @@ echo "Running image: ${DOCKER_IMAGE_AND_TAG}"
 sudo make -C tests install-oc
 make -C tests login-oc
 #make run-all-tests
-make run
+#make run
 
 
 
@@ -30,4 +30,5 @@ EOF
 
 # start test container
 echo "Testing with image: ${TEST_IMAGE_AND_TAG}"
-docker run -it --network="host" -e TEST_LOCAL=true --volume $(pwd)/test-output:/results --volume $(pwd)/options.yaml:/resources/options.yaml ${TEST_IMAGE_AND_TAG}
+#docker run -it --network="host" -e TEST_LOCAL=true --volume $(pwd)/test-output:/results --volume $(pwd)/options.yaml:/resources/options.yaml ${TEST_IMAGE_AND_TAG}
+make run-test-image
