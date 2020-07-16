@@ -192,6 +192,7 @@ make push-test-image
 1. Modify `./options.yaml` to fill in the cluster info:
 ```
 options:
+  identityProvider: kube:admin
   hub:
     baseDomain: CLUSTERNAME.demo.red-chesterfield.com
     user: kubeadmin
@@ -202,7 +203,6 @@ options:
   ```
   docker run \
   -e BROWSER=${BROWSER} \
-  -e USE_USER=kube:admin \
   --volume $(pwd)/options.yaml:/resources/options.yaml \
   --volume $(pwd)/test-output:/results \
   ${TEST_IMAGE_AND_TAG}
