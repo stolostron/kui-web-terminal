@@ -189,7 +189,7 @@ make push-test-image
 ```
 
 ### Run dockerized tests
-1. Modify `./options.yaml` to fill in the cluster info:
+1. Modify `./options.yaml` to fill in the cluster info.  For example:
 ```
 options:
   identityProvider: kube:admin
