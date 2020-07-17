@@ -24,6 +24,7 @@ client/src/**/*.d.ts
 ./tmp
 tmp/kui
 .keys
+options.yaml
 # (placeholder) Do not ignore downloads and plugin-downloads if/when we enable vendorizing of the master branch
 downloads
 plugin-downloads

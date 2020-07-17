@@ -62,6 +62,10 @@ ifeq ($(PUSH_REPO), fixpack)
 	DOCKER_NAMESPACE := ibmcom-$(ARCH)
 endif
 
+
+TEST_IMAGE_AND_TAG ?= $(COMPONENT_VERSION)-tests$(COMPONENT_TAG_EXTENSION)
+
+
 .PHONY: init\:
 init::
 	@mkdir -p variables
@@ -191,6 +195,28 @@ build-image:
 	@echo "Building mcm-kui image"
 	$(SELF) docker/build
 
+
+.PHONY: build-test-image
+build-test-image:
+	$(MAKE) -C tests build-test-image
+	docker tag quay.io/open-cluster-management/kui-web-terminal-tests:dev $(TEST_IMAGE_AND_TAG)
+
+.PHONY: push-test-image
+push-test-image:
+	docker login ${COMPONENT_DOCKER_REPO} -u ${DOCKER_USER} -p ${DOCKER_PASS}
+	docker push $(TEST_IMAGE_AND_TAG)
+	docker push quay.io/open-cluster-management/kui-web-terminal-tests:dev
+
+.PHONY: run-test-image
+run-test-image:
+	docker run \
+	-e BROWSER=${BROWSER} \
+	-e USE_USER=kube:admin \
+	--volume $(shell pwd)/options.yaml:/resources/options.yaml \
+	--volume $(shell pwd)/test-output:/results \
+  ${TEST_IMAGE_AND_TAG}
+
+
 # Push docker image to artifactory
 .PHONY: release
 release:
@@ -208,10 +234,11 @@ endif
 
 .PHONY: run
 run:
-	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE_AND_TAG)
+	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE):$(DOCKER_TAG)
 
 .PHONY: run-all-tests
 run-all-tests:
+	#docker login ${COMPONENT_DOCKER_REPO} -u ${DOCKER_USER} -p ${DOCKER_PASS}
 ifeq ($(TEST_LOCAL), true)
 	$(SELF) run > /dev/null
 	$(MAKE) -C tests setup-dependencies
