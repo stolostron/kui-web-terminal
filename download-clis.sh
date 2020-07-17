@@ -21,7 +21,7 @@ mkdir -p ./downloads
 
 if [ "$ARCH" = "amd64" ]; then
   echo "Downloading oc & kubectl ..."
-  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.4.10/openshift-client-linux-4.4.10.tar.gz | tar -xvz -C ./downloads/ oc kubectl
+  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.5.2/openshift-client-linux-4.5.2.tar.gz | tar -xvz -C ./downloads/ oc kubectl
   [[ ! -f "downloads/oc" ]] && echo "download oc failed" && exit -1
   mv ./downloads/oc ./downloads/oc-linux-amd64
   [[ ! -f "downloads/kubectl" ]] && echo "download kubectl failed" && exit -1
