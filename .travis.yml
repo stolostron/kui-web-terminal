@@ -77,3 +77,9 @@ jobs:
       if: type = push AND branch =~ /^release-[0-9]+\..*$/
       script:
         - make pipeline-manifest/update PIPELINE_MANIFEST_COMPONENT_SHA256=${TRAVIS_COMMIT} PIPELINE_MANIFEST_COMPONENT_REPO=${TRAVIS_REPO_SLUG} PIPELINE_MANIFEST_BRANCH=${TRAVIS_BRANCH}
+<<<<<<< HEAD
+=======
+        - sleep 60
+        - rm -rf pipeline
+        - make pipeline-manifest/update COMPONENT_NAME=kui-web-terminal-tests PIPELINE_MANIFEST_COMPONENT_SHA256=${TRAVIS_COMMIT} PIPELINE_MANIFEST_COMPONENT_REPO=${TRAVIS_REPO_SLUG} PIPELINE_MANIFEST_BRANCH=${TRAVIS_BRANCH}
+>>>>>>> 7db2040e6... Prevent component build colliding with test build (#161)
