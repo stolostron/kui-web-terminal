@@ -362,9 +362,10 @@ span.bx--pagination__text {
 }
 .bx--modal .bx--modal-container .bx--modal-content .bx--action-share .bx--snippet.bx--snippet--single {
   border: 1px solid black;
-  height: 42px;
+  height: 6vh;
   font-family: var(--font-monospace);
-  padding: 1.5%;
+  padding: 0.5%;
+  color: var(--color-sidecar-background-01);
 }
 .bx--modal .bx--modal-container .bx--modal-content .bx--action-share .bx--snippet.bx--snippet--single .bx--snippet-container {
   outline: none;
@@ -799,7 +800,7 @@ body[kui-theme="Carbon Gray90"] .bx--modal-container {
   background-color: var(--color-base02);
 }
 body[kui-theme="Carbon Gray90"] .bx--modal-container .bx--action-share .bx--snippet.bx--snippet--single {
-  color: var(--color-ui-02);
+  color: var(--color-sidecar-background-01);
 }
 
 /*# sourceMappingURL=index.css.map */
