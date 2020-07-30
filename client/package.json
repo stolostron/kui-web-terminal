@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "@kui-shell/builder": "^8.10.13",
-    "@kui-shell/proxy": "^8.10.13",
     "@types/carbon-components-react": "7.6.15",
     "@types/carbon__icons-react": "10.9.0",
     "@types/node": "12.12.31",
