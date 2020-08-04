@@ -59,6 +59,9 @@
     "@kui-shell/plugin-proxy-support": "~8.10.13",
     "@kui-shell/plugin-search": "file:../plugin-downloads/plugin-search.tgz",
     "@kui-shell/react": "~8.10.13",
+    "@patternfly/react-icons": "4.4.2",
+    "@patternfly/react-styles": "4.4.2",
+    "@patternfly/react-tokens": "4.5.2",
     "font-config-webpack-plugin": "^2.0.0"
   },
   "description": ""
