@@ -26,9 +26,9 @@ tmp/kui
 .keys
 options.yaml
 test-output
-# (placeholder) Do not ignore downloads and plugin-downloads if/when we enable vendorizing of the master branch
 downloads
-plugin-downloads
+# (placeholder) Do not ignore plugin-downloads as we vendorize the master branch for downstream builds
+# plugin-downloads
 variables
 build-harness
 build-harness-extensions
