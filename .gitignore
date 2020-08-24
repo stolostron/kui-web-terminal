@@ -24,6 +24,9 @@ client/src/**/*.d.ts
 ./tmp
 tmp/kui
 .keys
+options.yaml
+test-output
+downloads
 variables
 build-harness
 build-harness-extensions
