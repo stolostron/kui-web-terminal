@@ -23,7 +23,7 @@ In addition to commands that are specific to the Visual Web Terminal, and select
 
 ## How do I start using the Visual Web Terminal?
 
-Visual Web Terminal is not found in the navigation mene. Access the Visual Web Terminal by using the icon in the header of the Red Hat Advanced Cluster Management page. The icon looks like a tiny terminal window with a `>` command prompt. Click this icon, select `Open in new browser tab` (best practice) and you are on your way.
+Visual Web Terminal is not found in the navigation menu. Access the Visual Web Terminal by using the icon in the header of the Red Hat Advanced Cluster Management page. The icon looks like a tiny terminal window with a `>` command prompt. Click this icon, select `Open in new browser tab` (best practice) and you are on your way.
 
 ![Launch diagram](images/VisualWebTerminalLaunch.gif)
 
