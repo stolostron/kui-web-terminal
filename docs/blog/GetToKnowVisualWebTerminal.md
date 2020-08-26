@@ -30,7 +30,7 @@ Visual Web Terminal is not found in the navigation menu, it is accessed by using
 
 ## The basics
 
-![Basics diagram](images/VisualWebTerminalBasics.jpg)
+![Basics diagram](images/VisualWebTerminalBasics.png)
 ### Tabs (1)  
 Initially you will have one tab, Tab 1, which equates to a single terminal window.  If you wish to have an additional tab, click the plus sign.
 
@@ -62,7 +62,7 @@ No need to `oc` login to your various managed clusters to get basic information.
   - events -
   - logs - See what's in the logs.  For pods with multiple containers, use the three-dot menu on the right side of the logs view to select the specific container
   - terminal - quickly SSH into the pod to perform additional debug  
-  - yaml - quickly see what's in the yaml and possibly make changes 
+  - yaml - quickly see what's in the yaml and possibly make changes
 
 ## Summary
 We hope you have found a new productivity tool for doing future `kubectl`,  `oc` and `search` commands.
