@@ -1,30 +1,29 @@
 # Visual Web Terminal - A Turbocharged Command Line for Kubernetes and OpenShift
 
-Do you ever get tired of typing `kubectl` and `oc` commands? Tired of cutting and pasting pieces of output to create new `kubectl` and `oc` commands?  If you answered yes, take a look at Visual Web Terminal, which is included as part of Red Hat Advanced Cluster Management.
+Do you ever get tired of typing `kubectl` and `oc` commands? Tired of cutting and pasting pieces of output to create new `kubectl` and `oc` commands? If you answered yes, take a look at Visual Web Terminal, included as part of the Red Hat Advanced Cluster Management for Kubernetes console.
 
 ## Command line function with a graphical presentation
 
+The Visual Web Terminal, located in the product console, is an interface that combines the convenience of a graphical user interface with the speed of a command-line interface. After running a command, the data is returned in an interactive table format that can display more detail about an item when you select that item in the table.
+
+In addition to clicking the interactive data, additional options are provided to complete the following tasks
+
+- View logs
+- View and edit YAML
+- Search with embedded capability - using Red Hat Advanced Cluster Management `search` engine  
 
 The Visual Web Terminal is an interface that combines the convenience of a graphical user interface with the speed of a command-line interface. After running a command, the data is returned in an interactive table format that can display more detail about an item when you select that item in the table.
 
-In addition to being able to click the interactive data, additional options are provided to:
+In addition to commands that are specific to the Visual Web Terminal, and selected `bash` commands, the following commands are also supported:
 
-- view logs
-- view and edit YAML
-- Embedded search capability - using Red Hat Advanced Cluster Management `search` engine  
-
-The Visual Web Terminal is an interface that combines the convenience of a graphical user interface with the speed of a command-line interface. After running a command, the data is returned in an interactive table format that can display more detail about an item when you select that item in the table.
-
-In addition to commands that are specific to the Visual Web Terminal, the following commands are also supported:
-
-- Selected basic bash commands
 - `helm` commands
 - `kubectl` commands
 - `oc` commands
 - `search` commands
 
-## How do I start using it?
-Visual Web Terminal is not found in the navigation menu, it is accessed by using the icon at the top right of the Red Hat Advanced Cluster Management page.   The icon looks like a tiny terminal window with a `>` command prompt.   Click this icon, select `Open in new browser tab` and you are on your way.
+## How do I start using the Visual Web Terminal?
+
+Visual Web Terminal is not found in the navigation mene. Access the Visual Web Terminal by using the icon in the header of the Red Hat Advanced Cluster Management page. The icon looks like a tiny terminal window with a `>` command prompt. Click this icon, select `Open in new browser tab` (best practice) and you are on your way.
 
 ![Launch diagram](images/VisualWebTerminalLaunch.gif)
 
@@ -32,7 +31,7 @@ Visual Web Terminal is not found in the navigation menu, it is accessed by using
 
 ![Basics diagram](images/VisualWebTerminalBasics.png)
 ### Tabs (1)  
-Initially you will have one tab, Tab 1, which equates to a single terminal window.  If you wish to have an additional tab, click the plus sign.
+Initially you will have one tab, Tab 1, which equates to a single terminal window. If you wish to have an additional tab, click the plus sign.
 
 ### Output Area (2)
 Output will be displayed here.
