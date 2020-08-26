@@ -5,9 +5,13 @@ Do you ever get tired of typing `kubectl` and `oc` commands? Tired of cutting an
 Take a look at the following sections to learn more:
 
 [What is Visual Web Terminal?](#what)
+[Getting started with the Visual Web Terminal](#get-started)
+[The basics components](#basics)
+[What is next?](#next)
+
 
 ## What is Visual Web Terminal?
-{#what}
+{:#what}
 
 The Visual Web Terminal is a command line function with a graphical presentation.
 
@@ -36,7 +40,7 @@ Visual Web Terminal is not found in the navigation menu. Access the Visual Web T
 ![Launch diagram](images/VisualWebTerminalLaunch.gif)
 
 ## The basics components
-{#basics}
+{:#basics}
 
 
 ![Basics diagram](images/VisualWebTerminalBasics.png)
@@ -58,7 +62,7 @@ Your default `kubectl` namespace / `oc` project. To modify you can click on this
 Bring up the *Help* and *Getting Started* documentation
 
 ## Advanced features
-{#advanced}
+{:#advanced}
 
 
 ### Search across your managed clusters
@@ -74,6 +78,6 @@ No need to `oc` login to your various managed clusters to get basic information.
   - yaml - quickly see what's in the yaml and possibly make changes
 
 ## What is next?
-{#next}
+{:#next}
 
 We hope you have found a new productivity tool for doing future `kubectl`,  `oc` and `search` commands. We are interested in your feedback and experiences. Contact us about using the Visual Web Terminal by contacting us at TODO  
