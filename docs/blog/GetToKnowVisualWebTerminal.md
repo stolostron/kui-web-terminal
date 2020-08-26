@@ -4,10 +4,10 @@ Do you ever get tired of typing `kubectl` and `oc` commands? Tired of cutting an
 
 Take a look at the following sections to learn more:
 
-- [What is Visual Web Terminal?](#what)
-- [Getting started with the Visual Web Terminal](#get-started)
-- [The basics components](#basics)
-- [What is next?](#next)
+* [What is Visual Web Terminal?](#what)
+* [Getting started with the Visual Web Terminal](#get-started)
+* [The basics components](#basics)
+* [What is next?](#next)
 
 
 ## What is Visual Web Terminal?
