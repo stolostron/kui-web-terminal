@@ -80,6 +80,10 @@ No need to `oc` login to your various managed clusters to get basic information.
 - Simple query to find all nodes on hub cluster and all managed clusters - `search kind:node`
 - List saved searches - `savedsearches`
 
+
+![Search diagram](images/VisualWebTerminalSearch.png)
+
+
 ### Debugging a Pod
 
 ![Pod debug diagram](images/VisualWebTerminalPodDebug.png)
