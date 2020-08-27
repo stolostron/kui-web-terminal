@@ -4,22 +4,14 @@ Do you ever get tired of typing `kubectl` and `oc` commands? Tired of cutting an
 
 Take a look at the following sections to learn more:
 
-* [What is Visual Web Terminal?](#what)
-* [Getting started with the Visual Web Terminal](#get-started)
-* [The basic components](#basics)
-* [Advanced features](#advanced)
-* [Dark mode](#darkmode)
-* [What is next?](#next)
-
-
 * [What is Visual Web Terminal?](#what-is-visual-web-terminal)
 * [Getting started with the Visual Web Terminal](#getting-started-with-the-visual-web-terminal)
 * [The basic components](#the-basics-components)
+* [Advanced features](#advanced-features)
 * [Dark mode](#dark-mode)
 * [What is next?](#what-is-next)
 
 ## What is Visual Web Terminal?
-{:#what}
 
 The Visual Web Terminal is a web based terminal session combining command-line function with new interactive features.
 
@@ -37,11 +29,9 @@ In addition to commands that are specific to the Visual Web Terminal, and select
 - `kubectl` commands
 - `oc` commands
 - `search` commands
-- `helm` commands
 
 
 ## Getting started with the Visual Web Terminal
-{#get-started}
 
 Access the Visual Web Terminal page by using the Visual Web Terminal icon in the header of the Red Hat Advanced Cluster Management for Kubernetes page. The icon looks like a tiny terminal window with a `>` command prompt.
 
@@ -54,7 +44,6 @@ Now that you have the Visual Web Terminal started, wait a few seconds for it to 
 No need to worry about downloading and setting up the various command line tools such as `kubectl` or `oc` as they are already included with Visual Web Terminal. Don't worry about **KUBECONFIG**. Visual Web Terminal will use your existing credentials you used to login to the Red Hat Advanced Cluster Management for Kubernetes web console. You'll receive a. You'll receive a **Visual Web Terminal is ready** message when the login and setup is complete.
 
 ## The basic components
-{:#basics}
 
 Now that you have the Visual Web Terminal started
 
@@ -66,7 +55,7 @@ Initially you will have one tab, Tab 1, which equates to a single terminal windo
 ### Output Area - Turbocharged! (2)
 Your output will be displayed here. Move your mouse pointer over the output to reveal links within the output that are clickable. When you click one of these links, an additional command will be run automatically in the context of the Kubernetes resource you clicked. This is where the turbocharging occurs. Simply point and click and additional commands are run. No typing, no cutting and pasting.
 
-Depending on the command you entered, the output area may be split to contain a left pane and a right pane. The left pane will contain the tabulated standard output. The right pane will contain a more graphical view of the resources data.
+Commands against an individual Kubernetes resource will typically target the output to a split *details* pane to the right of the main output area. This details pane will contain a more graphical view of the resource, including different tabs focusing on different aspects of the resource.
 
 ### Command Input Area (3)
 Type your commands here. Use the up arrow and down arrow to review history and rerun a command. Typing `history` will bring up a list in the output area that you can click on to rerun the command.
@@ -83,7 +72,6 @@ Your default `kubectl` namespace / `oc` project. To modify you can click on this
 Bring up the *Settings*, *Help* and *Getting Started* documentation
 
 ## Advanced features
-{:#advanced}
 
 ### Search across your managed clusters
 No need to `oc` login to your various managed clusters to get basic information. The `search` option available in Red Hat Advanced Cluster Management for Kubernetes is accessible from Visual Web Terminal. Start by typing `search` and you are prompted with additional filters that can be applied to the search.
@@ -114,14 +102,12 @@ Use the right pane in the output area to perform various tasks listed by tabs:
 
 
 ## Dark mode
-{:#darkmode}
 
 Prefer dark mode? If so you can change the *theme* in one of two ways:
 1. Type `theme`, then select `Carbon Gray90` theme
 2. Select the `Settings` icon in the lower right, then select `theme`, then select `Carbon Gray90`.
 
 ## What is next?
-{:#next}
 
 If you need additional information about Visual Web Terminal, please check the Red Hat Advanced Cluster Management for Kubernetes documentation at https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.0/html/web_console/web-console#visual-web-terminal. To learn more about the entire product, see Red Hat Advanced Cluster Management for Kubernetes [product page](https://www.redhat.com/en/technologies/management/advanced-cluster-management).
 
