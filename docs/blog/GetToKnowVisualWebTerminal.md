@@ -6,7 +6,7 @@ Take a look at the following sections to learn more:
 
 * [What is Visual Web Terminal?](#what-is-visual-web-terminal)
 * [Getting started with the Visual Web Terminal](#getting-started-with-the-visual-web-terminal)
-* [The basic components](#the-basics-components)
+* [The basic components](#the-basic-components)
 * [Advanced features](#advanced-features)
 * [Dark mode](#dark-mode)
 * [What is next?](#what-is-next)
