@@ -12,18 +12,25 @@ Take a look at the following sections to learn more:
 * [What is next?](#next)
 
 
+* [What is Visual Web Terminal?](#what-is-visual-web-terminal)
+* [Getting started with the Visual Web Terminal](#getting-started-with-the-visual-web-terminal)
+* [The basic components](#the-basics-components)
+* [Dark mode](#dark-mode)
+* [What is next?](#what-is-next)
+
 ## What is Visual Web Terminal?
 {:#what}
 
-The Visual Web Terminal is a command line function with a graphical presentation.
+The Visual Web Terminal is a web based terminal session combining command-line function with new interactive features.
 
-The Visual Web Terminal, located in the product console, is an interface that combines the convenience of a graphical user interface with the speed of a command-line interface. After running a command, the data is returned in an interactive table format that can display more detail about an item when you select that item in the table.
+The Visual Web Terminal, located in the product console, is an interface that combines the convenience of a graphical user interface with the speed of a command-line interface.
+When running a command that returns Kubernetes resources, the data is returned in an interactive table format that can display more detail about the resource when you select it.
 
-In addition to clicking the interactive data, additional options are provided to complete the following tasks
+In addition to clicking the interactive data, additional options are provided to complete the following tasks:
 
 - View logs
 - View and edit YAML
-- Search with embedded capability - using Red Hat Advanced Cluster Management for Kubernetes `search` engine  
+- Search using the integrated `search` API provided in Red Hat Advanced Cluster Management for Kubernetes  
 
 In addition to commands that are specific to the Visual Web Terminal, and selected `bash` commands, the following commands are also supported:
 
@@ -36,11 +43,15 @@ In addition to commands that are specific to the Visual Web Terminal, and select
 ## Getting started with the Visual Web Terminal
 {#get-started}
 
-Access the Visual Web Terminal by using the Visual Web Terminal icon in the header of the Red Hat Advanced Cluster Management for Kubernetes page. The icon looks like a tiny terminal window with a `>` command prompt. Click this icon, select `Open in new browser tab` (best practice) and you are on your way.
+Access the Visual Web Terminal page by using the Visual Web Terminal icon in the header of the Red Hat Advanced Cluster Management for Kubernetes page. The icon looks like a tiny terminal window with a `>` command prompt.
+
+Click this icon and you are presented with a menu that allows you to launch the page in a new browser tab (best practice) or in the current browser tab.
 
 ![Launch diagram](images/VisualWebTerminalLaunch.gif)
 
-Now that you have the Visual Web Terminal started, wait a few seconds for it to `oc login` to your hub cluster. No need to worry downloading and setting up the various command line tools such as `kubectl` or `oc`.  Don't worry about  KUBECONFIG. It is all taken care of for you!  You'll receive a **Visual Web Terminal is ready** message when the login and setup is complete.
+Now that you have the Visual Web Terminal started, wait a few seconds for it to `oc login` to your hub cluster.
+
+No need to worry about downloading and setting up the various command line tools such as `kubectl` or `oc` as they are already included with Visual Web Terminal. Don't worry about **KUBECONFIG**. Visual Web Terminal will use your existing credentials you used to login to the Red Hat Advanced Cluster Management for Kubernetes web console. You'll receive a. You'll receive a **Visual Web Terminal is ready** message when the login and setup is complete.
 
 ## The basic components
 {:#basics}
@@ -50,10 +61,10 @@ Now that you have the Visual Web Terminal started
 ![Basics diagram](images/VisualWebTerminalBasics.png)
 
 ### Tabs (1)  
-Initially you will have one tab, Tab 1, which equates to a single terminal window. If you wish to have an additional tab, click the plus sign.
+Initially you will have one tab, Tab 1, which equates to a single terminal window session. If you wish to have an additional tab, click the plus sign. Each tab is a unique terminal window session.
 
 ### Output Area - Turbocharged! (2)
-Your output will be displayed here. Move your mouse pointer over the output to reveal links within the output that are clickable.  When you click one of these links, an additional command will be run.  This is where the turbocharging occurs.  Simply point and click and additional commands are run.  No typing, no cutting and pasting.  
+Your output will be displayed here. Move your mouse pointer over the output to reveal links within the output that are clickable. When you click one of these links, an additional command will be run automatically in the context of the Kubernetes resource you clicked. This is where the turbocharging occurs. Simply point and click and additional commands are run. No typing, no cutting and pasting.
 
 Depending on the command you entered, the output area may be split to contain a left pane and a right pane. The left pane will contain the tabulated standard output. The right pane will contain a more graphical view of the resources data.
 
@@ -66,7 +77,7 @@ Too much clutter from all those old commands you ran? Would you like to clean up
 The Kubernetes current context (`kubectl config current-context`). To modify, you can click on this field, view the current choices in the output area and select the choice you want.
 
 ### kubectl namespace/oc project (5)
-Your default `kubectl` namespace / `oc` project. To modify you can click on this field, view the current choices in the output area and select the choice you want.  
+Your default `kubectl` namespace / `oc` project. To modify you can click on this field, view the current choices in the output area and select the choice you want.
 
 ### Settings/help/getting started (6)
 Bring up the *Settings*, *Help* and *Getting Started* documentation
@@ -75,7 +86,9 @@ Bring up the *Settings*, *Help* and *Getting Started* documentation
 {:#advanced}
 
 ### Search across your managed clusters
-No need to `oc` login to your various managed clusters to get basic information.  The `search` option available in Red Hat Advanced Cluster Management for Kubernetes is accessible from Visual Web Terminal.  Start by typing `search` and you are prompted with additional filters that can be applied to the search.
+No need to `oc` login to your various managed clusters to get basic information. The `search` option available in Red Hat Advanced Cluster Management for Kubernetes is accessible from Visual Web Terminal. Start by typing `search` and you are prompted with additional filters that can be applied to the search.
+
+**TIP** You can navigate and select the desired filter prompts with the mouse or directly from the keyboard using the up/down arrow keys to move through the choices and the space bar to select a filter value from the filter prompt. This is the same as on the Search page in the Red Hat Advanced Cluster Management for Kubernetes web console.
 
 - Simple query to find all nodes on hub cluster and all managed clusters - `search kind:node role:worker`
 - List saved searches - `savedsearches`
@@ -90,12 +103,12 @@ No need to `oc` login to your various managed clusters to get basic information.
 Find the pod you want to debug
 - `oc get pods`
 - click on the pod you wish to debug
-Use the right pane in the output area to perform various tasks
-  - summary  - a quick high level view of the pod
-  - events - look at evenets on the pod
-  - logs - See what's in the logs.  For pods with multiple containers, use the overflow menu icon (three dots stacked vertically, on the right side of the logs view) to select the specific container
-  - terminal - quickly SSH into the pod to perform additional debug  
-  - yaml - quickly see what's in the yaml and make changes, if required
+Use the right pane in the output area to perform various tasks listed by tabs:
+  - Summary  - a quick high level view of the pod
+  - Events - look at events on the pod
+  - Logs - See what's in the logs. For pods with multiple containers, use the overflow menu icon (three dots stacked vertically, on the right side of the logs view) to select the specific container
+  - Terminal - quickly SSH into the pod to perform additional debug  
+  - YAML - quickly see what's in the resource yaml and make changes, if required
 
 ![Pod debug diagram](images/VisualWebTerminalPodDebug.png)
 
@@ -110,6 +123,6 @@ Prefer dark mode? If so you can change the *theme* in one of two ways:
 ## What is next?
 {:#next}
 
-If you need additional information about Visual Web Terminal, please check the Red Hat Advanced Cluster Management for Kubernetes documentation at https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.0/html/web_console/web-console#visual-web-terminal.  To learn more about the entire product, see Red Hat Advanced Cluster Management for Kubernetes [product page](https://www.redhat.com/en/technologies/management/advanced-cluster-management).
+If you need additional information about Visual Web Terminal, please check the Red Hat Advanced Cluster Management for Kubernetes documentation at https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.0/html/web_console/web-console#visual-web-terminal. To learn more about the entire product, see Red Hat Advanced Cluster Management for Kubernetes [product page](https://www.redhat.com/en/technologies/management/advanced-cluster-management).
 
 We hope you have found a new productivity tool for doing future `kubectl`,  `oc` and `search` commands. We are interested in your feedback and experiences. If you have questions or comments, please contact us at acm-contact@redhat.com.
