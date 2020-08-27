@@ -44,9 +44,11 @@ Now that you have the Visual Web Terminal started, wait a few seconds for it to 
 
 ## The basic components
 {:#basics}
+
 Now that you have the Visual Web Terminal started
 
 ![Basics diagram](images/VisualWebTerminalBasics.png)
+
 ### Tabs (1)  
 Initially you will have one tab, Tab 1, which equates to a single terminal window. If you wish to have an additional tab, click the plus sign.
 
@@ -57,6 +59,8 @@ Depending on the command you entered, the output area may be split to contain a 
 
 ### Command Input Area (3)
 Type your commands here. Use the up arrow and down arrow to review history and rerun a command. Typing `history` will bring up a list in the output area that you can click on to rerun the command.
+
+Too much clutter from all those old commands you ran? Would you like to clean up the output area? Type `clear`
 
 ### kubectl context (4)
 The Kubernetes current context (`kubectl config current-context`). To modify, you can click on this field, view the current choices in the output area and select the choice you want.
@@ -77,6 +81,9 @@ No need to `oc` login to your various managed clusters to get basic information.
 - List saved searches - `savedsearches`
 
 ### Debugging a Pod
+
+![Pod debug diagram](images/VisualWebTerminalPodDebug.png)
+
 Find the pod you want to debug
 - `oc get pods`
 - click on the pod you wish to debug
@@ -89,6 +96,7 @@ Use the right pane in the output area to perform various tasks
 
 ## Dark mode
 {:#darkmode}
+
 Prefer dark mode? If so you can change the *theme* in one of two ways:
 1. Type `theme`, then select `Carbon Gray90` theme
 2. Select the `Settings` icon in the lower right, then select `theme`, then select `Carbon Gray90`.
