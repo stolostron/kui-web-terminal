@@ -81,7 +81,7 @@ No need to `oc` login to your various managed clusters to get basic information.
 - List saved searches - `savedsearches`
 
 
-![Search diagram](images/VisualWebTerminalSearch .png)
+![Search diagram](images/VisualWebTerminalSearch.png)
 
 
 ### Debugging a Pod
