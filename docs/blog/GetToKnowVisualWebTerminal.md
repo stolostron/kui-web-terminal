@@ -52,7 +52,7 @@ Now that you have the Visual Web Terminal started
 ### Tabs (1)  
 Initially you will have one tab, Tab 1, which equates to a single terminal window. If you wish to have an additional tab, click the plus sign.
 
-### Output Area (2) (Turbocharger)
+### Output Area - Turbocharged! (2)
 Your output will be displayed here. Move your mouse pointer over the output to reveal links within the output that are clickable.  When you click one of these links, an additional command will be run.  This is where the turbocharging occurs.  Simply point and click and additional commands are run.  No typing, no cutting and pasting.  
 
 Depending on the command you entered, the output area may be split to contain a left pane and a right pane. The left pane will contain the tabulated standard output. The right pane will contain a more graphical view of the resources data.
@@ -86,7 +86,6 @@ No need to `oc` login to your various managed clusters to get basic information.
 
 ### Debugging a Pod
 
-![Pod debug diagram](images/VisualWebTerminalPodDebug.png)
 
 Find the pod you want to debug
 - `oc get pods`
@@ -98,6 +97,9 @@ Use the right pane in the output area to perform various tasks
   - terminal - quickly SSH into the pod to perform additional debug  
   - yaml - quickly see what's in the yaml and make changes, if required
 
+![Pod debug diagram](images/VisualWebTerminalPodDebug.png)
+
+
 ## Dark mode
 {:#darkmode}
 
@@ -108,6 +110,6 @@ Prefer dark mode? If so you can change the *theme* in one of two ways:
 ## What is next?
 {:#next}
 
-If you need additional information about Visual Web Terminal, please check the Red Hat Advanced Cluster Management for Kubernetes documentation at https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.0/html/web_console/web-console#visual-web-terminal.
+If you need additional information about Visual Web Terminal, please check the Red Hat Advanced Cluster Management for Kubernetes documentation at https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.0/html/web_console/web-console#visual-web-terminal.  To learn more about the entire product, see Red Hat Advanced Cluster Management for Kubernetes [product page](https://www.redhat.com/en/technologies/management/advanced-cluster-management).
 
-We hope you have found a new productivity tool for doing future `kubectl`,  `oc` and `search` commands. We are interested in your feedback and experiences. Contact us about using the Visual Web Terminal by contacting us at TODO  
+We hope you have found a new productivity tool for doing future `kubectl`,  `oc` and `search` commands. We are interested in your feedback and experiences. If you have questions or comments, please contact us at acm-contact@redhat.com.
