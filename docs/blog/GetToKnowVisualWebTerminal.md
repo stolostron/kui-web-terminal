@@ -77,11 +77,11 @@ Bring up the *Settings*, *Help* and *Getting Started* documentation
 ### Search across your managed clusters
 No need to `oc` login to your various managed clusters to get basic information.  The `search` option available in Red Hat Advanced Cluster Management for Kubernetes is accessible from Visual Web Terminal.  Start by typing `search` and you are prompted with additional filters that can be applied to the search.
 
-- Simple query to find all nodes on hub cluster and all managed clusters - `search kind:node`
+- Simple query to find all nodes on hub cluster and all managed clusters - `search kind:node role:worker`
 - List saved searches - `savedsearches`
 
 
-![Search diagram](images/VisualWebTerminalSearch.png)
+![Search diagram](images/VisualWebTerminalSearch .png)
 
 
 ### Debugging a Pod
