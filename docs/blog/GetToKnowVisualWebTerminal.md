@@ -77,7 +77,7 @@ No need to `oc` login to your various managed clusters to get basic information.
 
 **TIP** You can navigate and select the desired filter prompts with the mouse or directly from the keyboard using the up/down arrow keys to move through the choices and the space bar to select a filter value from the filter prompt. This is the same as on the Search page in the Red Hat Advanced Cluster Management for Kubernetes web console.
 
-- Simple query to find all nodes on hub cluster and all managed clusters - `search kind:node role:worker`
+- Simple query to find all worker nodes on hub cluster and all managed clusters - `search kind:node role:worker`
 - List saved searches - `savedsearches`
 
 
