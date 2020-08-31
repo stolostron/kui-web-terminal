@@ -13,7 +13,7 @@ Take a look at the following sections to learn more:
 
 ## What is Visual Web Terminal?
 
-The Visual Web Terminal is a web based terminal session combining command-line function with new interactive features.
+The Visual Web Terminal is a web based terminal session combining command-line function with new interactive features. It is derived from the [KUI](https://github.com/IBM/kui) open source project.
 
 The Visual Web Terminal, located in the product console, is an interface that combines the convenience of a graphical user interface with the speed of a command-line interface. When running a command that returns Kubernetes resources, the data is returned in an interactive table format that can display more detail about the resource when you select it.
 
