@@ -1,5 +1,7 @@
 # Visual Web Terminal - A Turbocharged Command Line for Kubernetes and OpenShift
 
+Sept 1, 2020 by Chris Ahl, Mark Anderson and Subbarao Meduri
+
 Do you ever get tired of typing `kubectl` and `oc` commands? Tired of cutting and pasting pieces of output to create new `kubectl` and `oc` commands? If you answered yes, take a look at the Visual Web Terminal, included as part of the Red Hat Advanced Cluster Management for Kubernetes console.
 
 Take a look at the following sections to learn more:
@@ -13,7 +15,7 @@ Take a look at the following sections to learn more:
 
 ## What is Visual Web Terminal?
 
-Derived from the [Kui](https://github.com/IBM/kui) open source project, the Visual Web Terminal is a web-based terminal session combining command-line function with new interactive features. 
+Derived from the [Kui](https://github.com/IBM/kui) open source project, the Visual Web Terminal is a web-based terminal session combining command-line function with new interactive features.
 
 The Visual Web Terminal, located in the product console, is an interface that combines the convenience of a graphical user interface with the speed of a command-line interface. When running a command that returns Kubernetes resources, the data is returned in an interactive table format that can display more detail about the resource when you select it.
 
@@ -34,13 +36,13 @@ In addition to commands that are specific to the Visual Web Terminal, and select
 
 Access the Visual Web Terminal page by using the Visual Web Terminal icon in the header of the Red Hat Advanced Cluster Management for Kubernetes console. The icon resembles a tiny terminal window with a `>` command prompt.
 
-Click this icon and you are presented with a menu that allows you to launch the page in a new browser tab (best practice), or in the current browser tab. 
+Click this icon and you are presented with a menu that allows you to launch the page in a new browser tab (best practice), or in the current browser tab.
 
 Image 1: Launch animation
 
 ![Launch diagram](images/VisualWebTerminalLaunch.gif)
 
-Now that you have the Visual Web Terminal started, wait a few seconds for it to `oc login` to your hub cluster. 
+Now that you have the Visual Web Terminal started, wait a few seconds for it to `oc login` to your hub cluster.
 
 You don't need to worry about downloading and setting up the various command line tools such as `kubectl` or `oc`, as they are already included with Visual Web Terminal. Additionally, don't worry about **KUBECONFIG**. Visual Web Terminal will use your existing credentials you used to login to the Red Hat Advanced Cluster Management for Kubernetes web console. You'll receive a **Visual Web Terminal is ready** message when the login and setup is complete.
 
@@ -121,7 +123,7 @@ Prefer dark mode? If so you can change the *theme* in one of two ways:
 
 ## What is next?
 
-If you need additional information about Visual Web Terminal, please check the [Red Hat Advanced Cluster Management for Kubernetes documentation](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.0/html/web_console/web-console#visual-web-terminal). 
+If you need additional information about Visual Web Terminal, please check the [Red Hat Advanced Cluster Management for Kubernetes documentation](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.0/html/web_console/web-console#visual-web-terminal).
 
 To learn more about the entire product, see Red Hat Advanced Cluster Management for Kubernetes [product page](https://www.redhat.com/en/technologies/management/advanced-cluster-management).
 
