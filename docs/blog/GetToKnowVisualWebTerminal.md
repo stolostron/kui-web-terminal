@@ -13,7 +13,7 @@ Take a look at the following sections to learn more:
 
 ## What is Visual Web Terminal?
 
-The Visual Web Terminal is a web based terminal session combining command-line function with new interactive features. It is derived from the [Kui](https://github.com/IBM/kui) open source project.
+Derived from the [Kui](https://github.com/IBM/kui) open source project, the Visual Web Terminal is a web-based terminal session combining command-line function with new interactive features. 
 
 The Visual Web Terminal, located in the product console, is an interface that combines the convenience of a graphical user interface with the speed of a command-line interface. When running a command that returns Kubernetes resources, the data is returned in an interactive table format that can display more detail about the resource when you select it.
 
@@ -25,26 +25,30 @@ In addition to clicking the interactive data, additional options are provided to
 
 In addition to commands that are specific to the Visual Web Terminal, and selected `bash` commands, the following commands are also supported:
 
-- `kubectl` commands (Or use `k` for even less typing)
+- `kubectl` commands (Or use `k` for even less typing!)
 - `oc` commands
 - `search` commands
 
 
 ## Getting started with the Visual Web Terminal
 
-Access the Visual Web Terminal page by using the Visual Web Terminal icon in the header of the Red Hat Advanced Cluster Management for Kubernetes page. The icon looks like a tiny terminal window with a `>` command prompt.
+Access the Visual Web Terminal page by using the Visual Web Terminal icon in the header of the Red Hat Advanced Cluster Management for Kubernetes console. The icon resembles a tiny terminal window with a `>` command prompt.
 
-Click this icon and you are presented with a menu that allows you to launch the page in a new browser tab (best practice) or in the current browser tab.
+Click this icon and you are presented with a menu that allows you to launch the page in a new browser tab (best practice), or in the current browser tab. 
+
+Image 1: Launch animation
 
 ![Launch diagram](images/VisualWebTerminalLaunch.gif)
 
-Now that you have the Visual Web Terminal started, wait a few seconds for it to `oc login` to your hub cluster.
+Now that you have the Visual Web Terminal started, wait a few seconds for it to `oc login` to your hub cluster. 
 
-You don't need to worry about downloading and setting up the various command line tools such as `kubectl` or `oc` as they are already included with Visual Web Terminal. Don't worry about **KUBECONFIG**. Visual Web Terminal will use your existing credentials you used to login to the Red Hat Advanced Cluster Management for Kubernetes web console. You'll receive a. You'll receive a **Visual Web Terminal is ready** message when the login and setup is complete.
+You don't need to worry about downloading and setting up the various command line tools such as `kubectl` or `oc`, as they are already included with Visual Web Terminal. Additionally, don't worry about **KUBECONFIG**. Visual Web Terminal will use your existing credentials you used to login to the Red Hat Advanced Cluster Management for Kubernetes web console. You'll receive a **Visual Web Terminal is ready** message when the login and setup is complete.
 
 ## The basic components
 
-Now that you have the Visual Web Terminal started, let's take a look at the various areas of the web based terminal session.
+Next, let's take a look at the various component areas of the web based terminal session.
+
+Image 2: Basics diagram
 
 ![Basics diagram](images/VisualWebTerminalBasics.png)
 
@@ -52,22 +56,27 @@ Now that you have the Visual Web Terminal started, let's take a look at the vari
 Initially you will have one tab, Tab 1, which equates to a single terminal window session. If you wish to have an additional tab, click the plus sign. Each tab is a unique terminal window session.
 
 ### Output Area - Turbocharged! (2)
-Your output will be displayed here. Move your mouse pointer over the output to reveal links within the output that are clickable. When you click one of these links, an additional command will be run automatically in the context of the Kubernetes resource you clicked. This is where the turbocharging occurs. Simply point and click and additional commands are run. No typing, no cutting and pasting.
 
-Commands against an individual Kubernetes resource will typically target the output to a split *details* pane to the right of the main output area. This details pane will contain a more graphical view of the resource, including different tabs focusing on different aspects of the resource.
+Your output will be displayed here. Move your mouse pointer over the output to reveal clickable links. When you click one of these links, an additional command will be run automatically in the context of the Kubernetes resource you clicked--this is turbocharging. Simply point and click to to run command. No typing, no cutting and pasting!
+
+Commands against an individual Kubernetes resource will typically target the output to a split *details* pane to the right of the main output area. This details pane contains a more graphical view of the resource, including different tabs focusing on different aspects of the resource.
 
 ### Command Input Area (3)
+
 Type your commands here. Use the up arrow and down arrow to review history and rerun a command. Typing `history` will bring up a list in the output area that you can click on to rerun the command.
 
-Too much clutter from all those old commands you ran? Would you like to clean up the output area? Type `clear`
+Too much clutter from all those old commands you ran? Would you like to clean up the output area? Simply type `clear` and the clutter is gone.
 
 ### kubectl context (4)
-The Kubernetes current context (`kubectl config current-context`). To modify, you can click on this field, view the current choices in the output area and select the choice you want.
 
-### kubectl namespace/oc project (5)
-Your default `kubectl` namespace / `oc` project. To modify you can click on this field, view the current choices in the output area and select the choice you want.
+The Kubernetes current context (`kubectl config current-context`). To modify, you can click on this field, view the current choices in the output area, and select the choice you want.
+
+### kubectl namespace & oc project (5)
+
+Your default `kubectl` namespace and `oc` project. To modify you can click on this field, view the current choices in the output area, and select the choice you want.
 
 ### Settings/help/getting started (6)
+
 Bring up the *Settings*, *Help* and *Getting Started* documentation
 
 ## Advanced features
