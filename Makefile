@@ -241,9 +241,13 @@ run:
 run-all-tests:
 	#docker login ${COMPONENT_DOCKER_REPO} -u ${DOCKER_USER} -p ${DOCKER_PASS}
 ifeq ($(TEST_LOCAL), true)
+  @echo "run-all-tests on local"
 	$(SELF) run > /dev/null
+	@echo "run-all-tests on local a"
 	$(MAKE) -d -C tests setup-dependencies
+	@echo "run-all-tests on local b"
 	$(MAKE) -d -C tests run-all-tests
+	@echo "run-all-tests on local c"
 else
 	@echo Tests are disabled, export TEST_LOCAL="true" to run tests.
 endif
