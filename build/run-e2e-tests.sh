@@ -8,7 +8,7 @@ echo "Running image: ${DOCKER_IMAGE_AND_TAG}"
 sudo make -C tests install-oc
 make -C tests login-oc
 # Original way to run tests
-make -v run-all-tests
+make run-all-tests
 
 
 #Possible new way to run tests using dockerized container
