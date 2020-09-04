@@ -239,7 +239,6 @@ run:
 
 .PHONY: run-all-tests
 run-all-tests:
-	#docker login ${COMPONENT_DOCKER_REPO} -u ${DOCKER_USER} -p ${DOCKER_PASS}
 ifeq ($(TEST_LOCAL), true)
 	@echo "run-all-tests on local"
 	$(SELF) run > /dev/null
