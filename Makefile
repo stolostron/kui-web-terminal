@@ -235,12 +235,14 @@ endif
 .PHONY: run
 run:
 	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE_AND_TAG)
+
 #	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE):$(DOCKER_TAG)
 
 .PHONY: run-all-tests
 run-all-tests:
-ifeq ($(TEST_LOCAL), true)
 	@echo "run-all-tests on local"
+ifeq ($(TEST_LOCAL), true)
+	@echo "run-all-tests on local 2"
 	$(SELF) run > /dev/null
 	@echo "run-all-tests on local a"
 	$(MAKE) -d -C tests setup-dependencies
