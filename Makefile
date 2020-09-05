@@ -234,7 +234,8 @@ endif
 
 .PHONY: run
 run:
-	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE):$(DOCKER_TAG)
+	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE_AND_TAG)
+	#	$(MAKE) -C tests run DOCKER_IMAGE_AND_TAG=$(DOCKER_IMAGE):$(DOCKER_TAG)
 
 .PHONY: run-all-tests
 run-all-tests:
