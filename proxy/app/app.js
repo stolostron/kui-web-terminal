@@ -34,6 +34,7 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const crypto = require('crypto');
 const csp = require('helmet-csp')
+const hsts = require('hsts')
 const consolidate = require('consolidate')
 const proxy = require('http-proxy-middleware')
 
@@ -92,6 +93,12 @@ app.use(csp({
   browserSniff: true
 }))
 
+app.use(hsts({
+  // Set response header Strict-Transport-Security to a max age of 365 days (in seconds)
+  // to instruct web browsers to only access Visual Web Terminal using HTTPS.  This will
+  // set the response header to "Strict-Transport-Security: max-age=31536000; includeSubDomains" 
+  maxAge: 31536000
+}))
 
 // app.use(compression())
 app.use(express.json())
