@@ -214,6 +214,9 @@ module.exports = (server, port) => {
           })
         }
 
+        // Explicitly set the response header value for Strict-Transport-Security (due to setting for
+        // this in ../app.js does not seem to apply to the /kui/exec route as expected)
+        res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
         const code = response.code || response.statusCode || 200
         res.status(code).json({ type, response })
       } catch (err) {
@@ -227,6 +230,9 @@ module.exports = (server, port) => {
           }
         }
 
+        // Explicitly set the response header value for Strict-Transport-Security (due to setting for
+        // this in ../app.js does not seem to apply to the /kui/exec route as expected)
+        res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
         const possibleCode = err.code || err.statusCode
         const code = possibleCode && typeof possibleCode === 'number' && (possibleCode >=100 && possibleCode<=599)? possibleCode : 500
         res.status(code).send({type:'Error',response:(err.message || err)}) // use this format to match front-end
