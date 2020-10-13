@@ -52,7 +52,7 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'dust')
 app.set('view cache', true)
 
-// generate nonce for cps
+// generate nonce for csp
 app.use((req, res, next)=>{
   res.locals.nonce = crypto.randomBytes(16).toString('base64')
   next()
@@ -65,7 +65,8 @@ app.use(csp({
     scriptSrc: ["'self'", "'unsafe-inline'","'unsafe-eval'",(req, res) => `'nonce-${res.locals.nonce}'`],
     styleSrc: ["'self'","'unsafe-inline'"],
     fontSrc: ["'self'"],
-    connectSrc: ["'self'",'wss:'],
+    connectSrc: ["'self'",'wss:',`${process.env.OAUTH_SERVER_URL}`],
+    frameSrc: ["'self'",`${process.env.OAUTH_SERVER_URL}`],
     imgSrc: ["'self'", 'data:',(req, res) => `'nonce-${res.locals.nonce}'`],
     upgradeInsecureRequests: true,
     workerSrc: false  // This is not set.
