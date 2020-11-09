@@ -122,7 +122,7 @@ RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && sed -i -e 's/USERGROUPS_ENAB yes/USERGROUPS_ENAB no/g' /etc/login.defs \
     && sed -i '$ a DIR_MODE=0700' /etc/default/useradd \
     && sed -i -e 's/PS1=\"\[\\u@\\h \\W\]/PS1=\"/g' /etc/bashrc \
-    && sed -i -e 's|^PATH=.*|PATH=/usr/local/bin|g' /etc/skel/.bashrc \
+    && sed -i -e 's|export PATH|# Set PATH for our use of rbash\nPATH=/usr/local/bin\nexport PATH|g' /etc/skel/.bashrc \
     && echo "alias ls='ls -l'" >> /etc/skel/.bashrc \
     && echo "alias vi='rvim'" >> /etc/skel/.bashrc \
     && echo "alias vim='rvim'" >> /etc/skel/.bashrc \
