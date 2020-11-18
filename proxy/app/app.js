@@ -41,6 +41,7 @@ const proxy = require('http-proxy-middleware')
 const ExecRouter = require('./routes/exec')
 const defaultRoute = require('./routes/index')
 const statusRoute = require('./routes/status')
+const metricsRoute = require('./routes/metrics')
 
 const app = express()
 
@@ -140,6 +141,7 @@ process.on('SIGINT', () => process.exit())
 
 exports.setServer = (server, port) => {
   app.use('/kui/exec', ExecRouter(server, port))
+  app.use('/metrics', metricsRoute)
   app.use('/status', statusRoute)
   app.use('/kui', defaultRoute)
   app.use('/kui', expressStaticGzip(path.join(__dirname, 'public')))
