@@ -19,6 +19,8 @@ const LOGIN_TIMEOUT = 20000;
 const NOBODY_GID = parseInt(process.env.NOBODY_GID || '99',10);
 
 const loginTools = require('./securityUtils').getLoginTools();
+
+const metricTools = require('./metricsUtils');
 //mapping of cookie->uid
 let nextUID=65536;
 
@@ -111,6 +113,8 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
         });
         loginProc.on('exit', function (code) {
           if (code === 0) {
+            // Notify metrics a new session was created
+            metricTools.newSession('12345');
             console.log('user ' + user.name + ' login complete in terminal ');
             return resolve();
           }
