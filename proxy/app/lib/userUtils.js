@@ -89,21 +89,21 @@ const setupUserEnv = (user)=>{
 // This function is used to get the clusterID of the cluster where Visual Web Terminal is deployed
 // and cache it.  This is only needed to be done once the first time a user session is created after
 // the Visual Web Terminal container has started.
-const getClusterID = (user, accessToken, idToken) =>{
+async function getClusterID(user, accessToken, idToken) {
   // Use the loginTools environment info as it is the same as what we need to run the oc command
-  const cmdEnv = loginTools.getLoginEnvs(user.env,accessToken,idToken)
+  const cmdEnv = loginTools.getLoginEnvs(user.env, accessToken, idToken);
   const cmdOpts = {
-      cwd: cmdEnv['HOME'],
-      env: cmdEnv,
-      timeout: CLUSTER_VERSION_TIMEOUT,
-      uid: user.uid,
-      gid: NOBODY_GID
-  }
-  return new Promise(function(resolve, reject) {
+    cwd: cmdEnv['HOME'],
+    env: cmdEnv,
+    timeout: CLUSTER_VERSION_TIMEOUT,
+    uid: user.uid,
+    gid: NOBODY_GID
+  };
+  return new Promise(function (resolve, reject) {
     // Spawn a child process that just runs the following command to retrieve the clusterID (documented in OCP documentation)
     //   oc get clusterversion -o jsonpath='{.items[].spec.clusterID}{"\n"}'
     const clusterIDProc = childProcess.spawn('/usr/local/bin/oc', ['get', 'clusterversion', '-o', 'jsonpath=\'{.items[].spec.clusterID}{"\n"}\''], cmdOpts);
-    setTimeout(()=>{
+    setTimeout(() => {
       clusterIDProc.kill();
       reject('timeout');
     }, CLUSTER_VERSION_TIMEOUT);
@@ -131,16 +131,16 @@ const getClusterID = (user, accessToken, idToken) =>{
       console.log('Attempt to get the cluster version information failed in terminal with exit code ' + retCode);
       let errorMsg = '';
       const errLines = clusterVersionOutput.split('\n');
-      for (let i = errLines.length-1; i > 0; i--) { // account for possible blank line
+      for (let i = errLines.length - 1; i > 0; i--) { // account for possible blank line
         errorMsg = errLines[i];
         if (errorMsg !== '') {
-           break;
+          break;
         }
       }
-      console.error(errorMsg)
+      console.error(errorMsg);
       reject(errorMsg);
     });
-  })
+  });
 }
 
 const loginUser = (user, namespace, accessToken, idToken) =>{
