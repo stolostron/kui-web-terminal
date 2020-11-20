@@ -102,7 +102,7 @@ const getClusterID = (user, accessToken, idToken) => {
   return new Promise(function (resolve, reject) {
     // Spawn a child process that just runs the following command to retrieve the clusterID (documented in OCP documentation)
     //   oc get clusterversion -o jsonpath='{.items[].spec.clusterID}{"\n"}'
-    const clusterIDProc = childProcess.spawn('/usr/local/bin/oc', ['get', 'clusterversion', '-o', 'jsonpath=\'{.items[].spec.clusterID}{"\n"}\''], cmdOpts);
+    const clusterIDProc = childProcess.spawn('/usr/local/bin/oc', ["get", "clusterversion", "-o", "jsonpath='{.items[].spec.clusterID}'"], cmdOpts);
     setTimeout(() => {
       clusterIDProc.kill();
       reject('timeout');
