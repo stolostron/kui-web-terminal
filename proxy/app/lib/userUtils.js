@@ -122,7 +122,7 @@ const getClusterID = (user, accessToken, idToken) => {
     clusterIDProc.on('exit', function (retCode) {
       if (retCode === 0) {
         const outputLines = clusterVersionOutput.split('\n');
-        clusterID = (outputLines.length > 0) ? outputLines[outputLines.length - 1] : "";
+        clusterID = (outputLines.length > 0) ? outputLines[outputLines.length - 1].replace(/'/g,'') : "";
         console.log('clusterID = ' + clusterID);
         return resolve();
       }
