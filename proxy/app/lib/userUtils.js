@@ -177,10 +177,13 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
               // Need to get and cache the clusterID the first time since this container started
               (async () => {
                 await getClusterID(user,accessToken,idToken);
+                // Now that we have cached the clusterID, notify metrics a new session was created
+                metricTools.newSession(clusterID);
               })();
+            } else {
+              // Notify metrics a new session was created with the cached clusterID
+              metricTools.newSession(clusterID);
             }
-            // Notify metrics a new session was created
-            metricTools.newSession(clusterID);
             console.log('user ' + user.name + ' login complete in terminal ');
             return resolve();
           }
