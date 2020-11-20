@@ -122,8 +122,8 @@ const getClusterID = (user, accessToken, idToken) => {
     clusterIDProc.on('exit', function (retCode) {
       if (retCode === 0) {
         const outputLines = clusterVersionOutput.split('\n');
-        console.log('clusterID = ' + (outputLines.length >= 1 ? outputLines[length - 1] : ""));
-        clusterID = clusterVersionOutput;
+        clusterID = (outputLines.length > 0) ? outputLines[outputLines.length - 1] : "";
+        console.log('clusterID = ' + clusterID);
         return resolve();
       }
       // Retrieving the cluster version info failed
