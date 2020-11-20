@@ -121,10 +121,9 @@ const getClusterID = (user, accessToken, idToken) => {
     });
     clusterIDProc.on('exit', function (retCode) {
       if (retCode === 0) {
-        console.log('clusterID = ' + clusterVersionOutput);
-        if (clusterVersionOutput.length > 0) {
-          clusterID = clusterVersionOutput;
-        }
+        const outputLines = clusterVersionOutput.split('\n');
+        console.log('clusterID = ' + (outputLines.length >= 1 ? outputLines[length - 1] : ""));
+        clusterID = clusterVersionOutput;
         return resolve();
       }
       // Retrieving the cluster version info failed
