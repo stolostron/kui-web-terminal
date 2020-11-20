@@ -89,7 +89,7 @@ const setupUserEnv = (user)=>{
 // This function is used to get the clusterID of the cluster where Visual Web Terminal is deployed
 // and cache it.  This is only needed to be done once the first time a user session is created after
 // the Visual Web Terminal container has started.
-const getClusterID = async (user, accessToken, idToken) => {
+const getClusterID = (user, accessToken, idToken) => {
   // Use the loginTools environment info as it is the same as what we need to run the oc command
   const cmdEnv = loginTools.getLoginEnvs(user.env, accessToken, idToken);
   const cmdOpts = {
@@ -176,7 +176,9 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
             // Check if we have the clusterID yet for where we are running
             if (clusterID.length === 0) {
               // Need to get and cache the clusterID the first time since this container started
-              await getClusterID(user,accessToken,idToken);
+              (async () => {
+                await getClusterID(user,accessToken,idToken);
+              })();
             }
             // Notify metrics a new session was created
             metricTools.newSession(clusterID);
