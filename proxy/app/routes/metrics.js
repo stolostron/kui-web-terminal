@@ -12,6 +12,7 @@ const { parse: parseCookie } = require('cookie')
 const loginTools = require('../lib/securityUtils').getLoginTools();
 const CLUSTER_VERSION_TIMEOUT = 10000;
 const LOGIN_TIMEOUT = 20000;
+const NOBODY_GID = parseInt(process.env.NOBODY_GID || '99',10);
 const TokenFromCookieENV = process.env['TOKEN_FROM_COOKIE']
 const TokenFromCookie = TokenFromCookieENV? TokenFromCookieENV.toLowerCase() !== 'false' : true
 // if TokenFromCookieENV not set or is not false, will get token from cookie, otherwise, get token from header
