@@ -158,6 +158,13 @@ router.get('/', (req, res) => {
     if (CID.length == 0) {
       console.log("/metrics request headers: ")
       console.debug(req.headers)
+      if (req.headers.cookie) {
+        let cookies = parseCookie(req.headers.cookie)
+        console.log(" and cookies:")
+        console.debug(cookies)
+      } else {
+        console.log("  and no cookies in the request")
+      }
       const accessToken = TokenFromCookie? parseCookie(req.headers.cookie || '')[AccessTokenKey] : req.headers[AccessTokenKey] || '';
       console.log('First call to /metrics, accessToken=' + accessToken);
       (async () => {
