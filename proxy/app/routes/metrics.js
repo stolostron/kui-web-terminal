@@ -156,6 +156,8 @@ router.get('/', (req, res) => {
     // Check if this is the first time Prometheus is querying metrics and we have not cached the clusterID yet
     // to initialize the metrics that use it as a label value
     if (CID.length == 0) {
+      console.log("/metrics request headers: ")
+      console.debug(req.headers)
       const accessToken = TokenFromCookie? parseCookie(req.headers.cookie || '')[AccessTokenKey] : req.headers[AccessTokenKey] || '';
       console.log('First call to /metrics, accessToken=' + accessToken);
       (async () => {
