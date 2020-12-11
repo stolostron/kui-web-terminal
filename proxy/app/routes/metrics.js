@@ -7,6 +7,7 @@ const router = express.Router()
 const metricTools = require('../lib/metricsUtils')
 
 // EXPERIMENT EXPERIMENT
+const childProcess=require('child_process');
 const { parse: parseCookie } = require('cookie')
 const CLUSTER_VERSION_TIMEOUT = 10000;
 const TokenFromCookieENV = process.env['TOKEN_FROM_COOKIE']
@@ -34,7 +35,7 @@ const getClusterID = (accessToken) => {
     // Spawn a child process that just runs the following command to retrieve the clusterID (documented in OCP documentation)
     //   oc get clusterversion -o jsonpath='{.items[].spec.clusterID}' --token='accessToken'
     const access = "--token='" + accessToken + "'"
-    const clusterIDProc = childProcess.spawn('/usr/local/bin/oc', ["get", "clusterversion", "-o", "jsonpath='{.items[].spec.clusterID}'", access], cmdOpts);
+    const clusterIDProc = childProcess.spawn('/usr/local/bin/oc', ["get", "clusterversion", "-o", "jsonpath='{.items[].spec.clusterID}'", access]);
     setTimeout(() => {
       clusterIDProc.kill();
       reject('timeout');
