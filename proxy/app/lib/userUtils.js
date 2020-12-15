@@ -26,7 +26,7 @@ const metricTools = require('./metricsUtils');
 let nextUID=65536;
 
 // caching the cluster ID, will be set on first user login to the cluster
-let clusterID = ''
+// let clusterID = ''
 
 /**
  * This async function will create a new user.
@@ -86,6 +86,7 @@ const setupUserEnv = (user)=>{
     return userEnv;
 }
 
+/**
 // This function is used to get the clusterID of the cluster where Visual Web Terminal is deployed
 // and cache it.  This is only needed to be done once the first time a user session is created after
 // the Visual Web Terminal container has started.
@@ -141,6 +142,7 @@ const getClusterID = (user, accessToken, idToken) => {
     });
   });
 }
+**/
 
 const loginUser = (user, namespace, accessToken, idToken) =>{
     const loginArgs = loginTools.getLoginArgs(namespace,accessToken,idToken)
@@ -173,17 +175,19 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
         loginProc.on('exit', function (code) {
           if (code === 0) {
             // Check if we have the clusterID yet for where we are running
-            if (clusterID.length === 0) {
+            // if (clusterID.length === 0) {
               // Need to get and cache the clusterID the first time since this container started
-              (async () => {
-                await getClusterID(user,accessToken,idToken);
+            //   (async () => {
+            //     await getClusterID(user,accessToken,idToken);
                 // Now that we have cached the clusterID, notify metrics a new session was created
-                metricTools.newSession(clusterID);
-              })();
-            } else {
+            //     metricTools.newSession(clusterID);
+            //   })();
+            // } else {
               // Notify metrics a new session was created with the cached clusterID
-              metricTools.newSession(clusterID);
-            }
+            //   metricTools.newSession(clusterID);
+            // }
+            // Notify metrics a new session was created
+            metricTools.newSession();
             console.log('user ' + user.name + ' login complete in terminal ');
             return resolve();
           }

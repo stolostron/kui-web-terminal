@@ -10,17 +10,16 @@ module.exports.promClient = promClient;
 // session count metric
 const sessionCounter = new promClient.Counter({
     name: 'visual_web_terminal_sessions_total',
-    help: 'Count of Visual Web Terminal sessions created on the cluster',
-    labelNames: ['clusterID']
+    help: 'Count of Visual Web Terminal sessions created on the cluster'
 });
 
-module.exports.initSessionCountMetric = function(clusterID) {
-    console.log("Initializing session count metric for cluster " + clusterID) + " to zero";
-    sessionCounter.inc({clusterID: clusterID}, 0);
-}
+// module.exports.initSessionCountMetric = function(clusterID) {
+//     console.log("Initializing session count metric for cluster " + clusterID) + " to zero";
+//     sessionCounter.inc({clusterID: clusterID}, 0);
+// }
 
-module.exports.newSession = function(clusterID) {
-    console.log("Incrementing session count metric for cluster " + clusterID);
-    sessionCounter.inc({clusterID: clusterID});
+module.exports.newSession = function() {
+    console.log("Incrementing session count metric for this cluster");
+    sessionCounter.inc();
 }
 

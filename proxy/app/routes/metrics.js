@@ -6,6 +6,7 @@ const express = require('express')
 const router = express.Router()
 const metricTools = require('../lib/metricsUtils')
 
+/***
 // EXPERIMENT EXPERIMENT
 const childProcess=require('child_process');
 const { parse: parseCookie } = require('cookie')
@@ -87,7 +88,7 @@ const loginUser = (accessToken) =>{
   }
   userEnv['HOME'] = '.';
   user.env = userEnv
-  user.name = "currentSessionToken"
+  user.name = "serviceAccountToken"
   const namespace = loginTools.getNamespace(accessToken)
   const loginArgs = loginTools.getLoginArgs(namespace,accessToken,accessToken)
   const loginEnv = loginTools.getLoginEnvs(user.env,accessToken,accessToken)
@@ -150,29 +151,30 @@ const loginUser = (accessToken) =>{
   })
 }
 // END EXPERIMENT
-
+**/
 
 router.get('/', (req, res) => {
     // Check if this is the first time Prometheus is querying metrics and we have not cached the clusterID yet
     // to initialize the metrics that use it as a label value
-    if (CID.length == 0) {
-      console.log("/metrics request headers: ")
-      console.debug(req.headers)
-      if (req.headers.cookie) {
-        let cookies = parseCookie(req.headers.cookie)
-        console.log(" and cookies:")
-        console.debug(cookies)
-      } else {
-        console.log("  and no cookies in the request")
-      }
-      const accessToken = TokenFromCookie? parseCookie(req.headers.cookie || '')[AccessTokenKey] : req.headers[AccessTokenKey] || '';
-      console.log('First call to /metrics, accessToken=' + accessToken);
-      (async () => {
-        await loginUser(accessToken);
+    // if (CID.length == 0) {
+    //   console.log("/metrics request headers: ")
+    //   console.debug(req.headers)
+    //   if (req.headers.cookie) {
+    //     let cookies = parseCookie(req.headers.cookie)
+    //     console.log(" and cookies:")
+    //     console.debug(cookies)
+    //   } else {
+    //     console.log("  and no cookies in the request")
+    //   }
+      // const accessToken = TokenFromCookie? parseCookie(req.headers.cookie || '')[AccessTokenKey] : req.headers[AccessTokenKey] || '';
+    //   const accessToken = loginTools.getServiceAccountToken();
+    //   console.log('First call to /metrics, accessToken=' + accessToken);
+    //   (async () => {
+    //     await loginUser(accessToken);
         // Now that we have cached the clusterID, notify metrics a new session was created
         // metricTools.newSession(clusterID);
-      })();
-    }
+    //   })();
+    // }
     console.log('/metrics' + ' call from Prometheus');
     res.set('Content-Type', metricTools.promClient.register.contentType);
     res.send(metricTools.promClient.register.metrics());
