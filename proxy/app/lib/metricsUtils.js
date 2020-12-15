@@ -14,7 +14,7 @@ const sessionCounter = new promClient.Counter({
 });
 
 module.exports.newSession = function() {
-    console.log("Incrementing session count metric for this cluster");
+    console.log('Incrementing session count metric for this cluster');
     sessionCounter.inc();
 }
 
