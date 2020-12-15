@@ -16,7 +16,6 @@ const exec = util.promisify(childProcess.exec);
 const LINUX_DISTRO = process.env['LINUX_DISTRO'];
 const INSECURE_MODE = process.env['INSECURE_MODE'];
 const LOGIN_TIMEOUT = 20000;
-const CLUSTER_VERSION_TIMEOUT = 10000;
 const NOBODY_GID = parseInt(process.env.NOBODY_GID || '99',10);
 
 const loginTools = require('./securityUtils').getLoginTools();
@@ -24,9 +23,6 @@ const loginTools = require('./securityUtils').getLoginTools();
 const metricTools = require('./metricsUtils');
 //mapping of cookie->uid
 let nextUID=65536;
-
-// caching the cluster ID, will be set on first user login to the cluster
-let clusterID = ''
 
 /**
  * This async function will create a new user.
@@ -86,62 +82,6 @@ const setupUserEnv = (user)=>{
     return userEnv;
 }
 
-// This function is used to get the clusterID of the cluster where Visual Web Terminal is deployed
-// and cache it.  This is only needed to be done once the first time a user session is created after
-// the Visual Web Terminal container has started.
-const getClusterID = (user, accessToken, idToken) => {
-  // Use the loginTools environment info as it is the same as what we need to run the oc command
-  const cmdEnv = loginTools.getLoginEnvs(user.env, accessToken, idToken);
-  const cmdOpts = {
-    cwd: cmdEnv['HOME'],
-    env: cmdEnv,
-    timeout: CLUSTER_VERSION_TIMEOUT,
-    uid: user.uid,
-    gid: NOBODY_GID
-  };
-  return new Promise(function (resolve, reject) {
-    // Spawn a child process that just runs the following command to retrieve the clusterID (documented in OCP documentation)
-    //   oc get clusterversion -o jsonpath='{.items[].spec.clusterID}{"\n"}'
-    const clusterIDProc = childProcess.spawn('/usr/local/bin/oc', ["get", "clusterversion", "-o", "jsonpath='{.items[].spec.clusterID}'"], cmdOpts);
-    setTimeout(() => {
-      clusterIDProc.kill();
-      reject('timeout');
-    }, CLUSTER_VERSION_TIMEOUT);
-    clusterIDProc.stdin.end();
-    let clusterVersionOutput = '';
-    clusterIDProc.stdout.on('data', function (data) {
-      clusterVersionOutput += String(data);
-    });
-    clusterIDProc.stderr.on('data', function (data) {
-      clusterVersionOutput += String(data);
-    });
-    clusterIDProc.on('error', function (err) {
-      console.error('Attempt to get clusterID failed.');
-      console.error(err.toString());
-    });
-    clusterIDProc.on('exit', function (retCode) {
-      if (retCode === 0) {
-        const outputLines = clusterVersionOutput.split('\n');
-        clusterID = (outputLines.length > 0) ? outputLines[outputLines.length - 1].replace(/'/g,'') : "";
-        console.log('clusterID = ' + clusterID);
-        return resolve();
-      }
-      // Retrieving the cluster version info failed
-      console.log('Attempt to get the cluster version information failed in terminal with exit code ' + retCode);
-      let errorMsg = '';
-      const errLines = clusterVersionOutput.split('\n');
-      for (let i = errLines.length - 1; i > 0; i--) { // account for possible blank line
-        errorMsg = errLines[i];
-        if (errorMsg !== '') {
-          break;
-        }
-      }
-      console.error(errorMsg);
-      reject(errorMsg);
-    });
-  });
-}
-
 const loginUser = (user, namespace, accessToken, idToken) =>{
     const loginArgs = loginTools.getLoginArgs(namespace,accessToken,idToken)
     const loginEnv = loginTools.getLoginEnvs(user.env,accessToken,idToken)
@@ -172,18 +112,8 @@ const loginUser = (user, namespace, accessToken, idToken) =>{
         });
         loginProc.on('exit', function (code) {
           if (code === 0) {
-            // Check if we have the clusterID yet for where we are running
-            if (clusterID.length === 0) {
-              // Need to get and cache the clusterID the first time since this container started
-              (async () => {
-                await getClusterID(user,accessToken,idToken);
-                // Now that we have cached the clusterID, notify metrics a new session was created
-                metricTools.newSession(clusterID);
-              })();
-            } else {
-              // Notify metrics a new session was created with the cached clusterID
-              metricTools.newSession(clusterID);
-            }
+            // Notify metrics a new session was created
+            metricTools.newSession();
             console.log('user ' + user.name + ' login complete in terminal ');
             return resolve();
           }

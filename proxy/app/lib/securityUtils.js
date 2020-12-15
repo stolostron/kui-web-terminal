@@ -11,6 +11,7 @@
 
 const url = require('url');
 const https = require('https');
+const fs = require('fs');
 const querystring = require('querystring');
 const NOBODY_GID = parseInt(process.env.NOBODY_GID || '99',10);
 const childProcess = require('child_process');
@@ -25,6 +26,7 @@ const childProcess = require('child_process');
 // getLoginArgs(namespace,accessToken,idToken) - returns args which will be used for login
 // getLoginCMD() - return the actual command executable path for login
 // postSetup(user) - async function run some setup after successfully login
+// getServiceAccountToken() - return the serviceaccount token to use for k8s API calls
 
 class CloudPakTools {
   constructor(){
@@ -238,6 +240,15 @@ class OpenshiftTools {
   }
   postSetup(user){ // do nothing after setup
     return Promise.resolve();
+  }
+
+  getServiceAccountToken() {
+    try {
+      return fs.readFileSync('/var/run/secrets/kubernetes.io/serviceaccount/token', 'utf8');
+    } catch (err) {
+      console.error('Error reading service account token', err && err.message);
+      return null;
+    }
   }
 
 }
