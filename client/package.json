@@ -59,6 +59,7 @@
     "@kui-shell/plugin-proxy-support": "~8.10.17",
     "@kui-shell/plugin-search": "file:../plugin-downloads/plugin-search.tgz",
     "@kui-shell/react": "~8.10.17",
+    "@open-wc/webpack-import-meta-loader": "^0.4.7",
     "@patternfly/react-icons": "4.4.2",
     "@patternfly/react-styles": "4.4.2",
     "@patternfly/react-tokens": "4.5.2",
