@@ -65,10 +65,6 @@ module.exports = {
 				exclude: thisPath('web/css/static'),
 				use: ['style-loader', 'css-loader'],
 			},
-			{
-				test: /\.mjs$/,
-				loader: require.resolve('@open-wc/webpack-import-meta-loader'),
-			},
 		],
 	},
 	output: {
@@ -81,7 +77,7 @@ module.exports = {
 		// eslint-disable-next-line @typescript-eslint/camelcase
 		child_process: 'empty',
 	},
-	externals: ['net', 'node-pty-prebuilt-multiarch', 'readline', 'module', 'electron'],
+	externals: ['net', 'node-pty-prebuilt-multiarch', 'readline', 'module', 'electron', 'yargs'],
 	devServer: {
 		port: 9080,
 
