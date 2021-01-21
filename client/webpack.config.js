@@ -66,7 +66,7 @@ module.exports = {
 				use: ['style-loader', 'css-loader'],
 			},
 			{
-				test: /\.js$/,
+				test: /\.mjs$/,
 				loader: require.resolve('@open-wc/webpack-import-meta-loader'),
 			},
 		],
