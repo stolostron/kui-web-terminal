@@ -34,7 +34,7 @@ root
 │   └── plugins (required by KUI builder; not used)
 │   └── eslintrc.js/Makefile/package.json/package-lock.json
 │   └── scripts
-│        └── generate-template.js (parses the upstream KUI HTML template and appends the     configurations required to render the RHACM header; generates a DustJS template in `proxy/app/views`)
+│        └── generate-template.js (parses the upstream KUI HTML template and appends the     configurations required to render the RHACM header; generates a Handlebars template in `proxy/app/views`)
 ├── tests (the mcm-kui-tests git submodule)
 ├── downloads (CLI binaries downloaded from `download-clis.sh` will be stored here)
 ├── plugin-downloads (KUI plugins downloaded from `download-plugins.sh` will be stored here)
@@ -273,7 +273,7 @@ NOTE: More info at https://docs.npmjs.com/auditing-package-dependencies-for-secu
 | clean-proxy             |    Removes the tmp directory in root and the build and node_modules directories in /proxy. |
 | download-clis           |    Downloads the CLI binaries to the /downloads directory. |
 | download-plugins        |    Downloads the plugin packages to the /plugin-downloads directory. |
-| dust-template           |    Generates the Dust template that renders the kui-web-terminal UI. |
+| handlebars-template     |    Generates the Handlebars template that renders the kui-web-terminal UI. |
 | headless                |    Builds the open-source KUI proxy component. |
 | install                 |    Downloads plugin dependencies and npm installs /client and /proxy dependencies. |
 | install-client          |    Installs the /client package.json npm packages. |

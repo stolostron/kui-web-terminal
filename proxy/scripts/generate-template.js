@@ -109,17 +109,10 @@ fs.copyFileSync(plexPath, `${staticAssetsPath}/${plexName}`)*/
 
 const domOutput = document.documentElement.innerHTML
 const viewsPath = path.join(__dirname, '..', 'app', 'views')
-const templateName = 'main.dust'
-const dustTemplate = `${viewsPath}/${templateName}`
+const templateName = 'main.handlebars'
+const handlebarsTemplate = `${viewsPath}/${templateName}`
 
-const copyright = `{!
-  * Licensed Materials - Property of IBM
-  * (c) Copyright IBM Corporation 2019. All Rights Reserved.
-  *
-  * Note to U.S. Government Users Restricted Rights:
-  * Use, duplication or disclosure restricted by GSA ADP Schedule
-  * Contract with IBM Corp.
- !}
+const copyright = `{{!-- Copyright (c) 2021 Red Hat, Inc. --}}
 `
 
-fs.writeFileSync(dustTemplate, `${copyright}<!DOCTYPE html><html lang={lang}>${domOutput}</html>`)
+fs.writeFileSync(handlebarsTemplate, `${copyright}<!DOCTYPE html><html lang={{lang}}>${domOutput}</html>`)
