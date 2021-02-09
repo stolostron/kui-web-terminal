@@ -23,18 +23,19 @@ const { document } = kuiDom.window
 const headElement = document.querySelector('head')
 const bodyElement = document.querySelector('body')
 
-const noncePlaceHolder = '{kuiNonce}'
+const noncePlaceHolder = '{{kuiNonce}}'
 const nonceReplace = 'kuiDefaultNonce' // all nonce set to this string will be replaced
 
 // Header Elements ================================
 const headerContainer = document.createElement('div')
 headerContainer.id = 'header'
-headerContainer.innerHTML = '{header|s}'
+// headerContainer.innerHTML = '{header|s}'
+headerContainer.innerHTML = '{{{header}}}'
 bodyElement.insertBefore(headerContainer, bodyElement.childNodes[0])
 
 const headerCss = document.createElement('link')
 headerCss.setAttribute('rel', 'stylesheet')
-headerCss.setAttribute('href', '{filesH.css.path}')
+headerCss.setAttribute('href', '{{filesH.css.path}}')
 
 headerCss.setAttribute('nonce',noncePlaceHolder)
 headElement.prepend(headerCss)
@@ -43,28 +44,30 @@ headElement.prepend(headerCss)
 const stateScript = document.createElement('script')
 stateScript.setAttribute('charset', 'UTF-8')
 stateScript.setAttribute('nonce', noncePlaceHolder)
-stateScript.innerHTML = 'window.__PRELOADED_STATE__= {stateH|js|s}'
+// stateScript.innerHTML = 'window.__PRELOADED_STATE__= {stateH|js|s}'
+stateScript.innerHTML = 'window.__PRELOADED_STATE__= {{{json stateH}}}'
 bodyElement.appendChild(stateScript)
 
 const propsScript = document.createElement('script')
 propsScript.id = 'props'
 propsScript.setAttribute('type', 'application/json')
 propsScript.setAttribute('nonce', noncePlaceHolder)
-propsScript.innerHTML = '{propsH|js|s}'
+// propsScript.innerHTML = '{propsH|js|s}'
+propsScript.innerHTML = '{{{json propsH}}}'
 bodyElement.appendChild(propsScript)
 
 const nlsScript = document.createElement('script')
-nlsScript.setAttribute('src', '{filesH.nls.path}')
+nlsScript.setAttribute('src', '{{filesH.nls.path}}')
 nlsScript.setAttribute('nonce', noncePlaceHolder)
 bodyElement.appendChild(nlsScript)
 
 const dllScript = document.createElement('script')
-dllScript.setAttribute('src', '{filesH.dll.path}')
+dllScript.setAttribute('src', '{{filesH.dll.path}}')
 dllScript.setAttribute('nonce', noncePlaceHolder)
 bodyElement.appendChild(dllScript)
 
 const jsScript = document.createElement('script')
-jsScript.setAttribute('src', '{filesH.js.path}')
+jsScript.setAttribute('src', '{{filesH.js.path}}')
 jsScript.setAttribute('nonce', noncePlaceHolder)
 bodyElement.appendChild(jsScript)
 // ==================================================
