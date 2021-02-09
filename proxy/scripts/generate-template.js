@@ -23,7 +23,7 @@ const { document } = kuiDom.window
 const headElement = document.querySelector('head')
 const bodyElement = document.querySelector('body')
 
-const noncePlaceHolder = '{{kuiNonce}}'
+const noncePlaceHolder = '{{{kuiNonce}}}'
 const nonceReplace = 'kuiDefaultNonce' // all nonce set to this string will be replaced
 
 // Header Elements ================================
