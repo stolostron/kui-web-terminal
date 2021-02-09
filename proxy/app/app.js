@@ -36,7 +36,6 @@ const crypto = require('crypto');
 const csp = require('helmet-csp')
 const hsts = require('hsts')
 const exphbs = require('express-handlebars')
-// const consolidate = require('consolidate')
 const proxy = require('http-proxy-middleware')
 
 const ExecRouter = require('./routes/exec')
@@ -48,7 +47,6 @@ const app = express()
 
 app.disable('x-powered-by')
 
-// app.engine('dust', consolidate.dust)
 app.engine('handlebars', exphbs())
 const hbs = exphbs.create({
   // Specify helpers which are only registered on this instance.
@@ -61,7 +59,6 @@ const hbs = exphbs.create({
 app.engine('handlebars', hbs.engine)
 app.set('env', 'production')
 app.set('views', __dirname + '/views')
-// app.set('view engine', 'dust')
 app.set('view engine', 'handlebars')
 app.set('view cache', true)
 
