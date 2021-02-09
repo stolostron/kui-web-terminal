@@ -50,6 +50,15 @@ app.disable('x-powered-by')
 
 // app.engine('dust', consolidate.dust)
 app.engine('handlebars', exphbs())
+const hbs = exphbs.create({
+  // Specify helpers which are only registered on this instance.
+  helpers: {
+    json: function(context) {
+      return JSON.stringify(context)
+    }
+  }
+})
+app.engine('handlebars', hbs.engine)
 app.set('env', 'production')
 app.set('views', __dirname + '/views')
 // app.set('view engine', 'dust')
