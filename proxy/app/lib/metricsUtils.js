@@ -13,6 +13,9 @@ const sessionCounter = new promClient.Counter({
     help: 'Count of Visual Web Terminal sessions created on the cluster'
 });
 
+// init sessionCounter to 0
+sessionCounter.inc(0);
+
 module.exports.newSession = function() {
     console.log('Incrementing session count metric for this cluster');
     sessionCounter.inc();
