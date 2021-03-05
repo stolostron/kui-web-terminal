@@ -1,7 +1,7 @@
 # kui-web-terminal
 [![Build Status](https://travis-ci.com/open-cluster-management/kui-web-terminal.svg?token=XE6GVz1S58Uhs2nyhnqs&branch=master)](https://travis-ci.com/open-cluster-management/kui-web-terminal)
 
-Docker image for the KUI UI and proxy to be used in Visual Web Terminal
+Docker image for the KUI UI and proxy to be used in Visual Web Terminal for the Open Cluster Management project.  This is a custom containerized implementation based on the [KUI](https://github.com/IBM/kui) project.
 
 ---
 
@@ -54,7 +54,7 @@ If you are using a non-Linux OS; we recommend that you make any desired changes 
 ### Dependencies
 - Install gtar
 - Install jq
-- Install NodeJS (v10.15.x or higher)
+- Install NodeJS (v12.18.x or higher)
 
 ### Environment Variables
 ```

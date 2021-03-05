@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2020 Red Hat, Inc.
+ * Copyright Contributors to the Open Cluster Management project
  */
 const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
