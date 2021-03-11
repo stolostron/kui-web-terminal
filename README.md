@@ -1,6 +1,12 @@
 # kui-web-terminal
 [![Build Status](https://travis-ci.com/open-cluster-management/kui-web-terminal.svg?token=XE6GVz1S58Uhs2nyhnqs&branch=master)](https://travis-ci.com/open-cluster-management/kui-web-terminal)
 
+[comment]: # ( Copyright Contributors to the Open Cluster Management project )
+
+# WORK IN PROGRESS
+
+We are in the process of enabling this repo for community contribution. See wiki [here](https://open-cluster-management.io/concepts/architecture/).
+
 Docker image for the KUI UI and proxy to be used in Visual Web Terminal for the Open Cluster Management project.  This is a custom containerized implementation based on the [KUI](https://github.com/IBM/kui) project.
 
 ---
