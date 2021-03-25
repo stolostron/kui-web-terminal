@@ -5,6 +5,7 @@ proxy/.keys
 proxy/build
 proxy/dist
 proxy/kui
+proxy/app/views/main.handlebars
 proxy/app/views/main.dust
 proxy/app/public/plugin-search.css
 proxy/app/public/ibm-plex.css
