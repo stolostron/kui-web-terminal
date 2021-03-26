@@ -1,3 +1,4 @@
 [submodule "mcm-kui-tests"]
 	path = tests
 	url = git@github.com:open-cluster-management/mcm-kui-tests.git
+	branch = release-2.1
