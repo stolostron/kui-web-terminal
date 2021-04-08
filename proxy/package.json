@@ -12,13 +12,13 @@
     "npm": ">=6.9.0"
   },
   "devDependencies": {
+    "@kui-shell/builder": "~8.10.17",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.0.1",
     "eslint-plugin-import": "^2.11.0",
     "jsdom": "^15.1.1"
   },
   "dependencies": {
-    "@kui-shell/builder": "~8.10.17",
     "@kui-shell/client": "file:client-default",
     "@kui-shell/core": "~8.10.17",
     "@kui-shell/plugin-bash-like": "~8.10.17",
