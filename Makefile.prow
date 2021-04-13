@@ -1,0 +1,40 @@
+-include /opt/build-harness/Makefile.prow
+
+TEMP_FOLDER ?= 'tmp' # a temporary folder for headless build
+
+.PHONY: download-clis
+download-clis:
+       @./download-clis.sh
+
+.PHONY:        download-plugins
+download-plugins:
+       @bash download-plugins.sh
+
+.PHONY: dust-template
+dust-template:
+       node proxy/scripts/generate-template.js
+
+.PHONY: install-client
+install-client:
+       $(MAKE) -C client $@
+
+.PHONY: install-proxy
+install-proxy:
+       $(MAKE) -C proxy $@
+
+.PHONY: install
+install: download-plugins install-proxy install-client
+       @echo npm install both client and proxy
+
+.PHONY: headless
+headless:
+       $(MAKE) -C proxy $@
+       @bash scripts/move-headless.sh $(TEMP_FOLDER)
+
+.PHONY: webpack
+webpack:
+       $(MAKE) -C client $@
+       $(SELF) dust-template
+
+.PHONY: build
+build: headless webpack
