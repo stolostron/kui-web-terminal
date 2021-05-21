@@ -74,7 +74,7 @@ module.exports = {
     // eslint-disable-next-line @typescript-eslint/camelcase
     child_process: 'empty'
   },
-  externals: ['net', 'node-pty-prebuilt-multiarch','readline','module','electron', 'yargs'],
+  externals: ['net', 'node-pty-prebuilt-multiarch','readline','module','electron', 'yargs', 'yargs-parser'],
   devServer: {
     port: 9080,
 
