@@ -96,7 +96,7 @@ USER root
 # See: https://github.com/open-cluster-management/backlog/issues/2741
 # AND Keep image up-to-date
 RUN yum -y remove nodejs-nodemon && \
-    yum -y update
+    yum --nobest -y update
 
 WORKDIR /kui-proxy/kui
 
