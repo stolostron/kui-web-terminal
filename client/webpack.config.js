@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FontConfigWebpackPlugin = require('font-config-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const requireAll = require('require-all')
-const {DefinePlugin} = require('webpack')
+const {DefinePlugin, ProvidePlugin} = require('webpack')
 
 const mode = process.env.MODE || 'development'
 
@@ -131,6 +131,10 @@ module.exports = {
     new FontConfigWebpackPlugin(),
     new DefinePlugin({
       'process.env.DEBUG': JSON.stringify('*')
+    }),
+    new ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+      process: require.resolve('./process.js')
     })
   ]
 }
