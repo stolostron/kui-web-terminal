@@ -21,7 +21,7 @@
 // Adding this require statement for yargs to workaround a Webpack 4 limitation.  This statement
 // needs to end up in the generated index.js file.  This can likely be removed once we move to
 // Webpack 5.
-const yargs = require('yargs');
+// const yargs = require('yargs');
 import * as React from "react";
 import { render } from "react-dom";
 import {

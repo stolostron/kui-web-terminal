@@ -40,8 +40,14 @@ clientOptions.style.bodyCss = ['not-electron']
 module.exports = {
   optimization: {
     minimize: false,
-    namedModules: true,
-    namedChunks: true
+    // for webpack 4
+    // namedModules: true,
+    // for webpack 5
+    moduleIds: 'named',
+    // for webpack 4
+    // namedChunks: true
+    // for webpack 5
+    chunkIds: 'named'
   },
   module: {
     rules: [
@@ -61,20 +67,41 @@ module.exports = {
       { test: /\.ico$/, use: 'file-loader' },
       { test: /\.jpg$/, use: 'file-loader' },
       { test: /\.png$/, use: 'url-loader' },
+      { test: /\.md$/, use: 'asset/source' },
       { test: /\.css$/i, exclude: thisPath('web/css/static'), use: ['style-loader', 'css-loader'] }
     ]
   },
   output: {
-    jsonpFunction: 'webpackJsonpFunction3',
+    // For webpack 4.  In webpack 5 it uses a unique name from package.json name field
+    // jsonpFunction: 'webpackJsonpFunction3',
     path: path.resolve('./dist/webpack/kui'),
     publicPath: '/kui/'
   },
-  node: {
-    fs: 'empty',
+  // For webpack 4
+  // node: {
+    // fs: 'empty',
     // eslint-disable-next-line @typescript-eslint/camelcase
-    child_process: 'empty'
+    // child_process: 'empty'
+  // },
+  // For webpack 5 (instead of node.* above)
+  resolve: {
+    fallback: {
+      fs: false,
+      child_process: false,
+      assert: require.resolve('assert'),
+      constants: require.resolve('constants-browserify'),
+      crypto: require.resolve('crypto-browserify'),
+      http: require.resolve('stream-http'),
+      https: require.resolve('https-browserify'),
+      os: require.resolve('os-browserify/browser'),
+      path: require.resolve('path-browserify'),
+      stream: require.resolve('stream-browserify'),
+      util: require.resolve('util'),
+      zlib: require.resolve('browserify-zlib')
+    }
   },
-  externals: ['net', 'node-pty-prebuilt-multiarch','readline','module','electron', 'yargs', {'yargs-parser': 'commonjs2 yargs-parser'}],
+  // externals: ['net', 'node-pty-prebuilt-multiarch','readline','module','electron', 'yargs', {'yargs-parser': 'commonjs2 yargs-parser'}],
+  externals: ['net', 'node-pty-prebuilt-multiarch','readline','module','electron'],
   devServer: {
     port: 9080,
 
