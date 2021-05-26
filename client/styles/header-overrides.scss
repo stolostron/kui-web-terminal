@@ -13,9 +13,9 @@
  *******************************************************************************/
 
  // New for Patternfly style overrides
- @import '@kui-shell/plugin-client-common/web/scss/components/TopTabStripe/mixins';
+ @import '../node_modules/@kui-shell/plugin-client-common/web/scss/components/TopTabStripe/mixins';
 
- @include TopTabStripe {
+@include TopTabStripe {
   --color-stripe-01: white;
 }
 

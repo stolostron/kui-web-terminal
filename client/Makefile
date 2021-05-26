@@ -38,7 +38,7 @@ compile-css:
 	npm run build:css
 
 .PHONY: webpack
-webpack: 
+webpack: compile-css
 	npm run build
 
 .PHONY: clean-client

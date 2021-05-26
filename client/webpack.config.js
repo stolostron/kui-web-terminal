@@ -30,6 +30,18 @@ const sassLoaderChain = [
   'sass-loader'
 ]
 
+const sassLoaderChainNoSourceMap = [
+  {
+    loader: MiniCssExtractPlugin.loader,
+    options: {
+      esModule: true,
+      sourceMap: false
+    }
+  },
+  'css-loader',
+  'sass-loader'
+]
+
 const clientBase =  'node_modules/@kui-shell/client'
 
 const clientOptions = requireAll(path.resolve(path.join(clientBase, 'config.d')))
@@ -82,7 +94,12 @@ module.exports = {
       },
       {
         test: /\.scss$/i,
+        exclude: thisPath('styles/mcm-kui.scss'),
         use: sassLoaderChain
+      },
+      {
+        test: /\.mcm-kui.scss$/i,
+        use: 'ignore-loader'
       },
       {
         test: /\.(ttf|eot)$/i,
