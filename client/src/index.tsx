@@ -59,7 +59,7 @@ function loadingDone(repl: REPL) {
 }
 
 
-// The "Tech Preview" tag is added to the status bar below using the TagWidget
+// The "Tech Preview" tag is added to the status bar below using the Patternfly Label widget.
 // While it is not truly a MeterWidget, it is included in that tag as MeterWidgets
 // are positioned by KUI on the right side of the status bar which is the desired position.
 const techPreview = "Tech Preview"
@@ -80,9 +80,11 @@ if (wrapper) {
       </ContextWidgets>
       <SpaceFiller/>
       <MeterWidgets>
-        <Label id='kui--tech-preview-label' color='orange'>
-          {techPreview}
-        </Label>
+        <div id='kui--tech-preview-label' className='kui--tech-preview'>
+          <Label color='orange'>
+            {techPreview}
+          </Label>
+        </div>
       </MeterWidgets>
 
     </Kui>,

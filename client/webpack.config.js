@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FontConfigWebpackPlugin = require('font-config-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const requireAll = require('require-all')
-const {DefinePlugin, ProvidePlugin} = require('webpack')
+const {DefinePlugin, HotModuleReplacementPlugin, ProvidePlugin} = require('webpack')
 
 const mode = process.env.MODE || 'development'
 
@@ -23,7 +23,6 @@ const sassLoaderChain = [
   {
     loader: MiniCssExtractPlugin.loader,
     options: {
-      hmr: mode === 'development',
       esModule: true
     }
   },
@@ -36,6 +35,31 @@ const clientBase =  'node_modules/@kui-shell/client'
 const clientOptions = requireAll(path.resolve(path.join(clientBase, 'config.d')))
 console.log(clientOptions)
 clientOptions.style.bodyCss = ['not-electron']
+
+const plugins = [
+  new CopyPlugin([
+    { from: path.join(clientBase, 'icons'), to: 'icons/' },
+    { from: path.join(clientBase, 'images'), to: 'images/' }
+  ]),
+  new HtmlWebPackPlugin({
+    template: './src/index.html.ejs',
+    filename: './index.html',
+    clientOptions
+  }),
+  new MiniCssExtractPlugin(),
+  new FontConfigWebpackPlugin(),
+  new DefinePlugin({
+    'process.env.DEBUG': JSON.stringify('*')
+  }),
+  new ProvidePlugin({
+    Buffer: ['buffer', 'Buffer'],
+    process: require.resolve('./process.js')
+  })
+];
+
+if (mode === 'development') {
+  plugins.push(new HotModuleReplacementPlugin());
+}
 
 module.exports = {
   optimization: {
@@ -117,24 +141,5 @@ module.exports = {
   stats: {
     warnings: false
   },
-  plugins: [
-    new CopyPlugin([
-      { from: path.join(clientBase, 'icons'), to: 'icons/' },
-      { from: path.join(clientBase, 'images'), to: 'images/' }
-    ]),
-    new HtmlWebPackPlugin({
-      template: './src/index.html.ejs',
-      filename: './index.html',
-      clientOptions
-    }),
-    new MiniCssExtractPlugin(),
-    new FontConfigWebpackPlugin(),
-    new DefinePlugin({
-      'process.env.DEBUG': JSON.stringify('*')
-    }),
-    new ProvidePlugin({
-      Buffer: ['buffer', 'Buffer'],
-      process: require.resolve('./process.js')
-    })
-  ]
+  plugins
 }
