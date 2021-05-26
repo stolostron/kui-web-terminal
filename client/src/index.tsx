@@ -24,11 +24,12 @@
 // const yargs = require('yargs');
 import * as React from "react";
 import { render } from "react-dom";
+import { Label } from "@patternfly/react-core";
 import {
   Kui,
   ContextWidgets,
   MeterWidgets,
-  TagWidget,
+  SpaceFiller
 } from "@kui-shell/plugin-client-common";
 import {
   CurrentContext,
@@ -77,10 +78,11 @@ if (wrapper) {
         <CurrentContext />
         <CurrentNamespace />
       </ContextWidgets>
+      <SpaceFiller/>
       <MeterWidgets>
-        <TagWidget id='kui--tech-preview-tag' className='kui--tech-preview' type='ok'>
+        <Label id='kui--tech-preview-label' color='orange'>
           {techPreview}
-        </TagWidget>
+        </Label>
       </MeterWidgets>
 
     </Kui>,
