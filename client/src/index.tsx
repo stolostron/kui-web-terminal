@@ -64,6 +64,7 @@ const wrapper = document.querySelector(".main");
 if (wrapper) {
   render(
     <Kui bottomInput={<CustomSearchInput/>}
+         splitTerminals
          productName={productName}
          loadingDone={loadingDone}
          noPromptContext
