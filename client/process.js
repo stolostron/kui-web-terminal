@@ -4,15 +4,14 @@
 
 const proc = require('process/browser')
 
-module.exports = proc
+const HOME = '~'
+let cwd = HOME
 
 // Shim for 'process' needed when using webpack 5 for the client
-
-exports.env = {
-    HOME: '~'
-}
-
-let cwd = exports.env.HOME
-exports.cwd = () => cwd
-
-exports.chdir = dir => (cwd = dir)
+module.exports = Object.assign(proc, {
+    env: {
+      HOME
+    },
+    cwd: () => cwd,
+    chdir: dir => (cwd = dir)
+})

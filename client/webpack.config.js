@@ -136,6 +136,7 @@ module.exports = {
       https: require.resolve('https-browserify'),
       os: require.resolve('os-browserify/browser'),
       path: require.resolve('path-browserify'),
+      process: require.resolve('./process.js'),
       stream: require.resolve('stream-browserify'),
       util: require.resolve('util'),
       zlib: require.resolve('browserify-zlib')
