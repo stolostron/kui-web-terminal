@@ -48,6 +48,8 @@ const clientOptions = requireAll(path.resolve(path.join(clientBase, 'config.d'))
 console.log(clientOptions)
 clientOptions.style.bodyCss = ['not-electron']
 
+// HtmlWebPackPlugin needs 'inject: false' to avoid injecting the webpack main.js and main.css into the HEAD tag.
+// We already do that in client/src/index.html.ejs
 const plugins = [
   new CopyPlugin([
     { from: path.join(clientBase, 'icons'), to: 'icons/' },

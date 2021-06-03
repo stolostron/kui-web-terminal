@@ -62,13 +62,15 @@ function main(cmdline, execOptions, server, port, host,user, locale) {
 
     // With new Kui v10 code, execOptions.env could be `~` which we also do not want, so rather than
     // setting cwd to execOptions.cwd value or user.env.HOME, just set it to user.env.HOME all the time
-    // as that is what we want for a new user session anyway. Also, now pass that on PWD in the env also.
+    // as that is what we want for a new user session anyway. Also, now pass that on PWD in the env also,
+    // as well as the user's own HOME value (so as not to inherit HOME from execOptions.env).
     const options = {
       uid,
       gid,
       cwd: user.env.HOME,
       env: Object.assign(user.env, execOptions.env || {}, {
         LOCALE: locale,
+        HOME: user.env.HOME,
         PWD: user.env.HOME,
         SHELL: 'rbash',
         DEBUG: process.env.DEBUG,
