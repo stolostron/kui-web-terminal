@@ -56,6 +56,7 @@ const plugins = [
   new HtmlWebPackPlugin({
     template: './src/index.html.ejs',
     filename: './index.html',
+    inject: false,
     clientOptions
   }),
   new MiniCssExtractPlugin(),
