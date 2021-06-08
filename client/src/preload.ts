@@ -24,11 +24,12 @@ export default async () => {
   if (!isHeadless()) {
     import('./lib/tab-completion').then(_ => _.preload())
   }
-}
 
-const notebookVFS = new NotebookVFS()
-notebookVFS.cp(
-  undefined,
-  ['plugin://client/notebooks/welcome.json'],
-  '/kui'
-)
+  const notebookVFS = new NotebookVFS()
+  console.log('Copying welcome.json notebook to load location')
+  notebookVFS.cp(
+    undefined,
+    ['plugin://client/notebooks/welcome.json'],
+    '/kui'
+  )
+}
