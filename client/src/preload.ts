@@ -18,18 +18,10 @@
  * limitations under the License.
  */
 import { isHeadless } from '@kui-shell/core'
-import { NotebookVFS } from '@kui-shell/plugin-core-support'
 
 export default async () => {
   if (!isHeadless()) {
     import('./lib/tab-completion').then(_ => _.preload())
   }
 
-  const notebookVFS = new NotebookVFS()
-  console.log('Copying welcome.json notebook to load location')
-  notebookVFS.cp(
-    undefined,
-    ['plugin://client/notebooks/welcome.json'],
-    '/kui'
-  )
 }
