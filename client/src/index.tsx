@@ -20,11 +20,12 @@
 
 import * as React from "react";
 import { render } from "react-dom";
+import { Label } from "@patternfly/react-core";
 import {
   Kui,
   ContextWidgets,
   MeterWidgets,
-  TagWidget,
+  SpaceFiller
 } from "@kui-shell/plugin-client-common";
 import {
   CurrentContext,
@@ -54,7 +55,7 @@ function loadingDone(repl: REPL) {
 }
 
 
-// The "Tech Preview" tag is added to the status bar below using the TagWidget
+// The "Tech Preview" tag is added to the status bar below using the Patternfly Label widget.
 // While it is not truly a MeterWidget, it is included in that tag as MeterWidgets
 // are positioned by KUI on the right side of the status bar which is the desired position.
 const techPreview = "Tech Preview"
@@ -63,6 +64,7 @@ const wrapper = document.querySelector(".main");
 if (wrapper) {
   render(
     <Kui bottomInput={<CustomSearchInput/>}
+         splitTerminals
          productName={productName}
          loadingDone={loadingDone}
          noPromptContext
@@ -73,10 +75,13 @@ if (wrapper) {
         <CurrentContext />
         <CurrentNamespace />
       </ContextWidgets>
+      <SpaceFiller/>
       <MeterWidgets>
-        <TagWidget id='kui--tech-preview-tag' className='kui--tech-preview' type='ok'>
-          {techPreview}
-        </TagWidget>
+        <div id='kui--tech-preview-label' className='kui--tech-preview'>
+          <Label color='orange'>
+            {techPreview}
+          </Label>
+        </div>
       </MeterWidgets>
 
     </Kui>,

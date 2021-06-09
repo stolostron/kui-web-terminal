@@ -6,6 +6,8 @@
       "jsx": "react",
       "noImplicitThis": true,
       "alwaysStrict": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
       "module": "esnext",
       "moduleResolution": "node",
       "target": "ES2016",

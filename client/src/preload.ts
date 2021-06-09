@@ -23,4 +23,5 @@ export default async () => {
   if (!isHeadless()) {
     import('./lib/tab-completion').then(_ => _.preload())
   }
+
 }

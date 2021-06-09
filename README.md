@@ -7,7 +7,7 @@
 
 We are in the process of enabling this repo for community contribution. See wiki [here](https://open-cluster-management.io/concepts/architecture/).
 
-Docker image for the KUI UI and proxy to be used in Visual Web Terminal for the Open Cluster Management project.  This is a custom containerized implementation based on the [KUI](https://github.com/IBM/kui) project.
+Docker image for the KUI UI and proxy to be used in Visual Web Terminal for the Open Cluster Management project.  This is a custom containerized implementation based on the [KUI](https://github.com/kubernetes-sigs/kui) project.
 
 ---
 
@@ -233,7 +233,7 @@ Client/UI (from the VWT page):
 
 ---
 
-## How to upgrade the upstream KUI node module dependencies OR upgrade to a newer IBM (upstream) KUI
+## How to upgrade the upstream KUI node module dependencies OR upgrade to a newer (upstream) KUI
 1. Run `make clean-kui`
 2. Run `make download-plugins`
 3. Run `make update-kui KUI_UPDATE_VERSION=x.x.x`
@@ -246,7 +246,7 @@ Client/UI (from the VWT page):
 1. Change to the `/client` or `/proxy` subdirectory
 2. Run `npm audit --production` to see the list of vulnerabilities, dependency chain, advisory info, etc.
 3. Run `npm audit fix` to automatically fix issues.  Some issues might require you to manually
-make changes to your **dependencies** or get the [IBM KUI](https://github.com/IBM/kui) team to make changes to their files to
+make changes to your **dependencies** or get the [KUI](https://github.com/kubernetes-sigs/kui) team to make changes to their files to
 pull in new versions of packages.  
 4. Commit the package.json and package-lock.json in both `/client` and `/proxy`
 
