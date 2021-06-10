@@ -27,12 +27,13 @@ const bodyElement = document.querySelector('body')
 const noncePlaceHolder = '{{{kuiNonce}}}'
 const nonceReplace = 'kuiDefaultNonce' // all nonce set to this string will be replaced
 
+// REMOVING content from the common header service
 // Header Elements ================================
-const headerContainer = document.createElement('div')
-headerContainer.id = 'header'
+// const headerContainer = document.createElement('div')
+// headerContainer.id = 'header'
 // headerContainer.innerHTML = '{header|s}'
-headerContainer.innerHTML = '{{{header}}}'
-bodyElement.insertBefore(headerContainer, bodyElement.childNodes[0])
+// headerContainer.innerHTML = '{{{header}}}'
+// bodyElement.insertBefore(headerContainer, bodyElement.childNodes[0])
 
 const headerCss = document.createElement('link')
 headerCss.setAttribute('rel', 'stylesheet')
