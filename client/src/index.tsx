@@ -23,7 +23,7 @@ import '@patternfly/react-core/dist/styles/base.css'
 import * as React from "react";
 import { render } from "react-dom";
 import { Label } from "@patternfly/react-core";
-import { AcmHeader, AcmRoute } from "@open-cluster-management/ui-components";
+import { AcmHeader, AcmPage, AcmPageHeader, AcmRoute } from "@open-cluster-management/ui-components";
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import {
   Kui,
@@ -68,27 +68,29 @@ const wrapper = document.querySelector(".main");
 if (wrapper) {
   render(
     <AcmHeader route={AcmRoute.VisualWebTerminal} >
-      <Kui bottomInput={<CustomSearchInput/>}
-           splitTerminals
-           productName={productName}
-           loadingDone={loadingDone}
-           noPromptContext
-           prompt="&#x276f;"
-           disableTableTitle
-           sidecarName="heroText">
-        <ContextWidgets>
-          <CurrentContext />
-          <CurrentNamespace />
-        </ContextWidgets>
-        <SpaceFiller/>
-        <MeterWidgets>
-          <div id='kui--tech-preview-label' className='kui--tech-preview'>
-            <Label color='orange'>
-              {techPreview}
-            </Label>
-          </div>
-        </MeterWidgets>
-      </Kui>
+      <AcmPage header={<AcmPageHeader title=""/>}>
+        <Kui bottomInput={<CustomSearchInput/>}
+             splitTerminals
+             productName={productName}
+             loadingDone={loadingDone}
+             noPromptContext
+             prompt="&#x276f;"
+             disableTableTitle
+             sidecarName="heroText">
+          <ContextWidgets>
+            <CurrentContext />
+            <CurrentNamespace />
+          </ContextWidgets>
+          <SpaceFiller/>
+          <MeterWidgets>
+            <div id='kui--tech-preview-label' className='kui--tech-preview'>
+              <Label color='orange'>
+                {techPreview}
+              </Label>
+            </div>
+          </MeterWidgets>
+        </Kui>
+      </AcmPage>
     </AcmHeader>,
     wrapper
   );
