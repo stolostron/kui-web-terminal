@@ -8,13 +8,14 @@
     <!-- css overrides go here -->
     <%= htmlWebpackPlugin.tags.headTags.map(_ => { _.attributes.nonce="{{{kuiNonce}}}"; return _ }).join('\n') %>
 
-    <link rel="shortcut icon" href="<%= htmlWebpackPlugin.options.clientOptions.icons.favicon %>" />
+    <link rel="icon" type="image/svg+xml" href="<%= htmlWebpackPlugin.options.clientOptions.icons.favicon %>"/>
 
     <script nonce="kuiDefaultNonce">
       window['_kuiNonce'] = '{{{kuiNonce}}}';
     </script>
   </head>
   <body class="not-electron">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="page">
       <div class="main"></div>
     </div>

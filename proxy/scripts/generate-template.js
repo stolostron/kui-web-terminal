@@ -35,43 +35,39 @@ const nonceReplace = 'kuiDefaultNonce' // all nonce set to this string will be r
 // headerContainer.innerHTML = '{{{header}}}'
 // bodyElement.insertBefore(headerContainer, bodyElement.childNodes[0])
 
-const headerCss = document.createElement('link')
-headerCss.setAttribute('rel', 'stylesheet')
-headerCss.setAttribute('href', '{{filesH.css.path}}')
+// const headerCss = document.createElement('link')
+// headerCss.setAttribute('rel', 'stylesheet')
+// headerCss.setAttribute('href', '{{filesH.css.path}}')
+// headerCss.setAttribute('nonce',noncePlaceHolder)
+// headElement.prepend(headerCss)
 
-headerCss.setAttribute('nonce',noncePlaceHolder)
-headElement.prepend(headerCss)
+// const stateScript = document.createElement('script')
+// stateScript.setAttribute('charset', 'UTF-8')
+// stateScript.setAttribute('nonce', noncePlaceHolder)
+// stateScript.innerHTML = 'window.__PRELOADED_STATE__= {{{json stateH}}}'
+// bodyElement.appendChild(stateScript)
 
+// const propsScript = document.createElement('script')
+// propsScript.id = 'props'
+// propsScript.setAttribute('type', 'application/json')
+// propsScript.setAttribute('nonce', noncePlaceHolder)
+// propsScript.innerHTML = '{{{json propsH}}}'
+// bodyElement.appendChild(propsScript)
 
-const stateScript = document.createElement('script')
-stateScript.setAttribute('charset', 'UTF-8')
-stateScript.setAttribute('nonce', noncePlaceHolder)
-// stateScript.innerHTML = 'window.__PRELOADED_STATE__= {stateH|js|s}'
-stateScript.innerHTML = 'window.__PRELOADED_STATE__= {{{json stateH}}}'
-bodyElement.appendChild(stateScript)
+// const nlsScript = document.createElement('script')
+// nlsScript.setAttribute('src', '{{filesH.nls.path}}')
+// nlsScript.setAttribute('nonce', noncePlaceHolder)
+// bodyElement.appendChild(nlsScript)
 
-const propsScript = document.createElement('script')
-propsScript.id = 'props'
-propsScript.setAttribute('type', 'application/json')
-propsScript.setAttribute('nonce', noncePlaceHolder)
-// propsScript.innerHTML = '{propsH|js|s}'
-propsScript.innerHTML = '{{{json propsH}}}'
-bodyElement.appendChild(propsScript)
+// const dllScript = document.createElement('script')
+// dllScript.setAttribute('src', '{{filesH.dll.path}}')
+// dllScript.setAttribute('nonce', noncePlaceHolder)
+// bodyElement.appendChild(dllScript)
 
-const nlsScript = document.createElement('script')
-nlsScript.setAttribute('src', '{{filesH.nls.path}}')
-nlsScript.setAttribute('nonce', noncePlaceHolder)
-bodyElement.appendChild(nlsScript)
-
-const dllScript = document.createElement('script')
-dllScript.setAttribute('src', '{{filesH.dll.path}}')
-dllScript.setAttribute('nonce', noncePlaceHolder)
-bodyElement.appendChild(dllScript)
-
-const jsScript = document.createElement('script')
-jsScript.setAttribute('src', '{{filesH.js.path}}')
-jsScript.setAttribute('nonce', noncePlaceHolder)
-bodyElement.appendChild(jsScript)
+// const jsScript = document.createElement('script')
+// jsScript.setAttribute('src', '{{filesH.js.path}}')
+// jsScript.setAttribute('nonce', noncePlaceHolder)
+// bodyElement.appendChild(jsScript)
 // ==================================================
 
 // Inject our custom css styling

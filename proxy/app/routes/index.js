@@ -27,6 +27,16 @@ router.get('/', function (req, res, next) {
 
   const nonce = res.locals.nonce || ''
 
+  try {
+    const langs = req.headers['accept-language'].split(',');
+    res.render('main', Object.assign({
+      kuiNonce: nonce,
+      lang: langs[0]
+    }))
+  } catch(e) {
+    console.error(e)
+  }
+
   /*
   headerClient.getHeader(req, (err, headerRes) => {
     if (err) {
