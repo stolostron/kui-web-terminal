@@ -71,7 +71,6 @@
     "@kui-shell/client": "file:client-default",
     "@kui-shell/core": "~10.3.1",
     "@kui-shell/plugin-bash-like": "~10.3.1",
-    "@kui-shell/plugin-carbon-themes": "~10.3.1",
     "@kui-shell/plugin-client-common": "~10.3.1",
     "@kui-shell/plugin-core-support": "~10.3.1",
     "@kui-shell/plugin-kubectl": "~10.3.1",
