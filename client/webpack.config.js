@@ -111,6 +111,7 @@ module.exports = {
       { test: /\.ico$/, use: 'file-loader' },
       { test: /\.jpg$/, use: 'file-loader' },
       { test: /\.png$/, use: 'url-loader' },
+      { test: /\.svg$/, use: [ { loader: 'svg-url-loader', options: { limit: 10000 } } ]},
       { test: /\.md$/, use: 'asset/source' },
       { test: /\.css$/i, exclude: thisPath('web/css/static'), use: ['style-loader', 'css-loader'] }
     ]

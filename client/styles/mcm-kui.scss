@@ -15,8 +15,35 @@
 @import 'fonts';
 @import 'header-overrides';
 
-.page {
-  height: calc(100% - 76px) // resize to accomodate common header
+.main {
+  display: block;
+}
+
+// AcmPageHeader, which Visual Web Terminal does not use, so collapse it
+.pf-c-page__main-group.pf-m-sticky-top {
+  height: 0 !important;
+}
+
+// Override KUI theme link color for non-current left nav item
+.pf-c-nav__item .pf-c-nav__link {
+  color: var(--pf-c-nav__link--Color) !important;
+}
+
+// Override KUI theme link color for current left nav item
+.pf-c-nav__item .pf-c-nav__link.pf-m-current {
+  color: var(--pf-c-nav__link--m-current--Color) !important;
+}
+
+// Override KUI theme link color for app launcher menu item
+.pf-c-app-launcher__menu-item {
+  color: var(--pf-c-app-launcher__menu-item--Color) !important;
+}
+
+// Override KUI light theme tab stripe background color to white to match ACM/OCP theme
+body[kui-theme="PatternFly4 Light"] {
+  .kui--top-tab-stripe {
+    --color-stripe-01: white;
+  }
 }
 
 .still-loading { // input bar is visible while kui is loading

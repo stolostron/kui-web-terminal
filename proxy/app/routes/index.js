@@ -15,7 +15,7 @@
 
 const express = require('express')
 const router = express.Router()
-const headerClient = require('../lib/header-client')
+// const headerClient = require('../lib/header-client')
 const lodash = require('lodash')
 
 /** GET home page. */
@@ -27,6 +27,17 @@ router.get('/', function (req, res, next) {
 
   const nonce = res.locals.nonce || ''
 
+  try {
+    const langs = req.headers['accept-language'].split(',');
+    res.render('main', Object.assign({
+      kuiNonce: nonce,
+      lang: langs[0]
+    }))
+  } catch(e) {
+    console.error(e)
+  }
+
+  /*
   headerClient.getHeader(req, (err, headerRes) => {
     if (err) {
       console.error('Request for header failed: ', err)
@@ -58,6 +69,7 @@ router.get('/', function (req, res, next) {
     }
 
   })
+  */
 })
 
 module.exports = router

@@ -1,5 +1,5 @@
 {
-  "favicon": "/multicloud/header/graphics/RHACM-Favicon.svg",
+  "favicon": "/kui/icons/svg/RHACM-Favicon.svg",
   "filesystem": {
     "darwin": "icons/icns/kui.icns",
     "win32": "icons/ico/kui.ico",
