@@ -12,13 +12,6 @@
  * Contract with IBM Corp.
  *******************************************************************************/
 
- // New for Patternfly style overrides
- @import '../node_modules/@kui-shell/plugin-client-common/web/scss/components/TopTabStripe/mixins';
-
-@include TopTabStripe {
-  --color-stripe-01: white;
-}
-
 // Structure or layout changes only
 #resource-modal-container {
   .bx--modal-header {
@@ -40,15 +33,3 @@
     width: 30%;
   }
 }
-
- body[kui-theme="Carbon Gray90"] {
-  #resource-modal-container {
-    .bx--modal-container {
-      background-color: #f2f4f8;
-
-      .bx--modal-content, .bx--modal-header__heading {
-        color: #161616;
-      }
-    }
-  }
- }
