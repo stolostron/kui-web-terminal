@@ -39,6 +39,13 @@
   color: var(--pf-c-app-launcher__menu-item--Color) !important;
 }
 
+// Override KUI light theme tab stripe background color to white to match ACM/OCP theme
+body[kui-theme="PatternFly4 Light"] {
+  .kui--top-tab-stripe {
+    --color-stripe-01: white;
+  }
+}
+
 .still-loading { // input bar is visible while kui is loading
   .kui--input-stripe {
     visibility: hidden;
