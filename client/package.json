@@ -84,6 +84,7 @@
     "font-config-webpack-plugin": "^2.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
+    "react-tag-autocomplete": "^6.1.0",
     "yargs-parser": "20.2.7"
   },
   "description": ""
