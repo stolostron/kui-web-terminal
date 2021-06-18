@@ -53,8 +53,8 @@ echo "Regenerating plugin-downloads directory"
 mkdir -p plugin-downloads
 
 echo "Downloading plugins ..."
-download "search-kui-plugin" "plugin-search" "v2.0.11"
-download "plugin-kui-addons" "plugin-kui-addons" "v3.0.5"
+download "search-kui-plugin" "plugin-search" "v2.0.13"
+download "plugin-kui-addons" "plugin-kui-addons" "v3.0.6"
 
 echo "plugin-downloads:"
 ls -l plugin-downloads
