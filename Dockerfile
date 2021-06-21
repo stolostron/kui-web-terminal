@@ -21,6 +21,7 @@ ARG ARCH
 ADD downloads/kubectl-linux-${ARCH} /usr/local/bin/kubectl
 ADD downloads/helm-linux-${ARCH} /usr/local/bin/helm
 ADD downloads/oc-linux-${ARCH} /usr/local/bin/oc
+ADD downloads/subctl-linux-${ARCH} /usr/local/bin/subctl
 
 LABEL org.label-schema.vendor="Red Hat" \
       org.label-schema.name="$IMAGE_NAME" \
