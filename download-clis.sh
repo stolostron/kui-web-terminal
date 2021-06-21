@@ -34,4 +34,13 @@ if [ "$ARCH" = "amd64" ]; then
   [[ ! -f "downloads/helm-linux-amd64" ]] && echo "download helm failed" && exit -1
   echo "Downloaded helm v3 to downloads/"
 
+  echo "Downloading subctl v0.9.0"
+  assetURL=$(curl -Ls -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/submariner-io/submariner-operator/releases | jq -r '.[] | select(.tag_name=="v0.9.0") | .assets[] | select(.name|contains("linux-amd64")) | .browser_download_url')
+  # echo " assetURL is $assetURL"
+  curl -fksSL $assetURL | tar -xvJ -C ./downloads/ subctl-release-0.9-198fe39/subctl-release-0.9-198fe39-linux-amd64
+    [[ ! -f "downloads/subctl-release-0.9-198fe39/subctl-release-0.9-198fe39-linux-amd64" ]] && echo "download subctl failed" && exit -1
+  mv ./downloads/subctl-release-0.9-198fe39/subctl-release-0.9-198fe39-linux-amd64 ./downloads/subctl-linux-amd64
+  rmdir ./downloads/subctl-release-0.9-198fe39
+  echo "Downloaded subctl v0.9.0 to downloads/"
+  
 fi
