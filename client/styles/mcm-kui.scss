@@ -13,7 +13,6 @@
  *******************************************************************************/
 
 @import 'fonts';
-@import 'header-overrides';
 
 .main {
   display: block;
@@ -37,6 +36,12 @@
 // Override KUI theme link color for app launcher menu item
 .pf-c-app-launcher__menu-item {
   color: var(--pf-c-app-launcher__menu-item--Color) !important;
+}
+
+// Override KUI theme header brand name to remove link styling (as it does not link to anything anyway)
+.pf-c-page__header-brand-link {
+  cursor: default;
+  text-decoration: none;
 }
 
 // Override KUI light theme tab stripe background color to white to match ACM/OCP theme
