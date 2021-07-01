@@ -16,8 +16,8 @@
 
 // Make font in search help sidecar code snippets contrast with background
 .kui--sidecar .kui--sidecar-header-and-body .bx--snippet.bx--snippet--single.search {
-    color: var(--color-base-00);
-    padding-left: 1em;
+    color: var(--color-base00);
+    padding-left: 1em !important;
 }
 
 // Add some padding to the left of the copy icon in snippets on the search help sidecar
@@ -26,7 +26,7 @@
 }
 
 // Style the expand/collapse button for savedSearches results table
-.repl-result .search--resource .search--resource-table .search--resource-table-header {
+.repl-result .search--resource .search--resource-table .search--resource-table-header-button {
     background-color: transparent;
     border-width: 0;
     font-weight: 600;
