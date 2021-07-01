@@ -77,7 +77,7 @@
 
 // Override modal h2 style
 .bx--modal-header h2.bx--modal-header__label {
-    color: var(--pf-global--palette--black-800);
+    color: var(--pf-global--palette--black-800) !important;
     font-family: 'RedHatText';
     font-size: 1.75em;
     font-weight: 300;
@@ -88,7 +88,7 @@
 
 // Override modal h3 style
 .bx--modal-header h3.bx--modal-header__heading {
-    color: var(--color-text-01);
+    color: var(--color-text-01) !important;
     font-size: 1.25em;
     font-weight: 600;
     letter-spacing: 0;
@@ -98,20 +98,47 @@
 
 // Override modal close icon style
 .bx--modal-header .bx--modal-close .bx--modal-close__icon {
-    fill: var(--pf-global--palette--black-800);
+    fill: var(--pf-global--palette--black-800) !important;
 }
 
 // Override share saved search dialog copy description
 .bx--modal-content .bx--action-share .copy-description {
-    color: var(--pf-global--palette--black-900);
+    color: var(--pf-global--palette--black-900) !important;
 } 
 
 // Override share saved search dialog snippet text for contrast
 .bx--modal-content .bx--action-share .bx--snippet.bx--snippet--single {
-    color: var(--pf-global--palette--black-800);
+    color: var(--pf-global--palette--black-800) !important;
 }
 
 // Override share saved search dialog snippet copy icon
 .bx--modal-content .bx--action-share .bx--snippet.bx--snippet--single .bx--copy-btn svg {
-    fill: black;
+    fill: black !important;
 }
+
+// Modal dialog overrides for dark theme
+body[kui-theme="PatternFly4 Dark"] {
+    .bx--modal-header h2.bx--modal-header__label {
+      color: var(--pf-global--palette--black-300);
+    }
+
+    .bx--modal-header h3.bx--modal-header__heading {
+        color: var(--pf-global--palette--black-300) !important;
+    }
+
+    .bx--modal-header .bx--modal-close .bx--modal-close__icon {
+        fill: var(--pf-global--palette--black-300) !important;
+    }
+
+    .bx--modal-content .bx--action-share .copy-description {
+        color: var(--pf-global--palette--black-300) !important;
+    }
+
+    .bx--modal-content>p {
+        color: var(--pf-global--palette--black-300) !important;
+    }
+
+    .bx--modal-content .bx--form-item .bx--label {
+        color: var(--pf-global--palette--black-300) !important;
+    }
+  }
