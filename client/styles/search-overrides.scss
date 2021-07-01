@@ -1,0 +1,42 @@
+/*
+ * Copyright Contributors to the Open Cluster Management project
+ */
+
+// These style overrides should eventually move back into the search plugin 
+
+// Make search results sidecar related resources tab rows show clickable
+.sidecar-content-container.kui--tab-content .bx--structured-list-rowclick .bx--structured-list-td {
+    cursor: pointer;
+}
+
+// Override search results table header background color to match the pagination footer color
+.repl-result .bx--data-table.bx--data-table--no-border thead tr th {
+    background-color: var(--color-stripe-01);
+}
+
+// Make font in search help sidecar code snippets contrast with background
+.kui--sidecar .kui--sidecar-header-and-body .bx--snippet.bx--snippet--single.search {
+    color: var(--color-base00);
+    padding-left: 1em !important;
+}
+
+// Add some padding to the left of the copy icon in snippets on the search help sidecar
+.kui--sidecar .kui--sidecar-header-and-body .bx--snippet.bx--snippet--single.search svg {
+    margin-left: 20px;
+}
+
+// Style the expand/collapse button for savedSearches results table
+.repl-result .search--resource .search--resource-table .search--resource-table-header-button {
+    background-color: transparent;
+    border-width: 0;
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-bottom: .5rem;
+}
+
+// Style the arrow on the expand/collapse button for savedSearches results table
+.repl-result .search--resource .search--resource-table .search--resource-table-header-button .arrow-up {
+    font-size: .66rem;
+    margin-left: 3%;
+    margin-top: 5px;
+}
