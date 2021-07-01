@@ -34,23 +34,23 @@
 }
 
 // Make the font in search help sidecar command options table contrast with the background
-.kui-sidecar .kui-sidecar-header-and-body .bx--data-table tbody {
+.kui--sidecar .kui--sidecar-header-and-body .bx--data-table tbody {
     background-color: transparent;
 }
 
 // Override the row hover style in search help sidecar command options
-.kui-sidecar .kui-sidecar-header-and-body .bx--data-table tbody tr:hover {
+.kui--sidecar .kui--sidecar-header-and-body .bx--data-table tbody tr:hover {
     background-color: transparent;
 }
 
 // Override hover style for search help sidecar command options table rows
-.kui-sidecar .kui-sidecar-header-and-body .bx--data-table tbody tr.bx--data-table--compact td:first-child:hover {
+.kui--sidecar .kui--sidecar-header-and-body .bx--data-table tbody tr.bx--data-table--compact td:first-child:hover {
 	text-decoration: none;
 	cursor: inherit;
 }
 
 // Override search help sidecar snippet style
-.kui-sidecar .kui-sidecar-header-and-body .bx--snippet.bx--snippet--single.search {
+.kui--sidecar .kui--sidecar-header-and-body .bx--snippet.bx--snippet--single.search {
     display: block;
 }
 
