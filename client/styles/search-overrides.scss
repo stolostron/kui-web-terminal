@@ -119,7 +119,7 @@
 // Modal dialog overrides for dark theme
 body[kui-theme="PatternFly4 Dark"] {
     .bx--modal-header h2.bx--modal-header__label {
-      color: var(--pf-global--palette--black-300);
+      color: var(--pf-global--palette--black-300) !important;
     }
 
     .bx--modal-header h3.bx--modal-header__heading {
