@@ -4,15 +4,23 @@
 
 // These style overrides should eventually move back into the search plugin 
 
+// SEARCH RESULTS TABLE SIDECAR STYLES
+
 // Make search results sidecar related resources tab rows show clickable
 .sidecar-content-container.kui--tab-content .bx--structured-list-rowclick .bx--structured-list-td {
     cursor: pointer;
 }
 
+
+// SEARCH RESULTS TABLE STYLES
+
 // Override search results table header background color to match the pagination footer color
 .repl-result .bx--data-table.bx--data-table--no-border thead tr th {
     background-color: var(--color-stripe-01);
 }
+
+
+// SEARCH HELP SIDECAR STYLES
 
 // Make font in search help sidecar code snippets contrast with background
 .kui--sidecar .kui--sidecar-header-and-body .bx--snippet.bx--snippet--single.search {
@@ -24,6 +32,30 @@
 .kui--sidecar .kui--sidecar-header-and-body .bx--snippet.bx--snippet--single.search svg {
     margin-left: 20px;
 }
+
+// Make the font in search help sidecar command options table contrast with the background
+.kui--sidecar .kui--sidecar-header-and-body .bx--data-table tbody {
+    background-color: transparent;
+}
+
+// Override the row hover style in search help sidecar command options
+.kui--sidecar .kui--sidecar-header-and-body .bx--data-table tbody tr:hover {
+    background-color: transparent;
+}
+
+// Override hover style for search help sidecar command options table rows
+.kui--sidecar .kui--sidecar-header-and-body .bx--data-table tbody tr.bx--data-table--compact td:first-child:hover {
+	text-decoration: none;
+	cursor: inherit;
+}
+
+// Override search help sidecar snippet style
+.kui--sidecar .kui--sidecar-header-and-body .bx--snippet.bx--snippet--single.search {
+    display: block;
+}
+
+
+// SAVEDSEARCHES RESULTS TABLE STYLES
 
 // Style the expand/collapse button for savedSearches results table
 .repl-result .search--resource .search--resource-table .search--resource-table-header-button {
@@ -40,3 +72,73 @@
     margin-left: 3%;
     margin-top: 5px;
 }
+
+// MODEL DIALOG STYLES
+
+// Override modal h2 style
+.bx--modal-header h2.bx--modal-header__label {
+    color: var(--pf-global--palette--black-800) !important;
+    font-family: 'RedHatText';
+    font-size: 1.75em;
+    font-weight: 300;
+    margin: 1em 0;
+    position:relative;
+    line-height: 1.25;
+}
+
+// Override modal h3 style
+.bx--modal-header h3.bx--modal-header__heading {
+    color: var(--color-text-01) !important;
+    font-size: 1.25em;
+    font-weight: 600;
+    letter-spacing: 0;
+    padding: 1em 0 .5em;
+    line-height: 1.625em;;
+}
+
+// Override modal close icon style
+.bx--modal-header .bx--modal-close .bx--modal-close__icon {
+    fill: var(--pf-global--palette--black-800) !important;
+}
+
+// Override share saved search dialog copy description
+.bx--modal-content .bx--action-share .copy-description {
+    color: var(--pf-global--palette--black-900) !important;
+} 
+
+// Override share saved search dialog snippet text for contrast
+.bx--modal-content .bx--action-share .bx--snippet.bx--snippet--single {
+    color: var(--pf-global--palette--black-800) !important;
+}
+
+// Override share saved search dialog snippet copy icon
+.bx--modal-content .bx--action-share .bx--snippet.bx--snippet--single .bx--copy-btn svg {
+    fill: black !important;
+}
+
+// Modal dialog overrides for dark theme
+body[kui-theme="PatternFly4 Dark"] {
+    .bx--modal-header h2.bx--modal-header__label {
+      color: var(--pf-global--palette--black-300) !important;
+    }
+
+    .bx--modal-header h3.bx--modal-header__heading {
+        color: var(--pf-global--palette--black-300) !important;
+    }
+
+    .bx--modal-header .bx--modal-close .bx--modal-close__icon {
+        fill: var(--pf-global--palette--black-300) !important;
+    }
+
+    .bx--modal-content .bx--action-share .copy-description {
+        color: var(--pf-global--palette--black-300) !important;
+    }
+
+    .bx--modal-content>p {
+        color: var(--pf-global--palette--black-300) !important;
+    }
+
+    .bx--modal-content .bx--form-item .bx--label {
+        color: var(--pf-global--palette--black-300) !important;
+    }
+  }
