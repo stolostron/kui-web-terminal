@@ -14,6 +14,11 @@
 
 // SEARCH RESULTS TABLE STYLES
 
+// Override parent container for search results table to allow overflow-x auto scrollbar
+.repl-result .search-kui-plugin {
+    overflow-x: auto;
+}
+
 // Override search results table header background color to match the pagination footer color
 .repl-result .bx--data-table.bx--data-table--no-border thead tr th {
     background-color: var(--color-stripe-01);
