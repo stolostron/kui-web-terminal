@@ -3,7 +3,9 @@ ARG ARCH
 # To support downstream builds, use full ubi8 + nodeJS 10 built in until an official
 # ubi8-minimal/nodejs-10 base image may become available.
 # FROM registry.access.redhat.com/ubi8-minimal:8.1-398
-FROM registry.access.redhat.com/ubi8/nodejs-14:1
+#
+# New base image to use for finishing the ACM 2.3 release
+FROM registry.ci.openshift.org/open-cluster-management/common-nodejs-parent:nodejs-14
 
 ARG VCS_REF
 ARG VCS_URL
@@ -90,14 +92,8 @@ ENV NOBODY_GID 65534
 # For use when using ubi or ubi-minimal image
 ENV LINUX_DISTRO rhel
 
-# ubi8/nodejs-10 base image seems to need this
-USER root
-
-# Remove nodejs-nodemon as 1) it is not needed by kui 2) it has package vulnerabilities
-# See: https://github.com/open-cluster-management/backlog/issues/2741
-# AND Keep image up-to-date
-RUN yum -y remove nodejs-nodemon && \
-    yum --nobest -y update
+# new base image above already has set USER root
+# USER root
 
 WORKDIR /kui-proxy/kui
 
@@ -108,16 +104,13 @@ WORKDIR /kui-proxy/kui
 # ENV KUI_HELM_CLIENTS_DIR=/usr/local/bin
 # ENV HELM_LATEST_VERSION="${KUI_HELM_CLIENTS_DIR}"/helm
 
-# Not needed based on use of ubi8/nodejs-10 base image above
 # For UBI-minimal need to use microdnf (UBI already includes bash but needs shadow-utils for adduser)
-# RUN microdnf install \
-#     ca-certificates \
-#     shadow-utils \
-#     vim-minimal \
-#     which \
-#     && microdnf clean all
-#
-###########
+RUN microdnf install \
+    ca-certificates \
+    shadow-utils \
+    vim-minimal \
+    which \
+    && microdnf clean all
 
 RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && sed -i -e 's/USERGROUPS_ENAB yes/USERGROUPS_ENAB no/g' /etc/login.defs \
