@@ -103,18 +103,16 @@ WORKDIR /kui-proxy/kui
 # ENV KUI_HELM_CLIENTS_DIR=/usr/local/bin
 # ENV HELM_LATEST_VERSION="${KUI_HELM_CLIENTS_DIR}"/helm
 
-# install npm using script in base image
-RUN ./install-npm.sh
-
 # For UBI-minimal need to use microdnf (UBI already includes bash but needs shadow-utils for adduser)
 RUN microdnf install \
     ca-certificates \
-    npm \
     shadow-utils \
     vim-minimal \
     which \
-    && microdnf remove nodejs-docs \
     && microdnf clean all
+
+# install npm using script in base image as it is not included by default
+RUN ./install-npm.sh
 
 RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && sed -i -e 's/USERGROUPS_ENAB yes/USERGROUPS_ENAB no/g' /etc/login.defs \
