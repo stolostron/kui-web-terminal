@@ -98,7 +98,6 @@ ENV LINUX_DISTRO rhel
 WORKDIR /kui-proxy/kui
 
 
-
 # we will download a gamut of helm clients and place them here
 # see plugins/plugin-k8s/src/lib/util/discovery/helm-client.ts
 # ENV KUI_HELM_CLIENTS_DIR=/usr/local/bin
@@ -110,9 +109,11 @@ RUN ./install-npm.sh
 # For UBI-minimal need to use microdnf (UBI already includes bash but needs shadow-utils for adduser)
 RUN microdnf install \
     ca-certificates \
+    npm \
     shadow-utils \
     vim-minimal \
     which \
+    && microdnf remove nodejs-docs \
     && microdnf clean all
 
 RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
