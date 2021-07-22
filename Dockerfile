@@ -95,9 +95,6 @@ ENV LINUX_DISTRO rhel
 # new base image above already has set USER root
 # USER root
 
-WORKDIR /kui-proxy/kui
-
-
 # we will download a gamut of helm clients and place them here
 # see plugins/plugin-k8s/src/lib/util/discovery/helm-client.ts
 # ENV KUI_HELM_CLIENTS_DIR=/usr/local/bin
@@ -113,6 +110,8 @@ RUN microdnf install \
 
 # install npm using script in base image as it is not included by default
 RUN ./install-npm.sh
+
+WORKDIR /kui-proxy/kui
 
 RUN sed -i -e 's/UMASK\t\t022/UMASK\t\t077/g' /etc/login.defs \
     && sed -i -e 's/USERGROUPS_ENAB yes/USERGROUPS_ENAB no/g' /etc/login.defs \
