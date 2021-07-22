@@ -104,6 +104,9 @@ WORKDIR /kui-proxy/kui
 # ENV KUI_HELM_CLIENTS_DIR=/usr/local/bin
 # ENV HELM_LATEST_VERSION="${KUI_HELM_CLIENTS_DIR}"/helm
 
+# install npm using script in base image
+RUN ./install-npm.sh
+
 # For UBI-minimal need to use microdnf (UBI already includes bash but needs shadow-utils for adduser)
 RUN microdnf install \
     ca-certificates \
