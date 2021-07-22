@@ -270,3 +270,5 @@ awsom:
 test-module:
 	sed -i "s/git@github.com:/https:\/\/$(GITHUB_USER):$(GITHUB_TOKEN)@github.com\//" .gitmodules
 	git submodule update --init --recursive
+
+#  Comment used to trigger a no-op rebuild
