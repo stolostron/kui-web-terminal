@@ -1,6 +1,14 @@
 approvers:
 - mark-nc
 - jlpadilla
+- fxiang1
+- KevinFCormier
+- chenz4027
+- zlayne
+- jamestalton 
+- jeswanke     
+- Randy424
+- RobDolares
 
 reviewers:
 - mark-nc
@@ -8,3 +16,9 @@ reviewers:
 - dislbenn
 - RobDolares
 - zlayne
+- fxiang1
+- KevinFCormier
+- chenz4027
+- jamestalton 
+- jeswanke     
+- Randy424
