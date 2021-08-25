@@ -37,7 +37,6 @@ const crypto = require('crypto');
 const csp = require('helmet-csp')
 const hsts = require('hsts')
 const exphbs = require('express-handlebars')
-const proxy = require('http-proxy-middleware')
 
 const ExecRouter = require('./routes/exec')
 const defaultRoute = require('./routes/index')
@@ -128,21 +127,6 @@ if (process.env.NODE_ENV === 'development') {
     next()
   })
 
-  app.use('/multicloud/header', cookieParser(), proxy({
-    target: process.env.ICP_EXTERNAL_URL,
-    changeOrigin: true,
-    secure: false,
-    ws: false
-  }))
-
-  app.use(`${contextPath}/api/proxy`, cookieParser(), proxy({
-    target: process.env.ICP_EXTERNAL_URL,
-    changeOrigin: true,
-    pathRewrite: {
-      [`^${contextPath}/api/proxy`]: ''
-    },
-    secure: false
-  }))
 }
 
 
