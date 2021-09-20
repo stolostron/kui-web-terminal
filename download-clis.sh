@@ -22,7 +22,7 @@ mkdir -p ./downloads
 
 if [ "$ARCH" = "amd64" ]; then
   echo "Downloading oc & kubectl ..."
-  curl -fksSL https://mirror2.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest-4.8/openshift-client-linux.tar.gz | tar -xvz -C ./downloads/ oc kubectl
+  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest-4.8/openshift-client-linux.tar.gz | tar -xvz -C ./downloads/ oc kubectl
   [[ ! -f "downloads/oc" ]] && echo "download oc failed" && exit -1
   mv ./downloads/oc ./downloads/oc-linux-amd64
   [[ ! -f "downloads/kubectl" ]] && echo "download kubectl failed" && exit -1
@@ -30,7 +30,7 @@ if [ "$ARCH" = "amd64" ]; then
   echo "Downloaded openshift origin to downloads/"
 
   echo "Downloading helm v3.3.z..."
-  curl -fksSL https://mirror2.openshift.com/pub/openshift-v4/x86_64/clients/helm/latest/helm-linux-amd64 -o ./downloads/helm-linux-amd64
+  curl -fksSL https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/helm/latest/helm-linux-amd64 -o ./downloads/helm-linux-amd64
   [[ ! -f "downloads/helm-linux-amd64" ]] && echo "download helm failed" && exit -1
   echo "Downloaded helm v3 to downloads/"
 
