@@ -5,7 +5,7 @@ ARG ARCH
 # FROM registry.access.redhat.com/ubi8-minimal:8.1-398
 #
 # New base image to use for finishing the ACM 2.3 release
-FROM registry.ci.openshift.org/open-cluster-management/common-nodejs-parent:nodejs-14
+FROM registry.ci.openshift.org/stolostron/common-nodejs-parent:nodejs-14
 
 ARG VCS_REF
 ARG VCS_URL

@@ -1,5 +1,5 @@
 {
-  "name": "@open-cluster-management/kui-web-terminal-client",
+  "name": "@stolostron/kui-web-terminal-client",
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
@@ -80,8 +80,8 @@
     "@kui-shell/plugin-proxy-support": "~10.3.1",
     "@kui-shell/plugin-search": "file:../plugin-downloads/plugin-search.tgz",
     "@kui-shell/react": "~10.3.1",
-    "@open-cluster-management/ui-components": "0.179.0",
     "@patternfly/react-core": "4.135.0",
+    "@stolostron/ui-components": "0.179.1",
     "font-config-webpack-plugin": "^2.0.0",
     "react-router-dom": "^5.2.0",
     "react-tag-autocomplete": "^6.1.0",
