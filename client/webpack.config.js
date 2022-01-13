@@ -92,22 +92,22 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: thisPath('node_modules/@open-cluster-management/ui-components/lib/AcmSearchbar'),
+        include: thisPath('node_modules/@stolostron/ui-components/lib/AcmSearchbar'),
         use: 'ignore-loader'
       },
       {
         test: /\.js.map$/,
-        include: thisPath('node_modules/@open-cluster-management/ui-components/lib/AcmSearchbar'),
+        include: thisPath('node_modules/@stolostron/ui-components/lib/AcmSearchbar'),
         use: 'ignore-loader'
       },
       {
         test: /\.d.ts$/,
-        include: thisPath('node_modules/@open-cluster-management/ui-components/lib/AcmSearchbar'),
+        include: thisPath('node_modules/@stolostron/ui-components/lib/AcmSearchbar'),
         use: 'ignore-loader'
       },
       {
         test: /\.css$/,
-        include: thisPath('node_modules/@open-cluster-management/ui-components/lib/AcmSearchbar'),
+        include: thisPath('node_modules/@stolostron/ui-components/lib/AcmSearchbar'),
         use: 'ignore-loader'
       },
       {

@@ -25,7 +25,7 @@ import 'carbon-components/css/carbon-components.min.css'
 import * as React from "react";
 import { render } from "react-dom";
 import { Label } from "@patternfly/react-core";
-import { AcmHeader, AcmPage, AcmPageHeader, AcmRoute } from "@open-cluster-management/ui-components";
+import { AcmHeader, AcmPage, AcmPageHeader, AcmRoute } from "@stolostron/ui-components";
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import {
   Kui,
