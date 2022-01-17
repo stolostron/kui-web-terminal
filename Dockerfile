@@ -93,7 +93,7 @@ ENV LINUX_DISTRO rhel
 USER root
 
 # Remove nodejs-nodemon as 1) it is not needed by kui 2) it has package vulnerabilities
-# See: https://github.com/open-cluster-management/backlog/issues/2741
+# See: https://github.com/stolostron/backlog/issues/2741
 # AND Keep image up-to-date
 RUN yum -y remove nodejs-nodemon && \
     yum -y update

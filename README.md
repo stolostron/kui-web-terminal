@@ -1,5 +1,5 @@
 # kui-web-terminal
-[![Build Status](https://travis-ci.com/open-cluster-management/kui-web-terminal.svg?token=XE6GVz1S58Uhs2nyhnqs&branch=master)](https://travis-ci.com/open-cluster-management/kui-web-terminal)
+[![Build Status](https://travis-ci.com/stolostron/kui-web-terminal.svg?token=XE6GVz1S58Uhs2nyhnqs&branch=master)](https://travis-ci.com/stolostron/kui-web-terminal)
 
 Docker image for the KUI UI and proxy to be used in Visual Web Terminal
 
@@ -140,7 +140,7 @@ make clean-kui
 ---
 
 ## How to integrate/update plugins (LEGACY)
-1. Make sure you have a GitHub release asset .tgz file. (e.g. https://github.com/open-cluster-management/plugin-kui-addons/releases)
+1. Make sure you have a GitHub release asset .tgz file. (e.g. https://github.com/stolostron/plugin-kui-addons/releases)
 2. In the `download-plugins.sh` script, add a line to download your plugin:
 ```
 download "github-repo-name" "release-tgz-filename" "release-version"
@@ -159,7 +159,7 @@ _We only support client/front-end KUI plugins_
 ---
 
 ## How to deploy your kui-web-terminal image to OpenShift
-1. Run the RHACM installer; see https://github.com/open-cluster-management/deploy.  This will install several dependencies kui-web-terminal has including management-ingress and cert-manager; it will also install the chosen SNAPSHOT image of kui-web-terminal.
+1. Run the RHACM installer; see https://github.com/stolostron/deploy.  This will install several dependencies kui-web-terminal has including management-ingress and cert-manager; it will also install the chosen SNAPSHOT image of kui-web-terminal.
 2. Edit the kui-web-terminal deployment (`oc edit deployment kui-web-terminal -n open-cluster-management`); and update the container image to your built image.
 3. Wait for Kubernetes to restart the pod (`oc get pod -n open-cluster-management -l app=kui-web-terminal`) and come back to Ready status.
 4. Visit the Visual Web Terminal page in RHACM to view your changes (https://<YOUR RHACM URL HERE>/kui)
@@ -167,13 +167,13 @@ _We only support client/front-end KUI plugins_
 ## How to run image locally
 1. `oc login` to your OpenShift cluster; we will use the kube token from this login to create the `acm-access-token-cookie` to fetch the RHACM header and perform the `oc login` in the terminal session.
 2. If you don't already have the test submodule, initialize and fetch the automated tests repo by running `git submodule update --init --recursive`.  The docker run make target in step 4 has a dependency on the test submodule Makefile.
-3. Follow the steps in [mcm-kui-tests](https://github.com/open-cluster-management/mcm-kui-tests#how-to-run-nightwatch-tests) to set up env vars:
+3. Follow the steps in [mcm-kui-tests](https://github.com/stolostron/mcm-kui-tests#how-to-run-nightwatch-tests) to set up env vars:
 ```
 export K8S_CLUSTER_MASTER_IP=https://your.cluster.ip:port
 export K8S_CLUSTER_USER=your-username
 export K8S_CLUSTER_PASSWORD=your-password
 ```
-4. `make run DOCKER_IMAGE_AND_TAG=<your kui-web-terminal image name (e.g. quay.io/open-cluster-management/kui-web-terminal:1.0.0)>`
+4. `make run DOCKER_IMAGE_AND_TAG=<your kui-web-terminal image name (e.g. quay.io/stolostron/kui-web-terminal:1.0.0)>`
 
 
 ## Dockerized tests
@@ -210,7 +210,7 @@ options:
   ```
   Where:
     - BROWSER is set to `firefox` or `chrome`
-    - TEST_IMAGE_AND_TAG is set to the image to run tests. For example `quay.io/open-cluster-management/kui-web-terminal-tests:dev`
+    - TEST_IMAGE_AND_TAG is set to the image to run tests. For example `quay.io/stolostron/kui-web-terminal-tests:dev`
 - Via Makefile
   ```
   make run-test-image
@@ -240,7 +240,7 @@ Client/UI (from the VWT page):
 1. Change to the `/client` or `/proxy` subdirectory
 2. Run `npm audit --production` to see the list of vulnerabilities, dependency chain, advisory info, etc.
 3. Run `npm audit fix` to automatically fix issues.  Some issues might require you to manually
-make changes to your **dependencies** or get the [IBM KUI](https://github.com/IBM/kui) team to make changes to their files to
+make changes to your **dependencies** or get the [KUI](https://github.com/kubernetes-sigs/kui) team to make changes to their files to
 pull in new versions of packages.  
 4. Commit the package.json and package-lock.json in both `/client` and `/proxy`
 
@@ -254,8 +254,8 @@ NOTE: More info at https://docs.npmjs.com/auditing-package-dependencies-for-secu
 
 1. If you don't already have the test submodule, initialize and fetch the automated tests repo by running `git submodule update --init --recursive`
 2. `cd tests`
-3. Follow the steps in [mcm-kui-tests](https://github.com/open-cluster-management/mcm-kui-tests).
-4. To update the test submodule on a branch with latest tests from [mcm-kui-tests](https://github.com/open-cluster-management/mcm-kui-tests)
+3. Follow the steps in [mcm-kui-tests](https://github.com/stolostron/mcm-kui-tests).
+4. To update the test submodule on a branch with latest tests from [mcm-kui-tests](https://github.com/stolostron/mcm-kui-tests)
    - run `git submodule update --remote tests` update with the latest commit SHA from the test repo
    - commit the changes
 

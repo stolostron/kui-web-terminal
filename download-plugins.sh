@@ -34,7 +34,7 @@ download() {
 
   echo "Downloading $repo_name ..."
 
-  releases=$(curl -H "Authorization: token $GITHUB_TOKEN"  https://api.github.com/repos/open-cluster-management/$repo_name/releases)
+  releases=$(curl -H "Authorization: token $GITHUB_TOKEN"  https://api.github.com/repos/stolostron/$repo_name/releases)
   release=$(echo $releases | jq --arg version "$version" '.[] | select(.name == $version)')
   release_id=$(echo "$release" | jq '.id')
   asset_id=$(echo "$release" | jq '.assets[0].id')
@@ -42,7 +42,7 @@ download() {
   echo "RELEASE ID:  $release_id"
   echo "ASSET ID:  $asset_id"
 
-  curl -fL -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/octet-stream" -vs "https://api.github.com/repos/open-cluster-management/$repo_name/releases/assets/$asset_id" > "plugin-downloads/$filename.tgz" || exit -1
+  curl -fL -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/octet-stream" -vs "https://api.github.com/repos/stolostron/$repo_name/releases/assets/$asset_id" > "plugin-downloads/$filename.tgz" || exit -1
 
   echo "Downloaded $file_name.tgz to plugin-downloads/"
 }
