@@ -60,7 +60,7 @@ If you are using a non-Linux OS; we recommend that you make any desired changes 
 ### Dependencies
 - Install gtar
 - Install jq
-- Install NodeJS (v12.18.x or higher)
+- Install NodeJS (v14.16.x or higher)
 
 ### Environment Variables
 ```
