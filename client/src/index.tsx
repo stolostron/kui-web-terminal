@@ -19,6 +19,7 @@
  */
 
 import '@patternfly/react-core/dist/styles/base.css'
+
 // needed currently for the search plugin (until it can update to use Patternfly components)
 import 'carbon-components/css/carbon-components.min.css'
 
