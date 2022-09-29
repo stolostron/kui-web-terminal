@@ -72,7 +72,7 @@
     "@kui-shell/client": "file:client-default",
     "@kui-shell/core": "~10.3.1",
     "@kui-shell/plugin-bash-like": "~10.3.1",
-    "@kui-shell/plugin-client-common": "~10.3.1",
+    "@kui-shell/plugin-client-common": "~12.1.0",
     "@kui-shell/plugin-core-support": "~10.3.1",
     "@kui-shell/plugin-kubectl": "~10.3.1",
     "@kui-shell/plugin-kui-addons": "file:../plugin-downloads/plugin-kui-addons.tgz",
